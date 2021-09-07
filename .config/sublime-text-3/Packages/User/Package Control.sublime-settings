@@ -1,0 +1,18 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"ayu",
+		"Color Highlight",
+		"JavaScript Enhancements",
+		"Package Control",
+		"SublimeLinter",
+		"SublimeLinter-eslint",
+		"TerminalView",
+		"Theme - Cyanide"
+	]
+}

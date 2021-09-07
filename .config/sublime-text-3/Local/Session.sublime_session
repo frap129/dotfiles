@@ -1,0 +1,1892 @@
+{
+	"folder_history":
+	[
+		"/home/frap129/DTR/dtr-web",
+		"/home/frap129/.config",
+		"/home/frap129/.config/wofi",
+		"/etc",
+		"/home/frap129/DTR/dtr-web/functions",
+		"/etc/systemd",
+		"/etc/pipewire/media-session.d",
+		"/home/frap129/software/ly",
+		"/home/frap129/software/Pine",
+		"/home/frap129/school/cs451",
+		"/tmp/cory1/Ness3/native",
+		"/home/frap129/school",
+		"/home/frap129/.themes",
+		"/home/frap129/school/cs451/maples3",
+		"/home/frap129/software/ananicy",
+		"/home/frap129/.themes/Sierra-ayu/gtk-3.0",
+		"/home/frap129/.themes/Sierra-ayu/gtk-3.0/assets"
+	],
+	"last_version": 3211,
+	"last_window_id": 42,
+	"log_indexing": false,
+	"settings":
+	{
+		"new_window_height": 480.0,
+		"new_window_settings":
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"tex",
+						"text-align\tproperty"
+					],
+					[
+						"bord",
+						"border-radius\tproperty"
+					],
+					[
+						"follow",
+						"followers"
+					],
+					[
+						"An",
+						"AndroidPackageName\tstring"
+					],
+					[
+						"group",
+						"groupLink\tstring"
+					],
+					[
+						"gener",
+						"_generateLink"
+					],
+					[
+						"com",
+						"comeBackToDtrTime\tstring"
+					],
+					[
+						"user",
+						"userProfile\tempty"
+					],
+					[
+						"all",
+						"allFriends\tany"
+					],
+					[
+						"noRide",
+						"noRidesThisWeekendPoke"
+					],
+					[
+						"pro",
+						"profileChecks\tany"
+					],
+					[
+						"to",
+						"toString\t(radix?: number) => string"
+					],
+					[
+						"ch",
+						"checkSaturday\t{|arg: any, objectID: any|}"
+					],
+					[
+						"dtr",
+						"dtrNotification\tany"
+					],
+					[
+						"s",
+						"sans-serif\tfont-family"
+					],
+					[
+						"x",
+						"xanmod"
+					],
+					[
+						"req",
+						"require\t(id: string) => any"
+					],
+					[
+						"co",
+						"commonFriends\tMap<any, (Set<any> | void)>"
+					],
+					[
+						"prof",
+						"profile\tany"
+					],
+					[
+						"cons",
+						"console\t{assert(condition: mixed, ...data: Array<any>): void; clear(): void; count(label: string): void; debug(...data: Array<any>): void; dir(...data: Array<any>): void; dirxml(...data: Array<any>): void; error(...data: Array<any>): void; _exception(...data: Array<any>): void; group(...data: Array<any>): void; groupCollapsed(...data: Array<any>): void; groupEnd(): void; info(...data: Array<any>): void; log(...data: Array<any>): void; profile(name: string): void; profileEnd(): void; table(tabularData: { [key: string]: any } | Array<{ [key: string]: any }> | Array<Array<any>>): void; time(label: string): void; timeEnd(label: string): void; timeStamp(label?: string): void; trace(...data: Array<any>): void; warn(...data: Array<any>): void; }"
+					],
+					[
+						"getA",
+						"getActiveAndroidUsers\t() => any"
+					],
+					[
+						"func",
+						"function"
+					],
+					[
+						"get",
+						"getUserNotSignedInForTwoWeeks\t(nextPageToken: any) => any"
+					],
+					[
+						"join",
+						"joinFriendsThisWeekendPoke"
+					],
+					[
+						"mu",
+						"mutuals"
+					],
+					[
+						"mut",
+						"mutual"
+					],
+					[
+						"noti",
+						"notificationCount"
+					],
+					[
+						"not",
+						"notificationCount"
+					],
+					[
+						"joi",
+						"joinFriendsThisSaturdayPayload"
+					],
+					[
+						"jo",
+						"joinFriendsThisSundayPayload"
+					],
+					[
+						"con",
+						"concat"
+					],
+					[
+						"notific",
+						"notificationPrefix"
+					],
+					[
+						"prif",
+						"profile"
+					],
+					[
+						"frie",
+						"friendsRiding"
+					],
+					[
+						"nex",
+						"nextSundayDateCode"
+					],
+					[
+						"profile",
+						"profilePromises"
+					],
+					[
+						"Profi",
+						"profile"
+					],
+					[
+						"upd",
+						"updatedMutuals"
+					],
+					[
+						"up",
+						"updatedMutuals"
+					],
+					[
+						"profi",
+						"profile"
+					],
+					[
+						"come",
+						"comeBackToDtrPayload"
+					],
+					[
+						"no",
+						"noRidesThisWeekendPayload"
+					],
+					[
+						"lo",
+						"lowerBound"
+					],
+					[
+						"on",
+						"onRun"
+					],
+					[
+						"pr",
+						"profilesToNotify"
+					],
+					[
+						"da",
+						"data"
+					],
+					[
+						"checkSua",
+						"checkSaturday"
+					],
+					[
+						"prf",
+						"profile"
+					],
+					[
+						"dr",
+						"dtrHelpers"
+					],
+					[
+						"days",
+						"daysTilSaturday"
+					],
+					[
+						"cou",
+						"countUpdate"
+					],
+					[
+						"do",
+						"docName"
+					],
+					[
+						"d",
+						"docName"
+					],
+					[
+						"pokeT",
+						"pokeTestData"
+					],
+					[
+						"poke",
+						"pokeTestData"
+					],
+					[
+						"t",
+						"testTag"
+					],
+					[
+						"n",
+						"noRidesThisWeekPoke"
+					],
+					[
+						"tor",
+						"toRideRef"
+					],
+					[
+						"toR",
+						"toRideRef"
+					],
+					[
+						"fr",
+						"fromRide"
+					],
+					[
+						"mess",
+						"messageContent"
+					],
+					[
+						"initi",
+						"initialData"
+					],
+					[
+						"notifi",
+						"notifications"
+					],
+					[
+						"update",
+						"updatedChat"
+					],
+					[
+						"dele",
+						"deleteUser"
+					],
+					[
+						"fol",
+						"followed"
+					],
+					[
+						"follo",
+						"followed"
+					],
+					[
+						"un",
+						"unfollow"
+					],
+					[
+						"Dtr",
+						"dtrHelpers"
+					],
+					[
+						"relati",
+						"relationships"
+					],
+					[
+						"sort",
+						"sortedSuggestions"
+					],
+					[
+						"for",
+						"forEach"
+					],
+					[
+						"ride",
+						"rideSuggestions"
+					],
+					[
+						"fi",
+						"finalSuggestions"
+					],
+					[
+						"su",
+						"suggestionSet"
+					],
+					[
+						"friend",
+						"friendSuggestions"
+					],
+					[
+						"foll",
+						"following"
+					],
+					[
+						"sor",
+						"sortedSuggestions"
+					],
+					[
+						"folloe",
+						"followerSuggestions"
+					],
+					[
+						"rid",
+						"rideSuggestions"
+					],
+					[
+						"dat",
+						"data"
+					],
+					[
+						"doc",
+						"docSnapshot"
+					],
+					[
+						"fun",
+						"function"
+					],
+					[
+						"init",
+						"initiatedBy"
+					],
+					[
+						"rec",
+						"recipientsFiltered"
+					],
+					[
+						"se",
+						"senderProfileID"
+					],
+					[
+						"ri",
+						"rideInvite"
+					],
+					[
+						"pa",
+						"payloadID"
+					],
+					[
+						"ob",
+						"obj"
+					],
+					[
+						"N",
+						"NotificationType"
+					],
+					[
+						"vis",
+						"visibleProfiles"
+					],
+					[
+						"v",
+						"visibleProfiles"
+					],
+					[
+						"visib",
+						"visibleProfiles"
+					],
+					[
+						"object",
+						"objectID"
+					],
+					[
+						"dt",
+						"dtrHelpers"
+					],
+					[
+						"p",
+						"push"
+					],
+					[
+						"lea",
+						"leave"
+					],
+					[
+						"is",
+						"isDefined"
+					],
+					[
+						"hea",
+						"heater"
+					],
+					[
+						"he",
+						"heaters"
+					],
+					[
+						"f",
+						"filename"
+					],
+					[
+						"inc",
+						"include"
+					],
+					[
+						"in",
+						"invalid"
+					],
+					[
+						"num",
+						"nums1"
+					],
+					[
+						"mImage",
+						"mImageFileName"
+					],
+					[
+						"img",
+						"imgSrc"
+					],
+					[
+						"orig",
+						"origParams"
+					],
+					[
+						"Pending",
+						"PendingParams"
+					],
+					[
+						"qua",
+						"quantParams"
+					],
+					[
+						"im",
+						"imgDest"
+					],
+					[
+						"png",
+						"pngquant"
+					],
+					[
+						"des",
+						"destPath"
+					],
+					[
+						"60000l",
+						"60000l"
+					],
+					[
+						"300000l",
+						"300000l"
+					],
+					[
+						"2l",
+						"2l"
+					],
+					[
+						"30000l",
+						"30000l"
+					],
+					[
+						"roun",
+						"round_x"
+					],
+					[
+						"rou",
+						"round_y"
+					],
+					[
+						"round",
+						"round_y"
+					],
+					[
+						"r",
+						"round_x"
+					],
+					[
+						"roud",
+						"round_x"
+					],
+					[
+						"corner",
+						"corner_radius"
+					],
+					[
+						"corn",
+						"corner_radius"
+					],
+					[
+						"box_",
+						"box_width"
+					],
+					[
+						"Dark",
+						"KEY_DARK_THEME"
+					],
+					[
+						"handle_",
+						"handle_rq_cmd"
+					],
+					[
+						"siz",
+						"sizeof"
+					],
+					[
+						"ma",
+						"malloc"
+					]
+				]
+			},
+			"build_system_choices":
+			[
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+					[
+						"packag",
+						"Package Control: Install Package"
+					],
+					[
+						"sublime",
+						"SublimeLinter: Lint This View"
+					],
+					[
+						"pack",
+						"Package Control: Remove Package"
+					],
+					[
+						"lint",
+						"SublimeLinter: Lint This View"
+					],
+					[
+						"Package Control: ",
+						"Package Control: Install Package"
+					],
+					[
+						"theme",
+						"UI: Select Color Scheme"
+					],
+					[
+						"instal",
+						"Package Control: Install Package"
+					],
+					[
+						"package",
+						"Package Control: List Packages"
+					],
+					[
+						"su",
+						"SublimeLinter: Show All Errors"
+					],
+					[
+						"at",
+						"ayu: Activate theme"
+					],
+					[
+						"packa",
+						"Package Control: Install Package"
+					]
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 137.0,
+				"history":
+				[
+					"install package",
+					"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/frap129/.config/sway/config",
+				"/home/frap129/DTR/dtr-web/functions/dtrProfile.js",
+				"/home/frap129/.config/wofi/config",
+				"/home/frap129/.config/waybar/style.css",
+				"/home/frap129/.config/waybar/config",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/@panva/asn1.js/lib/asn1/api.js",
+				"/home/frap129/.config/kanshi/config",
+				"/home/frap129/.config/wofi/style.css",
+				"/home/frap129/DTR/dtr-web/functions/dtrSearch.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrRide.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrNotification.js",
+				"/home/frap129/DTR/dtr-web/functions/dtr.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrGroup.js",
+				"/home/frap129/DTR/dtr-web/functions/package.json",
+				"/home/frap129/.cache/yay/gk6x-bin/PKGBUILD",
+				"/home/frap129/DTR/dtr-web/functions/dtrPokes.js",
+				"/home/frap129/DTR/dtr-web/node_modules/prettier/parser-postcss.js",
+				"/home/frap129/DTR/dtr-web/docs/styles/jsdoc-default.css",
+				"/home/frap129/DTR/dtr-web/functions/index.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrCleanUp.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrPokes2.js",
+				"/home/frap129/DTR/dtr-web/functions/WHYISTHEISSOFUCKED",
+				"/home/frap129/software/rbnis-dotfiles/.config/sway/config",
+				"/home/frap129/.config/waybar/waybar.sh",
+				"/home/frap129/software/linux-xanmod/PKGBUILD",
+				"/home/frap129/.cache/yay/firefox-beta/PKGBUILD",
+				"/home/frap129/software/Ananicy/ananicy.py",
+				"/home/frap129/DTR/dtr-web/functions/USERS",
+				"/home/frap129/software/Ananicy/ananicy.c",
+				"/home/frap129/Downloads/OPEN PAGE 40 nua .htm",
+				"/home/frap129/DTR/dtr-web/functions/dtrHelpers.js",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/date-and-time/date-and-time.js",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/firebase-admin/lib/auth/auth-api-request.js",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/firebase-admin/lib/auth/auth.js",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/eslint/lib/code-path-analysis/code-path.js",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/.bin/install-from-cache",
+				"/home/frap129/Downloads/Timer.ino",
+				"/home/frap129/.mozilla/firefox/o3wl6ce5.default-release/user.js.bak",
+				"/tmp/bolar/postfix.hs",
+				"/home/frap129/.config/PrusaSlicer/filament/0.2 Ender 2.ini",
+				"/home/frap129/.cache/yay/superslicer-git/PKGBUILD",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/firebase-admin/lib/messaging/messaging.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrCommands.js",
+				"/home/frap129/school/cs471/cs471-project/README.md",
+				"/home/frap129/DTR/dtr-admin/fix_missing_notification_ids.py",
+				"/tmp/mozilla_frap1290/news.atom",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/@google-cloud/firestore/build/src/document-change.js",
+				"/home/frap129/.cache/.fr-iYj3im/Android/SocialFeedsMediator.java",
+				"/home/frap129/.SuperSlicer/SuperSlicer.ini",
+				"/run/media/frap129/Secure_Key/firefox.csv",
+				"/home/frap129/.SuperSlicer-bak/print/0.2 Ender 2.ini",
+				"/home/frap129/.SuperSlicer-bak/filament/PLA - Ender 2.ini",
+				"/home/frap129/.SuperSlicer-bak/printer/Ender 2 Klipper.ini",
+				"/home/frap129/software/xanmod/kernel/sched/fair.c",
+				"/home/frap129/software/xanmod/include/linux/sched.h",
+				"/home/frap129/Downloads/IMDEAF.xml",
+				"/home/frap129/.cache/yay/linux-xanmod-git/PKGBUILD",
+				"/home/frap129/.cache/.fr-q0LH1G/1stFridayExample4.jff",
+				"/home/frap129/software/klipper/klippy/extras/heaters.py",
+				"/home/frap129/.cache/.fr-SUArGk/1stFridayExample4.jff",
+				"/home/frap129/.cache/.fr-cTzU3k/1stFridayExample1.jff",
+				"/home/frap129/StudioProjects/dtr-android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
+				"/home/frap129/StudioProjects/dtr-android/app/build/generated/data_binding_base_class_source_out/debug/out/app/socialactive/dtr/databinding/FragmentRidePageBinding.java",
+				"/home/frap129/school/cs455/project/Final Contents/Link to supporting Material.txt",
+				"/home/frap129/school/cs455/project/Final Contents/Report.tex",
+				"/home/frap129/school/cs455/project/plot__graph.py",
+				"/home/frap129/school/cs455/project/pcap__analyzer.py",
+				"/home/frap129/school/ece101/example/exq1.c",
+				"/home/frap129/software/klipper/klippy/kinematics/extruder.py",
+				"/home/frap129/.wine/dosdevices/z:/home/frap129/StudioProjects/dtr-android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
+				"/home/frap129/Downloads/plot__graph.py",
+				"/home/frap129/android/carbon/.repo/local_manifests/roomservice.xml",
+				"/home/frap129/android/q10/.repo/local_manifests/roomservice.xml",
+				"/home/frap129/school/ece101/forSum.c",
+				"/home/frap129/school/ece101/forloop.c",
+				"/home/frap129/school/ece101/truefalse.c",
+				"/home/frap129/school/ece101/project/calculator.c",
+				"/home/frap129/school/ece101/fabs.c",
+				"/home/frap129/school/ece101/project/test.c",
+				"/home/frap129/Downloads/Assignment2 (2).c",
+				"/home/frap129/Downloads/Assignment2 (1).c",
+				"/home/frap129/school/cs351/hw1.py",
+				"/home/frap129/Downloads/SPOILER_Assignment2.c",
+				"/home/frap129/school/ece101/project/test",
+				"/home/frap129/Downloads/Assignment2.c",
+				"/home/frap129/school/cs351/hw1.pY",
+				"/home/frap129/software/ly/src/config.c",
+				"/home/frap129/software/ly/src/config.h",
+				"/home/frap129/software/ly/makefile",
+				"/home/frap129/android/q10/kernel/google/msm-4.9/block/milq-iosched.c",
+				"/home/frap129/android/q10/tmp/packages.xml",
+				"/home/frap129/android/q10/frameworks/base/packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+				"/home/frap129/android/q10/frameworks/base/services/core/java/com/android/server/DeviceIdleController.java",
+				"/home/frap129/software/xanmod-PKGBUILD/PKGBUILD",
+				"/home/frap129/software/ly/src/draw.c",
+				"/home/frap129/software/ly/res/config.ini",
+				"/home/frap129/android/q10/packages/apps/SetupWizard/src/org/carbonrom/setupwizard/FinishActivity.java",
+				"/home/frap129/android/q10/packages/apps/SetupWizard/src/org/carbonrom/setupwizard/SimMissingActivity.java",
+				"/home/frap129/android/q10/packages/apps/SetupWizard/src/org/carbonrom/setupwizard/CarbonSettingsActivity.java",
+				"/home/frap129/.cache/.fr-V5lddE/maples4/include/list.h",
+				"/home/frap129/school/cs451/maples4/include/list.h",
+				"/home/frap129/school/cs451/maples4/include/main.h",
+				"/home/frap129/school/cs451/maples4/include/utils.h",
+				"/home/frap129/school/cs451/maples4/src/utils.c",
+				"/home/frap129/school/cs451/maples3/include/utils.h",
+				"/home/frap129/school/cs451/maples4/src/list.c",
+				"/home/frap129/school/cs451/maples3/src/person.c",
+				"/home/frap129/software/Marlin/Marlin/src/inc/Conditionals_LCD.h",
+				"/home/frap129/software/Marlin/Marlin/Configuration.h",
+				"/home/frap129/software/Marlin/Marlin/Configuration_adv.h",
+				"/home/frap129/school/cs451/maples3/include/main.h",
+				"/home/frap129/school/cs451/maples3/input",
+				"/home/frap129/school/cs451/maples3/include/elevator.h",
+				"/home/frap129/school/cs451/maples3/include/node.h",
+				"/home/frap129/school/cs451/maples3/include/person.h",
+				"/home/frap129/school/cs451/maples3/src/elevator.c",
+				"/home/frap129/school/cs451/maples3/src/utils.c",
+				"/home/frap129/school/cs451/maples3/src/queue/queue.c",
+				"/home/frap129/school/cs451/maples3/include/queue.h",
+				"/home/frap129/school/cs451/maples3/src/main.c",
+				"/home/frap129/school/cs451/maples3/src/queue/node.c",
+				"/home/frap129/software/Marlin/Marlin/src/inc/SanityCheck.h",
+				"/home/frap129/school/cs451/maples3/src/queue/queue.h",
+				"/home/frap129/school/cs451/maples3/main.c",
+				"/home/frap129/school/cs451/maples3/utils.c",
+				"/home/frap129/school/cs451/maples3/elevator.c",
+				"/home/frap129/school/cs451/maples3/person.c",
+				"/home/frap129/.themes/oomox-Gnome-Ayu-Dark/gtk-3.20/gtk.css"
+			],
+			"find":
+			{
+				"height": 23.0
+			},
+			"find_in_files":
+			{
+				"height": 134.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"minus"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"incremental_find":
+			{
+				"height": 23.0
+			},
+			"input":
+			{
+				"height": 39.0
+			},
+			"menu_visible": true,
+			"output.SublimeLinter":
+			{
+				"height": 114.0
+			},
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"pinned_build_system": "",
+			"replace":
+			{
+				"height": 42.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+					[
+						"",
+						"dtrNotification.js"
+					]
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 153.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			}
+		},
+		"new_window_width": 640.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"tex",
+						"text-align\tproperty"
+					],
+					[
+						"bord",
+						"border-radius\tproperty"
+					],
+					[
+						"follow",
+						"followers"
+					],
+					[
+						"An",
+						"AndroidPackageName\tstring"
+					],
+					[
+						"group",
+						"groupLink\tstring"
+					],
+					[
+						"gener",
+						"_generateLink"
+					],
+					[
+						"com",
+						"comeBackToDtrTime\tstring"
+					],
+					[
+						"user",
+						"userProfile\tempty"
+					],
+					[
+						"all",
+						"allFriends\tany"
+					],
+					[
+						"noRide",
+						"noRidesThisWeekendPoke"
+					],
+					[
+						"pro",
+						"profileChecks\tany"
+					],
+					[
+						"to",
+						"toString\t(radix?: number) => string"
+					],
+					[
+						"ch",
+						"checkSaturday\t{|arg: any, objectID: any|}"
+					],
+					[
+						"dtr",
+						"dtrNotification\tany"
+					],
+					[
+						"s",
+						"sans-serif\tfont-family"
+					],
+					[
+						"x",
+						"xanmod"
+					],
+					[
+						"req",
+						"require\t(id: string) => any"
+					],
+					[
+						"co",
+						"commonFriends\tMap<any, (Set<any> | void)>"
+					],
+					[
+						"prof",
+						"profile\tany"
+					],
+					[
+						"cons",
+						"console\t{assert(condition: mixed, ...data: Array<any>): void; clear(): void; count(label: string): void; debug(...data: Array<any>): void; dir(...data: Array<any>): void; dirxml(...data: Array<any>): void; error(...data: Array<any>): void; _exception(...data: Array<any>): void; group(...data: Array<any>): void; groupCollapsed(...data: Array<any>): void; groupEnd(): void; info(...data: Array<any>): void; log(...data: Array<any>): void; profile(name: string): void; profileEnd(): void; table(tabularData: { [key: string]: any } | Array<{ [key: string]: any }> | Array<Array<any>>): void; time(label: string): void; timeEnd(label: string): void; timeStamp(label?: string): void; trace(...data: Array<any>): void; warn(...data: Array<any>): void; }"
+					],
+					[
+						"getA",
+						"getActiveAndroidUsers\t() => any"
+					],
+					[
+						"func",
+						"function"
+					],
+					[
+						"get",
+						"getUserNotSignedInForTwoWeeks\t(nextPageToken: any) => any"
+					],
+					[
+						"join",
+						"joinFriendsThisWeekendPoke"
+					],
+					[
+						"mu",
+						"mutuals"
+					],
+					[
+						"mut",
+						"mutual"
+					],
+					[
+						"noti",
+						"notificationCount"
+					],
+					[
+						"not",
+						"notificationCount"
+					],
+					[
+						"joi",
+						"joinFriendsThisSaturdayPayload"
+					],
+					[
+						"jo",
+						"joinFriendsThisSundayPayload"
+					],
+					[
+						"con",
+						"concat"
+					],
+					[
+						"notific",
+						"notificationPrefix"
+					],
+					[
+						"prif",
+						"profile"
+					],
+					[
+						"frie",
+						"friendsRiding"
+					],
+					[
+						"nex",
+						"nextSundayDateCode"
+					],
+					[
+						"profile",
+						"profilePromises"
+					],
+					[
+						"Profi",
+						"profile"
+					],
+					[
+						"upd",
+						"updatedMutuals"
+					],
+					[
+						"up",
+						"updatedMutuals"
+					],
+					[
+						"profi",
+						"profile"
+					],
+					[
+						"come",
+						"comeBackToDtrPayload"
+					],
+					[
+						"no",
+						"noRidesThisWeekendPayload"
+					],
+					[
+						"lo",
+						"lowerBound"
+					],
+					[
+						"on",
+						"onRun"
+					],
+					[
+						"pr",
+						"profilesToNotify"
+					],
+					[
+						"da",
+						"data"
+					],
+					[
+						"checkSua",
+						"checkSaturday"
+					],
+					[
+						"prf",
+						"profile"
+					],
+					[
+						"dr",
+						"dtrHelpers"
+					],
+					[
+						"days",
+						"daysTilSaturday"
+					],
+					[
+						"cou",
+						"countUpdate"
+					],
+					[
+						"do",
+						"docName"
+					],
+					[
+						"d",
+						"docName"
+					],
+					[
+						"pokeT",
+						"pokeTestData"
+					],
+					[
+						"poke",
+						"pokeTestData"
+					],
+					[
+						"t",
+						"testTag"
+					],
+					[
+						"n",
+						"noRidesThisWeekPoke"
+					],
+					[
+						"tor",
+						"toRideRef"
+					],
+					[
+						"toR",
+						"toRideRef"
+					],
+					[
+						"fr",
+						"fromRide"
+					],
+					[
+						"mess",
+						"messageContent"
+					],
+					[
+						"initi",
+						"initialData"
+					],
+					[
+						"notifi",
+						"notifications"
+					],
+					[
+						"update",
+						"updatedChat"
+					],
+					[
+						"dele",
+						"deleteUser"
+					],
+					[
+						"fol",
+						"followed"
+					],
+					[
+						"follo",
+						"followed"
+					],
+					[
+						"un",
+						"unfollow"
+					],
+					[
+						"Dtr",
+						"dtrHelpers"
+					],
+					[
+						"relati",
+						"relationships"
+					],
+					[
+						"sort",
+						"sortedSuggestions"
+					],
+					[
+						"for",
+						"forEach"
+					],
+					[
+						"ride",
+						"rideSuggestions"
+					],
+					[
+						"fi",
+						"finalSuggestions"
+					],
+					[
+						"su",
+						"suggestionSet"
+					],
+					[
+						"friend",
+						"friendSuggestions"
+					],
+					[
+						"foll",
+						"following"
+					],
+					[
+						"sor",
+						"sortedSuggestions"
+					],
+					[
+						"folloe",
+						"followerSuggestions"
+					],
+					[
+						"rid",
+						"rideSuggestions"
+					],
+					[
+						"dat",
+						"data"
+					],
+					[
+						"doc",
+						"docSnapshot"
+					],
+					[
+						"fun",
+						"function"
+					],
+					[
+						"init",
+						"initiatedBy"
+					],
+					[
+						"rec",
+						"recipientsFiltered"
+					],
+					[
+						"se",
+						"senderProfileID"
+					],
+					[
+						"ri",
+						"rideInvite"
+					],
+					[
+						"pa",
+						"payloadID"
+					],
+					[
+						"ob",
+						"obj"
+					],
+					[
+						"N",
+						"NotificationType"
+					],
+					[
+						"vis",
+						"visibleProfiles"
+					],
+					[
+						"v",
+						"visibleProfiles"
+					],
+					[
+						"visib",
+						"visibleProfiles"
+					],
+					[
+						"object",
+						"objectID"
+					],
+					[
+						"dt",
+						"dtrHelpers"
+					],
+					[
+						"p",
+						"push"
+					],
+					[
+						"lea",
+						"leave"
+					],
+					[
+						"is",
+						"isDefined"
+					],
+					[
+						"hea",
+						"heater"
+					],
+					[
+						"he",
+						"heaters"
+					],
+					[
+						"f",
+						"filename"
+					],
+					[
+						"inc",
+						"include"
+					],
+					[
+						"in",
+						"invalid"
+					],
+					[
+						"num",
+						"nums1"
+					],
+					[
+						"mImage",
+						"mImageFileName"
+					],
+					[
+						"img",
+						"imgSrc"
+					],
+					[
+						"orig",
+						"origParams"
+					],
+					[
+						"Pending",
+						"PendingParams"
+					],
+					[
+						"qua",
+						"quantParams"
+					],
+					[
+						"im",
+						"imgDest"
+					],
+					[
+						"png",
+						"pngquant"
+					],
+					[
+						"des",
+						"destPath"
+					],
+					[
+						"60000l",
+						"60000l"
+					],
+					[
+						"300000l",
+						"300000l"
+					],
+					[
+						"2l",
+						"2l"
+					],
+					[
+						"30000l",
+						"30000l"
+					],
+					[
+						"roun",
+						"round_x"
+					],
+					[
+						"rou",
+						"round_y"
+					],
+					[
+						"round",
+						"round_y"
+					],
+					[
+						"r",
+						"round_x"
+					],
+					[
+						"roud",
+						"round_x"
+					],
+					[
+						"corner",
+						"corner_radius"
+					],
+					[
+						"corn",
+						"corner_radius"
+					],
+					[
+						"box_",
+						"box_width"
+					],
+					[
+						"Dark",
+						"KEY_DARK_THEME"
+					],
+					[
+						"handle_",
+						"handle_rq_cmd"
+					],
+					[
+						"siz",
+						"sizeof"
+					],
+					[
+						"ma",
+						"malloc"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"file": "/home/frap129/DTR/dtr-web/functions/dtrRide.js",
+					"settings":
+					{
+						"buffer_size": 39317,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/frap129/DTR/dtr-web/functions/dtrPokes.js",
+					"settings":
+					{
+						"buffer_size": 16892,
+						"encoding": "UTF-8",
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/frap129/.config/sway/config",
+					"settings":
+					{
+						"buffer_size": 6589,
+						"encoding": "UTF-8",
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/frap129/DTR/dtr-web/functions/dtrSearch.js",
+					"settings":
+					{
+						"buffer_size": 1641,
+						"encoding": "UTF-8",
+						"line_ending": "Unix"
+					}
+				}
+			],
+			"build_system": "",
+			"build_system_choices":
+			[
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+					[
+						"packag",
+						"Package Control: Install Package"
+					],
+					[
+						"sublime",
+						"SublimeLinter: Lint This View"
+					],
+					[
+						"pack",
+						"Package Control: Remove Package"
+					],
+					[
+						"lint",
+						"SublimeLinter: Lint This View"
+					],
+					[
+						"Package Control: ",
+						"Package Control: Install Package"
+					],
+					[
+						"theme",
+						"UI: Select Color Scheme"
+					],
+					[
+						"instal",
+						"Package Control: Install Package"
+					],
+					[
+						"package",
+						"Package Control: List Packages"
+					],
+					[
+						"su",
+						"SublimeLinter: Show All Errors"
+					],
+					[
+						"at",
+						"ayu: Activate theme"
+					],
+					[
+						"packa",
+						"Package Control: Install Package"
+					]
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 137.0,
+				"history":
+				[
+					"install package",
+					"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"expanded_folders":
+			[
+				"/home/frap129/DTR/dtr-web",
+				"/home/frap129/DTR/dtr-web/functions"
+			],
+			"file_history":
+			[
+				"/tmp/dmesg",
+				"/etc/tlp.conf",
+				"/home/frap129/.config/sway/config",
+				"/home/frap129/DTR/dtr-web/functions/dtrProfile.js",
+				"/home/frap129/.config/wofi/config",
+				"/home/frap129/.config/waybar/style.css",
+				"/home/frap129/.config/waybar/config",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/@panva/asn1.js/lib/asn1/api.js",
+				"/home/frap129/.config/kanshi/config",
+				"/home/frap129/.config/wofi/style.css",
+				"/home/frap129/DTR/dtr-web/functions/dtrSearch.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrRide.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrNotification.js",
+				"/home/frap129/DTR/dtr-web/functions/dtr.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrGroup.js",
+				"/home/frap129/DTR/dtr-web/functions/package.json",
+				"/home/frap129/.cache/yay/gk6x-bin/PKGBUILD",
+				"/home/frap129/DTR/dtr-web/functions/dtrPokes.js",
+				"/home/frap129/DTR/dtr-web/node_modules/prettier/parser-postcss.js",
+				"/home/frap129/DTR/dtr-web/docs/styles/jsdoc-default.css",
+				"/home/frap129/DTR/dtr-web/functions/index.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrCleanUp.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrPokes2.js",
+				"/home/frap129/DTR/dtr-web/functions/WHYISTHEISSOFUCKED",
+				"/home/frap129/software/rbnis-dotfiles/.config/sway/config",
+				"/home/frap129/.config/waybar/waybar.sh",
+				"/home/frap129/software/linux-xanmod/PKGBUILD",
+				"/home/frap129/.cache/yay/firefox-beta/PKGBUILD",
+				"/home/frap129/software/Ananicy/ananicy.py",
+				"/home/frap129/DTR/dtr-web/functions/USERS",
+				"/home/frap129/software/Ananicy/ananicy.c",
+				"/home/frap129/Downloads/OPEN PAGE 40 nua .htm",
+				"/home/frap129/DTR/dtr-web/functions/dtrHelpers.js",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/date-and-time/date-and-time.js",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/firebase-admin/lib/auth/auth-api-request.js",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/firebase-admin/lib/auth/auth.js",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/eslint/lib/code-path-analysis/code-path.js",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/.bin/install-from-cache",
+				"/home/frap129/Downloads/Timer.ino",
+				"/home/frap129/.mozilla/firefox/o3wl6ce5.default-release/user.js.bak",
+				"/tmp/bolar/postfix.hs",
+				"/home/frap129/.config/PrusaSlicer/filament/0.2 Ender 2.ini",
+				"/home/frap129/.cache/yay/superslicer-git/PKGBUILD",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/firebase-admin/lib/messaging/messaging.js",
+				"/home/frap129/DTR/dtr-web/functions/dtrCommands.js",
+				"/home/frap129/school/cs471/cs471-project/README.md",
+				"/home/frap129/DTR/dtr-admin/fix_missing_notification_ids.py",
+				"/tmp/mozilla_frap1290/news.atom",
+				"/home/frap129/DTR/dtr-web/functions/node_modules/@google-cloud/firestore/build/src/document-change.js",
+				"/home/frap129/.cache/.fr-iYj3im/Android/SocialFeedsMediator.java",
+				"/home/frap129/.SuperSlicer/SuperSlicer.ini",
+				"/run/media/frap129/Secure_Key/firefox.csv",
+				"/home/frap129/.SuperSlicer-bak/print/0.2 Ender 2.ini",
+				"/home/frap129/.SuperSlicer-bak/filament/PLA - Ender 2.ini",
+				"/home/frap129/.SuperSlicer-bak/printer/Ender 2 Klipper.ini",
+				"/home/frap129/software/xanmod/kernel/sched/fair.c",
+				"/home/frap129/software/xanmod/include/linux/sched.h",
+				"/home/frap129/Downloads/IMDEAF.xml",
+				"/home/frap129/.cache/yay/linux-xanmod-git/PKGBUILD",
+				"/home/frap129/.cache/.fr-q0LH1G/1stFridayExample4.jff",
+				"/home/frap129/software/klipper/klippy/extras/heaters.py",
+				"/home/frap129/.cache/.fr-SUArGk/1stFridayExample4.jff",
+				"/home/frap129/.cache/.fr-cTzU3k/1stFridayExample1.jff",
+				"/home/frap129/StudioProjects/dtr-android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
+				"/home/frap129/StudioProjects/dtr-android/app/build/generated/data_binding_base_class_source_out/debug/out/app/socialactive/dtr/databinding/FragmentRidePageBinding.java",
+				"/home/frap129/school/cs455/project/Final Contents/Link to supporting Material.txt",
+				"/home/frap129/school/cs455/project/Final Contents/Report.tex",
+				"/home/frap129/school/cs455/project/plot__graph.py",
+				"/home/frap129/school/cs455/project/pcap__analyzer.py",
+				"/home/frap129/school/ece101/example/exq1.c",
+				"/home/frap129/software/klipper/klippy/kinematics/extruder.py",
+				"/home/frap129/.wine/dosdevices/z:/home/frap129/StudioProjects/dtr-android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
+				"/home/frap129/Downloads/plot__graph.py",
+				"/home/frap129/android/carbon/.repo/local_manifests/roomservice.xml",
+				"/home/frap129/android/q10/.repo/local_manifests/roomservice.xml",
+				"/home/frap129/school/ece101/forSum.c",
+				"/home/frap129/school/ece101/forloop.c",
+				"/home/frap129/school/ece101/truefalse.c",
+				"/home/frap129/school/ece101/project/calculator.c",
+				"/home/frap129/school/ece101/fabs.c",
+				"/home/frap129/school/ece101/project/test.c",
+				"/home/frap129/Downloads/Assignment2 (2).c",
+				"/home/frap129/Downloads/Assignment2 (1).c",
+				"/home/frap129/school/cs351/hw1.py",
+				"/home/frap129/Downloads/SPOILER_Assignment2.c",
+				"/home/frap129/school/ece101/project/test",
+				"/home/frap129/Downloads/Assignment2.c",
+				"/home/frap129/school/cs351/hw1.pY",
+				"/home/frap129/software/ly/src/config.c",
+				"/home/frap129/software/ly/src/config.h",
+				"/home/frap129/software/ly/makefile",
+				"/home/frap129/android/q10/kernel/google/msm-4.9/block/milq-iosched.c",
+				"/home/frap129/android/q10/tmp/packages.xml",
+				"/home/frap129/android/q10/frameworks/base/packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java",
+				"/home/frap129/android/q10/frameworks/base/services/core/java/com/android/server/DeviceIdleController.java",
+				"/home/frap129/software/xanmod-PKGBUILD/PKGBUILD",
+				"/home/frap129/software/ly/src/draw.c",
+				"/home/frap129/software/ly/res/config.ini",
+				"/home/frap129/android/q10/packages/apps/SetupWizard/src/org/carbonrom/setupwizard/FinishActivity.java",
+				"/home/frap129/android/q10/packages/apps/SetupWizard/src/org/carbonrom/setupwizard/SimMissingActivity.java",
+				"/home/frap129/android/q10/packages/apps/SetupWizard/src/org/carbonrom/setupwizard/CarbonSettingsActivity.java",
+				"/home/frap129/.cache/.fr-V5lddE/maples4/include/list.h",
+				"/home/frap129/school/cs451/maples4/include/list.h",
+				"/home/frap129/school/cs451/maples4/include/main.h",
+				"/home/frap129/school/cs451/maples4/include/utils.h",
+				"/home/frap129/school/cs451/maples4/src/utils.c",
+				"/home/frap129/school/cs451/maples3/include/utils.h",
+				"/home/frap129/school/cs451/maples4/src/list.c",
+				"/home/frap129/school/cs451/maples3/src/person.c",
+				"/home/frap129/software/Marlin/Marlin/src/inc/Conditionals_LCD.h",
+				"/home/frap129/software/Marlin/Marlin/Configuration.h",
+				"/home/frap129/software/Marlin/Marlin/Configuration_adv.h",
+				"/home/frap129/school/cs451/maples3/include/main.h",
+				"/home/frap129/school/cs451/maples3/input",
+				"/home/frap129/school/cs451/maples3/include/elevator.h",
+				"/home/frap129/school/cs451/maples3/include/node.h",
+				"/home/frap129/school/cs451/maples3/include/person.h",
+				"/home/frap129/school/cs451/maples3/src/elevator.c",
+				"/home/frap129/school/cs451/maples3/src/utils.c",
+				"/home/frap129/school/cs451/maples3/src/queue/queue.c",
+				"/home/frap129/school/cs451/maples3/include/queue.h",
+				"/home/frap129/school/cs451/maples3/src/main.c",
+				"/home/frap129/school/cs451/maples3/src/queue/node.c",
+				"/home/frap129/software/Marlin/Marlin/src/inc/SanityCheck.h",
+				"/home/frap129/school/cs451/maples3/src/queue/queue.h",
+				"/home/frap129/school/cs451/maples3/main.c",
+				"/home/frap129/school/cs451/maples3/utils.c",
+				"/home/frap129/school/cs451/maples3/elevator.c"
+			],
+			"find":
+			{
+				"height": 40.0
+			},
+			"find_in_files":
+			{
+				"height": 134.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"f2fs"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"folders":
+			[
+				{
+					"path": "/home/frap129/DTR/dtr-web"
+				}
+			],
+			"groups":
+			[
+				{
+					"selected": 1,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"file": "/home/frap129/DTR/dtr-web/functions/dtrRide.js",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 39317,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1057,
+										1057
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/home/frap129/DTR/dtr-web/functions/dtrPokes.js",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 16892,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										420,
+										420
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						},
+						{
+							"buffer": 2,
+							"file": "/home/frap129/.config/sway/config",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 6589,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1153,
+										1153
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Text/Plain text.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 658.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 2,
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "/home/frap129/DTR/dtr-web/functions/dtrSearch.js",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 1641,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										694,
+										694
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true,
+									"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 3,
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 23.0
+			},
+			"input":
+			{
+				"height": 39.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"output.SublimeLinter":
+			{
+				"height": 114.0
+			},
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"pinned_build_system": "",
+			"position": "0,1,0,0,0,0,0,640,480,13667,6390",
+			"project": "",
+			"replace":
+			{
+				"height": 42.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+					[
+						"",
+						"dtrNotification.js"
+					]
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"selected_group": 0,
+			"settings":
+			{
+			},
+			"show_minimap": true,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 153.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			},
+			"window_id": 42,
+			"workspace_name": ""
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+		]
+	}
+}

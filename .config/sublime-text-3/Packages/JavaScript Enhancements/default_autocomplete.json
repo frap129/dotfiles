@@ -1,0 +1,1998 @@
+{
+  "completions": [
+    [
+      "export",
+      "export"
+    ],
+    [
+      "default",
+      "default"
+    ],
+    [
+      "function",
+      "function"
+    ],
+    [
+      "switch",
+      "switch (${1:expression}) {\n\tcase ${2:label_1}:\n\t\t${3:// statements_1}\n\t\tbreak;\n\tdefault:\n\t\t${4:// statements_def}\n\t\tbreak;\n}"
+    ],
+    [
+      "try_catch_finally",
+      "try {\n\t${1:// statements}\n} catch(e) {\n\t${2:// statements}\n\tconsole.log(e);\n} finally {\n\t${3:// statements}\n}"
+    ],
+    [
+      "try_catch",
+      "try {\n\t${1:// statements}\n} catch(e) {\n\t${2:// statements}\n\tconsole.log(e);\n}"
+    ],
+    [
+      "if_else",
+      "if (${1:condition}) {\n\t${2:// statement}\n} else {\n\t${3:// statement}\n}"
+    ],
+    [
+      "prototype",
+      "${1:class_name}.prototype.${2:method_name} = function(${3:argument}){\n\t${4:// body... }\n};"
+    ],
+    [
+      "forEach",
+      "${1:array}.forEach( function(${2:element}, ${3:index}) {\n\t${4:// statements}\n});"
+    ],
+    [
+      "for",
+      "for(let i = 0, length1 = ${1:array}.length; i < length1; i++){\n\t${1:array}[i]${2:}\n}"
+    ],
+    [
+      "for-k",
+      "for(let k = 0, length3 = ${1:array}.length; k < length3; k++){\n\t${1:array}[k]${2:}\n}"
+    ],
+    [
+      "for-j",
+      "for(let j = 0, length2 = ${1:array}.length; j < length2; j++){\n\t${1:array}[j]${2:}\n}"
+    ],
+    [
+      "function_with_name",
+      "function ${1:function_name} (${2:argument}) {\n\t${3:// body... }\n}"
+    ],
+    [
+      "generator_function",
+      "function* ${1:function_name} (${2:argument}) {\n\t${3:// body... }\n}"
+    ],
+    [
+      "anonymous_function",
+      "function (${1:argument}) {\n\t${2:// body... }\n}"
+    ],
+    [
+      "arrow_function",
+      "(${1:argument}) => {\n\t${2:// body... }\n}"
+    ],
+    [
+      "async_function",
+      "async function ${1:function_name} (${2:argument}) {\n\t${3:// body... }\n}"
+    ],
+    [
+      "iife_function",
+      "(function(${1:argument}){\n\t${2:// body... }\n})(${3:argument})"
+    ],
+    [
+      "for_of",
+      "for (${1:variable} of ${2:object}) {\n\t${3:// statement}\n}"
+    ],
+    [
+      "for_in",
+      "for (${1:variable} in ${2:object}) {\n\t${3:// statement}\n}"
+    ],
+    [
+      "do_while",
+      "do{\n\t${2:// statement}\n} while (${1:condition})"
+    ],
+    [
+      "while",
+      "while (${1:condition}) {\n\t${2:// statement}\n}"
+    ],
+    [
+      "if",
+      "if (${1:condition}) {\n\t${2:// statement}\n}"
+    ],
+    [
+      "else_if",
+      "else if (${1:condition}) {\n\t\n}"
+    ],
+    [
+      "conditional_operator_ternary",
+      "(${1:condition}) ? ${2:val1} : ${3:val2}"
+    ],
+    [
+      "else",
+      "else {\n\t$1\n}"
+    ],
+    [
+      "use_strict",
+      "'use strict'"
+    ],
+    [
+      "continue",
+      "continue"
+    ],
+    [
+      "throw",
+      "throw $1"
+    ],
+    [
+      "const",
+      "const"
+    ],
+    [
+      "break",
+      "break"
+    ],
+    [
+      "return",
+      "return"
+    ],
+    [
+      "await",
+      "await"
+    ],
+    [
+      "async",
+      "async"
+    ],
+    [
+      "false",
+      "false"
+    ],
+    [
+      "let",
+      "let"
+    ],
+    [
+      "null",
+      "null"
+    ],
+    [
+      "true",
+      "true"
+    ],
+    [
+      "var",
+      "var"
+    ],
+    [
+      "void",
+      "void(${1:''})"
+    ],
+    [
+      "NaN\tnumber",
+      "NaN"
+    ],
+    [
+      "Infinity\tnumber",
+      "Infinity"
+    ],
+    [
+      "undefined\tvoid",
+      "undefined"
+    ],
+    [
+      "Math\t{E: number; LN10: number; LN2: number; LOG10E: number; LOG2E: number; PI: number; SQRT1_2: number; SQRT2: number; abs(x: number): number; acos(x: number): number; acosh(x: number): number; asin(x: number): number; asinh(x: number): number; atan(x: number): number; atan2(y: number, x: number): number; atanh(x: number): number; cbrt(x: number): number; ceil(x: number): number; clz32(x: number): number; cos(x: number): number; cosh(x: number): number; exp(x: number): number; expm1(x: number): number; floor(x: number): number; fround(x: number): number; hypot(...values: Array<number>): number; imul(y: number, x: number): number; log(x: number): number; log10(x: number): number; log1p(x: number): number; log2(x: number): number; max(...values: Array<number>): number; min(...values: Array<number>): number; pow(x: number, y: number): number; random(): number; round(x: number): number; sign(x: number): number; sin(x: number): number; sinh(x: number): number; sqrt(x: number): number; tan(x: number): number; tanh(x: number): number; trunc(x: number): number; }",
+      "Math"
+    ],
+    [
+      "global\tany",
+      "global"
+    ],
+    [
+      "module\t{exports: any; require(id: string): any; id: string; filename: string; loaded: boolean; parent: any; children: Array<any>; }",
+      "module"
+    ],
+    [
+      "require\t(id: string) => any",
+      "require(${1:id: string})",
+      {
+        "name": "require",
+        "type": "(id: string)",
+        "func_details": {
+          "params":[
+            {"name": "id", "type": "string"}
+          ],
+          "return_type": "any"
+        }
+      }
+    ],
+    [
+      "console\t{assert(condition: mixed, ...data: Array<any>): void; clear(): void; count(label: string): void; debug(...data: Array<any>): void; dir(...data: Array<any>): void; dirxml(...data: Array<any>): void; error(...data: Array<any>): void; _exception(...data: Array<any>): void; group(...data: Array<any>): void; groupCollapsed(...data: Array<any>): void; groupEnd(): void; info(...data: Array<any>): void; log(...data: Array<any>): void; profile(name: string): void; profileEnd(): void; table(tabularData: { [key: string]: any } | Array<{ [key: string]: any }> | Array<Array<any>>): void; time(label: string): void; timeEnd(label: string): void; timeStamp(label?: string): void; trace(...data: Array<any>): void; warn(...data: Array<any>): void; }",
+      "console"
+    ],
+    [
+      "parseInt\t(string: mixed, radix?: number) => number",
+      "parseInt(${1:string: mixed}, ${2:radix?: number})",
+      {
+        "name": "parseInt",
+        "type": "(string: mixed, radix?: number)",
+        "func_details": {
+          "params":[
+            {"name": "string", "type": "mixed"},
+            {"name": "radix?", "type": "number"}
+          ],
+          "return_type": "number"
+        }
+      }
+    ],
+    [
+      "parseFloat\t(string: mixed) => number",
+      "parseFloat(${1:string: mixed})",
+      {
+        "name": "parseFloat",
+        "type": "(string: mixed)",
+        "func_details": {
+          "params":[
+            {"name": "string", "type": "mixed"}
+          ],
+          "return_type": "number"
+        }
+      }
+    ],
+    [
+      "isNaN\t(number: mixed) => boolean",
+      "isNaN(${1:number: mixed})",
+      {
+        "name": "isNaN",
+        "type": "(number: mixed)",
+        "func_details": {
+          "params":[
+            {"name": "number", "type": "mixed"}
+          ],
+          "return_type": "boolean"
+        }
+      }
+    ],
+    [
+      "isFinite\t(number: mixed) => boolean",
+      "isFinite(${1:number: mixed})",
+      {
+        "name": "isFinite",
+        "type": "(number: mixed)",
+        "func_details": {
+          "params":[
+            {"name": "number", "type": "mixed"}
+          ],
+          "return_type": "boolean"
+        }
+      }
+    ],
+    [
+      "decodeURI\t(encodedURI: string) => string",
+      "decodeURI(${1:encodedURI: string})",
+      {
+        "name": "decodeURI",
+        "type": "(encodedURI: string)",
+        "func_details": {
+          "params":[
+            {"name": "encodedURI", "type": "string"}
+          ],
+          "return_type": "string"
+        }
+      }
+    ],
+    [
+      "decodeURIComponent\t(encodedURIComponent: string) => string",
+      "decodeURIComponent(${1:encodedURIComponent: string})",
+      {
+        "name": "decodeURIComponent",
+        "type": "(encodedURIComponent: string)",
+        "func_details": {
+          "params":[
+            {"name": "encodedURIComponent", "type": "string"}
+          ],
+          "return_type": "string"
+        }
+      }
+    ],
+    [
+      "encodeURI\t(uri: string) => string",
+      "encodeURI(${1:uri: string})",
+      {
+        "name": "encodeURI",
+        "type": "(uri: string)",
+        "func_details": {
+          "params":[
+            {"name": "uri", "type": "string"}
+          ],
+          "return_type": "string"
+        }
+      }
+    ],
+    [
+      "encodeURIComponent\t(uriComponent: string) => string",
+      "encodeURIComponent(${1:uriComponent: string})",
+      {
+        "name": "decodeURIComponent",
+        "type": "(encodedURIComponent: string)",
+        "func_details": {
+          "params":[
+            {"name": "encodedURIComponent", "type": "string"}
+          ],
+          "return_type": "string"
+        }
+      }
+    ],
+    [
+      "setTimeout\t(func: function, milliseconds?: number, ...params?: any) => number",
+      "setTimeout(${1:func: function}, ${2:milliseconds?: number}, ${3:...params?: any})",
+      {
+        "name": "setTimeout",
+        "type": "(func: function, milliseconds: number, ...params?: any)",
+        "func_details": {
+          "params":[
+            {"name": "func", "type": "function"},
+            {"name": "milliseconds?", "type": "number"},
+            {"name": "...params?", "type": "any"}
+          ],
+          "return_type": "number"
+        }
+      }
+    ],
+    [
+      "clearTimeout\t(timeoutID: number)",
+      "clearTimeout(${1:timeoutID: number})",
+      {
+        "name": "clearTimeout",
+        "type": "(timeoutID: number)",
+        "func_details": {
+          "params":[
+            {"name": "timeoutID", "type": "number"}
+          ],
+          "return_type": "void"
+        }
+      }
+    ],
+    [
+      "setInterval\t(func: function, milliseconds: number, ...params?: any) => number",
+      "setInterval(${1:func: function}, ${2:milliseconds: number}, ${3:...params?: any})",
+      {
+        "name": "setInterval",
+        "type": "(func: function, milliseconds: number, ...params?: any)",
+        "func_details": {
+          "params":[
+            {"name": "func", "type": "function"},
+            {"name": "milliseconds", "type": "number"},
+            {"name": "...params?", "type": "any"}
+          ],
+          "return_type": "number"
+        }
+      }
+    ],
+    [
+      "clearInterval\t(intervalID: number)",
+      "clearInterval(${1:intervalID: number})",
+      {
+        "name": "clearInterval",
+        "type": "(intervalID: number)",
+        "func_details": {
+          "params":[
+            {"name": "intervalID", "type": "number"}
+          ],
+          "return_type": "void"
+        }
+      }
+    ],
+    [
+      "Object\t[class: Object]",
+      "Object",
+      {
+        "name": "Object",
+        "type": "[class: Object]",
+        "func_details": null
+      }
+    ],
+    [
+      "Symbol\t[class: Symbol]",
+      "Symbol",
+      {
+        "name": "Symbol",
+        "type": "[class: Symbol]",
+        "func_details": null
+      }
+    ],
+    [
+      "Function\t[class: Function]",
+      "Function",
+      {
+        "name": "Symbol",
+        "type": "[class: Function]",
+        "func_details": null
+      }
+    ],
+    [
+      "Boolean\t[class: Boolean]",
+      "Boolean",
+      {
+        "name": "Boolean",
+        "type": "[class: Boolean]",
+        "func_details": null
+      }
+    ],
+    [
+      "Number\t[class: Number]",
+      "Number",
+      {
+        "name": "Number",
+        "type": "[class: Number]",
+        "func_details": null
+      }
+    ],
+    [
+      "Array\t[class: Array<T>]",
+      "Array",
+      {
+        "name": "Array",
+        "type": "[class: Array<T>]",
+        "func_details": null
+      }
+    ],
+    [
+      "String\t[class: String]",
+      "String",
+      {
+        "name": "String",
+        "type": "[class: String]",
+        "func_details": null
+      }
+    ],
+    [
+      "RegExp\t[class: RegExp]",
+      "RegExp",
+      {
+        "name": "RegExp",
+        "type": "[class: RegExp]",
+        "func_details": null
+      }
+    ],
+    [
+      "Date\t[class: Date]",
+      "Date",
+      {
+        "name": "Date",
+        "type": "[class: Date]",
+        "func_details": null
+      }
+    ],
+    [
+      "CallSite\t[class: CallSite]",
+      "CallSite",
+      {
+        "name": "CallSite",
+        "type": "[class: CallSite]",
+        "func_details": null
+      }
+    ],
+    [
+      "Error\t[class: Error]",
+      "Error",
+      {
+        "name": "Error",
+        "type": "[class: Error]",
+        "func_details": null
+      }
+    ],
+    [
+      "EvalError\t[class: EvalError]",
+      "EvalError",
+      {
+        "name": "EvalError",
+        "type": "[class: EvalError]",
+        "func_details": null
+      }
+    ],
+    [
+      "RangeError\t[class: RangeError]",
+      "RangeError",
+      {
+        "name": "RangeError",
+        "type": "[class: RangeError]",
+        "func_details": null
+      }
+    ],
+    [
+      "ReferenceError\t[class: ReferenceError]",
+      "ReferenceError",
+      {
+        "name": "ReferenceError",
+        "type": "[class: ReferenceError]",
+        "func_details": null
+      }
+    ],
+    [
+      "SyntaxError\t[class: SyntaxError]",
+      "SyntaxError",
+      {
+        "name": "SyntaxError",
+        "type": "[class: SyntaxError]",
+        "func_details": null
+      }
+    ],
+    [
+      "TypeError\t[class: TypeError]",
+      "TypeError",
+      {
+        "name": "TypeError",
+        "type": "[class: TypeError]",
+        "func_details": null
+      }
+    ],
+    [
+      "JSON\t[class: JSON]",
+      "JSON",
+      {
+        "name": "JSON",
+        "type": "[class: JSON]",
+        "func_details": null
+      }
+    ],
+    [
+      "Map\t[class: Map<K, V>]",
+      "Map",
+      {
+        "name": "Map",
+        "type": "[class: Map<K, V>]",
+        "func_details": null
+      }
+    ],
+    [
+      "WeakMap\t[class: WeakMap<K, V>]",
+      "WeakMap",
+      {
+        "name": "WeakMap",
+        "type": "[class: WeakMap<K, V>]",
+        "func_details": null
+      }
+    ],
+    [
+      "Set\t[class: Set<T>]",
+      "Set",
+      {
+        "name": "Set",
+        "type": "[class: Set<T>]",
+        "func_details": null
+      }
+    ],
+    [
+      "WeakSet\t[class: WeakSet<T: Object>]",
+      "WeakSet",
+      {
+        "name": "WeakSet",
+        "type": "[class: WeakSet<T: Object>]",
+        "func_details": null
+      }
+    ],
+    [
+      "Promise\t[class: Promise<+R>]",
+      "Promise",
+      {
+        "name": "Promise",
+        "type": "[class: Promise<+R>]",
+        "func_details": null
+      }
+    ],
+    [
+      "ArrayBuffer\t[class: ArrayBuffer]",
+      "ArrayBuffer",
+      {
+        "name": "ArrayBuffer",
+        "type": "[class: ArrayBuffer]",
+        "func_details": null
+      }
+    ],
+    [
+      "Int8Array\t[class: Int8Array]",
+      "Int8Array",
+      {
+        "name": "Int8Array",
+        "type": "[class: Int8Array]",
+        "func_details": null
+      }
+    ],
+    [
+      "Uint8Array\t[class: Uint8Array]",
+      "Uint8Array",
+      {
+        "name": "Uint8Array",
+        "type": "[class: Uint8Array]",
+        "func_details": null
+      }
+    ],
+    [
+      "Uint8ClampedArray\t[class: Uint8ClampedArray]",
+      "Uint8ClampedArray",
+      {
+        "name": "Uint8ClampedArray",
+        "type": "[class: Uint8ClampedArray]",
+        "func_details": null
+      }
+    ],
+    [
+      "Int16Array\t[class: Int16Array]",
+      "Int16Array",
+      {
+        "name": "Int16Array",
+        "type": "[class: Int16Array]",
+        "func_details": null
+      }
+    ],
+    [
+      "Uint16Array\t[class: Uint16Array]",
+      "Uint16Array",
+      {
+        "name": "Uint16Array",
+        "type": "[class: Uint16Array]",
+        "func_details": null
+      }
+    ],
+    [
+      "Int32Array\t[class: Int32Array]",
+      "Int32Array",
+      {
+        "name": "Int32Array",
+        "type": "[class: Int32Array]",
+        "func_details": null
+      }
+    ],
+    [
+      "Uint32Array\t[class: Uint32Array]",
+      "Uint32Array",
+      {
+        "name": "Uint32Array",
+        "type": "[class: Uint32Array]",
+        "func_details": null
+      }
+    ],
+    [
+      "Float32Array\t[class: Float32Array]",
+      "Float32Array",
+      {
+        "name": "Float32Array",
+        "type": "[class: Float32Array]",
+        "func_details": null
+      }
+    ],
+    [
+      "Float64Array\t[class: Float64Array]",
+      "Float64Array",
+      {
+        "name": "Float64Array",
+        "type": "[class: Float64Array]",
+        "func_details": null
+      }
+    ],
+    [
+      "DataView\t[class: DataView]",
+      "DataView",
+      {
+        "name": "DataView",
+        "type": "[class: DataView]",
+        "func_details": null
+      }
+    ],
+    [
+      "Reflect\t[class: Reflect]",
+      "Reflect",
+      {
+        "name": "Reflect",
+        "type": "[class: Reflect]",
+        "func_details": null
+      }
+    ],
+    [
+      "Proxy\t[class: Proxy<T>]",
+      "Proxy",
+      {
+        "name": "Proxy",
+        "type": "[class: Proxy<T>]",
+        "func_details": null
+      }
+    ],
+    [
+      "Blob\t[class: Blob]",
+      "Blob",
+      {
+        "name": "Blob",
+        "type": "[class: Blob]",
+        "func_details": null
+      }
+    ],
+    [
+      "FileReader\t[class: FileReader]",
+      "FileReader",
+      {
+        "name": "FileReader",
+        "type": "[class: FileReader]",
+        "func_details": null
+      }
+    ],
+    [
+      "File\t[class: File]",
+      "File",
+      {
+        "name": "File",
+        "type": "[class: File]",
+        "func_details": null
+      }
+    ],
+    [
+      "FileList\t[class: FileList]",
+      "FileList",
+      {
+        "name": "FileList",
+        "type": "[class: FileList]",
+        "func_details": null
+      }
+    ],
+    [
+      "DataTransfer\t[class: DataTransfer]",
+      "DataTransfer",
+      {
+        "name": "DataTransfer",
+        "type": "[class: DataTransfer]",
+        "func_details": null
+      }
+    ],
+    [
+      "DataTransferItemList\t[class: DataTransferItemList]",
+      "DataTransferItemList",
+      {
+        "name": "DataTransferItemList",
+        "type": "[class: DataTransferItemList]",
+        "func_details": null
+      }
+    ],
+    [
+      "DataTransferItem\t[class: DataTransferItem]",
+      "DataTransferItem",
+      {
+        "name": "DataTransferItem",
+        "type": "[class: DataTransferItem]",
+        "func_details": null
+      }
+    ],
+    [
+      "DOMError\t[class: DOMError]",
+      "DOMError",
+      {
+        "name": "DOMError",
+        "type": "[class: DOMError]",
+        "func_details": null
+      }
+    ],
+    [
+      "EventTarget\t[class: EventTarget]",
+      "EventTarget",
+      {
+        "name": "EventTarget",
+        "type": "[class: EventTarget]",
+        "func_details": null
+      }
+    ],
+    [
+      "Event\t[class: Event]",
+      "Event",
+      {
+        "name": "Event",
+        "type": "[class: Event]",
+        "func_details": null
+      }
+    ],
+    [
+      "CustomEvent\t[class: CustomEvent]",
+      "CustomEvent",
+      {
+        "name": "CustomEvent",
+        "type": "[class: CustomEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "UIEvent\t[class: UIEvent]",
+      "UIEvent",
+      {
+        "name": "UIEvent",
+        "type": "[class: UIEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "MouseEvent\t[class: MouseEvent]",
+      "MouseEvent",
+      {
+        "name": "MouseEvent",
+        "type": "[class: MouseEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "WheelEvent\t[class: WheelEvent]",
+      "WheelEvent",
+      {
+        "name": "WheelEvent",
+        "type": "[class: WheelEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "DragEvent\t[class: DragEvent]",
+      "DragEvent",
+      {
+        "name": "DragEvent",
+        "type": "[class: DragEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "ProgressEvent\t[class: ProgressEvent]",
+      "ProgressEvent",
+      {
+        "name": "ProgressEvent",
+        "type": "[class: ProgressEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "PromiseRejectionEvent\t[class: PromiseRejectionEvent]",
+      "PromiseRejectionEvent",
+      {
+        "name": "PromiseRejectionEvent",
+        "type": "[class: PromiseRejectionEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "MessageEvent\t[class: MessageEvent]",
+      "MessageEvent",
+      {
+        "name": "MessageEvent",
+        "type": "[class: MessageEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "KeyboardEvent\t[class: KeyboardEvent]",
+      "KeyboardEvent",
+      {
+        "name": "KeyboardEvent",
+        "type": "[class: KeyboardEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "AnimationEvent\t[class: AnimationEvent]",
+      "AnimationEvent",
+      {
+        "name": "AnimationEvent",
+        "type": "[class: AnimationEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "Touch\t[class: Touch]",
+      "Touch",
+      {
+        "name": "Touch",
+        "type": "[class: Touch]",
+        "func_details": null
+      }
+    ],
+    [
+      "TouchList\t[class: TouchList]",
+      "TouchList",
+      {
+        "name": "TouchList",
+        "type": "[class: TouchList]",
+        "func_details": null
+      }
+    ],
+    [
+      "TouchEvent\t[class: TouchEvent]",
+      "TouchEvent",
+      {
+        "name": "TouchEvent",
+        "type": "[class: TouchEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "Node\t[class: Node]",
+      "Node",
+      {
+        "name": "Node",
+        "type": "[class: Node]",
+        "func_details": null
+      }
+    ],
+    [
+      "NodeList\t[class: NodeList<T>]",
+      "NodeList",
+      {
+        "name": "NodeList",
+        "type": "[class: NodeList<T>]",
+        "func_details": null
+      }
+    ],
+    [
+      "NamedNodeMap\t[class: NamedNodeMap]",
+      "NamedNodeMap",
+      {
+        "name": "NamedNodeMap",
+        "type": "[class: NamedNodeMap]",
+        "func_details": null
+      }
+    ],
+    [
+      "Attr\t[class: Attr]",
+      "Attr",
+      {
+        "name": "Attr",
+        "type": "[class: Attr]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLCollection\t[class: HTMLCollection<Elem: HTMLElement>]",
+      "HTMLCollection",
+      {
+        "name": "HTMLCollection",
+        "type": "[class: HTMLCollection<Elem: HTMLElement>]",
+        "func_details": null
+      }
+    ],
+    [
+      "Document\t[class: Document]",
+      "Document",
+      {
+        "name": "Document",
+        "type": "[class: Document]",
+        "func_details": null
+      }
+    ],
+    [
+      "DocumentFragment\t[class: DocumentFragment]",
+      "DocumentFragment",
+      {
+        "name": "DocumentFragment",
+        "type": "[class: DocumentFragment]",
+        "func_details": null
+      }
+    ],
+    [
+      "Selection\t[class: Selection]",
+      "Selection",
+      {
+        "name": "Selection",
+        "type": "[class: Selection]",
+        "func_details": null
+      }
+    ],
+    [
+      "Range\t[class: Range]",
+      "Range",
+      {
+        "name": "Range",
+        "type": "[class: Range]",
+        "func_details": null
+      }
+    ],
+    [
+      "DOMTokenList\t[class: DOMTokenList]",
+      "DOMTokenList",
+      {
+        "name": "DOMTokenList",
+        "type": "[class: DOMTokenList]",
+        "func_details": null
+      }
+    ],
+    [
+      "Element\t[class: Element]",
+      "Element",
+      {
+        "name": "Element",
+        "type": "[class: Element]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLElement\t[class: HTMLElement]",
+      "HTMLElement",
+      {
+        "name": "HTMLElement",
+        "type": "[class: HTMLElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLSlotElement\t[class: HTMLSlotElement]",
+      "HTMLSlotElement",
+      {
+        "name": "HTMLSlotElement",
+        "type": "[class: HTMLSlotElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLTableElement\t[class: HTMLTableElement]",
+      "HTMLTableElement",
+      {
+        "name": "HTMLTableElement",
+        "type": "[class: HTMLTableElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLTableCaptionElement\t[class: HTMLTableCaptionElement]",
+      "HTMLTableCaptionElement",
+      {
+        "name": "HTMLTableCaptionElement",
+        "type": "[class: HTMLTableCaptionElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLTableSectionElement\t[class: HTMLTableSectionElement]",
+      "HTMLTableSectionElement",
+      {
+        "name": "HTMLTableSectionElement",
+        "type": "[class: HTMLTableSectionElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLTableCellElement\t[class: HTMLTableCellElement]",
+      "HTMLTableCellElement",
+      {
+        "name": "HTMLTableCellElement",
+        "type": "[class: HTMLTableCellElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLTableRowElement\t[class: HTMLTableRowElement]",
+      "HTMLTableRowElement",
+      {
+        "name": "HTMLTableRowElement",
+        "type": "[class: HTMLTableRowElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLMenuElement\t[class: HTMLMenuElement]",
+      "HTMLMenuElement",
+      {
+        "name": "HTMLMenuElement",
+        "type": "[class: HTMLMenuElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLBaseElement\t[class: HTMLBaseElement]",
+      "HTMLBaseElement",
+      {
+        "name": "HTMLBaseElement",
+        "type": "[class: HTMLBaseElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLTemplateElement\t[class: HTMLTemplateElement]",
+      "HTMLTemplateElement",
+      {
+        "name": "HTMLTemplateElement",
+        "type": "[class: HTMLTemplateElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "CanvasGradient\t[class: CanvasGradient]",
+      "CanvasGradient",
+      {
+        "name": "CanvasGradient",
+        "type": "[class: CanvasGradient]",
+        "func_details": null
+      }
+    ],
+    [
+      "CanvasPattern\t[class: CanvasPattern]",
+      "CanvasPattern",
+      {
+        "name": "CanvasPattern",
+        "type": "[class: CanvasPattern]",
+        "func_details": null
+      }
+    ],
+    [
+      "ImageBitmap\t[class: ImageBitmap]",
+      "ImageBitmap",
+      {
+        "name": "ImageBitmap",
+        "type": "[class: ImageBitmap]",
+        "func_details": null
+      }
+    ],
+    [
+      "HitRegionOptions\t[class: HitRegionOptions]",
+      "HitRegionOptions",
+      {
+        "name": "HitRegionOptions",
+        "type": "[class: HitRegionOptions]",
+        "func_details": null
+      }
+    ],
+    [
+      "CanvasDrawingStyles\t[class: CanvasDrawingStyles]",
+      "CanvasDrawingStyles",
+      {
+        "name": "CanvasDrawingStyles",
+        "type": "[class: CanvasDrawingStyles]",
+        "func_details": null
+      }
+    ],
+    [
+      "SVGMatrix\t[class: SVGMatrix]",
+      "SVGMatrix",
+      {
+        "name": "SVGMatrix",
+        "type": "[class: SVGMatrix]",
+        "func_details": null
+      }
+    ],
+    [
+      "TextMetrics\t[class: TextMetrics]",
+      "TextMetrics",
+      {
+        "name": "TextMetrics",
+        "type": "[class: TextMetrics]",
+        "func_details": null
+      }
+    ],
+    [
+      "Path\t[class: Path]",
+      "Path",
+      {
+        "name": "Path",
+        "type": "[class: Path]",
+        "func_details": null
+      }
+    ],
+    [
+      "ImageData\t[class: ImageData]",
+      "ImageData",
+      {
+        "name": "ImageData",
+        "type": "[class: ImageData]",
+        "func_details": null
+      }
+    ],
+    [
+      "CanvasRenderingContext\t[class: CanvasRenderingContext]",
+      "CanvasRenderingContext",
+      {
+        "name": "CanvasRenderingContext",
+        "type": "[class: CanvasRenderingContext]",
+        "func_details": null
+      }
+    ],
+    [
+      "WebGLRenderingContext\t[class: WebGLRenderingContext]",
+      "WebGLRenderingContext",
+      {
+        "name": "WebGLRenderingContext",
+        "type": "[class: WebGLRenderingContext]",
+        "func_details": null
+      }
+    ],
+    [
+      "WebGLContextEvent\t[class: WebGLContextEvent]",
+      "WebGLContextEvent",
+      {
+        "name": "WebGLContextEvent",
+        "type": "[class: WebGLContextEvent]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLCanvasElement\t[class: HTMLCanvasElement]",
+      "HTMLCanvasElement",
+      {
+        "name": "HTMLCanvasElement",
+        "type": "[class: HTMLCanvasElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLFormElement\t[class: HTMLFormElement]",
+      "HTMLFormElement",
+      {
+        "name": "HTMLFormElement",
+        "type": "[class: HTMLFormElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLIFrameElement\t[class: HTMLIFrameElement]",
+      "HTMLIFrameElement",
+      {
+        "name": "HTMLIFrameElement",
+        "type": "[class: HTMLIFrameElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLImageElement\t[class: HTMLImageElement]",
+      "HTMLImageElement",
+      {
+        "name": "HTMLImageElement",
+        "type": "[class: HTMLImageElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "Image\t[class: Image]",
+      "Image",
+      {
+        "name": "Image",
+        "type": "[class: Image]",
+        "func_details": null
+      }
+    ],
+    [
+      "MediaError\t[class: MediaError]",
+      "MediaError",
+      {
+        "name": "MediaError",
+        "type": "[class: MediaError]",
+        "func_details": null
+      }
+    ],
+    [
+      "TimeRanges\t[class: TimeRanges]",
+      "TimeRanges",
+      {
+        "name": "TimeRanges",
+        "type": "[class: TimeRanges]",
+        "func_details": null
+      }
+    ],
+    [
+      "AudioTrack\t[class: AudioTrack]",
+      "AudioTrack",
+      {
+        "name": "AudioTrack",
+        "type": "[class: AudioTrack]",
+        "func_details": null
+      }
+    ],
+    [
+      "AudioTrackList\t[class: AudioTrackList]",
+      "AudioTrackList",
+      {
+        "name": "AudioTrackList",
+        "type": "[class: AudioTrackList]",
+        "func_details": null
+      }
+    ],
+    [
+      "VideoTrack\t[class: VideoTrack]",
+      "VideoTrack",
+      {
+        "name": "VideoTrack",
+        "type": "[class: VideoTrack]",
+        "func_details": null
+      }
+    ],
+    [
+      "VideoTrackList\t[class: VideoTrackList]",
+      "VideoTrackList",
+      {
+        "name": "VideoTrackList",
+        "type": "[class: VideoTrackList]",
+        "func_details": null
+      }
+    ],
+    [
+      "TextTrackCue\t[class: TextTrackCue]",
+      "TextTrackCue",
+      {
+        "name": "TextTrackCue",
+        "type": "[class: TextTrackCue]",
+        "func_details": null
+      }
+    ],
+    [
+      "TextTrackCueList\t[class: TextTrackCueList]",
+      "TextTrackCueList",
+      {
+        "name": "TextTrackCueList",
+        "type": "[class: TextTrackCueList]",
+        "func_details": null
+      }
+    ],
+    [
+      "TextTrack\t[class: TextTrack]",
+      "TextTrack",
+      {
+        "name": "TextTrack",
+        "type": "[class: TextTrack]",
+        "func_details": null
+      }
+    ],
+    [
+      "TextTrackList\t[class: TextTrackList]",
+      "TextTrackList",
+      {
+        "name": "TextTrackList",
+        "type": "[class: TextTrackList]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLMediaElement\t[class: HTMLMediaElement]",
+      "HTMLMediaElement",
+      {
+        "name": "HTMLMediaElement",
+        "type": "[class: HTMLMediaElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLAudioElement\t[class: HTMLAudioElement]",
+      "HTMLAudioElement",
+      {
+        "name": "HTMLAudioElement",
+        "type": "[class: HTMLAudioElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLVideoElement\t[class: HTMLVideoElement]",
+      "HTMLVideoElement",
+      {
+        "name": "HTMLVideoElement",
+        "type": "[class: HTMLVideoElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLSourceElement\t[class: HTMLSourceElement]",
+      "HTMLSourceElement",
+      {
+        "name": "HTMLSourceElement",
+        "type": "[class: HTMLSourceElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "ValidityState\t[class: ValidityState]",
+      "ValidityState",
+      {
+        "name": "ValidityState",
+        "type": "[class: ValidityState]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLInputElement\t[class: HTMLInputElement]",
+      "HTMLInputElement",
+      {
+        "name": "HTMLInputElement",
+        "type": "[class: HTMLInputElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLButtonElement\t[class: HTMLButtonElement]",
+      "HTMLButtonElement",
+      {
+        "name": "HTMLButtonElement",
+        "type": "[class: HTMLButtonElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLTextAreaElement\t[class: HTMLTextAreaElement]",
+      "HTMLTextAreaElement",
+      {
+        "name": "HTMLTextAreaElement",
+        "type": "[class: HTMLTextAreaElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLSelectElement\t[class: HTMLSelectElement]",
+      "HTMLSelectElement",
+      {
+        "name": "HTMLSelectElement",
+        "type": "[class: HTMLSelectElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLOptionsCollection\t[class: HTMLOptionsCollection]",
+      "HTMLOptionsCollection",
+      {
+        "name": "HTMLOptionsCollection",
+        "type": "[class: HTMLOptionsCollection]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLOptionElement\t[class: HTMLOptionElement]",
+      "HTMLOptionElement",
+      {
+        "name": "HTMLOptionElement",
+        "type": "[class: HTMLOptionElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLOptGroupElement\t[class: HTMLOptGroupElement]",
+      "HTMLOptGroupElement",
+      {
+        "name": "HTMLOptGroupElement",
+        "type": "[class: HTMLOptGroupElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLAnchorElement\t[class: HTMLAnchorElement]",
+      "HTMLAnchorElement",
+      {
+        "name": "HTMLAnchorElement",
+        "type": "[class: HTMLAnchorElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLLabelElement\t[class: HTMLLabelElement]",
+      "HTMLLabelElement",
+      {
+        "name": "HTMLLabelElement",
+        "type": "[class: HTMLLabelElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLLinkElement\t[class: HTMLLinkElement]",
+      "HTMLLinkElement",
+      {
+        "name": "HTMLLinkElement",
+        "type": "[class: HTMLLinkElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLScriptElement\t[class: HTMLScriptElement]",
+      "HTMLScriptElement",
+      {
+        "name": "HTMLScriptElement",
+        "type": "[class: HTMLScriptElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLStyleElement\t[class: HTMLStyleElement]",
+      "HTMLStyleElement",
+      {
+        "name": "HTMLStyleElement",
+        "type": "[class: HTMLStyleElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLParagraphElement\t[class: HTMLParagraphElement]",
+      "HTMLParagraphElement",
+      {
+        "name": "HTMLParagraphElement",
+        "type": "[class: HTMLParagraphElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLDivElement\t[class: HTMLDivElement]",
+      "HTMLDivElement",
+      {
+        "name": "HTMLDivElement",
+        "type": "[class: HTMLDivElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLSpanElement\t[class: HTMLSpanElement]",
+      "HTMLSpanElement",
+      {
+        "name": "HTMLSpanElement",
+        "type": "[class: HTMLSpanElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLAppletElement\t[class: HTMLAppletElement]",
+      "HTMLAppletElement",
+      {
+        "name": "HTMLAppletElement",
+        "type": "[class: HTMLAppletElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLEmbedElement\t[class: HTMLEmbedElement]",
+      "HTMLEmbedElement",
+      {
+        "name": "HTMLEmbedElement",
+        "type": "[class: HTMLEmbedElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "HTMLMetaElement\t[class: HTMLMetaElement]",
+      "HTMLMetaElement",
+      {
+        "name": "HTMLMetaElement",
+        "type": "[class: HTMLMetaElement]",
+        "func_details": null
+      }
+    ],
+    [
+      "TextRange\t[class: TextRange]",
+      "TextRange",
+      {
+        "name": "TextRange",
+        "type": "[class: TextRange]",
+        "func_details": null
+      }
+    ],
+    [
+      "ClientRect\t[class: ClientRect]",
+      "ClientRect",
+      {
+        "name": "ClientRect",
+        "type": "[class: ClientRect]",
+        "func_details": null
+      }
+    ],
+    [
+      "ClientRectList\t[class: ClientRectList]",
+      "ClientRectList",
+      {
+        "name": "ClientRectList",
+        "type": "[class: ClientRectList]",
+        "func_details": null
+      }
+    ],
+    [
+      "DOMImplementation\t[class: DOMImplementation]",
+      "DOMImplementation",
+      {
+        "name": "DOMImplementation",
+        "type": "[class: DOMImplementation]",
+        "func_details": null
+      }
+    ],
+    [
+      "DocumentType\t[class: DocumentType]",
+      "DocumentType",
+      {
+        "name": "DocumentType",
+        "type": "[class: DocumentType]",
+        "func_details": null
+      }
+    ],
+    [
+      "CharacterData\t[class: CharacterData]",
+      "CharacterData",
+      {
+        "name": "CharacterData",
+        "type": "[class: CharacterData]",
+        "func_details": null
+      }
+    ],
+    [
+      "Text\t[class: Text]",
+      "Text",
+      {
+        "name": "Text",
+        "type": "[class: Text]",
+        "func_details": null
+      }
+    ],
+    [
+      "Comment\t[class: Comment]",
+      "Comment",
+      {
+        "name": "Comment",
+        "type": "[class: Comment]",
+        "func_details": null
+      }
+    ],
+    [
+      "URL\t[class: URL]",
+      "URL",
+      {
+        "name": "URL",
+        "type": "[class: URL]",
+        "func_details": null
+      }
+    ],
+    [
+      "MediaSource\t[class: MediaSource]",
+      "MediaSource",
+      {
+        "name": "MediaSource",
+        "type": "[class: MediaSource]",
+        "func_details": null
+      }
+    ],
+    [
+      "SourceBuffer\t[class: SourceBuffer]",
+      "SourceBuffer",
+      {
+        "name": "SourceBuffer",
+        "type": "[class: SourceBuffer]",
+        "func_details": null
+      }
+    ],
+    [
+      "SourceBufferList\t[class: SourceBufferList]",
+      "SourceBufferList",
+      {
+        "name": "SourceBufferList",
+        "type": "[class: SourceBufferList]",
+        "func_details": null
+      }
+    ],
+    [
+      "Storage\t[class: Storage]",
+      "Storage",
+      {
+        "name": "Storage",
+        "type": "[class: Storage]",
+        "func_details": null
+      }
+    ],
+    [
+      "TrackDefaultList\t[class: TrackDefaultList]",
+      "TrackDefaultList",
+      {
+        "name": "TrackDefaultList",
+        "type": "[class: TrackDefaultList]",
+        "func_details": null
+      }
+    ],
+    [
+      "TrackDefault\t[class: TrackDefault]",
+      "TrackDefault",
+      {
+        "name": "TrackDefault",
+        "type": "[class: TrackDefault]",
+        "func_details": null
+      }
+    ],
+    [
+      "NodeFilter\t[class: NodeFilter]",
+      "NodeFilter",
+      {
+        "name": "NodeFilter",
+        "type": "[class: NodeFilter]",
+        "func_details": null
+      }
+    ],
+    [
+      "NodeIterator\t[class: NodeIterator<RootNodeT, WhatToShowT>]",
+      "NodeIterator",
+      {
+        "name": "NodeIterator",
+        "type": "[class: NodeIterator<RootNodeT, WhatToShowT>]",
+        "func_details": null
+      }
+    ],
+    [
+      "TreeWalker\t[class: TreeWalker<RootNodeT, WhatToShowT>]",
+      "TreeWalker",
+      {
+        "name": "TreeWalker",
+        "type": "[class: TreeWalker<RootNodeT, WhatToShowT>]",
+        "func_details": null
+      }
+    ],
+    [
+      "document\tDocument",
+      "document"
+    ],
+    [
+      "event\tEvent",
+      "event"
+    ],
+    [
+      "localStorage\tStorage",
+      "localStorage"
+    ],
+    [
+      "parent\tWindowProxy",
+      "parent"
+    ],
+    [
+      "self\tany",
+      "self"
+    ],
+    [
+      "sessionStorage\tStorage",
+      "sessionStorage"
+    ],
+    [
+      "status\tstring",
+      "status"
+    ],
+    [
+      "top\tWindowProxy",
+      "top"
+    ],
+    [
+      "customElements\tCustomElementRegistry",
+      "customElements"
+    ],
+    [
+      "alert\t(message?: any) => void",
+      "alert",
+      {
+        "name": "alert",
+        "type": "(message?: any)",
+        "func_details": {
+          "params": [
+            {
+              "name": "message?",
+              "type": "any"
+            }
+          ],
+          "return_type": "void"
+        }
+      }
+    ],
+    [
+      "prompt\t(message?: any, value?: any) => string",
+      "prompt",
+      {
+        "name": "prompt",
+        "type": "(message?: any, value?: any)",
+        "func_details": {
+          "params": [
+            {
+              "name": "message?",
+              "type": "any"
+            },
+            {
+              "name": "value?",
+              "type": "any"
+            }
+          ],
+          "return_type": "string"
+        }
+      }
+    ],
+    [
+      "close\t() => void",
+      "close",
+      {
+        "name": "close",
+        "type": "()",
+        "func_details": {
+          "params": [],
+          "return_type": "void"
+        }
+      }
+    ],
+    [
+      "confirm\t(message?: string) => boolean",
+      "confirm",
+      {
+        "name": "confirm",
+        "type": "(message?: string)",
+        "func_details": {
+          "params": [
+            {
+              "name": "message?",
+              "type": "string"
+            }
+          ],
+          "return_type": "boolean"
+        }
+      }
+    ],
+    [
+      "getComputedStyle\t(elt: Element, pseudoElt?: string) => any",
+      "getComputedStyle",
+      {
+        "name": "getComputedStyle",
+        "type": "(elt: Element, pseudoElt?: string)",
+        "func_details": {
+          "params": [
+            {
+              "name": "elt",
+              "type": "Element"
+            },
+            {
+              "name": "pseudoElt?",
+              "type": "string"
+            }
+          ],
+          "return_type": "any"
+        }
+      }
+    ],
+    [
+      "requestAnimationFrame\t(callback: (timestamp: number) => void) => number",
+      "requestAnimationFrame",
+      {
+        "name": "requestAnimationFrame",
+        "type": "(callback: (timestamp: number) => void)",
+        "func_details": {
+          "params": [
+            {
+              "name": "callback",
+              "type": "(timestamp: number)"
+            }
+          ],
+          "return_type": "number"
+        }
+      }
+    ],
+    [
+      "cancelAnimationFrame\t(requestId: number) => void",
+      "cancelAnimationFrame",
+      {
+        "name": "cancelAnimationFrame",
+        "type": "(requestId: number)",
+        "func_details": {
+          "params": [
+            {
+              "name": "requestId",
+              "type": "number"
+            }
+          ],
+          "return_type": "void"
+        }
+      }
+    ],
+    [
+      "requestIdleCallback\t(cb: (deadline: {didTimeout: boolean, timeRemaining: () => number}) => void,   opts?: {timeout: number},) => number",
+      "requestIdleCallback",
+      {
+        "name": "requestIdleCallback",
+        "type": "(cb: (deadline: {didTimeout: boolean, timeRemaining: () => number}) => void,   opts?: {timeout: number},)",
+        "func_details": {
+          "params": [
+            {
+              "name": "cb",
+              "type": "(deadline: {didTimeout: boolean, timeRemaining: () => number})"
+            },
+            {
+              "name": "timeout",
+              "type": "number"
+            }
+          ],
+          "return_type": "number"
+        }
+      }
+    ],
+    [
+      "cancelIdleCallback\t(id: number) => void",
+      "cancelIdleCallback",
+      {
+        "name": "cancelIdleCallback",
+        "type": "(id: number)",
+        "func_details": {
+          "params": [
+            {
+              "name": "id",
+              "type": "number"
+            }
+          ],
+          "return_type": "void"
+        }
+      }
+    ],
+    [
+      "focus\t() => void",
+      "focus",
+      {
+        "name": "focus",
+        "type": "()",
+        "func_details": {
+          "params": [],
+          "return_type": "void"
+        }
+      }
+    ],
+    [
+      "onfocus\t(ev: Event) => any",
+      "onfocus",
+      {
+        "name": "onfocus",
+        "type": "(ev: Event)",
+        "func_details": {
+          "params": [
+            {
+              "name": "ev",
+              "type": "Event"
+            }
+          ],
+          "return_type": "any"
+        }
+      }
+    ],
+    [
+      "onmessage\t(ev: MessageEvent) => any",
+      "onmessage",
+      {
+        "name": "onmessage",
+        "type": "(ev: MessageEvent)",
+        "func_details": {
+          "params": [
+            {
+              "name": "ev",
+              "type": "MessageEvent"
+            }
+          ],
+          "return_type": "any"
+        }
+      }
+    ],
+    [
+      "open\t(url?: string, target?: string, features?: string, replace?: boolean) => any",
+      "open",
+      {
+        "name": "open",
+        "type": "(url?: string, target?: string, features?: string, replace?: boolean)",
+        "func_details": {
+          "params": [
+            {
+              "name": "url?",
+              "type": "string"
+            },
+            {
+              "name": "target?",
+              "type": "string"
+            },
+            {
+              "name": "features?",
+              "type": "string"
+            },
+            {
+              "name": "replace?",
+              "type": "boolean"
+            }
+          ],
+          "return_type": "any"
+        }
+      }
+    ],
+    [
+      "print\t() => void",
+      "print",
+      {
+        "name": "print",
+        "type": "()",
+        "func_details": {
+          "params": [],
+          "return_type": "void"
+        }
+      }
+    ],
+    [
+      "getSelection\t() => Selection | null",
+      "getSelection",
+      {
+        "name": "getSelection",
+        "type": "()",
+        "func_details": {
+          "params": [],
+          "return_type": "Selection | null"
+        }
+      }
+    ]
+  ]
+}
+

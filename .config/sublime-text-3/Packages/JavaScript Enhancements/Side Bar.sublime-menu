@@ -1,0 +1,35 @@
+[
+	{
+    "caption": "Open TerminalView Here…", 
+    "id": "javascript_enhancements_open_termival_view_here",
+    "command": "javascript_enhancements_open_termival_view_here" 
+  },
+  { "caption": "-" },
+  {
+    "caption": "JavaScript Refactor",
+    "id": "javascript_enhancements_refactor",
+    "children": [
+      {
+        "caption": "Safe Copy",
+        "command": "javascript_enhancements_refactor",
+        "args": {
+          "case": "safe_copy"
+        }
+      },
+      {
+        "caption": "Safe Move",
+        "command": "javascript_enhancements_refactor",
+        "args": {
+          "case": "safe_move"
+        }
+      },
+      {
+        "caption": "Safe Delete",
+        "command": "javascript_enhancements_refactor",
+        "args": {
+          "case": "safe_delete"
+        }
+      }
+    ]
+  },
+]

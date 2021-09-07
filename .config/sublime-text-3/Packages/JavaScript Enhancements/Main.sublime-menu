@@ -1,0 +1,283 @@
+[ 
+  {
+    "caption": "Tools",
+    "id": "tools",
+    "children": [
+      {
+        "caption": "JavaScript Refactor",
+        "id": "javascript_enhancements_refactor",
+        "children": [
+          {
+            "caption": "Converto to arrow function",
+            "command": "javascript_enhancements_refactor",
+            "args": {
+              "case": "convert_to_arrow_function"
+            }
+          },
+          { "caption": "-" },
+          {
+            "caption": "Export",
+            "children": [
+              {
+                "caption": "Function",
+                "command": "javascript_enhancements_refactor",
+                "args": {
+                  "case": "export",
+                  "type": "function"
+                }
+              },
+              {
+                "caption": "Class",
+                "command": "javascript_enhancements_refactor",
+                "args": {
+                  "case": "export",
+                  "type": "class"
+                }
+              },
+              {
+                "caption": "Variable",
+                "command": "javascript_enhancements_refactor",
+                "args": {
+                  "case": "export",
+                  "type": "variable"
+                }
+              }
+            ] 
+          },
+          { "caption": "-" },
+          {
+            "caption": "Safe Copy",
+            "command": "javascript_enhancements_refactor",
+            "args": {
+              "case": "safe_copy"
+            }
+          },
+          {
+            "caption": "Safe Move",
+            "command": "javascript_enhancements_refactor",
+            "args": {
+              "case": "safe_move"
+            }
+          },
+          {
+            "caption": "Safe Delete",
+            "command": "javascript_enhancements_refactor",
+            "args": {
+              "case": "safe_delete"
+            }
+          },
+          { "caption": "-" },
+          {
+            "caption": "Extract",
+            "children": [
+              {
+                "caption": "Variable",
+                "command": "javascript_enhancements_refactor",
+                "args": {
+                  "case": "extract_variable"
+                }
+              },
+              {
+                "caption": "Field",
+                "command": "javascript_enhancements_refactor",
+                "args": {
+                  "case": "extract_field"
+                }
+              },
+              {
+                "caption": "Parameter",
+                "command": "javascript_enhancements_refactor",
+                "args": {
+                  "case": "extract_parameter"
+                }
+              },
+              { "caption": "-" },
+              {
+                "caption": "Method",
+                "command": "javascript_enhancements_refactor",
+                "args": {
+                  "case": "extract_method"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "caption": "JavaScript Enhancements",
+        "mnemonic": "J",
+        "id": "javascript_enhancements_tools",
+        "children":[    
+          {
+            "caption": "Use Flow checker on current view (Not used in project)",
+            "id": "javascript_enhancements_use_flow_checker_on_current_view",
+            "checkbox": true,
+            "command": "toggle_setting",
+            "args": {"setting": "javascript_enhancements_use_flow_checker_on_current_view"}
+          },
+          {
+            "caption": "Flow Goto Definition",
+            "id": "javascript_enhancements_go_to_definition",
+            "command": "javascript_enhancements_go_to_definition"
+          },
+          {
+            "caption": "Show Hint Parameters",
+            "id": "javascript_enhancements_show_hint_parameters",
+            "command": "javascript_enhancements_show_hint_parameters"
+          },
+          {
+            "caption": "Show Completions",
+            "id": "javascript_enhancements_show_completions",
+            "command": "auto_complete",
+            "args": {
+              "disable_auto_insert": true,
+              "api_completions_only": false,
+              "next_completion_if_showing": false,
+              "auto_complete_commit_on_tab": true,
+            }
+          },
+          {
+            "caption": "Search on \"Can I use\" list",
+            "id": "javascript_enhancements_can_i_use_list",
+            "command": "javascript_enhancements_can_i_use",
+            "args": {"from": "main-menu"}
+          },
+          {
+            "caption": "Show Bookmarks Options",
+            "id": "javascript_enhancements_show_bookmarks_options",
+            "command": "show_overlay" ,
+            "args": {"overlay": "command_palette", "text": "JavaScript Enhancements Bookmarks: "}
+          },
+          {
+            "caption": "Take a code screenshot (up to 3400 chars)",
+            "id": "javascript_enhancements_carbon",
+            "command": "javascript_enhancements_carbon" 
+          },
+          { "caption": "-" },
+          {
+            "caption": "JSDoc",
+            "id": "javascript_enhancements_jsdoc",
+            "children": [
+              {
+                "caption": "Generate Documentation",
+                "command": "javascript_enhancements_generate_jsdoc"
+              },
+              {
+                "caption": "Add a jsdoc configuration file",
+                "command": "javascript_enhancements_add_jsdoc_conf"
+              },
+              { "caption": "-" },
+              {
+                "caption": "Go to JSDoc Site",
+                "command": "open_url",
+                "args": {"url": "http://usejsdoc.org/"}
+              }
+            ]
+          },
+          { "caption": "-" },
+          {
+            "caption": ".flowconfig docs",
+            "command": "open_url",
+            "args": {"url": "https://flow.org/en/docs/config/"}
+          },
+          { "caption": "-" },
+          {
+            "caption": "GitHub Project",
+            "command": "open_url",
+            "args": {"url": "https://github.com/pichillilorenzo/JavaScriptEnhancements"}
+          },
+          {
+            "caption": "Plugin introduction",
+            "command": "open_url",
+            "args": {"url": "https://css-tricks.com/turn-sublime-text-3-into-a-javascript-ide"}
+          },
+          {
+            "caption": "Donate to this Project",
+            "children": [
+              {
+                "caption": "PayPal",
+                "command": "open_url",
+                "args": {"url": "https://www.paypal.me/LorenzoPichilli"}
+              },
+              {
+                "caption": "Patreon",
+                "command": "open_url",
+                "args": {"url": "https://www.patreon.com/bePatron?u=9269604"}
+              },
+              {
+                "caption": "Open Collective",
+                "command": "open_url",
+                "args": {"url": "https://opencollective.com/javascriptenhancements"}
+              }
+            ]
+                
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "caption": "Project",
+    "id": "project",
+    "children":
+    [
+      { "caption": "-" },
+      {
+        "caption": "Create JavaScript Project",
+        "command": "javascript_enhancements_create_new_project",
+        "id": "javascript_enhancements_create_new_project"
+      },
+      {
+        "caption": "Add JavaScript Project type",
+        "command": "javascript_enhancements_add_project_type",
+        "id": "javascript_enhancements_add_project_type",
+      },
+      {
+        "caption": "Add JavaScript type configuration",
+        "command": "javascript_enhancements_add_project_type_configuration",
+        "id": "javascript_enhancements_add_project_type_configuration"
+      }
+    ]
+  },
+  {
+    "caption": "Preferences",
+    "mnemonic": "n",
+    "id": "preferences",
+    "children": [
+      {
+        "caption": "Package Settings",
+        "mnemonic": "P",
+        "id": "package-settings",
+        "children": [
+          {
+            "caption": "JavaScript Enhancements",
+            "children": [
+              {
+                "caption": "Settings",
+                "command": "edit_settings",
+                "args": {
+                  "base_file": "${packages}/JavaScript Enhancements/JavaScript Enhancements.sublime-settings", 
+                  "default": "{}"
+                }
+              },
+              { "caption": "-" },
+              {
+                  "command": "edit_settings",
+                  "args": {
+                      "base_file": "${packages}/JavaScript Enhancements/Default.sublime-keymap",
+                      "default": "{}"
+                  },
+                  "caption": "Key Bindings"
+              },
+              { "caption": "-" },
+              {
+                "caption": "Version",
+                "command": "javascript_enhancements_show_version"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
