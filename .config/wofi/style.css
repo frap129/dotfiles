@@ -1,0 +1,67 @@
+@define-color clear rgba(0, 0, 0, 0);
+@define-color highlight rgba(255, 255, 255, 0.9);
+@define-color primary rgba(0, 0, 0, 0.9);
+
+window {
+    margin: 0px;
+    border: 0px solid;
+    background-color: @clear;
+    border-radius: 16px;
+}
+
+#input {
+    margin: 0px;
+    border: 2px solid @highlight;
+    border-radius: 16px;
+    color: @highlight;
+    background-color: @primary;
+}
+
+#input:selected {
+    border: 2px solid @primary;
+    border-radius: 8px;
+    color: @primary;
+    background-color: @highlight;
+}
+
+
+#inner-box {
+    margin: 0px;
+    border: none;
+    background-color: @clear;
+    border-radius: 8px;
+}
+
+#outer-box {
+    margin: 0px;
+    border: none;
+    border-radius: 8px;
+    background-color: @clear;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text:selected {
+    color: @primary;
+    margin: 0px 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: none;
+}
+
+#entry {
+    margin: 2px 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: @primary;
+}
+
+#entry:selected {
+    margin: 2px 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: @highlight;
+}
