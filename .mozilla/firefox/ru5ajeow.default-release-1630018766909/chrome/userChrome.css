@@ -1,0 +1,32 @@
+@import "autohide-sidebar.css";
+/*#TabsToolbar {
+  visibility: collapse !important;
+}*/
+
+#sidebar-header {
+  display: none;
+} 
+
+#main-window #TabsToolbar {
+  height: 48px !important;
+  overflow: hidden;
+  transition: height .1s .1s !important;
+}
+
+#main-window[titlepreface*="‎"] #TabsToolbar {
+  height: 0 !important;
+}
+
+#main-window[titlepreface*="‎"] #tabbrowser-tabs {
+  z-index: 0 !important;
+}
+
+#mainPopupSet .menupopup-arrowscrollbox {
+  border-radius: 8px !important;
+  --menu-color: var(--lwt-text-color) !important;
+  --menu-background-color: var(--lwt-accent-color) !important;
+  --menu-border-color: var(--lwt-text-color) !important;
+  /* Create a neutral hover background (25% white haze) */
+  --menuitem-hover-background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
