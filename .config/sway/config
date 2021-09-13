@@ -4,6 +4,12 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+### Style
+default_border none
+include "$HOME/.cache/wal/colors-sway"
+output * background $wallpaper fill
+client.focused $color0 $background $foreground $color7 $background
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -13,7 +19,6 @@ set $launchvars STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/ \
          _JAVA_AWT_WM_NONREPARENTING=1
 
 set $menu '$launchvars wofi'
-set $wallpaper /home/frap129/Downloads/luffyVkaido.png
 set $lock swaylock -e --daemonize \
          --image $wallpaper \
          --clock \
@@ -24,13 +29,7 @@ set $sleep systemctl suspend
 set $notif swaync-client -t
 set $laptop eDP-1
 
-### Style
-default_border none
-
 ### Output configuration
-
-output * bg $wallpaper fill
-
 # Disable built-in display on close
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
