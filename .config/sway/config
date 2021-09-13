@@ -31,7 +31,7 @@ set $laptop eDP-1
 
 ### Output configuration
 # Disable built-in display on close
-bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:on exec '[ $(swaymsg -t get_outputs | grep name | wc -l) == 1 ] && ($sleep) || ($notify "Clamshell mode" "Laptop screen off" && swaymsg output $laptop disable)'
 bindswitch --reload --locked lid:off output $laptop enable
 
 ### Idle configuration
