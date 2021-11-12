@@ -16,7 +16,7 @@ client.focused $color0 $background $foreground $color7 $background
 set $mod Mod4
 set $term terminator
 set $launchvars STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/ \
-         _JAVA_AWT_WM_NONREPARENTING=1
+         _JAVA_AWT_WM_NONREPARENTING=1 MOZ_ENABLE_WAYLAND=1 GDK_BACKEND=wayland
 
 set $menu '$launchvars wofi'
 set $run 'wofi --show=run --conf=~/.config/wofi/config'

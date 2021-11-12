@@ -12,7 +12,7 @@
     font = Cozette Medium 11
     foreground_color = "#b3b1ad"
     show_titlebar = False
-    palette = "#0a0d0f:#354857:#51474e:#645556:#9e664d:#deb45b:#4e5fa8:#b2bbd1:#7c8292:#354857:#51474e:#645556:#9e664d:#deb45b:#4e5fa8:#b2bbd1"
+    palette = "#0a0d0f:#9b9468:#3d432b:#626236:#6a6a4a:#837d54:#2a4d32:#dad5c5:#989589:#9b9468:#3d432b:#626236:#6a6a4a:#837d54:#2a4d32:#dad5c5"
     use_system_font = False
 [layouts]
   [[default]]
