@@ -1,0 +1,17 @@
+set $color0lock {color0.strip}
+set $color1lock {color1.strip}
+set $color2lock {color2.strip}
+set $color3lock {color3.strip}
+set $color4lock {color4.strip}
+set $color5lock {color5.strip}
+set $color6lock {color6.strip}
+set $color7lock {color7.strip}
+set $color8lock {color8.strip}
+set $color9lock {color9.strip}
+set $color10lock {color10.strip}
+set $color11lock {color11.strip}
+set $color12lock {color12.strip}
+set $color13lock {color13.strip}
+set $color14lock {color14.strip}
+set $color15lock {color15.strip}
+set $backgroundlock {background.strip}
