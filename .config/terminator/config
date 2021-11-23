@@ -5,14 +5,14 @@
   broadcast_all = <Primary><Shift><Alt><Super>a
 [profiles]
   [[default]]
-    background_color = "#0d1016"
+    background_color = "#0a0412"
     background_darkness = 0.8
     background_type = transparent
     cursor_color = "#aaaaaa"
     font = Cozette Medium 11
     foreground_color = "#b3b1ad"
     show_titlebar = False
-    palette = "#0a0d0f:#9b9468:#3d432b:#626236:#6a6a4a:#837d54:#2a4d32:#dad5c5:#989589:#9b9468:#3d432b:#626236:#6a6a4a:#837d54:#2a4d32:#dad5c5"
+    palette = "#0a0412:#9e5f65:#32ae5b:#658e79:#b39774:#715693:#679f88:#fffdd4:#6a938c:#9e5f65:#32ae5b:#658e79:#b39774:#715693:#679f88:#fffdd4"
     use_system_font = False
 [layouts]
   [[default]]

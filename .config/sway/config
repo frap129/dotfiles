@@ -5,10 +5,12 @@
 # Read `man 5 sway` for a complete reference.
 
 ### Style
-default_border none
+default_border pixel
 include "$HOME/.cache/wal/colors-sway"
+include "$HOME/.cache/wal/colors-swaylock"
 output * background $wallpaper fill
 client.focused $color0 $background $foreground $color7 $background
+gaps inner 5
 
 ### Variables
 #
@@ -19,17 +21,38 @@ set $launchvars STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/ \
          _JAVA_AWT_WM_NONREPARENTING=1 MOZ_ENABLE_WAYLAND=1 GDK_BACKEND=wayland
 
 set $menu '$launchvars wofi'
+set $power $HOME/.config/wofi/power.shq
 set $run 'wofi --show=run --conf=~/.config/wofi/config'
 set $lock swaylock -e --daemonize \
+         --timestr '%l:%M%P' \
          --image $wallpaper \
+         --indicator \
+         --indicator-caps-lock \
          --clock \
          --fade-in 0.5 \
          --effect-blur 15x3 \
-         --effect-vignette 0.1:0.9
+         --effect-vignette 0.1:0.9 \
+         --key-hl-color $color2lock \
+         --bs-hl-color $color1lock \
+         --text-color $color7lock \
+         --inside-ver-color $color8lock \
+         --inside-wrong-color $color1lock \
+         --inside-clear-color $color4lock \
+         --inside-caps-lock-color $color3lock \
+         --ring-color $color5lock \
+         --ring-ver-color $color8lock \
+         --ring-wrong-color $color1lock \
+         --ring-clear-color $color4lock \
+         --ring-caps-lock-color $color3lock \
+         --line-color $backgroundlock
 set $sleep systemctl suspend
 set $notif swaync-client -t
 set $laptop eDP-1
 
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+     
 ### Output configuration
 # Disable built-in display on close
 bindswitch --reload --locked lid:on exec '[ $(swaymsg -t get_outputs | grep name | wc -l) == 1 ] && ($sleep) || ($notify "Clamshell mode" "Laptop screen off" && swaymsg output $laptop disable)'
@@ -65,6 +88,9 @@ input type:touchpad {
 
     # Run menu
     bindsym $mod+Shift+d exec $run 
+
+    # Open Power menu
+    bindsym $mod+p exec $power
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -213,10 +239,10 @@ bindsym $mod+v exec clipman pick --tool wofi
 # Hide Firefox Share Indicator
 for_window [title="Firefox — Sharing Indicator"] floating enable; move to workspace 10
 
-
 ### Daemons
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always {
-    '[ -x "$(command -v swaync)" ] && pkill swaync; exec swaync'
+    '[ -x "$(command -v mako)" ] && pkill mako; exec mako --background-color "$background" --text-color "$foreground" --border-color "$color13"'
     '[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'
     '[ -x "$(command -v playerctl)" ] && pkill playerctl; playerctl -a metadata --format \'{{status}} {{title}}\' --follow | while read line; do pkill -RTMIN+5 waybar; done'
 }

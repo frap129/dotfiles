@@ -1,4 +1,4 @@
-@define-color bg_secondary rgba(0, 0, 0, 0.9);
+@define-color bg_secondary rgba(0, 0, 0, 0.7);
 @define-color bg_primary rgba(255, 255, 255, 0.7);
 @define-color fg_primary #333;
 
@@ -32,7 +32,7 @@ window#waybar.hidden {
 
 .modules-center {
     padding: 0px 10px;
-    background-color: @bg_secondary;
+    background-color: transparent;
 }
 
 #workspaces button.focused {
