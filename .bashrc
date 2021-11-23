@@ -60,7 +60,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 alias folders='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
 alias grep='grep --color=auto'
-
+alias nano='micro'
 # Creates an archive (*.tar.gz) from given directory.
 function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 
@@ -167,3 +167,5 @@ if [ "$XDG_SESSION_DESKTOP" = "sway" ] ; then
     export _JAVA_AWT_WM_NONREPARENTING=1
     export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/
 fi
+
+eval "$(thefuck --alias)"
