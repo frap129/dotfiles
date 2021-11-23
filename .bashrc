@@ -37,7 +37,6 @@ On_White='\e[47m'       # White
 
 NC="\e[m"               # Color Reset
 
-
 # new alert text
 ALERT=${BWhite}${On_Red} # Bold White on red background
 

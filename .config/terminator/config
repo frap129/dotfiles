@@ -10,7 +10,7 @@
     background_type = transparent
     cursor_color = "#aaaaaa"
     font = Cozette Medium 11
-    foreground_color = "#b3b1ad"
+    foreground_color = "#a19898"
     show_titlebar = False
     palette = "#0a0412:#9e5f65:#32ae5b:#658e79:#b39774:#715693:#679f88:#fffdd4:#6a938c:#9e5f65:#32ae5b:#658e79:#b39774:#715693:#679f88:#fffdd4"
     use_system_font = False
