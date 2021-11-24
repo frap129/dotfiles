@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Spotify-TUI
+Exec=alacritty -e .local/bin/spotify-tui-wrapper.sh
+Comment=Terminal UI Spotify client
+Icon=spotify
