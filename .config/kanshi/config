@@ -1,0 +1,14 @@
+profile {
+	output eDP-1 enable scale 2.1 mode 3840x2160@59.997Hz
+}
+
+profile home {
+	output eDP-1 enable scale 2.1 mode 3840x2160@59.997Hz position 1920,388
+	output DP-1 enable scale 1.0 mode 1920x1080@60Hz position 0,0
+}
+
+profile work {
+	output eDP-1 enable scale 2.1 mode 3840x2160@59.997Hz position 11840,4728
+	output DP-2 enable scale 1.0 mode 2560x1440@59.951Hz position 9280,4400
+	output HDMI-A-1 enable scale 1.0 mode 2560x1440@59.951Hz position 7840,3830	transform 90
+}
