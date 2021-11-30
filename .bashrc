@@ -61,6 +61,7 @@ alias folders='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
 alias grep='grep --color=auto'
 alias nano='micro'
 alias spt='spotify-tui-wrapper.sh'
+alias vtop='vtop -t wizard'
 
 # Creates an archive (*.tar.gz) from given directory.
 function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
@@ -155,7 +156,7 @@ export USE_CCACHE=1
 export CCACHE_DIR=~/.ccache
 export CCACHE_COMPRESS=1
 export CARBON_BUILDTYPE=Maple
-export LC_ALL=C
+#export LC_ALL=C
 export MOZ_ENABLE_WAYLAND=1
 
 function setgov ()
