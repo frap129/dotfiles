@@ -41,7 +41,6 @@ NC="\e[m"               # Color Reset
 ALERT=${BWhite}${On_Red} # Bold White on red background
 
 # mostly used alias functions
-
 alias cls="clear"
 alias ..="cd .."
 alias cd..="cd .."
@@ -156,8 +155,7 @@ export USE_CCACHE=1
 export CCACHE_DIR=~/.ccache
 export CCACHE_COMPRESS=1
 export CARBON_BUILDTYPE=Maple
-#export LC_ALL=C
-export MOZ_ENABLE_WAYLAND=1
+export EDITOR=micro
 
 function setgov ()
 {
