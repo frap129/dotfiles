@@ -9,7 +9,8 @@ default_border pixel
 include "$HOME/.cache/wal/colors-sway"
 include "$HOME/.cache/wal/colors-swaylock"
 output * background $wallpaper fill
-client.focused $color0 $background $foreground $color7 $background
+client.focused $background $background $color7 $foreground $background
+client.unfocused $background $background $color7 $color0 $background
 gaps inner 5
 
 ### Variables
@@ -21,7 +22,7 @@ set $launchvars STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/ \
          _JAVA_AWT_WM_NONREPARENTING=1 MOZ_ENABLE_WAYLAND=1 GDK_BACKEND=wayland
 
 set $menu '$launchvars wofi'
-set $power $HOME/.config/wofi/power.sh
+set $power wlogout -b 2 --protocol layer-shell --column-spacing 100 --row-spacing 100
 set $run 'wofi --show=run --conf=~/.config/wofi/config'
 set $lock swaylock -e --daemonize \
          --timestr '%l:%M%P' \
@@ -193,6 +194,7 @@ input type:touchpad {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
@@ -241,6 +243,8 @@ for_window [title="Firefox — Sharing Indicator"] floating enable; move to work
 
 ### Daemons
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+exec export SSH_AUTH_SOCK
 exec_always {
     '[ -x "$(command -v mako)" ] && pkill mako; exec mako --background-color "$background" --text-color "$foreground" --border-color "$color13"'
     '[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'
