@@ -12,7 +12,7 @@
 	cpq = cherry-pick --quit
 	hr  = reset --hard
 [core]
-	editor = nano
+	editor = micro
 	autocrlf = input
 [filter "lfs"]
 	clean = git-lfs clean -- %f
