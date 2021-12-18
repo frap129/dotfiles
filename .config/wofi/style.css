@@ -1,39 +1,31 @@
+@import "/home/frap129/.cache/wal/colors-waybar.css";
 @define-color clear rgba(0, 0, 0, 0);
-@define-color highlight rgba(255, 255, 255, 0.9);
-@define-color primary rgba(0, 0, 0, 0.9);
+@define-color highlight @color3;
+@define-color primary rgba(0, 0, 0, 0.75);
 
 window {
     margin: 0px;
     border: 0px solid;
-    background-color: @clear;
-    border-radius: 16px;
+    background-color: @primary;
+    border-radius: 8px;
 }
 
 #input {
-    margin: 0px;
-    border: 2px solid @highlight;
-    border-radius: 16px;
-    color: @highlight;
-    background-color: @primary;
+    margin: 2px;
+    border: none;
+    color: @#ffffff;
+    background-color: @color2;
 }
-
-#input:selected {
-    border: 2px solid @primary;
-    border-radius: 8px;
-    color: @primary;
-    background-color: @highlight;
-}
-
 
 #inner-box {
-    margin: 0px;
-    border: none;
+    margin: 2px;
+    border: 0px solid;
     background-color: @clear;
     border-radius: 8px;
 }
 
 #outer-box {
-    margin: 0px;
+    margin: 2px;
     border: none;
     border-radius: 8px;
     background-color: @clear;
@@ -46,22 +38,21 @@ window {
 
 #text:selected {
     color: @primary;
-    margin: 0px 5px;
+    margin: 0px 0px;
     border: none;
     border-radius: 8px;
-    background-color: none;
 }
 
 #entry {
-    margin: 2px 8px;
+    margin: 0px 0px;
     border: none;
-    border-radius: 8px;
+    border-radius: 0px;
     background-color: @primary;
 }
 
 #entry:selected {
-    margin: 2px 8px;
+    margin: 0px 0px;
     border: none;
     border-radius: 8px;
-    background-color: @highlight;
+    background-color: @color2;
 }
