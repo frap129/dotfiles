@@ -1,11 +1,15 @@
 @import "autohide-sidebar.css";
-/*#TabsToolbar {
+#TabsToolbar {
   visibility: collapse !important;
-}*/
+}
 
 #sidebar-header {
   display: none;
 } 
+
+#sidebar {
+    border-right: none !important;
+}
 
 #main-window #TabsToolbar {
   height: 48px !important;
