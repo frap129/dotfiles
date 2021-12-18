@@ -9,8 +9,9 @@ default_border pixel
 include "$HOME/.cache/wal/colors-sway"
 include "$HOME/.cache/wal/colors-swaylock"
 output * background $wallpaper fill
+client.unfocused $color3 $background $color7 $color3 $color3
 client.focused $background $background $color7 $foreground $background
-client.unfocused $background $background $color7 $color0 $background
+client.focused_inactive $color3 $background $color7 $color3 $color3
 gaps inner 5
 
 ### Variables
