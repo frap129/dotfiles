@@ -8,7 +8,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "custom/playerctl", "idle_inhibitor", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "bluetooth", "pulseaudio#sink", "pulseaudio#source", "network", "battery"],
+    "modules-right": ["tray", "pulseaudio#sink", "pulseaudio#source", "bluetooth", "network", "battery"],
     // Modules configuration
     "disk": {
         "interval": 30,
@@ -26,12 +26,16 @@
     },
     "sway/workspaces": {
         "disable-scroll": true,
-        "all-outputs": false,
+        "all-outputs": true,
+        "numeric-first": true,
         "format": "{name}",
         "format-icons": {
             "urgent": "",
             "focused": "",
             "default": ""
+        },
+        "persistent_workspaces": {
+            "": [], // Always show a workspace with name '3', on all outputs if it does not exists
         }
     },
     "sway/mode": {
@@ -40,8 +44,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " ﯈"
         }
     },
     "tray": {
@@ -81,14 +85,15 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format": "{capacity}% {icon} ",
+        "format-charging": "{capacity}% {icon} ",
+        "format-charging-icons": ["", "", "", "", "", "", "", ""],
+        "format-plugged": "{capacity}%  ",
         "format-alt": "{icon} {timeTo}",
         "tooltip-format": "{capacity}%, {timeTo}",
         // "format-good": "", // An empty format will hide the module
-        "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-full": " ",
+        "format-icons": ["", "", "", "", "", "", "", "", "", ""]
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -103,14 +108,14 @@
     },
     "pulseaudio#sink": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": "0%  ",
+        "format": " {volume}% {icon}",
+        "format-bluetooth": " {volume}% {icon}",
+        "format-bluetooth-muted": "  {icon}",
+        "format-muted": " 0%  ",
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
+            "headphone": "",
             "hands-free": "",
             "headset": "",
             "phone": "",

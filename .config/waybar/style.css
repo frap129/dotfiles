@@ -1,4 +1,6 @@
-@define-color bg_secondary rgba(0, 0, 0, 0.7);
+@import "../../.cache/wal/colors-waybar.css";
+
+@define-color bg_secondary rgba(0, 0, 0, 0);
 @define-color bg_primary rgba(255, 255, 255, 0.7);
 @define-color fg_primary #333;
 
@@ -7,7 +9,7 @@
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: Roboto, Helvetica, Arial, sans-serif; */
-    font-family: "Cantarell", "Font Awesome 5 Free";
+    font-family: "Cantarell", "FuraCode Nerd Font";
     font-size: 13px;
     min-height: 0;
     font-weight: bold;
@@ -15,7 +17,6 @@
 
 window#waybar {
     background-color: @bg_secondary;
-    border-bottom: 3px solid @bg_secondary;
     color: @fg_primary;
     transition-property: background-color;
     transition-duration: .5s;
@@ -31,17 +32,17 @@ window#waybar.hidden {
 }
 
 .modules-center {
-    padding: 0px 10px;
+    padding: 0px 8px;
     background-color: transparent;
 }
 
-#workspaces button.focused {
-   border-bottom: 3px solid #444;
+.modules-left > * {
+  background-color: @foreground;
+  padding: 0px 8px;
 }
 
-.modules-left > * {
-  background-color: @bg_primary;
-  padding: 0px 10px;
+.modules-left > widget:first-child {
+  border-radius: 16px 0px 0px 16px;
 }
 
 .modules-left > widget:last-child {
@@ -50,11 +51,12 @@ window#waybar.hidden {
 
 .modules-left > widget:nth-last-child(2) {
   border-radius: 0px 16px 16px 0px;
+
 }
 
 .modules-right > * {
-  background-color: @bg_primary;
-  padding: 0px 10px;
+  background-color: @foreground;
+  padding: 0px 8px;
 }
 
 .modules-right > widget:first-child {
@@ -65,22 +67,26 @@ window#waybar.hidden {
   border-radius: 16px 0px 0px 16px;
 }
 
+.modules-right > widget:last-child {
+  border-radius: 0px 16px 16px 0px;
+}
+
 #workspaces button {
-    padding: 3px 5px 0px 5px;
+    padding: 0px 3px 0px 3px;
     background-color: transparent;
-    border-bottom: 3px solid transparent;
-    color: black;
+    border-bottom: 2px solid transparent;
+    color: @background;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-    background: #bbb;
+    background: @color8;
     box-shadow: inherit;
-    border-bottom: 3px solid #bbb;
+    border-bottom: 2px solid #bbb;
 }
 
 #workspaces button.focused {
-    border-bottom: 3px solid #444;
+    border-bottom: 2px solid #444;
 }
 
 #workspaces button.urgent {
