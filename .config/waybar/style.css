@@ -32,13 +32,13 @@ window#waybar.hidden {
 }
 
 .modules-center {
-    padding: 0px 8px;
+    padding: 0px 10px;
     background-color: transparent;
 }
 
 .modules-left > * {
   background-color: @foreground;
-  padding: 0px 8px;
+  padding: 0px 10px;
 }
 
 .modules-left > widget:first-child {
@@ -56,7 +56,7 @@ window#waybar.hidden {
 
 .modules-right > * {
   background-color: @foreground;
-  padding: 0px 8px;
+  padding: 0px 10px;
 }
 
 .modules-right > widget:first-child {
@@ -72,9 +72,9 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-    padding: 0px 3px 0px 3px;
+    padding: 1px 3px 0px 3px;
     background-color: transparent;
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid transparent;
     color: @background;
 }
 
@@ -82,11 +82,11 @@ window#waybar.hidden {
 #workspaces button:hover {
     background: @color8;
     box-shadow: inherit;
-    border-bottom: 2px solid #bbb;
+    border-bottom: 1px solid @color7;
 }
 
 #workspaces button.focused {
-    border-bottom: 2px solid #444;
+    border-bottom: 1px solid #444;
 }
 
 #workspaces button.urgent {
