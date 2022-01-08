@@ -13,6 +13,7 @@
     font-size: 13px;
     min-height: 0;
     font-weight: bold;
+    padding: 0px 2px;
 }
 
 window#waybar {
@@ -32,7 +33,7 @@ window#waybar.hidden {
 }
 
 .modules-center {
-    padding: 0px 10px;
+    padding: 2px 10px 0px;
     background-color: transparent;
 }
 
@@ -67,9 +68,9 @@ window#waybar.hidden {
   border-radius: 16px 0px 0px 16px;
 }
 
-.modules-right > widget:last-child {
+ .modules-right > widget:last-child {
   border-radius: 0px 16px 16px 0px;
-}
+} 
 
 #workspaces button {
     padding: 1px 3px 0px 3px;
