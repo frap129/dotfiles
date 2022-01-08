@@ -13,6 +13,8 @@ client.unfocused $color3 $background $color7 $background $background
 client.focused $background $background $color7 $color3 $background
 client.focused_inactive $color3 $background $color7 $background $background
 gaps inner 5
+gaps outer 3
+gaps top -2
 
 ### Variables
 #
