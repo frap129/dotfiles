@@ -135,7 +135,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 alias folders='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
 alias grep='grep --color=auto'
-alias nano='micro'
+alias sudo='doas'
 alias vtop='vtop -t certs'
 alias diff='diff --color'
 eval "$(thefuck --alias)"
@@ -152,6 +152,7 @@ export CCACHE_COMPRESS=1
 export EDITOR=micro
 
 #
-# Line Editor configs
+# zsh configs
 #
 bindkey '\C-h' backward-kill-word
+setopt rmstarsilent
