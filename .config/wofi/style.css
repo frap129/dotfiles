@@ -1,12 +1,11 @@
-@import "/home/frap129/.cache/wal/colors-waybar.css";
-@define-color clear rgba(0, 0, 0, 0);
-@define-color highlight @color3;
+@import "/home/joe/.cache/wal/colors-waybar.css";
+@define-color clear rgba(75, 75, 255, 0.0);
 @define-color primary rgba(0, 0, 0, 0.75);
 
 window {
     margin: 0px;
     border: 0px solid;
-    background-color: @primary;
+    background-color: @color1;
     border-radius: 8px;
 }
 
@@ -14,7 +13,8 @@ window {
     margin: 2px;
     border: none;
     color: @#ffffff;
-    background-color: @color2;
+    background-color: @color9;
+   	outline: none;
 }
 
 #inner-box {
@@ -47,12 +47,12 @@ window {
     margin: 0px 0px;
     border: none;
     border-radius: 0px;
-    background-color: @primary;
+    background-color: transparent;
 }
 
 #entry:selected {
     margin: 0px 0px;
     border: none;
     border-radius: 8px;
-    background-color: @color2;
+    background-color: @color4;
 }

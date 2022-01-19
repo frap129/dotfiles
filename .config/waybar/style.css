@@ -5,7 +5,7 @@
 @define-color fg_primary #333;
 
 * {
-    border: none;
+    border-top: solid 1px @bg_secondary;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: Roboto, Helvetica, Arial, sans-serif; */
@@ -18,7 +18,7 @@
 
 window#waybar {
     background-color: @bg_secondary;
-    color: @fg_primary;
+    color: @color1;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -28,17 +28,18 @@ window#waybar.hidden {
 }
 
 #window {
-    color: #eee;
-    text-shadow: 0px 0px 2px #000;
+    color: @color7;
+    padding: 0 2px;
+    margin: 0 2px;
 }
 
 .modules-center {
-    padding: 2px 10px 0px;
+    padding: 0px 10px 0px;
     background-color: transparent;
 }
 
 .modules-left > * {
-  background-color: @foreground;
+  background-color: @color4;
   padding: 0px 10px;
 }
 
@@ -48,15 +49,15 @@ window#waybar.hidden {
 
 .modules-left > widget:last-child {
   background-color: transparent;
+  border-radius: 0px 16px 16px 0px;
 }
 
 .modules-left > widget:nth-last-child(2) {
   border-radius: 0px 16px 16px 0px;
-
 }
 
 .modules-right > * {
-  background-color: @foreground;
+  background-color: @color4;
   padding: 0px 10px;
 }
 
@@ -73,25 +74,23 @@ window#waybar.hidden {
 } 
 
 #workspaces button {
-    padding: 1px 3px 0px 3px;
+    padding: 0px 2px 2px;
     background-color: transparent;
-    border-bottom: 1px solid transparent;
     color: @background;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-    background: @color8;
-    box-shadow: inherit;
-    border-bottom: 1px solid @color7;
+    background: @color1;
+	border-radius: 16px;
 }
 
 #workspaces button.focused {
-    border-bottom: 1px solid #444;
+    color: @color7;
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
+	border-radius: 16px;
 }
 
 #mode {
@@ -113,8 +112,8 @@ window#waybar.hidden {
 #mode,
 #idle_inhibitor,
 #language,
-#window,
 #custom-playerctl{
+	color: @color0;
     padding: 0 2px;
     margin: 0 2px;
 }
@@ -147,7 +146,7 @@ window#waybar.hidden {
 }
 
 #clock {
-    color: #ffffff;
+    color: @color7;
 }
 
 label:focus {
@@ -180,8 +179,3 @@ label:focus {
 #tray image {
     padding: 0px 2px;
 }
-
-#idle_inhibitor.activated {
-    color: #2d3436;
-}
-
