@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/sbin/python
 
 # This script requires i3ipc-python package (install it from a system package manager
 # or pip).
@@ -108,7 +108,7 @@ def construct_workspace_name(parts):
             new_name += parts["shortname"]
 
         if parts["icons"]:
-            new_name += " " + parts["icons"].strip()
+            new_name += chr(8237) + " " + parts["icons"].strip() + chr(8236)
 
     return new_name
 
