@@ -5,16 +5,18 @@
 # Read `man 5 sway` for a complete reference.
 
 ### Style
-default_border pixel
 include "$HOME/.cache/wal/colors-sway"
 include "$HOME/.cache/wal/colors-swaylock"
 output * background $wallpaper fill
+
+default_border pixel
 client.unfocused $color3 $background $color7 $background $background
 client.focused $background $background $color7 $color3 $background
 client.focused_inactive $color3 $background $color7 $background $background
+
 gaps inner 5
 gaps outer 3
-gaps top -2
+gaps top -1
 
 ### Variables
 #
@@ -50,7 +52,7 @@ set $lock swaylock -e --daemonize \
          --ring-caps-lock-color $color3lock \
          --line-color $backgroundlock
 set $sleep systemctl suspend
-set $notif swaync-client -t
+set $notif notify-send -a sway -t
 set $laptop eDP-1
 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -59,7 +61,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
      
 ### Output configuration
 # Disable built-in display on close
-bindswitch --reload --locked lid:on exec '[ $(swaymsg -t get_outputs | grep name | wc -l) == 1 ] && ($sleep) || ($notify "Clamshell mode" "Laptop screen off" && swaymsg output $laptop disable)'
+bindswitch --reload --locked lid:on exec '[ $(swaymsg -t get_outputs | grep name | wc -l) == 1 ] && ($sleep) || ($make "Clamshell mode" "Laptop screen off" && swaymsg output $laptop disable)'
 bindswitch --reload --locked lid:off output $laptop enable
 
 ### Idle configuration
@@ -124,9 +126,11 @@ input type:touchpad {
     bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
     bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
-    # Screen brightness controls
+    # Brightness controls
     bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
     bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym XF86KbdBrightnessUp exec $HOME/.local/bin/kbd_brightness + 1
+    bindsym XF86KbdBrightnessDown exec $HOME/.local/bin/kbd_brightness - 1
 
     # Media player controls
     bindsym XF86AudioPlay exec playerctl play
@@ -161,6 +165,7 @@ input type:touchpad {
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+    
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -172,6 +177,7 @@ input type:touchpad {
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
+    
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.]
     bindsym $mod+Control+Shift+Right move workspace to output right
@@ -182,7 +188,8 @@ input type:touchpad {
 # Layout stuff:
 #
     # Switch the current container between different layout styles
-    bindsym $mod+w layout tabbed
+    bindsym $mod+w layout default
+    bindsym $mod+t layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
@@ -247,6 +254,7 @@ for_window [title="Firefox — Sharing Indicator"] floating enable; move to work
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 exec export SSH_AUTH_SOCK
+exec python ~/.config/sway/autoname_workspaces.py
 exec_always {
     '[ -x "$(command -v mako)" ] && pkill mako; exec mako --background-color "$background" --text-color "$foreground" --border-color "$color13" --icons=1'
     '[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'

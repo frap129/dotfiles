@@ -24,18 +24,14 @@
         "tooltip-format": "{}"
     },
     "sway/workspaces": {
-        "disable-scroll": true,
+        "disable-scroll": false,
         "all-outputs": false,
         "numeric-first": true,
-        "format": "{name}",
+        "format": "{value}",
         "format-icons": {
             "urgent": "",
             "focused": "",
             "default": ""
-        },
-        "persistent_workspaces": {
-            "": [],
-            "ﭮ": [],
         }
     },
     "sway/mode": {

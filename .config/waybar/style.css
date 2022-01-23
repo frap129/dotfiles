@@ -39,7 +39,7 @@ window#waybar.hidden {
 }
 
 .modules-left > * {
-  background-color: @color4;
+  background-color: @color5;
   padding: 0px 10px;
 }
 
@@ -57,7 +57,7 @@ window#waybar.hidden {
 }
 
 .modules-right > * {
-  background-color: @color4;
+  background-color: @color5;
   padding: 0px 10px;
 }
 

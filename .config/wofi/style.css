@@ -3,26 +3,27 @@
 @define-color primary rgba(0, 0, 0, 0.75);
 
 window {
-    margin: 0px;
+    margin: 2px;
     border: 0px solid;
-    background-color: @color1;
+    background-color: @color4;
     border-radius: 8px;
 }
 
 #input {
-    margin: 2px;
+    padding: 4px;
+    margin: 4px;
     border: none;
-    color: @#ffffff;
+    color: @foreground;
     background-color: @color9;
    	outline: none;
 }
 
 #inner-box {
-    margin: 2px;
+    margin: 4px;
     border: 0px solid;
     background-color: @clear;
     border-radius: 8px;
-}
+}s
 
 #outer-box {
     margin: 2px;
@@ -37,7 +38,7 @@ window {
 }
 
 #text:selected {
-    color: @primary;
+    color: @foreground;
     margin: 0px 0px;
     border: none;
     border-radius: 8px;
@@ -54,5 +55,5 @@ window {
     margin: 0px 0px;
     border: none;
     border-radius: 8px;
-    background-color: @color4;
+    background-color: @color1;
 }
