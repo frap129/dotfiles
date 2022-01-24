@@ -51,7 +51,7 @@ set $lock swaylock -e --daemonize \
          --ring-clear-color $color4lock \
          --ring-caps-lock-color $color3lock \
          --line-color $backgroundlock
-set $sleep systemctl suspend
+set $sleep systemctl suspend-then-hibernate
 set $notif notify-send -a sway -t
 set $laptop eDP-1
 
@@ -248,13 +248,13 @@ exec wl-paste --type text --watch clipman store
 bindsym $mod+v exec clipman pick --tool wofi
 
 # Hide Firefox Share Indicator
-for_window [title="Firefox — Sharing Indicator"] floating enable; move to workspace 10
+for_window [title="Firefox — Sharing Indicator"] floating enable; move scratchpad
 
 ### Daemons
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 exec export SSH_AUTH_SOCK
-exec_always ~/.config/sway/autoname_workspaces.py
+exec sworkstyle &> /tmp/sworkstyle.log
 exec_always {
     '[ -x "$(command -v mako)" ] && pkill mako; exec mako --background-color "$background" --text-color "$foreground" --border-color "$color13" --icons=1'
     '[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'
