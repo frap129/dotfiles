@@ -149,11 +149,12 @@ eval "$(thefuck --alias)"
 # Environment Variables
 #
 export color_prompt=yes
-export PATH=~/bin:~/bin/depot_tools:$PATH
+export PATH=~/.local/bin:$PATH
 export USE_CCACHE=1
 export CCACHE_DIR=~/.ccache
 export CCACHE_COMPRESS=1
 export EDITOR=micro
+export VISUAL=$EDITOR
 
 #
 # zsh configs
