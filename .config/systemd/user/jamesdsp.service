@@ -1,0 +1,15 @@
+[Unit]
+Description=JamesDSP
+Documentation=https://github.com/Audio4Linux/JDSP4Linux#readme
+Wants=sound.target
+After=sound.target
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/jamesdsp -t -w
+Restart=on-failure
+RestartSec=12
+
+[Install]
+WantedBy=default.target

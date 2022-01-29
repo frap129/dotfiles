@@ -11,12 +11,11 @@ output * background $wallpaper fill
 
 default_border pixel
 client.unfocused $color3 $background $color7 $background $background
-client.focused $background $background $color7 $color3 $background
-client.focused_inactive $color3 $background $color7 $background $background
+client.focused $background $background $color7 $color1 $background
+client.focused_inactive $color1 $background $color7 $background $background
 
 gaps inner 5
 gaps outer 3
-gaps top -1
 
 ### Variables
 #
@@ -106,9 +105,6 @@ input type:touchpad {
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-
     # Lock
     bindsym $mod+l exec '$lock'
 
@@ -129,8 +125,8 @@ input type:touchpad {
     # Brightness controls
     bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
     bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym XF86KbdBrightnessUp exec $HOME/.local/bin/kbd_brightness + 1
-    bindsym XF86KbdBrightnessDown exec $HOME/.local/bin/kbd_brightness - 1
+    bindsym XF86KbdBrightnessUp exec asusctl -n
+    bindsym XF86KbdBrightnessDown exec asusctl -p
 
     # Media player controls
     bindsym XF86AudioPlay exec playerctl play
@@ -236,6 +232,25 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
+# Power options:
+#
+set $mode_system Power Options: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
+mode "$mode_system" {
+    bindsym l exec $lock, mode "default"
+    bindsym e exit
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym Shift+r exec --no-startup-id systemctl reboot --firmware-setup, mode "default"
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+
+}
+bindsym $mod+Shift+e mode "$mode_system"
+
+#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
@@ -261,5 +276,7 @@ exec_always {
     '[ -x "$(command -v playerctl)" ] && pkill playerctl; playerctl -a metadata --format \'{{status}} {{title}}\' --follow | while read line; do pkill -RTMIN+5 waybar; done'
     '[ -x "$(command -v autotiling)" ] && pkill autotiling; exec autotiling'
 }
+
+include ~/.config/sway/asus
 
 include /etc/sway/config.d/*

@@ -27,6 +27,7 @@ fallback = ''
 force_ltr = true
 
 [matching]
+'/Picture-in-Picture/' = ''
 '/Mozilla Firefox/' = ''
 '/micro*/' = { type = 'generic', value = 'μ' }
 '/ranger/' = { type = 'generic', value = '' }

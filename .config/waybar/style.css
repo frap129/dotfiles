@@ -118,7 +118,6 @@ window#waybar.hidden {
     margin: 0 2px;
 }
 
-
 #battery.charging {
     color: #ffffff;
     background-color: #26A65B;
