@@ -10,10 +10,10 @@
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: Roboto, Helvetica, Arial, sans-serif; */
     font-family: "Cantarell", "FuraCode Nerd Font";
-    font-size: 13px;
+    font-size: 14px;
     min-height: 0;
     font-weight: bold;
-    padding: 0px 2px;
+    padding: 0px 4px;
 }
 
 window#waybar {
@@ -27,8 +27,9 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+#clock,
 #window {
-    color: @color7;
+    color: @foreground;
     padding: 0 2px;
     margin: 0 2px;
 }
@@ -38,27 +39,37 @@ window#waybar.hidden {
     background-color: transparent;
 }
 
-.modules-left > * {
+.modules-left > widget:first-child {
+  background-color: @color4;
+  border-radius: 16px 0px 0px 16px;
+}
+
+.modules-left > widget:nth-child(2) {
+  background-color: @color5;
+}
+
+#custom-border-right {
+	color: @color4;
+	padding: 0px;
+	margin: -17px 0px -13px -15px;
+	font-family: "FuraCode Nerd Font";
+	font-size: 40px;
+}
+
+.modules-left > widget:nth-child(3) {
   background-color: @color5;
   padding: 0px 10px;
 }
 
-.modules-left > widget:first-child {
-  border-radius: 16px 0px 0px 16px;
+.modules-left > widget:nth-last-child(2) {
+  background-color: @color5;
+  border-radius: 0px 16px 16px 0px;
+  padding: 0px 10px;
 }
 
 .modules-left > widget:last-child {
   background-color: transparent;
   border-radius: 0px 16px 16px 0px;
-}
-
-.modules-left > widget:nth-last-child(2) {
-  border-radius: 0px 16px 16px 0px;
-}
-
-.modules-right > * {
-  background-color: @color5;
-  padding: 0px 10px;
 }
 
 .modules-right > widget:first-child {
@@ -67,20 +78,46 @@ window#waybar.hidden {
 
 .modules-right > widget:nth-child(2) {
   border-radius: 16px 0px 0px 16px;
+  background-color: @color5;
+}
+
+.modules-right > widget:nth-child(3) {
+  background-color: @color5;
+}
+
+#custom-border-left {
+	color: @color4;
+	padding: 0px;
+	margin: -17px -15px -13px 0px;
+	font-family: "FuraCode Nerd Font";
+	font-size: 40px;
+}
+
+.modules-right > widget:nth-child(4) {
+  background-color: @color5;
+}
+
+.modules-right > widget:nth-child(5) {
+  background-color: @color4;
+}
+
+.modules-right > widget:nth-child(6) {
+  background-color: @color4;
 }
 
  .modules-right > widget:last-child {
   border-radius: 0px 16px 16px 0px;
+  background-color: @color4;
 } 
 
 #workspaces button {
     padding: 0px 2px 2px;
     background-color: transparent;
-    color: @background;
+    color: @color2;
 }
 
 #workspaces button:hover {
-    background: @color1;
+    background: @color4;
 	border-radius: 16px;
 }
 
@@ -97,30 +134,33 @@ window#waybar.hidden {
     color: red;
 }
 
-#clock,
-#battery,
 #cpu,
 #memory,
 #disk,
 #temperature,
 #backlight,
-#bluetooth,
-#network,
 #pulseaudio,
 #custom-media,
 #tray,
 #mode,
 #idle_inhibitor,
 #language,
-#custom-playerctl{
-	color: @color0;
+#custom-playerctl {
+	color: @color2;
+    padding: 0 2px;
+    margin: 0 2px;
+}
+
+#bluetooth,
+#network,
+#battery {
+	color: @color7;
     padding: 0 2px;
     margin: 0 2px;
 }
 
 #battery.charging {
     color: #ffffff;
-    background-color: #26A65B;
     border: none;
     border-radius: 16px;
 }
@@ -142,10 +182,6 @@ window#waybar.hidden {
     animation-direction: alternate;
     border: none;
     border-radius: 16px;
-}
-
-#clock {
-    color: @color7;
 }
 
 label:focus {
