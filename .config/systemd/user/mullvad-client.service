@@ -1,0 +1,13 @@
+[Unit]
+Description=Mullvad Client
+Documentation=idk google it
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/mullvad-vpn
+Restart=on-failure
+RestartSec=12
+s
+[Install]
+WantedBy=default.target
