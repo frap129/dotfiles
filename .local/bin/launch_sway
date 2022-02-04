@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# Session
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=sway
+
+# Firefox
+export MOZ_ENABLE_WAYLAND=1
+
+# QT
+export QT_QPA_PLATFORM=xcb
+
+# GDK
+export GDK_BACKEND=wayland
+
+# SDL
+export SDL_VIDEODRIVER=wayland
+
+# Java
+export _JAVA_AWT_WM_NONREPARENTING=1
+export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/
+
+# Multi-GPU
+export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
+
+# Gnome Keyring Init
+export `/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh`
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Refresh Sworkstyle
+pkill sworkstyle &
+
+sway -Vd 2> /tmp/sway.log

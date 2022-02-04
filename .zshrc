@@ -142,6 +142,8 @@ alias grep='grep --color=auto'
 alias sudo='doas'
 alias vtop='vtop -t certs'
 alias diff='diff --color'
+alias rspt='systemctl --user start spotifyd-restart'
+alias yay="mullvad-exclude yay"
 eval "$(thefuck --alias)"
 
 

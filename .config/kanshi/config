@@ -4,7 +4,7 @@ profile {
 
 profile home {
 	output eDP-1 enable scale 1.0 mode 1920x1080@300.000Hz position 1920,388
-	output DP-1 enable scale 1.0 mode 1920x1080@74.973Hz position 0,0
+	output "Philips Consumer Electronics Company PHL 276E9Q 0x00005E43" enable scale 1.0 mode 1920x1080@74.973Hz position 0,0
 }
 
 profile work {

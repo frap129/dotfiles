@@ -1,13 +1,10 @@
 [Unit]
 Description=Restart spotifyd after resume
-Wants=resume.target
-After=resume.target
-Wants=suspend.target
 After=suspend.target
 
 [Service]
 Type=simple
-ExecStart=systemctl --user --no-block restart spotifyd.service
+ExecStart=/usr/bin/systemctl --user --no-block restart spotifyd.service
 
 [Install]
-WantedBy=default.target
+WantedBy=suspend.target

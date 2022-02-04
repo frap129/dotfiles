@@ -50,7 +50,7 @@ set $lock swaylock -e --daemonize \
          --ring-clear-color $color4lock \
          --ring-caps-lock-color $color3lock \
          --line-color $backgroundlock
-set $sleep systemctl suspend-then-hibernate
+set $sleep systemctl suspend
 set $notif notify-send -a sway -t
 set $laptop eDP-1
 
