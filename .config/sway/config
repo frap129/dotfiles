@@ -22,10 +22,8 @@ gaps outer 3
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 set $term alacritty
-set $launchvars STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/ \
-         _JAVA_AWT_WM_NONREPARENTING=1 MOZ_ENABLE_WAYLAND=1 GDK_BACKEND=wayland
 
-set $menu '$launchvars wofi'
+set $menu wofi
 set $power wlogout -b 2 --protocol layer-shell --column-spacing 100 --row-spacing 100
 set $run 'wofi --show=run --conf=~/.config/wofi/config'
 set $lock swaylock -e --daemonize \
@@ -266,15 +264,12 @@ bindsym $mod+v exec clipman pick --tool wofi
 for_window [title="Firefox — Sharing Indicator"] floating enable; move scratchpad
 
 ### Daemons
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-exec export SSH_AUTH_SOCK
-exec sworkstyle &> /tmp/sworkstyle.log
 exec_always {
     '[ -x "$(command -v mako)" ] && pkill mako; exec mako --background-color "$background" --text-color "$foreground" --border-color "$color13" --icons=1'
     '[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'
     '[ -x "$(command -v playerctl)" ] && pkill playerctl; playerctl -a metadata --format \'{{status}} {{title}}\' --follow | while read line; do pkill -RTMIN+5 waybar; done'
     '[ -x "$(command -v autotiling)" ] && pkill autotiling; exec autotiling'
+    '[ -x "$(command -v wlsunset)" ] && pkill wlsunset; exec wlsunset -t 4000 -S 07:00 -s 21:00 -d 1800'
 }
 
 include ~/.config/sway/asus

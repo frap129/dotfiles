@@ -40,7 +40,7 @@ window#waybar.hidden {
 }
 
 .modules-left > widget:first-child {
-  background-color: @color0;
+  background-color: @color4;
   border-radius: 16px 0px 0px 16px;
 }
 
@@ -49,7 +49,7 @@ window#waybar.hidden {
 }
 
 #custom-border-right {
-	color: @color0;
+	color: @color4;
 	padding: 0px;
 	margin: -17px 0px -13px -15px;
 	font-family: "FuraCode Nerd Font";
@@ -91,7 +91,7 @@ window#waybar.hidden {
 }
 
 #custom-border-left {
-	color: @color0;
+	color: @color4;
 	padding: 0px;
 	margin: -17px -15px -13px 0px;
 	font-family: "FuraCode Nerd Font";
@@ -103,16 +103,16 @@ window#waybar.hidden {
 }
 
 .modules-right > widget:nth-child(5) {
-  background-color: @color0;
+  background-color: @color4;
 }
 
 .modules-right > widget:nth-child(6) {
-  background-color: @color0;
+  background-color: @color4;
 }
 
  .modules-right > widget:last-child {
   border-radius: 0px 16px 16px 0px;
-  background-color: @color0;
+  background-color: @color4;
 } 
 
 #workspaces button {
@@ -122,12 +122,13 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-    background: @color4;
+    color: @foreground;
+    background: @color0;
 	border-radius: 16px;
 }
 
 #workspaces button.focused {
-    color: @color7;
+    color: @foreground;
 }
 
 #workspaces button.urgent {

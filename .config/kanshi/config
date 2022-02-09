@@ -9,6 +9,6 @@ profile home {
 
 profile work {
 	output eDP-1 enable scale 1.0 mode 1920x1080@300.000Hz position 4960,760
-	output DP-1 enable scale 1.0 mode 2560x1440@59.951Hz position 960,0 transform 90
-	output HDMI-A-1 enable scale 1.0 mode 2560x1440@59.951Hz position 2400,550
+	output "Dell Inc. DELL U2715H H7YCC65M0M5L" enable scale 1.0 mode 2560x1440@59.951Hz position 960,0 transform 90
+	output "Dell Inc. DELL U2715H H7YCC68L0TGS" enable scale 1.0 mode 2560x1440@59.951Hz position 2400,550
 }

@@ -7,6 +7,7 @@ export XDG_CURRENT_DESKTOP=sway
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
+export MOZ_DBUS_REMOTE=1
 
 # QT
 export QT_QPA_PLATFORM=xcb
@@ -31,4 +32,9 @@ export `/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh`
 # Refresh Sworkstyle
 pkill sworkstyle &
 
-sway -Vd 2> /tmp/sway.log
+if [ "${1}" == "debug" ]; then
+  sway -Vd 2> /home/joe/sway.log
+else
+  sway
+fi
+

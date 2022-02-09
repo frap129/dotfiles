@@ -6,9 +6,9 @@ See the above repository for updates as well as full license text. */
 
 #sidebar-box{
   --uc-sidebar-width: 30px;
-  --uc-sidebar-hover-width: 210px;
-  --uc-reveal-sidebar-delay: 0ms; /* Wait 0.0s before revealing sidebar */
-  --uc-autohide-sidebar-delay: 0ms; /* Wait 0.25s before hiding sidebar */
+  --uc-sidebar-hover-width: 200px;
+  --uc-reveal-sidebar-delay: 250ms; /* Wait 0.0s before revealing sidebar */
+  --uc-autohide-sidebar-delay: 100ms; /* Wait 0.25s before hiding sidebar */
   position: relative;
   min-width: var(--uc-sidebar-width) !important;
   width: var(--uc-sidebar-width) !important;
