@@ -264,6 +264,7 @@ bindsym $mod+v exec clipman pick --tool wofi
 for_window [title="Firefox — Sharing Indicator"] floating enable; move scratchpad
 
 ### Daemons
+exec sworkstyle &> /tmp/sworkstyle.log
 exec_always {
     '[ -x "$(command -v mako)" ] && pkill mako; exec mako --background-color "$background" --text-color "$foreground" --border-color "$color13" --icons=1'
     '[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'
