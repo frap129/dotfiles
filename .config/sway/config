@@ -264,6 +264,8 @@ bindsym $mod+v exec clipman pick --tool wofi
 for_window [title="Firefox — Sharing Indicator"] floating enable; move scratchpad
 
 ### Daemons
+exec export `/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh`
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec sworkstyle &> /tmp/sworkstyle.log
 exec_always {
     '[ -x "$(command -v mako)" ] && pkill mako; exec mako --background-color "$background" --text-color "$foreground" --border-color "$color13" --icons=1'

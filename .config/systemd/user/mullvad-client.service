@@ -6,7 +6,7 @@ After=network-online.target
 [Service]
 ExecStart=/usr/bin/mullvad-vpn
 Restart=on-failure
-RestartSec=12
+RestartSec=25
 
 [Install]
 WantedBy=default.target
