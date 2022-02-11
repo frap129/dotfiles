@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Wine Internet Explorer
-MimeType=image/png;
 Exec=env WINEPREFIX="/home/joe/.local/share/wineprefixes/KH3" wine start /ProgIDOpen pngfile %f
 NoDisplay=true
 StartupNotify=true
