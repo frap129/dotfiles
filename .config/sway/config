@@ -16,6 +16,7 @@ client.focused_inactive $color1 $background $color7 $background $background
 
 gaps inner 5
 gaps outer 3
+gaps top 0
 
 ### Variables
 #

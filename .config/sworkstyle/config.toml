@@ -32,6 +32,8 @@ force_ltr = true
 '/micro*/' = { type = 'generic', value = 'μ' }
 '/ranger/' = { type = 'generic', value = '' }
 '/spt/' = { type = 'generic', value = '' }
+'FreeCAD' = ''
+'SuperSlicer' = ''
 'Steam' = ''
 'vlc' = ''
 'Bitwarden' = ''

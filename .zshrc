@@ -48,7 +48,7 @@ fi
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# DISABLE_LS_COLORS="true
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -60,7 +60,7 @@ ENABLE_CORRECTION="false"
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -117,21 +117,16 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # mostly used alias functions
-alias cls="clear"
 alias ..="cd .."
 alias cd..="cd .."
 alias ls="exa -lhg --git --group-directories-first"
 alias lsl="exa -lhg --git --group-directories-first --color=always | less -R"
-alias home="cd ~"
 alias df="df -ahiT --total"
 alias mkdir="mkdir -pv"
-alias userlist="cut -d: -f1 /etc/passwd"
 alias fhere="find . -name "
 alias free="free -mt"
-alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias wget="wget -c"
 alias histg="history | grep"
-alias myip="curl http://ipecho.net/plain; echo"
 alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 alias folders='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
 alias grep='grep --color=auto'
@@ -151,6 +146,7 @@ export CCACHE_DIR=~/.ccache
 export CCACHE_COMPRESS=1
 export EDITOR=micro
 export VISUAL=$EDITOR
+export GOPATH=~/.cache/go
 
 #
 # zsh configs
