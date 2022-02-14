@@ -1,13 +1,13 @@
 [Unit]
-Description=JamesDSP
-Documentation=https://github.com/Audio4Linux/JDSP4Linux#readme
+Description=EasyEffects
+Documentation=https://github.com/wwmm/easyeffects#readme
 Wants=sound.target
 After=sound.target
 Wants=network-online.target
 After=network-online.target
 
 [Service]
-ExecStart=/usr/bin/jamesdsp -t -w
+ExecStart=/usr/bin/easyeffects --gapplication-service
 Restart=on-failure
 RestartSec=12
 

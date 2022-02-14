@@ -37,8 +37,8 @@
             "threshold": 0.0
         },
         "plugins_order": [
-            "bass_enhancer",
             "autogain",
+            "bass_enhancer",
             "limiter"
         ]
     }
