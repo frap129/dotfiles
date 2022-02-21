@@ -100,7 +100,8 @@
         "format-ethernet": "",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "tooltip-format": "{signalStrength}% {essid}: {ipaddr}/{cidr}"
+        "tooltip-format": "{signalStrength}% {essid}: {ipaddr}/{cidr}",
+        "on-click": "wofi-wifi-menu"
     },
     "pulseaudio#sink": {
         // "scroll-step": 1, // %, can be a float

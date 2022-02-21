@@ -44,10 +44,6 @@ window#waybar.hidden {
   border-radius: 16px 0px 0px 16px;
 }
 
-.modules-left > widget:nth-child(2) {
-  background-color: @color5;
-}
-
 #custom-border-right {
 	color: @color4;
 	padding: 0px;
@@ -56,18 +52,22 @@ window#waybar.hidden {
 	font-size: 40px;
 }
 
+.modules-left > widget:nth-child(2) {
+  background-color: @color2;
+}
+
 .modules-left > widget:nth-child(3) {
-  background-color: @color5;
+  background-color: @color2;
   padding: 0px 10px;
 }
 
 .modules-left > widget:nth-child(3) {
-  background-color: @color5;
+  background-color: @color2;
   padding: 0px 10px;
 }
 
 .modules-left > widget:nth-last-child(2) {
-  background-color: @color5;
+  background-color: @color2;
   border-radius: 0px 16px 16px 0px;
   padding: 0px 10px;
 }
@@ -83,11 +83,15 @@ window#waybar.hidden {
 
 .modules-right > widget:nth-child(2) {
   border-radius: 16px 0px 0px 16px;
-  background-color: @color5;
+  background-color: @color2;
 }
 
 .modules-right > widget:nth-child(3) {
-  background-color: @color5;
+  background-color: @color2;
+}
+
+.modules-right > widget:nth-child(4) {
+  background-color: @color2;
 }
 
 #custom-border-left {
@@ -96,10 +100,6 @@ window#waybar.hidden {
 	margin: -17px -15px -13px 0px;
 	font-family: "FuraCode Nerd Font";
 	font-size: 40px;
-}
-
-.modules-right > widget:nth-child(4) {
-  background-color: @color5;
 }
 
 .modules-right > widget:nth-child(5) {
@@ -118,17 +118,17 @@ window#waybar.hidden {
 #workspaces button {
     padding: 0px 2px 2px;
     background-color: transparent;
-    color: @color2;
+    color: @foreground;
 }
 
 #workspaces button:hover {
-    color: @foreground;
+    color: @color2;
     background: @color0;
 	border-radius: 16px;
 }
 
 #workspaces button.focused {
-    color: @foreground;
+    color: @color2;
 }
 
 #workspaces button.urgent {
@@ -152,7 +152,7 @@ window#waybar.hidden {
 #idle_inhibitor,
 #language,
 #custom-playerctl {
-	color: @color2;
+	color: @color3;
     padding: 0 2px;
     margin: 0 2px;
 }

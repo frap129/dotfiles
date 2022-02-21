@@ -1,5 +1,5 @@
 @import "/home/joe/.cache/wal/colors-waybar.css";
-@define-color clear rgba(75, 75, 255, 0.0);
+@define-color clear rgba(0, 0, 0, 0.0);
 @define-color primary rgba(0, 0, 0, 0.75);
 
 window {
@@ -14,7 +14,8 @@ window {
     margin: 4px;
     border: none;
     color: @foreground;
-    background-color: @color9;
+    background-color: @color1;
+    background-color: @color1;
    	outline: none;
 }
 

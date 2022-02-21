@@ -133,6 +133,7 @@ alias grep='grep --color=auto'
 alias vtop='vtop -t certs'
 alias diff='diff --color'
 alias rspt='systemctl --user start spotifyd-restart'
+alias rwaybar='killall -SIGUSR2 waybar'
 alias yay="mullvad-exclude yay"
 eval "$(thefuck --alias)"
 

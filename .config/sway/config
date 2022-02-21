@@ -25,6 +25,7 @@ set $mod Mod4
 set $term alacritty
 
 set $menu wofi
+set $wifi ~/.local/bin/wofi-wifi-menu
 set $power wlogout -b 2 --protocol layer-shell --column-spacing 100 --row-spacing 100
 set $run 'wofi --show=run --conf=~/.config/wofi/config'
 set $lock swaylock -e --daemonize \
@@ -231,7 +232,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
-# Power options:
+# System options:
 #
 set $mode_system Power Options: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
 mode "$mode_system" {
@@ -248,6 +249,7 @@ mode "$mode_system" {
 
 }
 bindsym $mod+Shift+e mode "$mode_system"
+bindsym $mod+Shift+w exec $wifi
 
 #
 # Status Bar:
