@@ -50,7 +50,7 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%a %b %e %l:%M%P}",
         "format-alt": "{:%Y-%m-%d}"
     },
@@ -120,7 +120,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "wofi-pa-sink-menu"
     },
     "pulseaudio#source": {
         // "scroll-step": 1, // %, can be a float
@@ -139,7 +139,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "wofi-pa-source-menu"
     },
     "custom/playerctl": {
         "interval": "once",

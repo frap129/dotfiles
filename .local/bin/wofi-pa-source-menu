@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# Lists pulseaudio sources and allows user to select a new default
+# using pactl 
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+POSITION=0
+YOFF=0
+XOFF=0
+
+if [ -r "$DIR/config" ]; then
+	source "$DIR/config"
+elif [ -r "$HOME/.config/wofi/wifi" ]; then
+	source "$HOME/.config/wofi/wifi"
+else
+	echo "WARNING: config file not found! Using default values."
+fi
+
+LIST=$(pactl list short sources | cut -f 2)
+DEFAULT=$(pactl get-default-source)
+# For some reason wofi always approximates character width 2 short... hmmm
+RWIDTH=$(($(echo "$LIST" | head -n 1 | awk '{print length($0); }')*10))
+# Dynamically change the height of the wofi menu
+LINENUM=$(echo "$LIST" | wc -l)
+
+CHENTRY=$(echo -e "INPUT\n$LIST" | wofi -i -d --prompt "Default: $DEFAULT" --lines "$LINENUM" --location "$POSITION" --yoffset "$YOFF" --xoffset "$XOFF" --width $RWIDTH --style .config/wofi/wifi.css)
+#echo "$CHENTRY"
+CHSOURCE=$(echo "$CHENTRY" | cut -f 1 -d" ")
+#echo "$CHSOURCE"
+
+# Set the new default source, ignoring the header
+if [[ "$CHSOURCE" != "OUTPUT" ]]; then
+	pactl set-default-source $CHSOURCE
+fi
