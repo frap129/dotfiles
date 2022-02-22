@@ -76,6 +76,7 @@ exec swayidle -w \
 input type:touchpad {
     tap enabled
     natural_scroll enabled
+    dwt enabled
 }
 
 ### Key bindings
