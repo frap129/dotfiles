@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Micro
+Type=Application
+Categories=Office;WordProcessor;X-Red-Hat-Base;X-MandrivaLinux-Office-Wordprocessors;
+Exec=alacritty -t micro -e micro %U
+MimeType=application/x-extension-txt;text/plain;
