@@ -15,13 +15,14 @@
     },
     "bluetooth": {
         "format": "<b>{icon}</b>",
-        "format-alt": "{status} {icon}",
         "interval": 30,
         "format-icons": {
             "enabled": "",
             "disabled": ""
         },
-        "tooltip-format": "{}"
+        "tooltip-format": "{}",
+        "on-click": "wofi-bluetooth-menu"
+        
     },
     "sway/workspaces": {
         "disable-scroll": false,

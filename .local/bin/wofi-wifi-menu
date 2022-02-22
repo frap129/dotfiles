@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
-
+#                 __ _               _  __ _
+# __      _____  / _(_)    __      _(_)/ _(_)
+# \ \ /\ / / _ \| |_| |____\ \ /\ / / | |_| |
+#  \ V  V / (_) |  _| |_____\ V  V /| |  _| |
+#   \_/\_/ \___/|_| |_|      \_/\_/ |_|_| |_|
+#
 # Starts a scan of available broadcasting SSIDs
 # nmcli dev wifi rescan
+
+# Treat secondary launch like a close button
+pgrep wofi && killall wofi && exit
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -12,8 +20,8 @@ XOFF=0
 
 if [ -r "$DIR/config" ]; then
 	source "$DIR/config"
-elif [ -r "$HOME/.config/wofi/wifi" ]; then
-	source "$HOME/.config/wofi/wifi"
+elif [ -r "$HOME/.config/wofi/menu" ]; then
+	source "$HOME/.config/wofi/menu"
 else
 	echo "WARNING: config file not found! Using default values."
 fi
@@ -45,7 +53,7 @@ elif [[ "$CONSTATE" =~ "disabled" ]]; then
 fi
 
 
-CHENTRY=$(echo -e "$LIST\n$TOGGLE\nmanual" | uniq -u | wofi -i -d --prompt "Wi-Fi SSID: " --lines "$LINENUM" --location "$POSITION" --yoffset "$YOFF" --xoffset "$XOFF" --width $RWIDTH --style .config/wofi/wifi.css)
+CHENTRY=$(echo -e "$LIST\n$TOGGLE\nmanual" | uniq -u | wofi -i -d --prompt "Wi-Fi SSID: " --lines "$LINENUM" --location "$POSITION" --yoffset "$YOFF" --xoffset "$XOFF" --width $RWIDTH --style .config/wofi/menu.css)
 #echo "$CHENTRY"
 CHSSID=$(echo "$CHENTRY" | sed  's/\s\{2,\}/\|/g' | awk -F "|" '{print $1}')
 #echo "$CHSSID"
@@ -53,7 +61,7 @@ CHSSID=$(echo "$CHENTRY" | sed  's/\s\{2,\}/\|/g' | awk -F "|" '{print $1}')
 # If the user inputs "manual" as their SSID in the start window, it will bring them to this screen
 if [ "$CHENTRY" = "manual" ] ; then
 	# Manual entry of the SSID and password (if appplicable)
-	MSSID=$(echo "enter the SSID of the network (SSID,password)" | wofi -d "Manual Entry: " --lines 1 --style .config/wofi/wifi.css)
+	MSSID=$(echo "enter the SSID of the network (SSID,password)" | wofi -d "Manual Entry: " --lines 1 --style .config/wofi/menu.css)
 	# Separating the password from the entered string
 	MPASS=$(echo "$MSSID" | awk -F "," '{print $2}')
 
@@ -79,7 +87,7 @@ else
 		nmcli con up "$CHSSID"
 	else
 		if [[ "$CHENTRY" =~ "WPA2" ]] || [[ "$CHENTRY" =~ "WEP" ]]; then
-			WIFIPASS=$(echo "if connection is stored, hit enter" | wofi -P -d --prompt "password" --lines 1 --location "$POSITION" --yoffset "$YOFF" --xoffset "$XOFF" --width $RWIDTH)
+			WIFIPASS=$(echo "if connection is stored, hit enter" | wofi -P -d --prompt "password" --lines 1 --location "$POSITION" --yoffset "$YOFF" --xoffset "$XOFF" --width $RWIDTH --style  .config/wofi/menu.css)
 		fi
 		nmcli dev wifi con "$CHSSID" password "$WIFIPASS"
 	fi
