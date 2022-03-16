@@ -38,6 +38,9 @@
     "sway/mode": {
         "format": "{}"
     },
+    "sway/window": {
+        "icon": false,
+    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -50,9 +53,10 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
-        //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%a %b %e %l:%M%P}",
+        "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        // "format": "{:%I:%M %p %a %b %e}",
+        "format": "{:%a %b%e  %OI:%M%p}",
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
@@ -114,8 +118,6 @@
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",

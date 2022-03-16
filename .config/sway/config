@@ -126,8 +126,8 @@ input type:touchpad {
     # Brightness controls
     bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
     bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym XF86KbdBrightnessUp exec asusctl -n
-    bindsym XF86KbdBrightnessDown exec asusctl -p
+    # bindsym XF86KbdBrightnessUp exec asusctl -n
+    # bindsym XF86KbdBrightnessDown exec asusctl -p
 
     # Media player controls
     bindsym XF86AudioPlay exec playerctl play
@@ -144,10 +144,11 @@ input type:touchpad {
     bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+    #bindsym $mod+Shift+Left move left
+    #bindsym $mod+Shift+Down move down
+    #bindsym $mod+Shift+Up move up
+    #bindsym $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
@@ -275,10 +276,11 @@ exec_always {
     '[ -x "$(command -v mako)" ] && pkill mako; exec mako --background-color "$background" --text-color "$foreground" --border-color "$color13" --icons=1'
     '[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'
     '[ -x "$(command -v playerctl)" ] && pkill playerctl; playerctl -a metadata --format \'{{status}} {{title}}\' --follow | while read line; do pkill -RTMIN+5 waybar; done'
-    '[ -x "$(command -v autotiling)" ] && pkill autotiling; exec autotiling'
     '[ -x "$(command -v wlsunset)" ] && pkill wlsunset; exec wlsunset -t 4000 -S 07:00 -s 21:00 -d 1800'
 }
 
 include ~/.config/sway/asus
+include ~/.config/sway/swlm
+include ~/.config/sway/window_rules
 
 include /etc/sway/config.d/*

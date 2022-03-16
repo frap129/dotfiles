@@ -13,10 +13,11 @@ export SDL_VIDEODRIVER=wayland
 export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
 export CLUTTER_BACKEND=wayland
 export ECORE_EVAS_ENGINE=wayland_egl
-export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Set path early
-export PATH="/home/joe/.local/bin/:$PATH"
+export PATH="/home/joe/.local/bin/:/usr/local/bin:${PATH}"
+export LD_PRELOAD="/usr/lib/libhardened_malloc.so"
+
 # Program variables
 export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/
 

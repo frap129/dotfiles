@@ -135,6 +135,8 @@ alias diff='diff --color'
 alias rspt='systemctl --user start spotifyd-restart'
 alias rwaybar='killall -SIGUSR2 waybar'
 alias yay="mullvad-exclude yay"
+alias softmal="env LD_PRELOAD=''"
+alias makekern="softmal powerprofilesctl launch -p performance makepkg -fcCsi --skippgpcheck"
 eval "$(thefuck --alias)"
 
 #
@@ -148,6 +150,9 @@ export CCACHE_COMPRESS=1
 export EDITOR=micro
 export VISUAL=$EDITOR
 export GOPATH=~/.cache/go
+export _microarchitecture=99
+export _compress_modules=n
+export _localmodcfg=y
 
 #
 # zsh configs

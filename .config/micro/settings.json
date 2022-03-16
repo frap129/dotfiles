@@ -1,4 +1,5 @@
 {
-    "colorscheme": "dukeubuntu-tc",
+    "colorscheme": "catppuccin",
+    "mkparents": true,
     "sucmd": "doas"
 }

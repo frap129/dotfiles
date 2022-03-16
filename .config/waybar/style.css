@@ -40,12 +40,12 @@ window#waybar.hidden {
 }
 
 .modules-left > widget:first-child {
-  background-color: @color4;
+  background-color: @color0;
   border-radius: 16px 0px 0px 16px;
 }
 
 #custom-border-right {
-	color: @color4;
+	color: @color0;
 	padding: 0px;
 	margin: -17px 0px -13px -15px;
 	font-family: "FuraCode Nerd Font";
@@ -53,21 +53,21 @@ window#waybar.hidden {
 }
 
 .modules-left > widget:nth-child(2) {
-  background-color: @color2;
+  background-color: @color11;
 }
 
 .modules-left > widget:nth-child(3) {
-  background-color: @color2;
+  background-color: @color11;
   padding: 0px 10px;
 }
 
-.modules-left > widget:nth-child(3) {
-  background-color: @color2;
+.modules-left > widget:nth-child(4) {
+  background-color: @color11;
   padding: 0px 10px;
 }
 
 .modules-left > widget:nth-last-child(2) {
-  background-color: @color2;
+  background-color: @color11;
   border-radius: 0px 16px 16px 0px;
   padding: 0px 10px;
 }
@@ -83,19 +83,19 @@ window#waybar.hidden {
 
 .modules-right > widget:nth-child(2) {
   border-radius: 16px 0px 0px 16px;
-  background-color: @color2;
+  background-color: @color10;
 }
 
 .modules-right > widget:nth-child(3) {
-  background-color: @color2;
+  background-color: @color10;
 }
 
 .modules-right > widget:nth-child(4) {
-  background-color: @color2;
+  background-color: @color10;
 }
 
 #custom-border-left {
-	color: @color4;
+	color: @color0;
 	padding: 0px;
 	margin: -17px -15px -13px 0px;
 	font-family: "FuraCode Nerd Font";
@@ -103,32 +103,32 @@ window#waybar.hidden {
 }
 
 .modules-right > widget:nth-child(5) {
-  background-color: @color4;
+  background-color: @color0;
 }
 
 .modules-right > widget:nth-child(6) {
-  background-color: @color4;
+  background-color: @color0;
 }
 
  .modules-right > widget:last-child {
   border-radius: 0px 16px 16px 0px;
-  background-color: @color4;
+  background-color: @color0;
 } 
 
 #workspaces button {
     padding: 0px 2px 2px;
     background-color: transparent;
-    color: @foreground;
+    color: @color10;
 }
 
 #workspaces button:hover {
-    color: @color2;
-    background: @color0;
+    color: @color0;
+    background: @color10;
 	border-radius: 16px;
 }
 
 #workspaces button.focused {
-    color: @color2;
+    color: @color11;
 }
 
 #workspaces button.urgent {
@@ -152,7 +152,7 @@ window#waybar.hidden {
 #idle_inhibitor,
 #language,
 #custom-playerctl {
-	color: @color3;
+	color: @color0;
     padding: 0 2px;
     margin: 0 2px;
 }
@@ -160,7 +160,7 @@ window#waybar.hidden {
 #bluetooth,
 #network,
 #battery {
-	color: @color7;
+	color: @color10;
     padding: 0 2px;
     margin: 0 2px;
 }

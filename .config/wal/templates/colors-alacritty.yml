@@ -1,73 +1,63 @@
 colors:
+
   primary:
-    background: '#000000'
-    dim_foreground: '#A19898'
-    bright_foreground: '#DCCDCD'
+    background: "{background}"
+    foreground: "{foreground}"
 
-  #cursor:
-  #  text: CellBackground
-  #  cursor: CellForeground
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
 
-  #vi_mode_cursor:
-  #  text: CellBackground
-  #  cursor: CellForeground
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
 
-  #search:
-  #  matches:
-  #    foreground: '#000000'
-  #    background: '#ffffff'
-  #  focused_match:
-  #    foreground: '#ffffff'
-  #    background: '#000000'
-  #  bar:
-  #    background: '#c5c8c6'
-  #    foreground: '#1d1f21'
+  search:
+    matches:
+      foreground: '{color0}'
+      background: '{color15}'
+    focused_match:
+      foreground: CellBackground
+      background: CellForeground
 
-  # Keyboard regex hints
-  #hints:
-    # First character in the hint label
-    #
-    # Allowed values are CellForeground/CellBackground, which reference the
-    # affected cell, or hexadecimal colors like #ff00ff.
-    #start:
-    #  foreground: '#1d1f21'
-    #  background: '#e9ff5e'
+    bar:
+      foreground: '{color8}'
+      background: '{color7}'
 
-    # All characters after the first one in the hint label
-    #
-    # Allowed values are CellForeground/CellBackground, which reference the
-    # affected cell, or hexadecimal colors like #ff00ff.
-    #end:
-    #  foreground: '#e9ff5e'
-    #  background: '#1d1f21'
+  line_indicator:
+    foreground: None
+    background: None
 
-  # Line indicator
-  #
-  # Color used for the indicator displaying the position in history during
-  # search and vi mode.
-  #
-  # By default, these will use the opposing primary color.
-  #line_indicator:
-  #  foreground: None
-  #  background: None
+  selection:
+    text: CellBackground
+    background: CellForeground
 
-  # Selection colors
-  #
-  # Colors which should be used to draw the selection area.
-  #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  #selection:
-  #  text: CellBackground
-  #  background: CellForeground
-
-  # Normal colors
   normal:
-    black:   '{color0}'
-    red:     '{color1}'
-    green:   '{color2}'
-    yellow:  '{color3}'
-    blue:    '{color4}'
-    magenta: '{color5}'
-    cyan:    '{color6}'
-    white:   '{color7}'
+    black: "{color0}"
+    red: "{color1}"
+    green: "{color2}"
+    yellow: "{color3}"
+    blue: "{color4}"
+    magenta: "{color5}"
+    cyan: "{color6}"
+    white: "{color7}"
+
+  bright:
+    black: "{color8}"
+    red: "{color9}"
+    green: "{color10}"
+    yellow: "{color11}"
+    blue: "{color12}"
+    magenta: "{color13}"
+    cyan: "{color14}"
+    white: "{color15}"
+
+  dim:
+    black: "{color15}"
+    red: "{color9}"
+    green: "{color13}"
+    yellow: "{color11}"
+    blue: "{color12}"
+    magenta: "{color10}"
+    cyan: "{color14}"
+    white: "{color8}"

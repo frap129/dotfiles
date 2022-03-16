@@ -5,7 +5,7 @@
 window {
     margin: 2px;
     border: 0px solid;
-    background-color: @color4;
+    background-color: @color0;
     border-radius: 8px;
 }
 
@@ -14,8 +14,7 @@ window {
     margin: 4px;
     border: none;
     color: @foreground;
-    background-color: @color1;
-    background-color: @color1;
+    background-color: @color6;
    	outline: none;
 }
 
@@ -56,5 +55,5 @@ window {
     margin: 0px 0px;
     border: none;
     border-radius: 8px;
-    background-color: @color1;
+    background-color: @color3;
 }
