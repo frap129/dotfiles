@@ -2,7 +2,7 @@
 Version=1.0
 Type=Application
 Name=Android Studio
-Exec=env QT_QPA_PLATFORM=xcb _JAVA_AWT_WM_NONREPARENTING=1 /usr/local/bin/android-studio %f
+Exec=env QT_QPA_PLATFORM=xcb _JAVA_AWT_WM_NONREPARENTING=1 android-studio %f
 Icon=android-studio
 Comment=The official Android IDE
 Categories=Development;IDE;
