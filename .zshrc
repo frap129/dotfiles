@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
+export PATH="$PATH:$GEM_HOME/bin:$HOME/.cargo/bin"
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/

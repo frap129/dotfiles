@@ -1,6 +1,6 @@
 # Start swlm
 exec_always killall swlm
-exec_always ~/software/swlm/swlm.py -w 70 --default MasterStack
+exec_always ~/software/swlm/swlm.py -w 70
 
 # Toggle layout managers
 bindsym $mod+k nop swlm layout Autotiling
