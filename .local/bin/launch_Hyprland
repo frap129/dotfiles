@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Wayland variables
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=sway
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_DBUS_REMOTE=1
+export QT_QPA_PLATFORM=wayland
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export GDK_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
+export CLUTTER_BACKEND=wayland
+export ECORE_EVAS_ENGINE=wayland_egl
+
+# Set path early
+export PATH="/home/joe/.local/bin/:/usr/local/bin:${PATH}"
+#export LD_PRELOAD="/usr/lib/libhardened_malloc.so"
+
+# Program variables
+export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/
+
+Hyprland

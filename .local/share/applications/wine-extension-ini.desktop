@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=notepad
+MimeType=application/x-wine-extension-ini;
 Exec=env WINEPREFIX="/home/joe/.local/share/wineprefixes/KH3" wine start /ProgIDOpen inifile %f
 NoDisplay=true
 StartupNotify=true

@@ -1,0 +1,6 @@
+[Unit]
+Description=Timer for profile-sync-daemon - 25min
+BindsTo=psd.service
+
+[Timer]
+OnUnitActiveSec=25m
