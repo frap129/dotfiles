@@ -21,12 +21,4 @@ export PATH="/home/joe/.local/bin/:/usr/local/bin:${PATH}"
 # Program variables
 export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/
 
-# Refresh Sworkstyle
-pkill sworkstyle &
-
-if [ "${1}" == "debug" ]; then
-  sway -Vd 2> /home/joe/sway.log
-else
-  sway
-fi
-
+Hyprland
