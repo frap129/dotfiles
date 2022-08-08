@@ -96,11 +96,11 @@ window:
   # and `light`. Set this to `None` to use the default theme variant.
   gtk_theme_variant: dark
 
-  # Background opacity
-  #
-  # Window opacity as a floating point number from `0.0` to `1.0`.
-  # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.65
+  # Background opac,ity
+  #,
+  # ,Window opacity as a floating point number from `0.0` to `1.0`.
+  # T,he value `0.0` is completely transparent and `1.0` is opaque.
+  opacity: 0.98
   
 
 #scrolling:

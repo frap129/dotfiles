@@ -134,7 +134,6 @@ alias vtop='vtop -t certs'
 alias diff='diff --color'
 alias rspt='systemctl --user start spotifyd-restart'
 alias rwaybar='killall -SIGUSR2 waybar'
-alias yay="mullvad-exclude yay"
 alias softmal="env LD_PRELOAD=''"
 alias makekern="softmal powerprofilesctl launch -p performance makepkg -fcCsi --skippgpcheck"
 eval "$(thefuck --alias)"

@@ -14,7 +14,7 @@ client.unfocused $color3 $background $color7 $background $background
 client.focused $background $background $color7 $color1 $background
 client.focused_inactive $color1 $background $color7 $background $background
 
-gaps inner 5
+gaps inner 8
 gaps outer 3
 gaps top 0
 
