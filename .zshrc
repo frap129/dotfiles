@@ -119,8 +119,8 @@ source $ZSH/oh-my-zsh.sh
 # mostly used alias functions
 alias ..="cd .."
 alias cd..="cd .."
-alias ls="exa -lhg --git --group-directories-first"
-alias lsl="exa -lhg --git --group-directories-first --color=always | less -R"
+alias ls="exa -lhg --group-directories-first"
+alias lsl="exa -lhg --group-directories-first --color=always | less -R"
 alias df="df -ahiT --total"
 alias mkdir="mkdir -pv"
 alias fhere="find . -name "
