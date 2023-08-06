@@ -1,0 +1,18 @@
+[layman]
+defaultLayout = "Autotiling"
+masterWidth = 70
+debug = true
+
+[workspace.1]
+defaultLayout = "MasterStack"
+stackLayout = "tabbed"
+
+[workspace.2]
+defaultLayout = "MasterStack"
+
+[workspace.7]
+defaultLayout = "Grid"
+
+# Never use MasterStack on vertical monitor
+[output.DP-3]
+defaultLayout = "Autotiling"

@@ -9,11 +9,11 @@
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: Roboto, Helvetica, Arial, sans-serif; */
-    font-family: "Cantarell", "FuraCode Nerd Font";
-    font-size: 14px;
-    min-height: 0;
+    font-family: "Cantarell", "FiraCode Nerd Font";
+    font-size: 12px;
     font-weight: bold;
-    padding: 0px 4px;
+    min-height: 0;
+    padding: 0px 2px;
 }
 
 window#waybar {
@@ -47,8 +47,7 @@ window#waybar.hidden {
 #custom-border-right {
 	color: @color0;
 	padding: 0px;
-	margin: -17px 0px -13px -15px;
-	font-family: "FuraCode Nerd Font";
+	margin: -16px 0px -13px -13px;
 	font-size: 40px;
 }
 
@@ -97,8 +96,7 @@ window#waybar.hidden {
 #custom-border-left {
 	color: @color0;
 	padding: 0px;
-	margin: -17px -15px -13px 0px;
-	font-family: "FuraCode Nerd Font";
+	margin: -16px -13px -13px 0px;
 	font-size: 40px;
 }
 

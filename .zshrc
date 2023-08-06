@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
+export PATH="$PATH:$GEM_HOME/bin:$HOME/.cargo/bin"
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -76,14 +76,14 @@ ENABLE_CORRECTION="false"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=~/.config/oh-my-zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git fzf-tab)
 
 
 # User configuration
@@ -119,8 +119,8 @@ source $ZSH/oh-my-zsh.sh
 # mostly used alias functions
 alias ..="cd .."
 alias cd..="cd .."
-alias ls="exa -lhg --git --group-directories-first"
-alias lsl="exa -lhg --git --group-directories-first --color=always | less -R"
+alias ls="exa -lhg --group-directories-first"
+alias lsl="exa -lhg --group-directories-first --color=always | less -R"
 alias df="df -ahiT --total"
 alias mkdir="mkdir -pv"
 alias fhere="find . -name "
@@ -134,10 +134,11 @@ alias vtop='vtop -t certs'
 alias diff='diff --color'
 alias rspt='systemctl --user start spotifyd-restart'
 alias rwaybar='killall -SIGUSR2 waybar'
-alias yay="mullvad-exclude yay"
 alias softmal="env LD_PRELOAD=''"
 alias makekern="softmal powerprofilesctl launch -p performance makepkg -fcCsi --skippgpcheck"
-eval "$(thefuck --alias)"
+alias micro="nvim"
+alias vi="nvim"
+#eval "$(thefuck --alias)"
 
 #
 # Environment Variables
@@ -159,3 +160,17 @@ export _localmodcfg=y
 #
 bindkey '\C-h' backward-kill-word
 setopt rmstarsilent
+
+#
+# fzf-tab configs
+#
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'

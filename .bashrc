@@ -44,8 +44,8 @@ ALERT=${BWhite}${On_Red} # Bold White on red background
 alias cls="clear"
 alias ..="cd .."
 alias cd..="cd .."
-alias ls="exa -lhg --git --group-directories-first"
-alias lsl="exa -lhg --git --group-directories-first --color=always | less -R"
+alias ls="exa -lhg --group-directories-first"
+alias lsl="exa -lhg --group-directories-first --color=always | less -R"
 alias home="cd ~"
 alias df="df -ahiT --total"
 alias mkdir="mkdir -pv"
@@ -150,7 +150,7 @@ eval "`dircolors -b $DIR_COLORS`"
 # Environment Variables
 #
 export color_prompt=yes
-export PS1="[\[$BCyan\]Arch\[$NC\]\[$BRed\]Strix\[$NC\] \W]: \\$\[$(tput sgr0)\] "
+export PS1="[\[$BCyan\]Arch\[$NC\]\[$BRed\]XPS2\[$NC\] \W]: \\$\[$(tput sgr0)\] "
 export PATH=~/bin:~/bin/depot_tools:$PATH
 export USE_CCACHE=1
 export CCACHE_DIR=~/.ccache

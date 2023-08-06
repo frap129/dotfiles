@@ -29,9 +29,9 @@ fi
 LIST=$(pactl list short sinks | cut -f 2,5)
 DEFAULT=$(pactl get-default-sink)
 # For some reason wofi always approximates character width 2 short... hmmm
-RWIDTH=$(($(echo "$LIST" | head -n 1 | awk '{print length($0); }')*10))
+RWIDTH=$(($(echo "$LIST" | head -n 1 | awk '{print length($0); }')*11))
 # Dynamically change the height of the wofi menu
-LINENUM=$(echo "$LIST" | wc -l)
+LINENUM=$(echo "$LIST" | wc -l)*2
 
 CHENTRY=$(echo -e "OUTPUT STATUS\n$LIST" | column -t | wofi -i -d --prompt "Default: $DEFAULT" --lines "$LINENUM" --location "$POSITION" --yoffset "$YOFF" --xoffset "$XOFF" --width $RWIDTH --style .config/wofi/menu.css)
 #echo "$CHENTRY"

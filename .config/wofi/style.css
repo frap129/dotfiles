@@ -14,7 +14,7 @@ window {
     margin: 4px;
     border: none;
     color: @foreground;
-    background-color: @color6;
+    background-color: @color10;
    	outline: none;
 }
 

@@ -1,23 +1,19 @@
 [user]
-	email = joe@maples.dev
+	email = joe.maples@valtech.com
 	name = Joe Maples
 	signingkey = 0FBB331F
 [color]
 	ui = auto
 	ui = true
 [alias]
-	cp  = cherry-pick -s
+	cp  = cherry-pick
 	cpc = cherry-pick --continue
 	cpa = cherry-pick --abort
 	cpq = cherry-pick --quit
 	hr  = reset --hard
 [core]
-	editor = micro
+	editor = nvim
 	autocrlf = input
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
 [gpg]
 	program = gpg
 [review "review.carbonrom.org"]
@@ -27,3 +23,10 @@
 	gpgSign = if-asked
 [pull]
 	rebase = false
+[safe]
+	directory = /opt/flutter
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

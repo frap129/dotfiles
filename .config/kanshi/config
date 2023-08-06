@@ -1,5 +1,5 @@
 profile {
-	output eDP-1 enable scale 1.0 mode 1920x1080@300.000Hz
+	output eDP-1 enable
 }
 
 profile home {
@@ -8,7 +8,7 @@ profile home {
 }
 
 profile work {
-	output eDP-1 enable scale 1.0 mode 1920x1080@300.000Hz position 4960,760
+	output eDP-1 enable scale 1.0 position 4960,760
 	output "Dell Inc. DELL U2715H H7YCC65M0M5L" enable scale 1.0 mode 2560x1440@59.951Hz position 960,0 transform 90
 	output "Dell Inc. DELL U2715H H7YCC68L0TGS" enable scale 1.0 mode 2560x1440@59.951Hz position 2400,550
 }
