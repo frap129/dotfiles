@@ -2,7 +2,7 @@
 Type=Application
 Name=notepad
 MimeType=application/x-wine-extension-ini;
-Exec=env WINEPREFIX="/home/joe/.local/share/wineprefixes/KH3" wine start /ProgIDOpen inifile %f
+Exec=env WINEPREFIX="/home/joe/Games/one-piece-burning-blood" wine start /ProgIDOpen inifile %f
 NoDisplay=true
 StartupNotify=true
 Icon=2E40_notepad.0

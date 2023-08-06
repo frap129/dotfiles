@@ -2,7 +2,7 @@
 Type=Application
 Name=winebrowser
 MimeType=application/pdf;
-Exec=env WINEPREFIX="/home/joe/.local/share/wineprefixes/KH3" wine start /ProgIDOpen pdffile %f
+Exec=env WINEPREFIX="/home/joe/Games/one-piece-burning-blood" wine start /ProgIDOpen pdffile %f
 NoDisplay=true
 StartupNotify=true
 Icon=81F5_winebrowser.0

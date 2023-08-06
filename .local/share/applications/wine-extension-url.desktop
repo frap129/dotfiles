@@ -1,7 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=rundll32
-Exec=env WINEPREFIX="/home/joe/.local/share/wineprefixes/KH3" wine start /ProgIDOpen InternetShortcut %f
+MimeType=application/x-mswinurl;
+Exec=env WINEPREFIX="/home/joe/Games/one-piece-burning-blood" wine start /ProgIDOpen InternetShortcut %f
 NoDisplay=true
 StartupNotify=true
 Icon=5742_rundll32.0

@@ -2,7 +2,7 @@
 Type=Application
 Name=hh
 MimeType=application/vnd.ms-htmlhelp;
-Exec=env WINEPREFIX="/home/joe/.local/share/wineprefixes/KH3" wine start /ProgIDOpen chm.file %f
+Exec=env WINEPREFIX="/home/joe/Games/one-piece-burning-blood" wine start /ProgIDOpen chm.file %f
 NoDisplay=true
 StartupNotify=true
 Icon=D15F_hh.0

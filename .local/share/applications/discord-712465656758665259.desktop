@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Game 712465656758665259
-Exec=/usr/bin/yuzu %u
+Exec=/tmp/.mount_yuzuWEnTMj/usr/bin/yuzu %u
 Type=Application
 NoDisplay=true
 Categories=Discord;Games;
