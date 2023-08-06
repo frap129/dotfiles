@@ -1,4 +1,4 @@
-set $opacitypercent 0.99
+set $opacitypercent 0.96
 for_window [class="jetbrains-studio"] opacity $opacitypercent
-for_window [app_id="firefox"] opacity $opacitypercent
+#for_window [app_id="firefox"] opacity $opacitypercent
 for_window [class="Slack"] opacity $opacitypercent

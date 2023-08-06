@@ -20,7 +20,7 @@ colors:
       foreground: CellBackground
       background: CellForeground
 
-    bar:
+    footer_bar:
       foreground: '{color8}'
       background: '{color7}'
 

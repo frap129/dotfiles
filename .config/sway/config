@@ -7,16 +7,21 @@
 ### Style
 include "$HOME/.cache/wal/colors-sway"
 include "$HOME/.cache/wal/colors-swaylock"
+include "$HOME/.config/sway/selenized"
 output * background $wallpaper fill
 
-default_border pixel
+default_border none
 client.unfocused $color3 $background $color7 $background $background
 client.focused $background $background $color7 $color1 $background
 client.focused_inactive $color1 $background $color7 $background $background
 
-gaps inner 8
+gaps inner 5
 gaps outer 3
 gaps top 0
+
+# SwayFX
+corner_radius 8
+
 
 ### Variables
 #
@@ -51,7 +56,6 @@ set $lock swaylock -e --daemonize \
          --ring-caps-lock-color $color3lock \
          --line-color $backgroundlock
 set $sleep systemctl suspend
-set $notif notify-send -a sway -t
 set $laptop eDP-1
 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -96,7 +100,7 @@ input type:touchpad {
     bindsym $mod+Shift+d exec $run 
 
     # Open Power menu
-    bindsym $mod+p exec $power
+    #bindsym $mod+p exec $power
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -112,8 +116,9 @@ input type:touchpad {
     # Suspend
     bindsym $mod+Shift+s exec '$sleep'
 
-    # Open notification tray
-    bindsym $mod+n exec '$notif'
+    # Password manager
+    bindsym $mod+p exec bwmenu
+
 
 #
 # Media Controls
@@ -143,11 +148,6 @@ input type:touchpad {
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
-    #bindsym $mod+Shift+Left move left
-    #bindsym $mod+Shift+Down move down
-    #bindsym $mod+Shift+Up move up
-    #bindsym $mod+Shift+Right move right
 
 #
 # Workspaces:
@@ -214,24 +214,6 @@ input type:touchpad {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
-# Resizing containers:
-#
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
 
 #
 # System options:
@@ -272,6 +254,7 @@ for_window [title="Firefox — Sharing Indicator"] floating enable; move scratch
 exec export `/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh`
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec sworkstyle &> /tmp/sworkstyle.log
+exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 exec_always {
     '[ -x "$(command -v mako)" ] && pkill mako; exec mako --background-color "$background" --text-color "$foreground" --border-color "$color13" --icons=1'
     '[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'
@@ -280,7 +263,7 @@ exec_always {
 }
 
 include ~/.config/sway/asus
-include ~/.config/sway/swlm
+include ~/.config/sway/layman
 include ~/.config/sway/window_rules
 
 include /etc/sway/config.d/*

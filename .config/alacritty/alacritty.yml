@@ -13,6 +13,8 @@
 #
 import:
   - ~/.cache/wal/colors-alacritty.yml
+  # - ~/.config/alacritty/selenized.yml
+#  - ~/Downloads/Ramen/ramen.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -94,13 +96,13 @@ window:
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
-  gtk_theme_variant: dark
+  decorations_theme_variant: Dark
 
-  # Background opac,ity
+  # Background opacity
   #,
   # ,Window opacity as a floating point number from `0.0` to `1.0`.
   # T,he value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.98
+  opacity: 0.9
   
 
 #scrolling:

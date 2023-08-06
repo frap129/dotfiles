@@ -9,10 +9,14 @@ export MOZ_DBUS_REMOTE=1
 export QT_QPA_PLATFORM=wayland
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export GDK_BACKEND=wayland
+export GTK_USE_PORTAL=0
 export SDL_VIDEODRIVER=wayland
-#export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
 export CLUTTER_BACKEND=wayland
 export ECORE_EVAS_ENGINE=wayland_egl
+
+# Set WLR Settings
+#export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
+#export WLR_RENDERER=vulkan
 
 # Set path early
 export PATH="/home/joe/.local/bin/:/usr/local/bin:${PATH}"
@@ -20,8 +24,19 @@ export PATH="/home/joe/.local/bin/:/usr/local/bin:${PATH}"
 # Program variables
 export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk-amd64/
 
+# Disable audio powersave
+echo 0 | doas tee /sys/module/snd_hda_intel/parameters/power_save &>/dev/null
+
 # Refresh Sworkstyle
 pkill sworkstyle &
+
+dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Set XDG_RUNTIME_DIR to avoid ly bug
+if [[ -z "$XDG_RUNTIME_DIR" ]]; then
+    export XDG_RUNTIME_DIR=/tmp/xdg-runtime-$(id -u)
+    doas mkdir -p $XDG_RUNTIME_DIR
+fi;
 
 if [ "${1}" == "debug" ]; then
   sway -Vd 2> /home/joe/sway.log
