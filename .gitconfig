@@ -25,3 +25,5 @@
 	email = joe@maples.dev
 [push]
 	gpgSign = if-asked
+[pull]
+	rebase = false
