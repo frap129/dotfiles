@@ -1,0 +1,179 @@
+[[colors.indexed_colors]]
+color = "#f77366"
+index = 16
+
+[[colors.indexed_colors]]
+color = "#b5a8ff"
+index = 17
+
+[[colors.indexed_colors]]
+color = "#2f2f2f"
+index = 18
+
+[[colors.indexed_colors]]
+color = "#474747"
+index = 19
+
+[[colors.indexed_colors]]
+color = "#979797"
+index = 20
+
+[[colors.indexed_colors]]
+color = "#cfcfcf"
+index = 21
+
+[[colors.indexed_colors]]
+color = "#4a6300"
+index = 22
+
+[[colors.indexed_colors]]
+color = "#741e19"
+index = 52
+
+[[colors.indexed_colors]]
+color = "#e5e5e5"
+index = 231
+
+[[colors.indexed_colors]]
+color = "#0a0a0a"
+index = 232
+
+[[colors.indexed_colors]]
+color = "#141414"
+index = 233
+
+[[colors.indexed_colors]]
+color = "#1e1e1e"
+index = 234
+
+[[colors.indexed_colors]]
+color = "#272727"
+index = 235
+
+[[colors.indexed_colors]]
+color = "#313131"
+index = 236
+
+[[colors.indexed_colors]]
+color = "#3a3a3a"
+index = 237
+
+[[colors.indexed_colors]]
+color = "#444444"
+index = 238
+
+[[colors.indexed_colors]]
+color = "#4d4d4d"
+index = 239
+
+[[colors.indexed_colors]]
+color = "#565656"
+index = 240
+
+[[colors.indexed_colors]]
+color = "#5f5f5f"
+index = 241
+
+[[colors.indexed_colors]]
+color = "#686868"
+index = 242
+
+[[colors.indexed_colors]]
+color = "#717171"
+index = 243
+
+[[colors.indexed_colors]]
+color = "#7a7a7a"
+index = 244
+
+[[colors.indexed_colors]]
+color = "#838383"
+index = 245
+
+[[colors.indexed_colors]]
+color = "#8c8c8c"
+index = 246
+
+[[colors.indexed_colors]]
+color = "#949494"
+index = 247
+
+[[colors.indexed_colors]]
+color = "#9d9d9d"
+index = 248
+
+[[colors.indexed_colors]]
+color = "#a6a6a6"
+index = 249
+
+[[colors.indexed_colors]]
+color = "#afafaf"
+index = 250
+
+[[colors.indexed_colors]]
+color = "#b7b7b7"
+index = 251
+
+[[colors.indexed_colors]]
+color = "#c0c0c0"
+index = 252
+
+[[colors.indexed_colors]]
+color = "#c9c9c9"
+index = 253
+
+[[colors.indexed_colors]]
+color = "#d1d1d1"
+index = 254
+
+[[colors.indexed_colors]]
+color = "#dadada"
+index = 255
+
+[colors.bright]
+black = "#535353"
+blue = "#83acff"
+cyan = "#42eecc"
+green = "#b5db60"
+magenta = "#c19eff"
+red = "#ff968a"
+white = "#cfcfcf"
+yellow = "#ffcf4e"
+
+[colors.cursor]
+cursor = "#ff9e93"
+text = "#171717"
+
+[colors.dim]
+black = "#0a0a0a"
+blue = "#4081f4"
+cyan = "#00c2a4"
+green = "#87ae22"
+magenta = "#9d6eeb"
+red = "#e56257"
+white = "#979797"
+yellow = "#d3a400"
+
+[colors.normal]
+black = "#171717"
+blue = "#6398ff"
+cyan = "#00d8b7"
+green = "#9ec446"
+magenta = "#b387ff"
+red = "#fe7b6e"
+white = "#b9b9b9"
+yellow = "#ebb91f"
+
+[colors.primary]
+background = "#171717"
+bright_foreground = "#cfcfcf"
+dim_foreground = "#979797"
+foreground = "#b9b9b9"
+
+[colors.selection]
+background = "#4f3431"
+foreground = "CellForeground"
+
+[colors.vi_mode_cursor]
+cursor = "#ff9e93"
+text = "#171717"

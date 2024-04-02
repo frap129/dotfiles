@@ -1,0 +1,29 @@
+import = ["/home/joe/.config/alacritty/ramen.toml"]
+live_config_reload = true
+
+[cursor.style]
+shape = "Beam"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 9.0
+
+[font.normal]
+family = "CozetteVector Nerd Font"
+style = "Regular"
+
+[shell]
+program = "/bin/zsh"
+
+[window]
+decorations = "none"
+decorations_theme_variant = "Dark"
+dynamic_padding = true
+dynamic_title = true
+opacity = 0.9
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
