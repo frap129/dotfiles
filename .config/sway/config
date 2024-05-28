@@ -7,7 +7,6 @@
 ### Style
 include "$HOME/.cache/wal/colors-sway"
 include "$HOME/.cache/wal/colors-swaylock"
-include "$HOME/.config/sway/selenized"
 output * background $wallpaper fill
 
 default_border none
@@ -22,7 +21,6 @@ gaps top 0
 # SwayFX
 corner_radius 8
 
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -33,48 +31,14 @@ set $menu wofi
 set $wifi ~/.local/bin/wofi-wifi-menu
 set $power wlogout -b 2 --protocol layer-shell --column-spacing 100 --row-spacing 100
 set $run 'wofi --show=run --conf=~/.config/wofi/config'
-set $lock swaylock -e --daemonize \
-         --timestr '%l:%M%P' \
-         --image $wallpaper \
-         --indicator \
-         --indicator-caps-lock \
-         --clock \
-         --fade-in 0.5 \
-         --effect-blur 15x3 \
-         --effect-vignette 0.1:0.9 \
-         --key-hl-color $color2lock \
-         --bs-hl-color $color1lock \
-         --text-color $color7lock \
-         --inside-ver-color $color8lock \
-         --inside-wrong-color $color1lock \
-         --inside-clear-color $color4lock \
-         --inside-caps-lock-color $color3lock \
-         --ring-color $color5lock \
-         --ring-ver-color $color8lock \
-         --ring-wrong-color $color1lock \
-         --ring-clear-color $color4lock \
-         --ring-caps-lock-color $color3lock \
-         --line-color $backgroundlock
-set $sleep systemctl suspend
+set $lock loginctl lock-session
+set $sleep loginctl lock-session && systemctl suspend
 set $laptop eDP-1
 
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-     
 ### Output configuration
 # Disable built-in display on close
-bindswitch --reload --locked lid:on exec '[ $(swaymsg -t get_outputs | grep name | wc -l) == 1 ] && ($sleep) || ($make "Clamshell mode" "Laptop screen off" && swaymsg output $laptop disable)'
+bindswitch --reload --locked lid:on exec '[ $(swaymsg -t get_outputs | grep \"name\" | wc -l) == 1 ] && ($sleep) || swaymsg output $laptop disable'
 bindswitch --reload --locked lid:off output $laptop enable
-
-### Idle configuration
-
-exec swayidle -w \
-          timeout 300 '$lock' \
-          timeout 600 '$sleep' \
-          before-sleep '$lock'      
-
-### Input configuration
 
 # Touchpad
 input type:touchpad {
@@ -111,10 +75,10 @@ input type:touchpad {
     bindsym $mod+Shift+c reload
 
     # Lock
-    bindsym $mod+l exec '$lock'
+    bindsym $mod+l exec $lock
 
     # Suspend
-    bindsym $mod+Shift+s exec '$sleep'
+    bindsym $mod+Shift+s exec $sleep
 
     # Password manager
     bindsym $mod+p exec bwmenu
@@ -123,16 +87,18 @@ input type:touchpad {
 #
 # Media Controls
 #
-    # Pulse Audio controls
-    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
-    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
-    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+    # Audio controls
+    bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume raise 5
+    bindsym XF86AudioLowerVolume exec  swayosd-client --output-volume lower 5
+    bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+    bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
 
     # Brightness controls
-    bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
-    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-    # bindsym XF86KbdBrightnessUp exec asusctl -n
-    # bindsym XF86KbdBrightnessDown exec asusctl -p
+    bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise 5
+    bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower 5
+
+    # Capslock
+    bindsym --release Caps_Lock exec swayosd-client --caps-lock
 
     # Media player controls
     bindsym XF86AudioPlay exec playerctl play
@@ -148,7 +114,6 @@ input type:touchpad {
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-
 #
 # Workspaces:
 #
@@ -163,7 +128,7 @@ input type:touchpad {
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
-    
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -247,23 +212,18 @@ bar {
 exec wl-paste --type text --watch clipman store
 bindsym $mod+v exec clipman pick --tool wofi
 
-# Hide Firefox Share Indicator
-for_window [title="Firefox — Sharing Indicator"] floating enable; move scratchpad
-
 ### Daemons
 exec export `/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh`
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec sworkstyle &> /tmp/sworkstyle.log
-exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 exec_always {
-    '[ -x "$(command -v mako)" ] && pkill mako; exec mako --background-color "$background" --text-color "$foreground" --border-color "$color13" --icons=1'
-    '[ -x "$(command -v kanshi)" ] && pkill kanshi; exec kanshi'
-    '[ -x "$(command -v playerctl)" ] && pkill playerctl; playerctl -a metadata --format \'{{status}} {{title}}\' --follow | while read line; do pkill -RTMIN+5 waybar; done'
-    '[ -x "$(command -v wlsunset)" ] && pkill wlsunset; exec wlsunset -t 4000 -S 07:00 -s 21:00 -d 1800'
+    'pidof mako && pkill mako; mako --background-color "$background" --text-color "$foreground" --border-color "$color13" --icons=1'
+    'pidof kanshi && pkill kanshi; kanshi'
+    'pidof playerctl && pkill playerctl; playerctl -a metadata --format \'{{status}} {{title}}\' --follow | while read line; do pkill -RTMIN+5 waybar; done'
+    'pidof wlsunset && pkill wlsunset; wlsunset -t 4000 -S 07:00 -s 21:00 -d 1800'
+    'pidof hypridle && pkill hypridle; hypridle'
+    'pidof sworkstyle && pkill sworkstyle; sworkstyle'
+    'pidof swayosd-server && pkill swayosd-server; swayosd-server'
 }
 
-include ~/.config/sway/asus
-include ~/.config/sway/layman
-include ~/.config/sway/window_rules
-
+include ~/.config/sway/config.d/*
 include /etc/sway/config.d/*

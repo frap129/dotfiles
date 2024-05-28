@@ -1,5 +1,5 @@
 # Start layman
-exec layman
+exec_always 'pidof layman && pkill layman; layman'
 
 # Reload
 bindsym $mod+Shift+Y nop layman reload
