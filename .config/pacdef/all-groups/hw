@@ -1,0 +1,6 @@
+
+[arch]
+usbutils
+x86_energy_perf_policy
+acpi_call-dkms
+fwupd
