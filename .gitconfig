@@ -1,5 +1,5 @@
 [user]
-	email = joe.maples@valtech.com
+	email = joe@maples.dev
 	name = Joe Maples
 	signingkey = 0FBB331F
 [color]
@@ -25,6 +25,11 @@
 	rebase = false
 [safe]
 	directory = /opt/flutter
+	directory = /home/joe/software/armbian_qidi-q1-pro
+	directory = /home/joe/software/QIDI-Q1/armbian_qidi-q1-pro
+	directory = /home/joe/software/QIDI-Q1/armbian_qidi-q1-pro/cache/sources/u-boot-worktree/u-boot/v2022.07
+	directory = /home/joe/software/QIDI-Q1/armbian_qidi-q1-pro/cache/sources/linux-kernel-worktree/6.6__rockchip64__arm6
+	directory = /home/joe/software/QIDI-Q1/armbian_qidi-q1-pro/cache/sources/linux-kernel-worktree/6.6__rockchip64__arm64
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
