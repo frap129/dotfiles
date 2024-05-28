@@ -1,0 +1,12 @@
+
+[arch]
+scrcpy
+lineageos-devel
+android-apktool
+android-sdk-build-tools
+android-studio
+android-studio-canary
+android-studio-for-platform
+android-udev-git
+bundletool
+dex2jar-git

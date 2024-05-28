@@ -1,0 +1,15 @@
+
+[arch]
+v4l2loopback-dkms
+vlc
+vulkan-validation-layers
+pavucontrol
+pipewire-zeroconf
+libva-mesa-driver
+mesa-vdpau
+mpv
+noisetorch
+feh
+gst-plugin-pipewire
+gst-plugins-bad
+ladspa
