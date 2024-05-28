@@ -169,12 +169,13 @@ export PATH=~/.local/bin:$PATH
 export USE_CCACHE=1
 export CCACHE_DIR=~/.ccache
 export CCACHE_COMPRESS=1
-export EDITOR=micro
+export EDITOR=nvim
 export VISUAL=$EDITOR
 export GOPATH=~/.cache/go
 export _microarchitecture=99
 export _compress_modules=n
 export _localmodcfg=y
+source ~/.local/bin/snv
 
 #
 # zsh configs
@@ -191,11 +192,12 @@ zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*:descriptions' format '[%d]'
 # set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 (( ! ${+functions[p10k]} )) || p10k finalize
+
