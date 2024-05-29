@@ -11,3 +11,7 @@ cozette-ttf
 cups
 flatpak
 gnome-tweaks
+
+[flatpak]
+com.github.tchx84.Flatseal
+it.mijorus.gearlever

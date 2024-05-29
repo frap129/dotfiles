@@ -14,3 +14,7 @@ protonmail-import-export-app
 putty
 optipng
 guvcview
+
+[flatpak]
+com.github.GradienceTeam.Gradience
+org.gnome.World.PikaBackup

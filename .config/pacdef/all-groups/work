@@ -3,3 +3,7 @@
 ttf-poppins
 cndrvcups-lb-bin
 globalprotect-openconnect
+
+[flatpak]
+org.chromium.Chromium
+com.slack.Slack

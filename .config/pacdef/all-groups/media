@@ -13,3 +13,6 @@ feh
 gst-plugin-pipewire
 gst-plugins-bad
 ladspa
+
+[flatpak]
+com.github.wwmm.easyeffects
