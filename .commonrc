@@ -37,12 +37,12 @@ alias rg="rg --binary"
 alias myip="curl http://ipecho.net/plain; echo"
 
 # Common replacements
-[[ $(which delta) ]] && alias diff="delta"
-[[ $(which bat) ]] && alias cat="bat --paging=never"
-[[ $(which eza) ]] && alias ls="eza -hg --icons --group-directories-first"
-[[ $(which thefuck) ]] && eval "$(thefuck --alias)"
-[[ $(which dust) ]] && alias du="dust"
-[[ $(which zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
+[[ $(command -v delta) ]] && alias diff="delta"
+[[ $(command -v bat) ]] && alias cat="bat --paging=never"
+[[ $(command -v eza) ]] && alias ls="eza -hg --icons --group-directories-first"
+[[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
+[[ $(command -v dust) ]] && alias du="dust"
+[[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
 
 
 
