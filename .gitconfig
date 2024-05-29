@@ -1,7 +1,5 @@
-[user]
-	email = joe.maples@valtech.com
-	name = Joe Maples
-	signingkey = 0FBB331F
+[include]
+    path = .gitconfig.local
 [color]
 	ui = auto
 	ui = true
@@ -24,9 +22,10 @@
 [pull]
 	rebase = false
 [safe]
-	directory = /opt/flutter
+	directory = *
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
