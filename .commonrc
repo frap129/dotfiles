@@ -1,0 +1,48 @@
+#
+# Common shell rc config
+#
+
+# get current shell
+if [ -z "${BASH_VERSINFO+x}" ]; then
+    local shell="zsh"
+else
+    local shell="bash"
+fi
+
+# Environment Variables
+export color_prompt=yes
+export PATH=~/.local/bin:~/.cargo/bin:$PATH
+export USE_CCACHE=1
+export CCACHE_DIR=~/.ccache
+export CCACHE_COMPRESS=1
+export EDITOR=nvim
+export VISUAL=$EDITOR
+export GOPATH=~/.cache/go
+export _microarchitecture=99
+export _compress_modules=n
+export _localmodcfg=y
+source ~/.local/bin/snv
+
+# mostly used alias functions
+alias df="df -ahiT --total"
+alias mkdir="mkdir -pv"
+alias fhere="find . -name "
+alias free="free -mt"
+alias wget="wget -c"
+alias histg="history | grep"
+alias grep='grep --color=auto'
+alias rwaybar='killall -SIGUSR2 waybar'
+alias vi="nvim"
+alias rg="rg --binary"
+alias myip="curl http://ipecho.net/plain; echo"
+
+# Common replacements
+[[ $(which delta) ]] && alias diff="delta"
+[[ $(which bat) ]] && alias cat="bat --paging=never"
+[[ $(which eza) ]] && alias ls="eza -hg --icons --group-directories-first"
+[[ $(which thefuck) ]] && eval "$(thefuck --alias)"
+[[ $(which dust) ]] && alias du="dust"
+[[ $(which zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
+
+
+

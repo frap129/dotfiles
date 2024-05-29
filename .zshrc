@@ -135,51 +135,14 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
+#
 # My zim additions
-
-# mostly used alias functions
-alias ..="cd .."
-alias cd..="cd .."
-alias ls="eza -lhg --group-directories-first"
-alias lsl="eza -lhg --group-directories-first --color=always | less -R"
-alias df="df -ahiT --total"
-alias mkdir="mkdir -pv"
-alias fhere="find . -name "
-alias free="free -mt"
-alias wget="wget -c"
-alias histg="history | grep"
-alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
-alias folders='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
-alias grep='grep --color=auto'
-alias vtop='vtop -t certs'
-alias diff='diff --color'
-alias rspt='systemctl --user start spotifyd-restart'
-alias rwaybar='killall -SIGUSR2 waybar'
-alias softmal="env LD_PRELOAD=''"
-alias makekern="softmal powerprofilesctl launch -p performance makepkg -fcCsi --skippgpcheck"
-alias micro="nvim"
-alias vi="nvim"
-#eval "$(thefuck --alias)"
-
 #
-# Environment Variables
 #
-export color_prompt=yes
-export PATH=~/.local/bin:$PATH
-export USE_CCACHE=1
-export CCACHE_DIR=~/.ccache
-export CCACHE_COMPRESS=1
-export EDITOR=nvim
-export VISUAL=$EDITOR
-export GOPATH=~/.cache/go
-export _microarchitecture=99
-export _compress_modules=n
-export _localmodcfg=y
-source ~/.local/bin/snv
 
-#
+source ~/.commonrc
+
 # zsh configs
-#
 bindkey '\C-h' backward-kill-word
 setopt rmstarsilent
 
