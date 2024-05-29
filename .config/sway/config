@@ -32,7 +32,7 @@ set $wifi ~/.local/bin/wofi-wifi-menu
 set $power wlogout -b 2 --protocol layer-shell --column-spacing 100 --row-spacing 100
 set $run 'wofi --show=run --conf=~/.config/wofi/config'
 set $lock loginctl lock-session
-set $sleep loginctl lock-session && systemctl suspend
+set $sleep loginctl lock-session && sleep 0.1 && systemctl suspend
 set $laptop eDP-1
 
 ### Output configuration
