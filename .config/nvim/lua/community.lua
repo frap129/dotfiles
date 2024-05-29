@@ -10,12 +10,13 @@ return {
   { import = "astrocommunity.completion.coq_nvim", enabled = false },
   { import = "astrocommunity.editing-support.suda-vim" },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.kotlin" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.syntax.hlargs-nvim" },
   { import = "astrocommunity.syntax.vim-cool" },
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
-  { import = "astrocommunity.utility.neodim" },
   -- import/override with your plugins folder
 }
