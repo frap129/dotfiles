@@ -1,5 +1,5 @@
 [include]
-    path = .gitconfig.local
+  path = .gitconfig.local
 [color]
 	ui = auto
 	ui = true
@@ -12,6 +12,7 @@
 [core]
 	editor = nvim
 	autocrlf = input
+  pager = delta
 [gpg]
 	program = gpg
 [review "review.carbonrom.org"]
@@ -28,4 +29,12 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  line-numbers = true
+[merge]
+  onflictstyle = diff3
+[diff]
+  colorMoved = default
