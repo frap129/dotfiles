@@ -1,5 +1,6 @@
 
 [arch]
+ttf-jetbrains-mono-nerd
 ttf-dejavu-nerd
 ttf-firacode-nerd
 qt5-wayland

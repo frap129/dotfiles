@@ -1,19 +1,17 @@
 
 [arch]
+dust
+eza
 bat
 git-delta
 tealdeer
 thefuck
 zoxide
 rust
-scx-scheds
 sshfs
 sudo
 systemd-resolvconf
 topgrade
-tuned
-tuned-ppd
-uksmd
 wget
 which
 yadm
@@ -24,8 +22,6 @@ ripgrep
 plymouth-theme-bgrt-better-luks
 podman
 python-pipx
-linux-cachyos-sched-ext
-linux-cachyos-sched-ext-headers
 linux-firmware
 linux-lts
 logrotate
@@ -35,21 +31,18 @@ neovim
 nerd-fonts-cozette-ttf
 networkmanager
 networkmanager-openvpn
-nicepowerd-git
 nss-mdns
-ntp
+ntpsec
 opendoas
 pacdef
 alhp-keyring
 alhp-mirrorlist
-ananicy-cpp
 base
 bash-completion
 bpftune-git
 bridge-utils
 btop
 btrfs-progs
-cachyos-ananicy-rules-git
 cachyos-keyring
 cachyos-mirrorlist
 clamav
@@ -67,7 +60,4 @@ hunspell-en_us
 libfido2
 
 [rust]
-du-dust
-zoxide
 cargo-update
-eza

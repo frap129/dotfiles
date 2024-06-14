@@ -27,3 +27,6 @@ ghidra
 gimp
 gparted
 kicad
+
+[flatpak]
+com.usebottles.bottles

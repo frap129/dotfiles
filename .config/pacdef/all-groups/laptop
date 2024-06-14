@@ -1,3 +1,6 @@
 
 [arch]
 brightnessctl
+nicepowerd-git
+tuned
+tuned-ppd
