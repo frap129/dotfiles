@@ -32,12 +32,12 @@ set $wifi ~/.local/bin/wofi-wifi-menu
 set $power wlogout -b 2 --protocol layer-shell --column-spacing 100 --row-spacing 100
 set $run 'wofi --show=run --conf=~/.config/wofi/config'
 set $lock loginctl lock-session
-set $sleep loginctl lock-session && sleep 0.1 && systemctl suspend
+set $sleep systemctl suspend
 set $laptop eDP-1
 
 ### Output configuration
 # Disable built-in display on close
-bindswitch --reload --locked lid:on exec '[ $(swaymsg -t get_outputs | grep \"name\" | wc -l) == 1 ] && ($sleep) || swaymsg output $laptop disable'
+bindswitch --reload --locked lid:on exec '[[ $(swaymsg -t get_outputs | grep \"name\" | wc -l) == 1 ]] && ($sleep) || swaymsg output $laptop disable'
 bindswitch --reload --locked lid:off output $laptop enable
 
 # Touchpad
