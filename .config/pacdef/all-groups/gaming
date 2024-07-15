@@ -1,0 +1,12 @@
+
+[arch]
+protonup-qt
+gamemode
+lib32-gamemode
+lutris
+r2modman-bin
+sunshine
+yuzu-mainline-bin
+
+[flatpak]
+com.valvesoftware.Steam

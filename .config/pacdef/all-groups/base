@@ -1,5 +1,9 @@
 
 [arch]
+linux-lts-headers
+lsof
+pigz
+btrfsmaintenance
 b3sum
 dust
 eza

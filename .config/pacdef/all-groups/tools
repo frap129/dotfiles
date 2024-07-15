@@ -1,5 +1,8 @@
 
 [arch]
+modprobed-db
+cosign
+hashcat
 binwalk
 s3fs-fuse
 socat

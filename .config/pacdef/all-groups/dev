@@ -1,5 +1,9 @@
 
 [arch]
+libc++abi
+udftools
+vscodium-bin-features
+yarn
 twine
 valgrind
 vscodium-bin
