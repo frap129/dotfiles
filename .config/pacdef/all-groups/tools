@@ -1,5 +1,6 @@
 
 [arch]
+binwalk
 s3fs-fuse
 socat
 squashfs-tools
@@ -29,7 +30,5 @@ docker-compose
 dos2unix
 f2fs-tools
 figlet
-git-filter-repo
 gvfs-mtp
 ipscan-bin
-lazygit

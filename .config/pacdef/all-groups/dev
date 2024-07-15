@@ -16,6 +16,7 @@ python-pipreqs
 python-pyelftools
 lld
 llvm
+lazygit
 meson
 autogen
 base-devel
@@ -25,6 +26,7 @@ clang
 cmake
 erofs-utils
 gdb
+git-filter-repo
 go
 goland
 libc++
