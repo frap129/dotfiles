@@ -1,13 +1,11 @@
 
 [arch]
+ollama
 libc++abi
 udftools
-vscodium-bin-features
 yarn
 twine
 valgrind
-vscodium-bin
-vscodium-bin-marketplace
 qemu-system-aarch64
 qemu-user-static-binfmt
 pyenv
@@ -32,7 +30,6 @@ erofs-utils
 gdb
 git-filter-repo
 go
-goland
 libc++
 
 [python]
@@ -40,3 +37,19 @@ cookiecutter
 nextion
 pip
 poetry
+
+[rustup]
+toolchain/nightly
+component/nightly/cargo
+component/nightly/clippy
+component/nightly/rust-docs
+component/nightly/rust-std
+component/nightly/rustc
+component/nightly/rustfmt
+toolchain/stable
+component/stable/cargo
+component/stable/clippy
+component/stable/rust-docs
+component/stable/rust-std
+component/stable/rustc
+component/stable/rustfmt

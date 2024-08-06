@@ -1,9 +1,9 @@
 
 [arch]
+linux-cachyos
+linux-cachyos-headers
 plymouth
-scx-scheds
+scx-scheds-git
 ananicy-cpp
 cachyos-ananicy-rules-git
-linux-cachyos-sched-ext
-linux-cachyos-sched-ext-headers
-uksmd
+uksmd-git
