@@ -21,7 +21,7 @@ export GOPATH=~/.cache/go
 export _microarchitecture=99
 export _compress_modules=n
 export _localmodcfg=y
-source ~/.local/bin/snv
+[[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 
 # mostly used alias functions
 alias df="df -ahiT --total"
