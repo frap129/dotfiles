@@ -1,5 +1,3 @@
-import = ["/home/joe/.config/alacritty/ramen.toml"]
-live_config_reload = true
 
 [cursor.style]
 shape = "Beam"
@@ -8,13 +6,13 @@ shape = "Beam"
 TERM = "alacritty"
 
 [font]
-size = 9.0
+size = 10.0
 
 [font.normal]
 family = "CozetteVector Nerd Font"
 style = "Regular"
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 
 [window]
@@ -27,3 +25,9 @@ opacity = 0.9
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
+
+[general]
+live_config_reload = true
+import = ["/home/joe/.config/alacritty/ramen.toml"]
+
+[terminal]
