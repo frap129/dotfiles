@@ -8,7 +8,6 @@ return {
   { import = "astrocommunity.code-runner.sniprun" },
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
   { import = "astrocommunity.completion.coq_nvim", enabled = false },
-  { import = "astrocommunity.editing-support.suda-vim" },
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.lua" },
