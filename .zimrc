@@ -20,6 +20,10 @@ zmodule termtitle
 zmodule utility
 # Integrate fzf
 zmodule fzf
+# Integrate exa
+zmodule exa
+# Provides archive and unarchive functions for easy archive manipulation.
+zmodule archive
 
 # powerlevel10k
 zmodule romkatv/powerlevel10k --use degit
