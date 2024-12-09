@@ -17,5 +17,4 @@ return {
   { import = "astrocommunity.syntax.hlargs-nvim" },
   { import = "astrocommunity.syntax.vim-cool" },
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
-  -- import/override with your plugins folder
 }
