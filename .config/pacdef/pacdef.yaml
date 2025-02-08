@@ -1,7 +1,0 @@
-aur_helper: yay
-aur_rm_args:
-  - -cns
-disabled_backends: []
-warn_not_symlinks: false
-flatpak_systemwide: false
-pip_binary: pipx

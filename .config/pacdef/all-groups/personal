@@ -1,8 +1,0 @@
-
-[arch]
-qmk
-freecad
-torbrowser-launcher
-
-[flatpak]
-dev.vencord.Vesktop
