@@ -14,7 +14,7 @@ client_fullscreen = "[{icon}]"
 
 [class_active]
 #DEFAULT="{icon}"
-"(?i)firefox" = " {class}"
+#"(?i)firefox" = " {class}"
 
 # [initial_class]
 # "DEFAULT" = " {class}: {title}"
