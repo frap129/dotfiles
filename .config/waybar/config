@@ -5,9 +5,9 @@
     // "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "custom/border-right", "custom/playerctl", "idle_inhibitor", "sway/mode", "sway/window"],
+    "modules-left": ["hyprland/workspaces", "custom/border-right", "custom/playerctl", "idle_inhibitor", "hyprland/submap", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio#sink", "pulseaudio#source", "custom/border-left", "bluetooth", "network", "battery"],
+    "modules-right": ["tray", "pulseaudio#sink", "pulseaudio#source", "custom/border-left", "privacy", "power-profiles-daemon", "battery"],
     // Modules configuration
     "disk": {
         "interval": 30,
@@ -23,24 +23,58 @@
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
         "on-click": "wofi-bluetooth-menu"
-        
     },
-    "sway/workspaces": {
+    "power-profiles-daemon": {
+        "format": "{icon} ",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "privacy": {
+	    "icon-spacing": 4,
+	    "icon-size": 12,
+	    "transition-duration": 250,
+	    "modules": [
+		    {
+			    "type": "screenshare",
+			    "tooltip": true,
+			    "tooltip-icon-size": 24
+		    },
+		    {
+			    "type": "audio-out",
+			    "tooltip": true,
+			    "tooltip-icon-size": 24
+		    },
+		    {
+			    "type": "audio-in",
+			    "tooltip": true,
+			    "tooltip-icon-size": 24
+		    }
+	    ]
+    },
+    "hyprland/workspaces": {
         "disable-scroll": false,
         "all-outputs": false,
         "numeric-first": true,
-        "format": "{value}",
+        "format": "{icon}{name}",
         "format-icons": {
             "urgent": "",
             "focused": "",
-            "default": ""
+            "default": ""
         }
     },
-    "sway/mode": {
-        "format": "{}"
+    "hyprland/submap": {
+        "format": "✌️ {}",
+        "max-length": 8,
+        "tooltip": false
     },
-    "sway/window": {
-        "icon": false,
+    "hyprland/window": {
+        "separate-outputs": true
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -169,5 +203,25 @@
     "custom/border-left": {
     	"format": "◖",
     	"tooltip": false
-    }
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
 }
