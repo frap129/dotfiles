@@ -1,35 +1,39 @@
 @import "/home/joe/.cache/wal/colors-waybar.css";
-@define-color clear rgba(0, 0, 0, 0.0);
-@define-color primary rgba(0, 0, 0, 0.75);
+@define-color background-alt alpha(@background, 0.6);
+@define-color primary alpha(@color2, 0.4);
+@define-color selected alpha(@color3, 0.4);
 
 window {
     margin: 2px;
-    border: 0px solid;
-    background-color: @color0;
-    border-radius: 8px;
+    padding: 6px;
+    border: none;
+    background-color: @background-alt;
+    border-radius: 16px;
 }
 
 #input {
     padding: 4px;
     margin: 4px;
     border: none;
+    border-radius: 16px;
     color: @foreground;
-    background-color: @color10;
+    background-color: @primary;
    	outline: none;
+   	box-shadow: none;
 }
 
 #inner-box {
     margin: 4px;
-    border: 0px solid;
-    background-color: @clear;
-    border-radius: 8px;
-}s
+    border: none;
+    background-color: transparent;
+    border-radius: 16px;
+}
 
 #outer-box {
     margin: 2px;
     border: none;
-    border-radius: 8px;
-    background-color: @clear;
+    border-radius: 16px;
+    background-color: transparent;
 }
 
 #scroll {
@@ -37,7 +41,7 @@ window {
     border: none;
 }
 
-#text:selected {
+#text {
     color: @foreground;
     margin: 0px 0px;
     border: none;
@@ -51,9 +55,11 @@ window {
     background-color: transparent;
 }
 
+#entry:focus {
+    outline: none;
+}
+
 #entry:selected {
-    margin: 0px 0px;
-    border: none;
-    border-radius: 8px;
-    background-color: @color3;
+    border-radius: 12px;
+    background-color: @selected;
 }
