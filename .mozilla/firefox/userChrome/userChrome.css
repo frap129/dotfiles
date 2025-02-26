@@ -1,5 +1,8 @@
 @import "autohide-sidebar.css";
 /* Sidebery css:
+#root.root {--toolbar-bg: #000000;}
+#root.root {--frame-bg: #000000;}
+
 #root {
   --tabs-height: 36px !important;
   --tabs-title-padding: 8px;
@@ -12,6 +15,10 @@
   --tabs-indent: 10px;
 }
 
+#root:not(:hover) {
+--tabs-indent: 0px;
+}
+
 .Tab .t-box {
   align-items: center;
   max-height: calc(var(--tabs-height) - var(--tabs-title-padding));
@@ -22,6 +29,17 @@
   font-size: var(--tabs-font-size);
   white-space: pre-wrap;
   line-height: calc((var(--tabs-height) - var(--tabs-title-padding)) / var(--tabs-title-lines));
+}
+
+.Tab[data-pin="false"] .ctx {
+  right: auto;
+  left: 0;
+  top: 0;
+  height: 100%;
+	opacity: 50%;
+	width: 1%;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 */
 

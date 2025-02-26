@@ -7,13 +7,13 @@ See the above repository for updates as well as full license text. */
 #sidebar-box{
   --uc-sidebar-width: 30px;
   --uc-sidebar-hover-width: 200px;
-  --uc-reveal-sidebar-delay: 250ms; /* Wait 0.0s before revealing sidebar */
+  --uc-reveal-sidebar-delay: 220ms; /* Wait 0.0s before revealing sidebar */
   --uc-autohide-sidebar-delay: 100ms; /* Wait 0.25s before hiding sidebar */
   position: relative;
   min-width: var(--uc-sidebar-width) !important;
   width: var(--uc-sidebar-width) !important;
   max-width: var(--uc-sidebar-width) !important;
-  z-index:1;
+  z-index: 99999;
 }
 
 #sidebar-box[positionend]{ direction: rtl }
