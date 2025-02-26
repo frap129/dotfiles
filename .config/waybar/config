@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "custom/border-right", "custom/playerctl", "idle_inhibitor", "hyprland/submap", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio#sink", "pulseaudio#source", "custom/border-left", "privacy", "power-profiles-daemon", "battery"],
+    "modules-right": ["tray", "pulseaudio#sink", "pulseaudio#source", "custom/border-left", "privacy", "custom/notification", "power-profiles-daemon", "battery"],
     // Modules configuration
     "disk": {
         "interval": 30,
@@ -206,16 +206,16 @@
     },
     "custom/notification": {
         "tooltip": false,
-        "format": "{icon}",
+        "format": "{icon} ",
         "format-icons": {
-            "notification": "<span foreground='red'><sup></sup></span>",
-            "none": "",
-            "dnd-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-none": "",
-            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "notification": "<sup></sup>",
+            "none": "",
+            "dnd-notification": "󱏧<sup></sup>",
+            "dnd-none": "󱏧",
+            "inhibited-notification": "<sup></sup>",
             "inhibited-none": "",
-            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-inhibited-none": ""
+            "dnd-inhibited-notification": "󱏨<sup></sup>",
+            "dnd-inhibited-none": "󱏨"
         },
         "return-type": "json",
         "exec-if": "which swaync-client",

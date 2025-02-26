@@ -108,6 +108,10 @@ window#waybar.hidden {
   background-color: @color0;
 }
 
+.modules-right > widget:nth-child(7) {
+  background-color: @color0;
+}
+
  .modules-right > widget:last-child {
   border-radius: 0px 16px 16px 0px;
   background-color: @color0;
