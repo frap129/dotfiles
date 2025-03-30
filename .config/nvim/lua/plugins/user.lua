@@ -51,4 +51,5 @@ return {
       { "<leader>vc", "<cmd>VenvSelectCached<cr>" },
     },
   },
+  "blink-cmp-spell",
 }
