@@ -5,10 +5,11 @@ return {
     "mikavilpas/blink-ripgrep.nvim",
     "bydlw98/blink-cmp-env",
     "ribru17/blink-cmp-spell",
+    "disrupted/blink-cmp-conventional-commits",
   },
   opts = {
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "spell", "env", "ripgrep" },
+      default = { "lsp", "path", "snippets", "buffer", "spell", "env", "ripgrep", "conventional_commits" },
       providers = {
         spell = {
           name = "Spell",
@@ -52,6 +53,13 @@ return {
             return items
           end,
         },
+      },
+      conventional_commits = {
+        name = "Conventional Commits",
+        module = "blink-cmp-conventional-commits",
+        enabled = function() return vim.bo.filetype == "gitcommit" end,
+        ---@module 'blink-cmp-conventional-commits'
+        ---@type blink-cmp-conventional-commits.Options
       },
     },
     fuzzy = {
