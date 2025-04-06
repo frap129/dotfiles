@@ -6,27 +6,37 @@
 if [ -z "${BASH_VERSINFO+x}" ]; then
     local shell="zsh"
 else
-    local shell="bash"
+    shell="bash"
 fi
 
 # Environment Variables
-export color_prompt=yes
 export PATH=~/.local/bin:~/.cargo/bin:$PATH
-export USE_CCACHE=1
-export CCACHE_DIR=~/.ccache
-export CCACHE_COMPRESS=1
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export GOPATH=~/.cache/go
-export _microarchitecture=99
-export _compress_modules=n
-export _localmodcfg=y
+export color_prompt=yes
+if [[ $(command -v ccache) ]]; then
+  export USE_CCACHE=1
+  export CCACHE_DIR=~/.ccache
+  export CCACHE_EXEC=$(command -v ccache)
+  export CCACHE_COMPRESS=1
+fi
 
 # Environment setup scripts
+[[ -f ~/.hostrc ]] && source ~/.hostrc
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 [[ -f ~/.cargo/env ]] && source ~/.cargo/env
+[[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
+if [[ -d /home/linuxbrew/.linuxbrew ]];  then
+  export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+  export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
+  export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
+  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin
+  [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}"
+  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
+fi
 
-# mostly used alias functions
+# Alias functions
 alias df="df -ahiT --total"
 alias mkdir="mkdir -pv"
 alias fhere="find . -name "
@@ -46,6 +56,3 @@ alias myip="curl http://ipecho.net/plain; echo"
 [[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
 [[ $(command -v dust) ]] && alias du="dust"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
-
-
-

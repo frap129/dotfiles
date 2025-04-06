@@ -1,13 +1,13 @@
 [include]
 	path = .gitconfig.local
 
+[includeIf "gitdir:~/.local/share/yadm/repo.git"]
+	path = ~/.gitconfig.personal
+
 [core]
 	editor = nvim
 	autocrlf = input
 	pager = delta
-[review "review.carbonrom.org"]
-	username = frap129
-	email = joe@maples.dev
 [safe]
 	directory = *
 [column]
@@ -28,7 +28,6 @@
 	line-numbers = true
 [gpg]
 	program = gpg
-
 [push]
 	gpgSign = if-asked
 	default = simple
@@ -56,11 +55,22 @@
 	sort = version:refname
 [init]
 	defaultBranch = main
-
 [alias]
 	cp = cherry-pick
 	cpc = cherry-pick --continue
 	cpa = cherry-pick --abort
 	cpq = cherry-pick --quit
 	hr = reset --hard
+
+[http]
+	cookiefile = ~/.gitcookies
+[credential]
+	helper = store
+
+[review "review.carbonrom.org"]
+	username = frap129
+	email = joe@maples.dev
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
 
