@@ -42,8 +42,6 @@ return {
         ripgrep = {
           module = "blink-ripgrep",
           name = "Ripgrep",
-          ---@module "blink-ripgrep"
-          ---@type blink-ripgrep.Options
           transform_items = function(_, items)
             for _, item in ipairs(items) do
               item.labelDetails = {
@@ -58,8 +56,6 @@ return {
         name = "Conventional Commits",
         module = "blink-cmp-conventional-commits",
         enabled = function() return vim.bo.filetype == "gitcommit" end,
-        ---@module 'blink-cmp-conventional-commits'
-        ---@type blink-cmp-conventional-commits.Options
       },
     },
     fuzzy = {
