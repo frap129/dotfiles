@@ -35,6 +35,9 @@ if [[ -d /home/linuxbrew/.linuxbrew ]];  then
   [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}"
   export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
 fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Alias functions
 alias df="df -ahiT --total"
@@ -47,6 +50,7 @@ alias grep='grep --color=auto'
 alias rwaybar='killall -SIGUSR2 waybar'
 alias vi="nvim"
 alias myip="curl http://ipecho.net/plain; echo"
+alias adate="adb shell \"date `date +%m%d%H%M%Y.%S`\""
 
 # Common replacements
 [[ $(command -v delta) ]] && alias diff="delta"
