@@ -54,8 +54,24 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
-      quickfile = {},
-      words = {},
+      animate = {
+        enabled = true,
+      },
+      bigfile = {
+        enabled = true,
+      },
+      image = {
+        enabled = false,
+      },
+      input = {
+        enabled = true,
+      },
+      quickfile = {
+        enabled = true,
+      },
+      words = {
+        enabled = true,
+      },
     },
   },
   {
