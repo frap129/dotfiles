@@ -1,4 +1,10 @@
 [user]
-  email = joe.maples@valtech.com
+  email = jmaples8@ford.com
 	name = Joe Maples
-	signingkey = 0FBB331F
+
+[url "ssh://git@github.ford.com/"]
+  insteadOf = https://github.ford.com/
+
+[url "ssh://git@github.com-frap129/frap129"]
+  insteadOf = https://github.com/frap129/
+
