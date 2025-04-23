@@ -4,36 +4,36 @@
 
 ---@type LazySpec
 return {
-  "andweeb/presence.nvim",
   {
     "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function() require("lsp_signature").setup() end,
+    event = "InsertEnter",
+    opts = {
+      bind = true,
+      handler_opts = {
+        border = "rounded",
+      },
+    },
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    config = function(plugin, opts)
-      require("neo-tree").setup {
-        filesystem = {
-          filtered_items = {
-            visible = true,
-            hide_dotfiles = false,
-            hide_gitignored = false,
-          },
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = false,
+          hide_gitignored = false,
         },
-      }
-    end,
+      },
+    },
   },
   {
     "akinsho/toggleterm.nvim",
-    config = function(plugin, opts)
-      require("toggleterm").setup {
-        direction = "horizontal",
-        shade_terminals = true,
-        shading_factor = -15,
-        size = 20,
-      }
-    end,
+    opts = {
+      direction = "horizontal",
+      shade_terminals = true,
+      shading_factor = -15,
+      size = 20,
+    },
   },
   {
     "linux-cultist/venv-selector.nvim",
@@ -49,6 +49,29 @@ return {
       { "<leader>vs", "<cmd>VenvSelect<cr>" },
       -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
       { "<leader>vc", "<cmd>VenvSelectCached<cr>" },
+    },
+  },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      quickfile = {},
+      words = {},
+    },
+  },
+  {
+    "Bekaboo/dropbar.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+    },
+    event = "UIEnter",
+    opts = {},
+    specs = {
+      {
+        "rebelot/heirline.nvim",
+        optional = true,
+        opts = function(_, opts) opts.winbar = nil end,
+      },
     },
   },
 }
