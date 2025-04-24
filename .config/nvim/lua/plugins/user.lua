@@ -29,10 +29,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     opts = {
-      direction = "horizontal",
-      shade_terminals = true,
-      shading_factor = -15,
-      size = 20,
+      direction = "float",
     },
   },
   {
