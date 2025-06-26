@@ -87,4 +87,5 @@ return {
       },
     },
   },
+  { "hsanson/vim-android" },
 }
