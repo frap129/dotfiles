@@ -63,7 +63,7 @@
 	hr = reset --hard
 
 [http]
-	cookiefile = ~/.gitcookies
+	cookiefile = /home/joe/.gitcookies
 [credential]
 	helper = store
 
