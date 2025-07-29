@@ -35,9 +35,19 @@ if [[ -d /home/linuxbrew/.linuxbrew ]];  then
   [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}"
   export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
 fi
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+if [[ -d ~/.nvm ]]; then
+  export NVM_DIR="$HOME/.nvm"
+  unset npm_config_prefix 
+  source $NVM_DIR/nvm.sh
+  source $NVM_DIR/bash_completion
+else
+  export npm_config_prefix="$HOME/.local"
+fi
+if [[ -d ~/.bun ]]; then
+  [ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$PATH:$BUN_INSTALL/bin"
+fi
 
 # Alias functions
 alias df="df -ahiT --total"
