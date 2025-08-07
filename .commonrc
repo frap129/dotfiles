@@ -10,7 +10,7 @@ else
 fi
 
 # Environment Variables
-export PATH=~/.local/bin:~/.cargo/bin:$PATH
+export PATH=~/.local/bin:~/.cargo/bin:~/.local/share/nvim/mason/bin:$PATH
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export GOPATH=~/.cache/go
@@ -21,6 +21,9 @@ if [[ $(command -v ccache) ]]; then
   export CCACHE_EXEC=$(command -v ccache)
   export CCACHE_COMPRESS=1
 fi
+export DISABLE_TELEMETRY=1
+export DISABLE_ERROR_REPORTING=1
+export DISABLE_NON_ESSENTIAL_MODEL_CALLS=1
 
 # Environment setup scripts
 [[ -f ~/.hostrc ]] && source ~/.hostrc
