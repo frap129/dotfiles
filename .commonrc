@@ -31,14 +31,6 @@ export ANDROID_HOME=~/Android/Sdk
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 [[ -f ~/.cargo/env ]] && source ~/.cargo/env
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
-if [[ -d /home/linuxbrew/.linuxbrew ]];  then
-  export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
-  export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
-  export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
-  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin
-  [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}"
-  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
-fi
 if [[ -d ~/.nvm ]]; then
   export NVM_DIR="$HOME/.nvm"
   unset npm_config_prefix 
@@ -51,6 +43,14 @@ if [[ -d ~/.bun ]]; then
   [ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
   export BUN_INSTALL="$HOME/.bun"
   export PATH="$PATH:$BUN_INSTALL/bin"
+fi
+if [[ -d /home/linuxbrew/.linuxbrew ]];  then
+  export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+  export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
+  export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
+  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin
+  [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}"
+  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
 fi
 
 # Alias functions
@@ -65,6 +65,7 @@ alias rwaybar='killall -SIGUSR2 waybar'
 alias vi="nvim"
 alias myip="curl http://ipecho.net/plain; echo"
 alias adate="adb shell \"date `date +%m%d%H%M%Y.%S`\""
+alias /clear="clear" # claude broke me
 
 # Common replacements
 [[ $(command -v delta) ]] && alias diff="delta"
