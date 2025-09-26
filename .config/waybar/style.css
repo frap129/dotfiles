@@ -5,38 +5,38 @@
 @define-color fg_primary #333;
 
 * {
-    border-top: solid 1px @bg_secondary;
-    border-radius: 0;
-    /* `otf-font-awesome` is required to be installed for icons */
-    /* font-family: Roboto, Helvetica, Arial, sans-serif; */
-    font-family: "Cantarell", "FiraCode Nerd Font";
-    font-size: 12px;
-    font-weight: bold;
-    min-height: 0;
-    padding: 0px 2px;
+  border-top: solid 1px @bg_secondary;
+  border-radius: 0;
+  /* `otf-font-awesome` is required to be installed for icons */
+  /* font-family: Roboto, Helvetica, Arial, sans-serif; */
+  font-family: "Cantarell", "FiraCode Nerd Font";
+  font-size: 12px;
+  font-weight: bold;
+  min-height: 0;
+  padding: 0px 2px;
 }
 
 window#waybar {
-    background-color: @bg_secondary;
-    color: @color1;
-    transition-property: background-color;
-    transition-duration: .5s;
+  background-color: @bg_secondary;
+  color: @color1;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 #clock,
 #window {
-    color: @foreground;
-    padding: 0 2px;
-    margin: 0 2px;
+  color: @foreground;
+  padding: 0 2px;
+  margin: 0 2px;
 }
 
 .modules-center {
-    padding: 0px 10px 0px;
-    background-color: transparent;
+  padding: 0px 10px 0px;
+  background-color: transparent;
 }
 
 .modules-left > widget:first-child {
@@ -45,10 +45,10 @@ window#waybar.hidden {
 }
 
 #custom-border-right {
-	color: @color0;
-	padding: 0px;
-	margin: -16px 0px -13px -13px;
-	font-size: 40px;
+  color: @color0;
+  padding: 0px;
+  margin: -16px 0px -13px -13px;
+  font-size: 40px;
 }
 
 .modules-left > widget:nth-child(2) {
@@ -94,10 +94,10 @@ window#waybar.hidden {
 }
 
 #custom-border-left {
-	color: @color0;
-	padding: 0px;
-	margin: -16px -13px -13px 0px;
-	font-size: 40px;
+  color: @color0;
+  padding: 0px;
+  margin: -16px -13px -13px 0px;
+  font-size: 40px;
 }
 
 .modules-right > widget:nth-child(5) {
@@ -112,34 +112,34 @@ window#waybar.hidden {
   background-color: @color0;
 }
 
- .modules-right > widget:last-child {
+.modules-right > widget:last-child {
   border-radius: 0px 16px 16px 0px;
   background-color: @color0;
-} 
+}
 
 #workspaces button {
-    padding: 0px 2px 2px;
-    background-color: transparent;
-    color: @color10;
+  padding: 0px 2px 2px;
+  background-color: transparent;
+  color: @color10;
 }
 
 #workspaces button:hover {
-    color: @color0;
-    background: @color10;
-	border-radius: 16px;
+  color: @color0;
+  background: @color10;
+  border-radius: 16px;
 }
 
 #workspaces button.focused {
-    color: @color11;
+  color: @color11;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
-	border-radius: 16px;
+  background-color: #eb4d4b;
+  border-radius: 16px;
 }
 
 #mode {
-    color: red;
+  color: red;
 }
 
 #cpu,
@@ -154,71 +154,68 @@ window#waybar.hidden {
 #idle_inhibitor,
 #language,
 #custom-playerctl {
-	color: @color0;
-    padding: 0 2px;
-    margin: 0 2px;
+  color: @color0;
+  padding: 0 2px;
+  margin: 0 2px;
 }
 
 #bluetooth,
 #network,
 #battery {
-	color: @color10;
-    padding: 0 2px;
-    margin: 0 2px;
+  color: @color10;
+  padding: 0 2px;
+  margin: 0 2px;
 }
 
 #battery.charging {
-    color: #ffffff;
-    border: none;
-    border-radius: 16px;
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
 }
 
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    border: none;
-    border-radius: 16px;
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  border: none;
+  border-radius: 16px;
 }
 
 label:focus {
-    background-color: #000000;
+  background-color: #000000;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+  background-color: #f53c3c;
 }
-
 
 #pulseaudio.sink.muted {
-    color: #888;
+  color: #888;
 }
 
-
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+  background-color: #66cc99;
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+  background-color: #ffa000;
 }
 
-
 #temperature.critical {
-    background-color: #eb4d4b;
+  background-color: #eb4d4b;
 }
 
 #tray image {
-    padding: 0px 2px;
+  padding: 0px 2px;
 }
