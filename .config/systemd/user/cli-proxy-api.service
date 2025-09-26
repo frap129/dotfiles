@@ -1,0 +1,14 @@
+[Unit]
+Description=CLI Proxy API Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/cli-proxy-api --config %h/.config/cli-proxy-api.yaml
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

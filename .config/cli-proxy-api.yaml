@@ -1,0 +1,26 @@
+# Server port
+port: 8317
+# Management API settings
+remote-management:
+  # Whether to allow remote (non-localhost) management access.
+  # When false, only localhost can access management endpoints (a key is still required).
+  allow-remote: false
+  # Management key. If a plaintext value is provided here, it will be hashed on startup.
+  # All management requests (even from localhost) require this key.
+  # Leave empty to disable the Management API entirely (404 for all /v0/management routes).
+  secret-key: "$2a$10$4F/8lXWO7EelTmnoUPD3AuJU1tVkSJv8VQMmvgbcyvSgkMQaYEgq."
+# Authentication directory (supports ~ for home directory)
+auth-dir: "~/.cache/cli-proxy-api"
+# Enable debug logging
+debug: true
+# Proxy URL. Supports socks5/http/https protocols. Example: socks5://user:pass@192.168.1.1:1080/
+proxy-url: ""
+# Number of times to retry a request. Retries will occur if the HTTP response code is 403, 408, 500, 502, 503, or 504.
+request-retry: 3
+# Quota exceeded behavior
+quota-exceeded:
+  switch-project: true # Whether to automatically switch to another project when a quota is exceeded
+  switch-preview-model: true # Whether to automatically switch to a preview model when a quota is exceeded
+# API keys for authentication
+api-keys:
+  - "dummy-key"
