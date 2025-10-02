@@ -23,6 +23,7 @@
     "kotlin": {
       "command": ["kotlin-language-server"],
       "extensions": [".kt", ".kts"]
+    }
   },
   "provider": {
     "cli-proxy-api-google": {
