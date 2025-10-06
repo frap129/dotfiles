@@ -10,7 +10,7 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
       "headers": {
-        "CONTEXT7_API_KEY": "{env:ANTHROPIC_API_KEY}"
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
       },
       "enabled": true
     },
@@ -24,6 +24,139 @@
     "kotlin": {
       "command": ["kotlin-language-server"],
       "extensions": [".kt", ".kts"]
+    }
+  },
+  "provider": {
+    "fordllm": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "FordLLM",
+      "options": {
+        "baseURL": "{env:FORDLLM_API_URL}"
+      },
+      "models": {
+        "gpt-5-high": {
+          "name": "GPT-5 (high)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          }
+        },
+        "gpt-5-medium": {
+          "name": "GPT-5 (medium)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          }
+        },
+        "gpt-5-low": {
+          "name": "GPT-5 (low)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          }
+        },
+        "gpt-5-minimal": {
+          "name": "GPT-5 (minimal)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          }
+        },
+        "gpt-5-mini-high": {
+          "name": "GPT-5 Mini (high)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          }
+        },
+        "gpt-5-mini-medium": {
+          "name": "GPT-5 Mini (medium)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          }
+        },
+        "gpt-5-mini-low": {
+          "name": "GPT-5 Mini (low)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          }
+        },
+        "gpt-5-mini-minimal": {
+          "name": "GPT-5 Mini (minimal)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          }
+        },
+        "claude-sonnet-4-5": {
+          "name": "Claude Sonnet 4.5",
+          "tool_call": false,
+          "reasoning": false,
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          }
+        },
+        "qwen3-coder": {
+          "name": "Qwen3 Coder",
+          "tool_call": false,
+          "reasoning": false,
+          "attachment": true,
+          "limit": {
+            "context": 262144,
+            "output": 66536
+          }
+        },
+        "kimi": {
+          "name": "Kimi K2",
+          "tool_call": false,
+          "reasoning": false,
+          "attachment": false,
+          "limit": {
+            "context": 131072,
+            "output": 16384
+          }
+        },
+        "gemini-2.5-pro": {
+          "name": "Gemini 2.5 Pro",
+          "tool_call": false,
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
+        "gemini-2.5-flash": {
+          "name": "Gemini 2.5 Flash",
+          "tool_call": false,
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        }
+      }
     }
   }
 }
