@@ -92,96 +92,42 @@ return {
     config = function() require("android-nvim").setup() end,
   },
   {
-    "coder/claudecode.nvim",
-    dependencies = { "folke/snacks.nvim" },
-    config = true,
-    keys = {
-      { "<leader>a", nil, desc = "AI/Claude Code" },
-      { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
-      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
-      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
-      { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-      { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
-      { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
-      { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
-      {
-        "<leader>as",
-        "<cmd>ClaudeCodeTreeAdd<cr>",
-        desc = "Add file",
-        ft = { "NvimTree", "neo-tree", "oil", "minifiles" },
-      },
-      -- Diff management
-      { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
-      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
-    },
-  },
-  {
-    "NickvanDyke/opencode.nvim",
-    dependencies = {
-      -- Recommended for better prompt input, and required to use `opencode.nvim`'s embedded terminal — otherwise optional
-      { "folke/snacks.nvim", opts = { input = { enabled = true } } },
-    },
+    "sudo-tee/opencode.nvim",
     config = function()
-      vim.g.opencode_opts = {
-        -- Your configuration, if any — see `lua/opencode/config.lua`
+      require("opencode").setup {
+        keymap = {
+          global = {
+            toggle = "<leader>ag", -- Open opencode. Close if opened
+            open_input = "<leader>ai", -- Opens and focuses on input window on insert mode
+            open_input_new_session = "<leader>aI", -- Opens and focuses on input window on insert mode. Creates a new session
+            open_output = "<leader>ao", -- Opens and focuses on output window
+            toggle_focus = "<leader>at", -- Toggle focus between opencode and last window
+            close = "<leader>aq", -- Close UI windows
+            select_session = "<leader>as", -- Select and load a opencode session
+            configure_provider = "<leader>ap", -- Quick provider and model switch from predefined list
+            diff_open = "<leader>ad", -- Opens a diff tab of a modified file since the last opencode prompt
+            diff_next = "<leader>a]", -- Navigate to next file diff
+            diff_prev = "<leader>a[", -- Navigate to previous file diff
+            diff_close = "<leader>ac", -- Close diff view tab and return to normal editing
+            diff_revert_all_last_prompt = "<leader>ara", -- Revert all file changes since the last opencode prompt
+            diff_revert_this_last_prompt = "<leader>art", -- Revert current file changes since the last opencode prompt
+            diff_revert_all = "<leader>arA", -- Revert all file changes since the last opencode session
+            diff_revert_this = "<leader>arT", -- Revert current file changes since the last opencode session
+            swap_position = "<leader>ax", -- Swap Opencode pane left/right
+          },
+        },
       }
-
-      -- Required for `opts.auto_reload`
-      vim.opt.autoread = true
-
-      -- Recommended keymaps
-      vim.keymap.set("n", "<leader>ot", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
-      vim.keymap.set("n", "<leader>oA", function() require("opencode").ask() end, { desc = "Ask opencode" })
-      vim.keymap.set(
-        "n",
-        "<leader>oa",
-        function() require("opencode").ask "@cursor: " end,
-        { desc = "Ask opencode about this" }
-      )
-      vim.keymap.set(
-        "v",
-        "<leader>oa",
-        function() require("opencode").ask "@selection: " end,
-        { desc = "Ask opencode about selection" }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>on",
-        function() require("opencode").command "session_new" end,
-        { desc = "New opencode session" }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>oy",
-        function() require("opencode").command "messages_copy" end,
-        { desc = "Copy last opencode response" }
-      )
-      vim.keymap.set(
-        "n",
-        "<S-C-u>",
-        function() require("opencode").command "messages_half_page_up" end,
-        { desc = "Messages half page up" }
-      )
-      vim.keymap.set(
-        "n",
-        "<S-C-d>",
-        function() require("opencode").command "messages_half_page_down" end,
-        { desc = "Messages half page down" }
-      )
-      vim.keymap.set(
-        { "n", "v" },
-        "<leader>os",
-        function() require("opencode").select() end,
-        { desc = "Select opencode prompt" }
-      )
-
-      -- Example: keymap for custom prompt
-      vim.keymap.set(
-        "n",
-        "<leader>oe",
-        function() require("opencode").prompt "Explain @cursor and its context" end,
-        { desc = "Explain this code" }
-      )
     end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          anti_conceal = { enabled = false },
+          file_types = { "markdown", "opencode_output" },
+        },
+        ft = { "markdown", "Avante", "copilot-chat", "opencode_output" },
+      },
+    },
   },
 }
