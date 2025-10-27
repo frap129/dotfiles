@@ -4,6 +4,7 @@
   "tui": {
     "scroll_speed": 10
   },
+  "plugin": ["opencode-skills"],
   "mcp": {
     "context7": {
       "type": "remote",

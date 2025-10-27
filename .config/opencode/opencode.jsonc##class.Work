@@ -3,35 +3,36 @@
   "small_model": "github-copilot/gpt-5-mini",
   "theme": "system",
   "tui": {
-    "scroll_speed": 10
+    "scroll_speed": 10,
   },
+  "plugin": ["opencode-skills"],
   "mcp": {
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
       "headers": {
-        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}",
       },
-      "enabled": true
+      "enabled": true,
     },
     "code-reasoning": {
       "type": "local",
       "command": ["code-reasoning"],
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "lsp": {
     "kotlin": {
       "command": ["kotlin-language-server"],
-      "extensions": [".kt", ".kts"]
-    }
+      "extensions": [".kt", ".kts"],
+    },
   },
   "provider": {
     "fordllm": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "FordLLM",
       "options": {
-        "baseURL": "{env:FORDLLM_API_URL}"
+        "baseURL": "{env:FORDLLM_API_URL}",
       },
       "models": {
         "gpt-5-high": {
@@ -40,8 +41,8 @@
           "attachment": true,
           "limit": {
             "context": 400000,
-            "output": 128000
-          }
+            "output": 128000,
+          },
         },
         "gpt-5-medium": {
           "name": "GPT-5 (medium)",
@@ -49,8 +50,8 @@
           "attachment": true,
           "limit": {
             "context": 400000,
-            "output": 128000
-          }
+            "output": 128000,
+          },
         },
         "gpt-5-low": {
           "name": "GPT-5 (low)",
@@ -58,8 +59,8 @@
           "attachment": true,
           "limit": {
             "context": 400000,
-            "output": 128000
-          }
+            "output": 128000,
+          },
         },
         "gpt-5-minimal": {
           "name": "GPT-5 (minimal)",
@@ -67,8 +68,8 @@
           "attachment": true,
           "limit": {
             "context": 400000,
-            "output": 128000
-          }
+            "output": 128000,
+          },
         },
         "gpt-5-mini-high": {
           "name": "GPT-5 Mini (high)",
@@ -76,8 +77,8 @@
           "attachment": true,
           "limit": {
             "context": 400000,
-            "output": 128000
-          }
+            "output": 128000,
+          },
         },
         "gpt-5-mini-medium": {
           "name": "GPT-5 Mini (medium)",
@@ -85,8 +86,8 @@
           "attachment": true,
           "limit": {
             "context": 400000,
-            "output": 128000
-          }
+            "output": 128000,
+          },
         },
         "gpt-5-mini-low": {
           "name": "GPT-5 Mini (low)",
@@ -94,8 +95,8 @@
           "attachment": true,
           "limit": {
             "context": 400000,
-            "output": 128000
-          }
+            "output": 128000,
+          },
         },
         "gpt-5-mini-minimal": {
           "name": "GPT-5 Mini (minimal)",
@@ -103,8 +104,8 @@
           "attachment": true,
           "limit": {
             "context": 400000,
-            "output": 128000
-          }
+            "output": 128000,
+          },
         },
         "claude-sonnet-4-5": {
           "name": "Claude Sonnet 4.5",
@@ -113,8 +114,8 @@
           "attachment": true,
           "limit": {
             "context": 200000,
-            "output": 64000
-          }
+            "output": 64000,
+          },
         },
         "qwen3-coder": {
           "name": "Qwen3 Coder",
@@ -123,8 +124,8 @@
           "attachment": true,
           "limit": {
             "context": 262144,
-            "output": 66536
-          }
+            "output": 66536,
+          },
         },
         "kimi": {
           "name": "Kimi K2",
@@ -133,8 +134,8 @@
           "attachment": false,
           "limit": {
             "context": 131072,
-            "output": 16384
-          }
+            "output": 16384,
+          },
         },
         "gemini-2.5-pro": {
           "name": "Gemini 2.5 Pro",
@@ -143,8 +144,8 @@
           "attachment": true,
           "limit": {
             "context": 1048576,
-            "output": 65536
-          }
+            "output": 65536,
+          },
         },
         "gemini-2.5-flash": {
           "name": "Gemini 2.5 Flash",
@@ -153,10 +154,10 @@
           "attachment": true,
           "limit": {
             "context": 1048576,
-            "output": 65536
-          }
-        }
-      }
-    }
-  }
+            "output": 65536,
+          },
+        },
+      },
+    },
+  },
 }
