@@ -5,7 +5,12 @@
   "tui": {
     "scroll_speed": 10,
   },
-  "plugin": ["opencode-skills", "opencode-sessions", "opencode-gemini-auth"],
+  "plugin": [
+    "opencode-skills",
+    "opencode-sessions",
+    "opencode-gemini-auth",
+    "opencode-alibaba-qwen3-auth",
+  ],
   "mcp": {
     "context7": {
       "type": "local",
@@ -63,36 +68,6 @@
               "thinkingBudget": -1,
               "includeThoughts": true,
             },
-          },
-        },
-      },
-    },
-    "cli-proxy-api": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "CLIProxyAPI",
-      "options": {
-        "baseURL": "http://localhost:8317/v1",
-        "apiKey": "dummy-key",
-      },
-      "models": {
-        "qwen3-coder-plus": {
-          "name": "Qwen3 Coder Plus",
-          "reasoning": false,
-          "attachment": false,
-          "tool_call": true,
-          "limit": {
-            "context": 1048576,
-            "output": 65536,
-          },
-        },
-        "qwen3-coder-flash": {
-          "name": "Qwen3 Coder Flash",
-          "reasoning": false,
-          "attachment": false,
-          "tool_call": true,
-          "limit": {
-            "context": 1000000,
-            "output": 65536,
           },
         },
       },
