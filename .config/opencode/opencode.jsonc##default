@@ -1,10 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "small_model": "cli-proxy-api/gemini-2.5-flash-lite",
+  "theme": "system",
+  "small_model": "google/gemini-2.5-flash-lite",
   "tui": {
     "scroll_speed": 10,
   },
-  "plugin": ["opencode-skills", "opencode-sessions"],
+  "plugin": ["opencode-skills", "opencode-sessions", "opencode-gemini-auth"],
   "mcp": {
     "context7": {
       "type": "local",
@@ -29,6 +30,10 @@
       "extensions": [".kt", ".kts"],
     },
   },
+  "keybinds": {
+    "agent_cycle": "ctrl+tab",
+    "agent_cycle_reverse": "ctrl+shift+tab",
+  },
   "provider": {
     "anthropic": {
       "models": {
@@ -36,7 +41,27 @@
           "options": {
             "thinking": {
               "type": "enabled",
-              "budgetTokens": 16000,
+              "budgetTokens": 8000,
+            },
+          },
+        },
+        "claude-sonnet-4-5": {
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 8000,
+            },
+          },
+        },
+      },
+    },
+    "google": {
+      "models": {
+        "gemini-2.5-pro": {
+          "options": {
+            "thinkingConfig": {
+              "thinkingBudget": -1,
+              "includeThoughts": true,
             },
           },
         },
@@ -50,36 +75,6 @@
         "apiKey": "dummy-key",
       },
       "models": {
-        "gemini-2.5-pro": {
-          "name": "Gemini 2.5 Pro",
-          "reasoning": true,
-          "attachment": true,
-          "tool_call": true,
-          "limit": {
-            "context": 1048576,
-            "output": 65536,
-          },
-        },
-        "gemini-2.5-flash": {
-          "name": "Gemini 2.5 Flash",
-          "reasoning": true,
-          "attachment": true,
-          "tool_call": true,
-          "limit": {
-            "context": 1048576,
-            "output": 65536,
-          },
-        },
-        "gemini-2.5-flash-lite": {
-          "name": "Gemini 2.5 Flash Lite",
-          "reasoning": true,
-          "attachment": true,
-          "tool_call": true,
-          "limit": {
-            "context": 1048576,
-            "output": 65536,
-          },
-        },
         "qwen3-coder-plus": {
           "name": "Qwen3 Coder Plus",
           "reasoning": false,
