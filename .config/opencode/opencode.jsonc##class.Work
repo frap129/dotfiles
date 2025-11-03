@@ -55,7 +55,7 @@
           },
           "options": {
             "reasoningEffort": "high",
-            "textVerbosity": "low",
+            "verbosity": "medium",
             "reasoningSummary": "auto",
           },
         },
@@ -70,7 +70,7 @@
           },
           "options": {
             "reasoningEffort": "medium",
-            "textVerbosity": "low",
+            "verbosity": "medium",
             "reasoningSummary": "auto",
           },
         },
@@ -85,7 +85,7 @@
           },
           "options": {
             "reasoningEffort": "low",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -100,7 +100,7 @@
           },
           "options": {
             "reasoningEffort": "minimal",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -115,7 +115,7 @@
           },
           "options": {
             "reasoningEffort": "high",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -130,7 +130,7 @@
           },
           "options": {
             "reasoningEffort": "medium",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -145,7 +145,7 @@
           },
           "options": {
             "reasoningEffort": "low",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -160,7 +160,7 @@
           },
           "options": {
             "reasoningEffort": "minimal",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -175,7 +175,7 @@
           },
           "options": {
             "reasoningEffort": "high",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -190,7 +190,7 @@
           },
           "options": {
             "reasoningEffort": "medium",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -205,7 +205,7 @@
           },
           "options": {
             "reasoningEffort": "low",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -220,7 +220,7 @@
           },
           "options": {
             "reasoningEffort": "minimal",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
