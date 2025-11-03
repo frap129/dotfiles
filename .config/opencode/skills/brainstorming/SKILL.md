@@ -26,7 +26,7 @@ Transform rough ideas into fully-formed designs through structured questioning a
 
 ## The Process
 
-Copy this checklist to track progress:
+You MUST use the todowrite/todoread tools to track your progress through this process. Copy this checklist:
 
 ```
 Brainstorming Progress:
