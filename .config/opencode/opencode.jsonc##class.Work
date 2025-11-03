@@ -32,6 +32,10 @@
       "extensions": [".kt", ".kts"],
     },
   },
+  "keybinds": {
+    "agent_cycle": "ctrl+tab",
+    "agent_cycle_reverse": "ctrl+shift+tab",
+  },
   "provider": {
     "fordllm": {
       "npm": "@ai-sdk/openai-compatible",
@@ -51,7 +55,7 @@
           },
           "options": {
             "reasoningEffort": "high",
-            "textVerbosity": "low",
+            "verbosity": "medium",
             "reasoningSummary": "auto",
           },
         },
@@ -66,7 +70,7 @@
           },
           "options": {
             "reasoningEffort": "medium",
-            "textVerbosity": "low",
+            "verbosity": "medium",
             "reasoningSummary": "auto",
           },
         },
@@ -81,7 +85,7 @@
           },
           "options": {
             "reasoningEffort": "low",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -96,7 +100,7 @@
           },
           "options": {
             "reasoningEffort": "minimal",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -111,7 +115,7 @@
           },
           "options": {
             "reasoningEffort": "high",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -126,7 +130,7 @@
           },
           "options": {
             "reasoningEffort": "medium",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -141,7 +145,7 @@
           },
           "options": {
             "reasoningEffort": "low",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -156,7 +160,7 @@
           },
           "options": {
             "reasoningEffort": "minimal",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -171,7 +175,7 @@
           },
           "options": {
             "reasoningEffort": "high",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -186,7 +190,7 @@
           },
           "options": {
             "reasoningEffort": "medium",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -201,7 +205,7 @@
           },
           "options": {
             "reasoningEffort": "low",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },
@@ -216,7 +220,7 @@
           },
           "options": {
             "reasoningEffort": "minimal",
-            "textVerbosity": "low",
+            "verbosity": "low",
             "reasoningSummary": "auto",
           },
         },

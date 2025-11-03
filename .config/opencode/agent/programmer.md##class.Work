@@ -1,7 +1,7 @@
 ---
 description: Performs coding and cli tasks
-mode: all
-model: github-copilot/claude-sonnet-4.5
+mode: subagent
+model: github-copilot/claude-haiku-4.5
 tools:
   todowrite: true
   todoread: true
