@@ -32,6 +32,10 @@
       "extensions": [".kt", ".kts"],
     },
   },
+  "keybinds": {
+    "agent_cycle": "ctrl+tab",
+    "agent_cycle_reverse": "ctrl+shift+tab",
+  },
   "provider": {
     "fordllm": {
       "npm": "@ai-sdk/openai-compatible",
