@@ -36,6 +36,14 @@
     "agent_cycle": "ctrl+tab",
     "agent_cycle_reverse": "ctrl+shift+tab",
   },
+  "permission": {
+    "bash": {
+      "*filter-branch*": "deny",
+      "git branch *": "ask",
+      "git checkout *": "ask",
+      "rm *docs/plans/*": "deny",
+    },
+  },
   "provider": {
     "fordllm": {
       "npm": "@ai-sdk/openai-compatible",
