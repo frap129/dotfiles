@@ -1,11 +1,14 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "instructions": ["rules/*.md"],
   "theme": "system",
   "small_model": "google/gemini-2.5-flash-lite",
   "tui": {
     "scroll_speed": 10,
   },
   "plugin": [
+    //    "opencode-rules",
+    //"/home/joe/Projects/ai/opencode-rules",
     "opencode-skills",
     "opencode-sessions",
     "opencode-gemini-auth",
@@ -38,6 +41,13 @@
   "keybinds": {
     "agent_cycle": "ctrl+tab",
     "agent_cycle_reverse": "ctrl+shift+tab",
+    "close": "ctrl+q",
+  },
+  "permission": {
+    "bash": {
+      "*filter-branch*": "deny",
+      "git branch *": "ask",
+    },
   },
   "provider": {
     "anthropic": {
