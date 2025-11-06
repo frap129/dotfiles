@@ -41,7 +41,7 @@
   "keybinds": {
     "agent_cycle": "ctrl+tab",
     "agent_cycle_reverse": "ctrl+shift+tab",
-    "close": "ctrl+q",
+    "app_exit": "ctrl+q",
   },
   "permission": {
     "bash": {
