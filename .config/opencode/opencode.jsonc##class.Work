@@ -32,6 +32,13 @@
       "command": ["kotlin-language-server"],
       "extensions": [".kt", ".kts"],
     },
+    "pyright": {
+      "disabled": true,
+    },
+    "basedpyright": {
+      "command": ["basedpyright-langserver", "--stdio"],
+      "extensions": [".py", ".pyi"],
+    },
     "makefile": {
       "command": [
         "uvx",
@@ -40,6 +47,11 @@
         "make-language-server",
       ],
       "extensions": ["Makefile", ".mk"],
+    },
+  },
+  "formatter": {
+    "bake": {
+      "command": ["uvx", "--from", "bake", "mbake", "format", "$FILE"],
     },
   },
   "keybinds": {

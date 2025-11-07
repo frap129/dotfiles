@@ -42,6 +42,20 @@
       "command": ["basedpyright-langserver", "--stdio"],
       "extensions": [".py", ".pyi"],
     },
+    "makefile": {
+      "command": [
+        "uvx",
+        "--from",
+        "autotools-language-server",
+        "make-language-server",
+      ],
+      "extensions": ["Makefile", ".mk"],
+    },
+  },
+  "formatter": {
+    "bake": {
+      "command": ["uvx", "--from", "bake", "mbake", "format", "$FILE"],
+    },
   },
   "keybinds": {
     "agent_cycle": "ctrl+tab",
