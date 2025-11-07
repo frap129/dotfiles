@@ -43,7 +43,9 @@
       "*filter-branch*": "deny",
       "git branch *": "ask",
       "git checkout *": "ask",
-      "rm *docs/plans/*": "deny",
+      "rm*openspec/*": "ask",
+      "git*openspec*": "ask",
+      "sudo*": "ask",
     },
   },
   "provider": {
