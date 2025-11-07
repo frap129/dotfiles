@@ -11,8 +11,6 @@
     //"/home/joe/Projects/ai/opencode-rules",
     "opencode-skills",
     "opencode-sessions",
-    "opencode-gemini-auth",
-    "opencode-alibaba-qwen3-auth",
   ],
   "mcp": {
     "context7": {
@@ -37,6 +35,13 @@
       "command": ["kotlin-language-server"],
       "extensions": [".kt", ".kts"],
     },
+    "pyright": {
+      "disabled": true,
+    },
+    "basedpyright": {
+      "command": ["basedpyright-langserver", "--stdio"],
+      "extensions": [".py", ".pyi"],
+    },
   },
   "keybinds": {
     "agent_cycle": "ctrl+tab",
@@ -47,6 +52,7 @@
     "bash": {
       "*filter-branch*": "deny",
       "git branch *": "ask",
+      "sudo *": "ask",
     },
   },
   "provider": {
@@ -99,7 +105,6 @@
       "name": "CLIProxyAPI",
       "options": {
         "baseURL": "http://localhost:8317/v1",
-        "apiKey": "dummy-key",
       },
       "models": {
         "gemini-2.5-pro": {
