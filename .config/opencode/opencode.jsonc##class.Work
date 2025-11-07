@@ -32,6 +32,15 @@
       "command": ["kotlin-language-server"],
       "extensions": [".kt", ".kts"],
     },
+    "makefile": {
+      "command": [
+        "uvx",
+        "--from",
+        "autotools-language-server",
+        "make-language-server",
+      ],
+      "extensions": ["Makefile", ".mk"],
+    },
   },
   "keybinds": {
     "agent_cycle": "ctrl+tab",
@@ -43,7 +52,9 @@
       "*filter-branch*": "deny",
       "git branch *": "ask",
       "git checkout *": "ask",
-      "rm *docs/plans/*": "deny",
+      "rm*openspec/*": "ask",
+      "git*openspec*": "ask",
+      "sudo*": "ask",
     },
   },
   "provider": {
