@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "instructions": ["rules/*.md"],
+  "instructions": ["~/.config/opencode/rules/*.md"],
   "theme": "system",
   "small_model": "cli-proxy-api/gemini-2.5-flash-lite",
   "tui": {
@@ -66,15 +66,21 @@
     "bash": {
       "*filter-branch*": "deny",
       "git branch *": "ask",
+      "git push": "ask",
+      "git push *": "ask",
       "sudo *": "ask",
     },
   },
   "provider": {
     "anthropic": {
       "models": {
-        "claude-sonnet-4-5-ut": {
+        "claude-sonnet-4.5-ultra": {
           "name": "Claude Sonnet 4.5 Ultrathink",
           "id": "claude-sonnet-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
           "options": {
             "thinking": {
               "type": "enabled",
@@ -82,9 +88,13 @@
             },
           },
         },
-        "claude-sonnet-4-5-mt": {
+        "claude-sonnet-4-5-mega": {
           "name": "Claude Sonnet 4.5 Megathink",
           "id": "claude-sonnet-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
           "options": {
             "thinking": {
               "type": "enabled",
@@ -92,9 +102,13 @@
             },
           },
         },
-        "claude-sonnet-4-5-th": {
+        "claude-sonnet-4-5-hard": {
           "name": "Claude Sonnet 4.5 Think Hard",
           "id": "claude-sonnet-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
           "options": {
             "thinking": {
               "type": "enabled",
@@ -102,9 +116,70 @@
             },
           },
         },
-        "claude-sonnet-4-5-t": {
+        "claude-sonnet-4-5-think": {
           "name": "Claude Sonnet 4.5 Think",
           "id": "claude-sonnet-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 2000,
+            },
+          },
+        },
+        "claude-haiku-4.5-ultra": {
+          "name": "Claude Haiku 4.5 Ultrathink",
+          "id": "claude-haiku-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 16000,
+            },
+          },
+        },
+        "claude-haiku-4-5-mega": {
+          "name": "Claude Haiku 4.5 Megathink",
+          "id": "claude-haiku-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 10000,
+            },
+          },
+        },
+        "claude-sonnet-4-5-hard": {
+          "name": "Claude Haiku 4.5 Think Hard",
+          "id": "claude-haiku-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 6000,
+            },
+          },
+        },
+
+        "claude-haiku-4-5-think": {
+          "name": "Claude Haiku 4.5 Think",
+          "id": "claude-haiku-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
           "options": {
             "thinking": {
               "type": "enabled",
