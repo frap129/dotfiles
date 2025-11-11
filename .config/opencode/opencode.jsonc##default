@@ -54,8 +54,9 @@
     },
   },
   "formatter": {
-    "bake": {
-      "command": ["uvx", "--from", "bake", "mbake", "format", "$FILE"],
+    "mbake": {
+      "command": ["uvx", "mbake", "format", "$FILE"],
+      "extensions": ["Makefile", ".mk"],
     },
   },
   "keybinds": {
