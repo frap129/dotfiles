@@ -67,10 +67,159 @@
       "git checkout *": "ask",
       "rm*openspec/*": "ask",
       "git*openspec*": "ask",
+      "git*--no-verify*": "deny",
       "sudo*": "ask",
     },
   },
   "provider": {
+    "github-copilot": {
+      "models": {
+        "claude-sonnet-4.5": {
+          "reasoning": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 32000,
+            },
+          },
+        },
+        "claude-haiku-4.5": {
+          "reasoning": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 16000,
+            },
+          },
+        },
+        "gpt-5-high": {
+          "id": "gpt-5",
+          "name": "GPT-5 (high)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 128000,
+            "output": 64000,
+          },
+          "options": {
+            "reasoningEffort": "high",
+            "verbosity": "medium",
+            "reasoningSummary": "auto",
+          },
+        },
+        "gpt-5-medium": {
+          "id": "gpt-5",
+          "name": "GPT-5 (medium)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 128000,
+            "output": 64000,
+          },
+          "options": {
+            "reasoningEffort": "medium",
+            "verbosity": "medium",
+            "reasoningSummary": "auto",
+          },
+        },
+        "gpt-5-low": {
+          "id": "gpt-5",
+          "name": "GPT-5 (low)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 128000,
+            "output": 64000,
+          },
+          "options": {
+            "reasoningEffort": "low",
+            "verbosity": "low",
+            "reasoningSummary": "auto",
+          },
+        },
+        "gpt-5": {
+          "name": "GPT-5",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 128000,
+            "output": 64000,
+          },
+          "options": {
+            "reasoningEffort": "minimal",
+            "verbosity": "low",
+            "reasoningSummary": "auto",
+          },
+        },
+        "gpt-5-mini-high": {
+          "id": "gpt-5-mini",
+          "name": "GPT-5-mini (high)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 128000,
+            "output": 64000,
+          },
+          "options": {
+            "reasoningEffort": "high",
+            "verbosity": "low",
+            "reasoningSummary": "auto",
+          },
+        },
+        "gpt-5-mini-medium": {
+          "id": "gpt-5-mini",
+          "name": "GPT-5-mini (medium)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 128000,
+            "output": 64000,
+          },
+          "options": {
+            "reasoningEffort": "medium",
+            "verbosity": "low",
+            "reasoningSummary": "auto",
+          },
+        },
+        "gpt-5-mini-low": {
+          "id": "gpt-5-mini",
+          "name": "GPT-5-mini (low)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 128000,
+            "output": 64000,
+          },
+          "options": {
+            "reasoningEffort": "low",
+            "verbosity": "low",
+            "reasoningSummary": "auto",
+          },
+        },
+        "gpt-5-mini": {
+          "name": "GPT-5-mini",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 128000,
+            "output": 64000,
+          },
+          "options": {
+            "reasoningEffort": "minimal",
+            "verbosity": "low",
+            "reasoningSummary": "auto",
+          },
+        },
+      },
+    },
     "fordllm": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "FordLLM",
