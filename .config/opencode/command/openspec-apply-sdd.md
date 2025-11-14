@@ -14,7 +14,7 @@ $ARGUMENTS
 - Favor straightforward, minimal implementations first and add complexity only when it is requested or clearly required.
 - Keep changes tightly scoped to the requested outcome.
 - Refer to `openspec/AGENTS.md` (located inside the `openspec/` directory—run `ls openspec` or `openspec update` if you don't see it) if you need additional OpenSpec conventions or clarifications.
-- Use a fresh subagent for each task and each review.
+- NEVER batch or group tasks. Every single task MUST be completed independently with a fresh subagent.
 
 # The Process
 
@@ -27,8 +27,10 @@ Read plan file, create TodoWrite with all tasks.
 **Example TODO list**
 
 ```
-[] Task 1: Example task
-[] Task 1: Review
+[X] Task 1: Example task
+[X] Task 1: Review
+[x] Task 1: Fixes
+[x] Task 2: Review fixes
 [] Task 1: Mark as complete
 [] Task 2: Another task
 [] Task 2: Review
