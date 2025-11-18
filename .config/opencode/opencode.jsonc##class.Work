@@ -67,6 +67,7 @@
       "git checkout *": "ask",
       "rm*openspec/*": "ask",
       "git*openspec*": "ask",
+      "openspec archive*--skip-specs*": "ask",
       "git*--no-verify*": "deny",
       "sudo*": "ask",
     },
@@ -405,6 +406,16 @@
             "reasoningEffort": "minimal",
             "verbosity": "low",
             "reasoningSummary": "auto",
+          },
+        },
+        "gpt-oss": {
+          "name": "GPT-OSS",
+          "tool_call": false,
+          "reasoning": false,
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000,
           },
         },
         "claude-sonnet-4-5": {
