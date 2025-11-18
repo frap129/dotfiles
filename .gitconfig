@@ -61,6 +61,7 @@
 	cpa = cherry-pick --abort
 	cpq = cherry-pick --quit
 	hr = reset --hard
+	logo = log --oneline
 
 [http]
 	cookiefile = /home/joe/.gitcookies
