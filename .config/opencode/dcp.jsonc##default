@@ -1,0 +1,35 @@
+{
+  // Enable or disable the Dynamic Context Pruning plugin
+  "enabled": true,
+
+  // Enable debug logging to ~/.config/opencode/logs/dcp/
+  // Outputs include:
+  // - daily/YYYY-MM-DD.log (plugin activity, decisions, errors)
+  // - ai-context/*.json (messages sent to AI after pruning)
+  "debug": false,
+
+  // Optional: Specify a model to use for analysis instead of the session model
+  // Format: "provider/model" (same as agent model config in opencode.jsonc)
+  // NOTE: Anthropic OAuth sonnet 4+ tier models are currently not supported
+  "model": "github/gpt-5-mini",
+
+  // Show toast notifications when model selection fails and falls back
+  // Set to false to disable these informational toasts
+  "showModelErrorToasts": true,
+
+  // Pruning strategy:
+  // "auto": Automatic duplicate removal only (fast, no LLM cost)
+  // "smart": Deduplication + AI analysis for intelligent pruning (recommended)
+  "pruningMode": "smart",
+
+  // Pruning summary display mode:
+  // "off": No UI summary (silent pruning)
+  // "minimal": Show tokens saved and count (e.g., "Saved ~2.5K tokens (6 tools pruned)")
+  // "detailed": Show full breakdown by tool type and pruning method (default)
+  "pruning_summary": "detailed",
+
+  // List of tools that should never be pruned from context
+  // "task": Each subagent invocation is intentional
+  // "todowrite"/"todoread": Stateful tools where each call matters
+  "protectedTools": ["task", "todowrite", "todoread"],
+}

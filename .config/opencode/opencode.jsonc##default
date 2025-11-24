@@ -10,7 +10,7 @@
     //    "opencode-rules",
     //"/home/joe/Projects/ai/opencode-rules",
     "opencode-skills",
-    "opencode-sessions",
+    "@tarquinen/opencode-dcp",
     "opencode-gemini-auth",
   ],
   "mcp": {
@@ -71,6 +71,7 @@
       "git push": "ask",
       "git push *": "ask",
       "git*--no-verify*": "ask",
+      "openspec archive*--skip-specs*": "ask",
       "sudo *": "ask",
     },
   },
@@ -175,7 +176,6 @@
             },
           },
         },
-
         "claude-haiku-4-5-think": {
           "name": "Claude Haiku 4.5 Think",
           "id": "claude-haiku-4-5",

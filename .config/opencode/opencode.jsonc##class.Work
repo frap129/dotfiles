@@ -8,7 +8,7 @@
   "tui": {
     "scroll_speed": 10,
   },
-  "plugin": ["opencode-skills", "opencode-sessions"],
+  "plugin": ["opencode-skills", "@tarquinen/opencode-dcp"],
   "mcp": {
     "context7": {
       "type": "local",
@@ -67,160 +67,13 @@
       "git checkout *": "ask",
       "rm*openspec/*": "ask",
       "git*openspec*": "ask",
-      "openspec archive*--skip-specs*": "ask",
-      "git*--no-verify*": "deny",
+      "git commit*-f*": "deny",
+      "openspec archive*--skip-specs": "ask",
+      "git*--no-verify": "deny",
       "sudo*": "ask",
     },
   },
   "provider": {
-    "github-copilot": {
-      "models": {
-        "claude-sonnet-4.5": {
-          "reasoning": true,
-          "limit": {
-            "context": 200000,
-            "output": 64000,
-          },
-          "options": {
-            "thinking": {
-              "type": "enabled",
-              "budgetTokens": 32000,
-            },
-          },
-        },
-        "claude-haiku-4.5": {
-          "reasoning": true,
-          "limit": {
-            "context": 200000,
-            "output": 64000,
-          },
-          "options": {
-            "thinking": {
-              "type": "enabled",
-              "budgetTokens": 16000,
-            },
-          },
-        },
-        "gpt-5-high": {
-          "id": "gpt-5",
-          "name": "GPT-5 (high)",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 128000,
-            "output": 64000,
-          },
-          "options": {
-            "reasoningEffort": "high",
-            "verbosity": "medium",
-            "reasoningSummary": "auto",
-          },
-        },
-        "gpt-5-medium": {
-          "id": "gpt-5",
-          "name": "GPT-5 (medium)",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 128000,
-            "output": 64000,
-          },
-          "options": {
-            "reasoningEffort": "medium",
-            "verbosity": "medium",
-            "reasoningSummary": "auto",
-          },
-        },
-        "gpt-5-low": {
-          "id": "gpt-5",
-          "name": "GPT-5 (low)",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 128000,
-            "output": 64000,
-          },
-          "options": {
-            "reasoningEffort": "low",
-            "verbosity": "low",
-            "reasoningSummary": "auto",
-          },
-        },
-        "gpt-5": {
-          "name": "GPT-5",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 128000,
-            "output": 64000,
-          },
-          "options": {
-            "reasoningEffort": "minimal",
-            "verbosity": "low",
-            "reasoningSummary": "auto",
-          },
-        },
-        "gpt-5-mini-high": {
-          "id": "gpt-5-mini",
-          "name": "GPT-5-mini (high)",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 128000,
-            "output": 64000,
-          },
-          "options": {
-            "reasoningEffort": "high",
-            "verbosity": "low",
-            "reasoningSummary": "auto",
-          },
-        },
-        "gpt-5-mini-medium": {
-          "id": "gpt-5-mini",
-          "name": "GPT-5-mini (medium)",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 128000,
-            "output": 64000,
-          },
-          "options": {
-            "reasoningEffort": "medium",
-            "verbosity": "low",
-            "reasoningSummary": "auto",
-          },
-        },
-        "gpt-5-mini-low": {
-          "id": "gpt-5-mini",
-          "name": "GPT-5-mini (low)",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 128000,
-            "output": 64000,
-          },
-          "options": {
-            "reasoningEffort": "low",
-            "verbosity": "low",
-            "reasoningSummary": "auto",
-          },
-        },
-        "gpt-5-mini": {
-          "name": "GPT-5-mini",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 128000,
-            "output": 64000,
-          },
-          "options": {
-            "reasoningEffort": "minimal",
-            "verbosity": "low",
-            "reasoningSummary": "auto",
-          },
-        },
-      },
-    },
     "fordllm": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "FordLLM",
@@ -228,6 +81,66 @@
         "baseURL": "{env:FORDLLM_API_URL}",
       },
       "models": {
+        "gpt-5.1-high": {
+          "id": "gpt-5.1",
+          "name": "GPT-5.1 (high)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000,
+          },
+          "options": {
+            "reasoningEffort": "high",
+            "verbosity": "medium",
+            "reasoningSummary": "auto",
+          },
+        },
+        "gpt-5.1-medium": {
+          "id": "gpt-5.1",
+          "name": "GPT-5.1 (medium)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000,
+          },
+          "options": {
+            "reasoningEffort": "medium",
+            "verbosity": "medium",
+            "reasoningSummary": "auto",
+          },
+        },
+        "gpt-5.1-low": {
+          "id": "gpt-5.1",
+          "name": "GPT-5.1 (low)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000,
+          },
+          "options": {
+            "reasoningEffort": "low",
+            "verbosity": "low",
+            "reasoningSummary": "auto",
+          },
+        },
+        "gpt-5.1-minimal": {
+          "id": "gpt-5.1",
+          "name": "GPT-5.1 (minimal)",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000,
+          },
+          "options": {
+            "reasoningEffort": "minimal",
+            "verbosity": "low",
+            "reasoningSummary": "auto",
+          },
+        },
         "gpt-5-high": {
           "id": "gpt-5",
           "name": "GPT-5 (high)",
@@ -414,8 +327,8 @@
           "reasoning": false,
           "attachment": true,
           "limit": {
-            "context": 200000,
-            "output": 64000,
+            "context": 131072,
+            "output": 32768,
           },
         },
         "claude-sonnet-4-5": {
@@ -446,6 +359,16 @@
           "limit": {
             "context": 131072,
             "output": 16384,
+          },
+        },
+        "gemini-3-pro": {
+          "name": "Gemini 3 Pro",
+          "tool_call": false,
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65536,
           },
         },
         "gemini-2.5-pro": {
