@@ -32,6 +32,7 @@
           fzf            # fuzzy finder
           jq             # JSON processor
           yq-go          # YAML processor
+          zellij
         ];
 
         # Developer toolchain (editor, VCS, build tools, languages)
@@ -109,68 +110,13 @@
 
       in
       {
-        # Development shell with all tools
-        devShells.default = pkgs.mkShell {
-          buildInputs = allPackages;
-          
-          shellHook = ''
-            # Source common shell config if it exists
-            if [ -f ~/.commonrc ]; then
-              source ~/.commonrc
-            fi
-            
-            # Setup zsh as default if available and not already in zsh
-            if command -v zsh &> /dev/null && [ -z "$ZSH_VERSION" ]; then
-              exec "$(command -v zsh)" -l
-            fi
-          '';
-        };
-
-        # Separate shells for specific use cases
-        devShells.minimal = pkgs.mkShell {
-          buildInputs = shellTools ++ modernCLI ++ searchTools ++ [
-            pkgs.neovim
-            pkgs.git
-          ];
-
-          shellHook = ''
-            if [ -f ~/.commonrc ]; then
-              source ~/.commonrc
-            fi
-            if command -v zsh &> /dev/null && [ -z "$ZSH_VERSION" ]; then
-              exec "$(command -v zsh)" -l
-            fi
-          '';
-        };
-
-        devShells.dev = pkgs.mkShell {
-          buildInputs = coreShell ++ devStack;
-
-          shellHook = ''
-            if [ -f ~/.commonrc ]; then
-              source ~/.commonrc
-            fi
-            if command -v zsh &> /dev/null && [ -z "$ZSH_VERSION" ]; then
-              exec "$(command -v zsh)" -l
-            fi
-          '';
-        };
-
-        # Packages that can be built/installed
         packages = {
           default = pkgs.buildEnv {
             name = "nix-user-env";
             paths = allPackages;
             pathsToLink = [ "/bin" "/share" "/lib" ];
           };
-
-          minimal = pkgs.buildEnv {
-            name = "nix-user-env-minimal";
-            paths = coreShell;
-            pathsToLink = [ "/bin" "/share" ];
-          };
         };
-      };
-    }
-  );
+      }
+    );
 }
