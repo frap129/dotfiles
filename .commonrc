@@ -45,14 +45,6 @@ if [[ -d ~/.bun ]]; then
   export BUN_INSTALL="$HOME/.bun"
   export PATH="$PATH:$BUN_INSTALL/bin"
 fi
-if [[ -d /home/linuxbrew/.linuxbrew ]];  then
-  export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
-  export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
-  export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
-  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin
-  [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}"
-  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
-fi
 
 # Alias functions
 alias grep='grep --color=auto'
@@ -76,7 +68,7 @@ alias spec='openspec'
 [[ $(command -v dust) ]] && alias du="dust"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
 [[ $(command -v ugrep) ]] && alias grep="ugrep" && \
-  alias rg='ugrep -r --ignore-files --ignore-files=.ignore --ignore-files=.rgignore -I -n --heading --break --color=auto' && \
+  alias rg='ugrep -r --ignore-files --ignore-files=.ignore --ignore-files=.rgignore -I -n --heading --break --color' && \
   alias ag='ug -r --ignore-files -I -n --heading --break --color -j --sort'
 
 # Nix development environment aliases
