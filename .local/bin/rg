@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if [[ $(command -v ugrep) ]]; then
+  ugrep -r --ignore-files --ignore-files=.ignore --ignore-files=.rgignore -I -n --heading --break --color $@
+elif [[ $(command -v rg) ]]; then
+  rg $@
+else
+  echo "error: neither rg or ug are installed"
+fi
