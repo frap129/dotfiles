@@ -78,3 +78,12 @@ alias spec='openspec'
 [[ $(command -v ugrep) ]] && alias grep="ugrep" && \
   alias rg='ugrep -r --ignore-files --ignore-files=.ignore --ignore-files=.rgignore -I -n --heading --break --color=auto' && \
   alias ag='ug -r --ignore-files -I -n --heading --break --color -j --sort'
+
+# Nix development environment aliases
+if [[ $(command -v nix) ]]; then
+  alias setup-devenv='nix profile install ~/.config/nix-env'
+  alias devenv='nix develop ~/.config/nix-env'
+  alias devenv-minimal='nix develop ~/.config/nix-env#minimal'
+  alias devenv-dev='nix develop ~/.config/nix-env#dev'
+  alias devenv-desktop='nix develop ~/.config/nix-env#desktop'
+fi
