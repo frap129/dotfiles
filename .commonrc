@@ -81,7 +81,7 @@ alias spec='openspec'
 
 # Nix development environment aliases
 if [[ $(command -v nix) ]]; then
-  alias setup-devenv='nix profile install ~/.config/nix-env'
+  alias setup-devenv='nix profile add ~/.config/nix-env'
   alias devenv='nix develop ~/.config/nix-env'
   alias devenv-minimal='nix develop ~/.config/nix-env#minimal'
   alias devenv-dev='nix develop ~/.config/nix-env#dev'
