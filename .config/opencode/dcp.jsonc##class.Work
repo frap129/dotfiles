@@ -43,7 +43,8 @@
     "task",
     "todowrite",
     "todoread",
-    "context_pruning",
+    "prune",
     "batch",
+    "code-reasoning_code-reasoning",
   ],
 }
