@@ -50,11 +50,8 @@
           unzip
           zip
           pigz
-          clang
-          lld
           gnumake
           cmake
-          pkg-config
           nodejs
           go
           rustup
@@ -63,17 +60,12 @@
           lazygit
           meson
           pandoc
-          pipx
           protobuf
           rmlint
-          ruby
           apktool
           dex2jar
           scrcpy
           docker-compose
-          luarocks
-          mpv
-          ollama
           just
           uv 
           python312
@@ -90,7 +82,6 @@
           fastfetch      # system info
           htop           # process viewer
           podman
-          distrobox
           yadm           # dotfile manager
           syncthing      # file sync
           gvfs           # virtual filesystems
