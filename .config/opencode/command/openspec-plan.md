@@ -26,7 +26,9 @@ Write comprehensive implementation plans assuming the engineer has zero context 
 
 Assume they are a skilled developer, but know almost nothing about our toolset or problem domain. Assume they don't know good test design very well.
 
-**Save plans to:** `openspec/changes/<id>/plan.md`
+Each task gets its own plan. The task numbering must match the EXACT numbering in tasks.md
+
+**Save plans to:** `openspec/changes/<id>/tasks/task-<task number>.md`
 
 ## Bite-Sized Task Granularity
 
@@ -37,22 +39,6 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 - "Implement the minimal code to make the test pass" - step
 - "Run the tests and make sure they pass" - step
 - "Commit" - step
-
-## Plan Document Header
-
-**Every plan MUST start with this header:**
-
-```markdown
-# [Feature Name] Implementation Plan
-
-**Goal:** [One sentence describing what this builds]
-
-**Architecture:** [2-3 sentences about approach]
-
-**Tech Stack:** [Key technologies/libraries]
-
----
-```
 
 ## Task Structure
 
