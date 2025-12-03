@@ -32,6 +32,7 @@
           fzf            # fuzzy finder
           jq             # JSON processor
           yq-go          # YAML processor
+          ripgrep
           zellij
         ];
 
