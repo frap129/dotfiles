@@ -11,25 +11,39 @@
   // Optional: Specify a model to use for analysis instead of the session model
   // Format: "provider/model" (same as agent model config in opencode.jsonc)
   // NOTE: Anthropic OAuth sonnet 4+ tier models are currently not supported
-  "model": "github/gpt-5-mini",
+  "model": "anthropic/claude-haiku-4-5",
 
   // Show toast notifications when model selection fails and falls back
   // Set to false to disable these informational toasts
   "showModelErrorToasts": true,
 
-  // Pruning strategy:
-  // "auto": Automatic duplicate removal only (fast, no LLM cost)
-  // "smart": Deduplication + AI analysis for intelligent pruning (recommended)
-  "pruningMode": "smart",
+  // Pruning strategies configuration
+  // Available strategies: "deduplication", "ai-analysis"
+  // Empty array = disabled
+  "strategies": {
+    // Strategies to run when session goes idle (automatic)
+    "onIdle": ["deduplication"],
+
+    // Strategies to run when AI calls the context_pruning tool
+    // Empty array = tool not exposed to AI
+    "onTool": ["deduplication", "ai-analysis"],
+  },
 
   // Pruning summary display mode:
   // "off": No UI summary (silent pruning)
   // "minimal": Show tokens saved and count (e.g., "Saved ~2.5K tokens (6 tools pruned)")
-  // "detailed": Show full breakdown by tool type and pruning method (default)
+  // "detailed": Show full breakdown by tool type and pruning ethod (default)
   "pruning_summary": "detailed",
 
   // List of tools that should never be pruned from context
   // "task": Each subagent invocation is intentional
   // "todowrite"/"todoread": Stateful tools where each call matters
-  "protectedTools": ["task", "todowrite", "todoread"],
+  // "prune": The pruning tool itself
+  "protectedTools": [
+    "task",
+    "todowrite",
+    "todoread",
+    "prune",
+    "code-reasoning_code-reasoning",
+  ],
 }

@@ -2,6 +2,7 @@
   "$schema": "https://opencode.ai/config.json",
   "instructions": ["~/.config/opencode/rules/*.md"],
   "theme": "system",
+  "snapshot": true,
   "small_model": "google/gemini-2.5-flash-lite",
   "tui": {
     "scroll_speed": 10,
@@ -9,9 +10,9 @@
   "plugin": [
     //    "opencode-rules",
     //"/home/joe/Projects/ai/opencode-rules",
-    "opencode-skills",
-    "@tarquinen/opencode-dcp",
-    "opencode-gemini-auth",
+    "opencode-skills@latest",
+    "@tarquinen/opencode-dcp@latest",
+    "opencode-gemini-auth@latest",
   ],
   "mcp": {
     "context7": {
@@ -67,19 +68,104 @@
   "permission": {
     "bash": {
       "*filter-branch*": "deny",
-      "git branch *": "ask",
+      "git branch *": "deny",
       "git push": "ask",
       "git push *": "ask",
-      "git*--no-verify*": "ask",
-      "openspec archive*--skip-specs*": "ask",
+      "git * --no-verify": "ask",
+      "openspec archive * --skip-specs": "ask",
       "sudo *": "ask",
     },
   },
   "provider": {
+    "opencode": {
+      "models": {
+        "glm-4.6": {
+          "name": "GLM 4.6 (thinking)",
+          "id": "big-pickle",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "reasoning": {
+              "enabled": true,
+            },
+          },
+        },
+      },
+    },
     "anthropic": {
       "models": {
-        "claude-sonnet-4.5-ultra": {
-          "name": "Claude Sonnet 4.5 Ultrathink",
+        "claude-opus-4.5-high": {
+          "name": "Claude Opus 4.5 (high)",
+          "id": "claude-opus-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 32000,
+            },
+          },
+        },
+        "claude-opus-4-5-medium": {
+          "name": "Claude Opus 4.5 (medium)",
+          "id": "claude-opus-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 16000,
+            },
+          },
+        },
+        "claude-opus-4-5-low": {
+          "name": "Claude Opus 4.5 (low)",
+          "id": "claude-opus-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 8000,
+            },
+          },
+        },
+        "claude-opus-4-5": {
+          "name": "Claude Opus 4.5 (no (none)ing)",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "disabled",
+            },
+          },
+        },
+        "claude-sonnet-4.5-high": {
+          "name": "Claude Sonnet 4.5 (high)",
+          "id": "claude-sonnet-4-5",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 32000,
+            },
+          },
+        },
+        "claude-sonnet-4-5-medium": {
+          "name": "Claude Sonnet 4.5 (medium)",
           "id": "claude-sonnet-4-5",
           "limit": {
             "context": 200000,
@@ -92,8 +178,8 @@
             },
           },
         },
-        "claude-sonnet-4-5-mega": {
-          "name": "Claude Sonnet 4.5 Megathink",
+        "claude-sonnet-4-5-low": {
+          "name": "Claude Sonnet 4.5 (low)",
           "id": "claude-sonnet-4-5",
           "limit": {
             "context": 200000,
@@ -102,40 +188,24 @@
           "options": {
             "thinking": {
               "type": "enabled",
-              "budgetTokens": 10000,
+              "budgetTokens": 8000,
             },
           },
         },
-        "claude-sonnet-4-5-hard": {
-          "name": "Claude Sonnet 4.5 Think Hard",
-          "id": "claude-sonnet-4-5",
+        "claude-sonnet-4-5": {
+          "name": "Claude Sonnet 4.5 (none)",
           "limit": {
             "context": 200000,
             "output": 64000,
           },
           "options": {
             "thinking": {
-              "type": "enabled",
-              "budgetTokens": 6000,
+              "type": "disabled",
             },
           },
         },
-        "claude-sonnet-4-5-think": {
-          "name": "Claude Sonnet 4.5 Think",
-          "id": "claude-sonnet-4-5",
-          "limit": {
-            "context": 200000,
-            "output": 64000,
-          },
-          "options": {
-            "thinking": {
-              "type": "enabled",
-              "budgetTokens": 2000,
-            },
-          },
-        },
-        "claude-haiku-4.5-ultra": {
-          "name": "Claude Haiku 4.5 Ultrathink",
+        "claude-haiku-4.5-high": {
+          "name": "Claude Haiku 4.5 (high)",
           "id": "claude-haiku-4-5",
           "limit": {
             "context": 200000,
@@ -148,8 +218,8 @@
             },
           },
         },
-        "claude-haiku-4-5-mega": {
-          "name": "Claude Haiku 4.5 Megathink",
+        "claude-haiku-4-5-medium": {
+          "name": "Claude Haiku 4.5 (medium)",
           "id": "claude-haiku-4-5",
           "limit": {
             "context": 200000,
@@ -162,8 +232,8 @@
             },
           },
         },
-        "claude-haiku-4-5-hard": {
-          "name": "Claude Haiku 4.5 Think Hard",
+        "claude-haiku-4-5-low": {
+          "name": "Claude Haiku 4.5 (low)",
           "id": "claude-haiku-4-5",
           "limit": {
             "context": 200000,
@@ -176,17 +246,15 @@
             },
           },
         },
-        "claude-haiku-4-5-think": {
-          "name": "Claude Haiku 4.5 Think",
-          "id": "claude-haiku-4-5",
+        "claude-haiku-4-5": {
+          "name": "Claude Haiku 4.5 (none)",
           "limit": {
             "context": 200000,
             "output": 64000,
           },
           "options": {
             "thinking": {
-              "type": "enabled",
-              "budgetTokens": 2000,
+              "type": "disabled",
             },
           },
         },
