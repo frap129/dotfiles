@@ -22,11 +22,11 @@
   // Empty array = disabled
   "strategies": {
     // Strategies to run when session goes idle (automatic)
-    "onIdle": ["deduplication"],
+    "onIdle": [],
 
     // Strategies to run when AI calls the context_pruning tool
     // Empty array = tool not exposed to AI
-    "onTool": ["deduplication", "ai-analysis"],
+    "onTool": ["ai-analysis"],
   },
 
   // Pruning summary display mode:

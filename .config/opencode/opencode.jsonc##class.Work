@@ -8,6 +8,9 @@
     "scroll_speed": 10,
   },
   "plugin": ["opencode-skills", "@tarquinen/opencode-dcp"],
+  "experimental": {
+    "primary_tools": ["prune"],
+  },
   "mcp": {
     "context7": {
       "type": "local",

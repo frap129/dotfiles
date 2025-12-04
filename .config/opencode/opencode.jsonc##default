@@ -14,6 +14,9 @@
     "@tarquinen/opencode-dcp@latest",
     "opencode-gemini-auth@latest",
   ],
+  "experimental": {
+    "primary_tools": ["prune"],
+  },
   "mcp": {
     "context7": {
       "type": "local",
