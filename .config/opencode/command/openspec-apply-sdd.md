@@ -49,7 +49,7 @@ For each task:
 Task tool (programmer):
   description: "Implement Task N: [task name]"
   prompt: |
-    You are implementing Task N from [plan-file].
+    You are implementing Task N from openspec/changes/<change-id>/tasks/task-<number>.md
 
     CRITICAL: You MUST call the skills_test_driven_development tool before starting your implementation work.
 
@@ -152,9 +152,10 @@ After final review passes:
 **Steps**
 Track these steps as TODOs and complete them one by one.
 
-1. Read `openspec/changes/<id>/proposal.md`, `design.md` (if present), `tasks.md`, and `plan.md` (if present) to confirm scope and acceptance criteria.
-2. Work through tasks sequentially, keeping edits minimal and focused on the requested change.
-3. Update the checklist after all work is done so each task is marked `- [x]` and reflects reality.
+1. Read `openspec/changes/<id>/proposal.md`, `design.md` (if present), and `tasks.md` to confirm scope and acceptance criteria.
+2. List files in `openspec/changes/<id>/tasks/` and pass the path off to the subagents responsible for each task.
+3. Work through tasks sequentially, keeping edits minimal and focused on the requested change.
+4. Update the checklist after all work is done so each task is marked `- [x]` and reflects reality.
 
 **Reference**
 
