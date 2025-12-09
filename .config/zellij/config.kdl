@@ -4,6 +4,13 @@
 
 keybinds {
     shared_except "locked" {
+        bind "Ctrl q" {
+            LaunchOrFocusPlugin "https://github.com/cristiand391/zj-quit/releases/latest/download/zj-quit.wasm" {
+                confirm_key "q"
+                cancel_key "Esc"
+                floating true
+            }
+        }
         bind "Ctrl y" {
             LaunchOrFocusPlugin "https://github.com/karimould/zellij-forgot/releases/latest/download/zellij_forgot.wasm" {
                 "lock"                  "ctrl + g"
@@ -76,7 +83,7 @@ plugins {
         hide_frame_except_for_scroll     "true"
         hide_frame_except_for_fullscreen "true"
     }
-    autolock "https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
+    autolock location="https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
         is_enabled true
         triggers "opencode|vi|nvim|vim|git|fzf|zoxide|atuin"
     }
