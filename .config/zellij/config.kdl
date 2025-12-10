@@ -77,12 +77,6 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
-    zjframes location="https://github.com/dj95/zjstatus/releases/latest/download/zjframes.wasm" {
-        hide_frame_for_single_pane       "true"
-        hide_frame_except_for_search     "true"
-        hide_frame_except_for_scroll     "true"
-        hide_frame_except_for_fullscreen "true"
-    }
     autolock location="https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
         is_enabled true
         triggers "opencode|vi|nvim|vim|git|fzf|zoxide|atuin"
@@ -93,7 +87,6 @@ plugins {
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
-    zjframes
     autolock
 }
 web_client {
@@ -207,7 +200,7 @@ copy_command "wl-copy"
 // Enable automatic copying (and clearing) of selection when releasing mouse
 // Default: true
 // 
-copy_on_select false
+copy_on_select true
  
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
