@@ -72,6 +72,7 @@
           python312Packages.python-lsp-server
           python312Packages.ipython
           ruff
+          bun
           nodePackages.typescript
           nodePackages.prettier
         ];
