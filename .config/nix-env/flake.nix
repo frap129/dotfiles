@@ -90,7 +90,6 @@
           lsof
           topgrade 
           nix-search-cli
-          git-crypt
         ];
 
         # Fonts kept separate for easy toggling
