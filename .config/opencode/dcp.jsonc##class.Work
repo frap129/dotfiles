@@ -22,7 +22,7 @@
   // Empty array = disabled
   "strategies": {
     // Strategies to run when session goes idle (automatic)
-    "onIdle": [],
+    "onIdle": ["ai-analysis"],
 
     // Strategies to run when AI calls the context_pruning tool
     // Empty array = tool not exposed to AI
@@ -45,6 +45,8 @@
     "todoread",
     "prune",
     "batch",
+    "write",
+    "edit",
     "code-reasoning_code-reasoning",
   ],
 }
