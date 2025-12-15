@@ -1,3 +1,5 @@
-.ssh/*
+.ssh/config
+.ssh/config.extra*
+.sssh/config.d/*
 .gnupg/*
 
