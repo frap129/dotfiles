@@ -77,7 +77,7 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
-    autolock location="https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
+    autolock location="https://github.com/wind-mask/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
         is_enabled true
         triggers "opencode|vi|nvim|vim|git|fzf|zoxide|atuin"
     }
