@@ -1,5 +1,6 @@
 .ssh/config
 .ssh/config.extra*
-.sssh/config.d/*
+.ssh/config.d/*
+.ssh/maples-dev*
 .gnupg/*
 
