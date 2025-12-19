@@ -1,49 +1,42 @@
 {
-  // Enable or disable the Dynamic Context Pruning plugin
+  // Enable or disable the plugin
   "enabled": true,
-
   // Enable debug logging to ~/.config/opencode/logs/dcp/
-  // Outputs include:
-  // - daily/YYYY-MM-DD.log (plugin activity, decisions, errors)
-  // - ai-context/*.json (messages sent to AI after pruning)
   "debug": false,
-
-  // Optional: Specify a model to use for analysis instead of the session model
-  // Format: "provider/model" (same as agent model config in opencode.jsonc)
-  // NOTE: Anthropic OAuth sonnet 4+ tier models are currently not supported
-  "model": "anthropic/claude-haiku-4-5",
-
-  // Show toast notifications when model selection fails and falls back
-  // Set to false to disable these informational toasts
-  "showModelErrorToasts": true,
-
-  // Pruning strategies configuration
-  // Available strategies: "deduplication", "ai-analysis"
-  // Empty array = disabled
+  // Show toast notifications when a new version is available
+  "showUpdateToasts": true,
+  // Summary display: "off", "minimal", or "detailed"
+  "pruningSummary": "detailed",
+  // Strategies for pruning tokens from chat history
   "strategies": {
-    // Strategies to run when session goes idle (automatic)
-    "onIdle": ["deduplication"],
-
-    // Strategies to run when AI calls the context_pruning tool
-    // Empty array = tool not exposed to AI
-    "onTool": ["deduplication", "ai-analysis"],
+    // Remove duplicate tool calls (same tool with same arguments)
+    "deduplication": {
+      "enabled": true,
+      // Additional tools to protect from pruning
+      "protectedTools": [],
+    },
+    // Exposes a prune tool to your LLM to call when it determines pruning is necessary
+    "pruneTool": {
+      "enabled": true,
+      // Additional tools to protect from pruning
+      "protectedTools": ["code-reasoning_code-reasoning"],
+      // Nudge the LLM to use the prune tool (every <frequency> tool results)
+      "nudge": {
+        "enabled": true,
+        "frequency": 10,
+      },
+    },
+    // (Legacy) Run an LLM to analyze what tool calls are no longer relevant on idle
+    "onIdle": {
+      "enabled": false,
+      // Override model for analysis (format: "provider/model")
+      "model": "anthropic/claude-haiku-4-5",
+      // Show toast notifications when model selection fails
+      "showModelErrorToasts": true,
+      // When true, fallback models are not permitted
+      "strictModelSelection": false,
+      // Additional tools to protect from pruning
+      "protectedTools": ["code-reasoning_code-reasoning"],
+    },
   },
-
-  // Pruning summary display mode:
-  // "off": No UI summary (silent pruning)
-  // "minimal": Show tokens saved and count (e.g., "Saved ~2.5K tokens (6 tools pruned)")
-  // "detailed": Show full breakdown by tool type and pruning ethod (default)
-  "pruning_summary": "detailed",
-
-  // List of tools that should never be pruned from context
-  // "task": Each subagent invocation is intentional
-  // "todowrite"/"todoread": Stateful tools where each call matters
-  // "prune": The pruning tool itself
-  "protectedTools": [
-    "task",
-    "todowrite",
-    "todoread",
-    "prune",
-    "code-reasoning_code-reasoning",
-  ],
 }
