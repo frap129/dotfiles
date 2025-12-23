@@ -10,7 +10,6 @@
   "plugin": [
     //    "opencode-rules",
     //"/home/joe/Projects/ai/opencode-rules",
-    "opencode-skills@latest",
     "@tarquinen/opencode-dcp@latest",
     "opencode-gemini-auth@latest",
   ],

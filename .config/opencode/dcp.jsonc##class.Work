@@ -19,7 +19,7 @@
     "pruneTool": {
       "enabled": true,
       // Additional tools to protect from pruning
-      "protectedTools": [],
+      "protectedTools": ["code-reasoning_code-reasoning", "skill"],
       // Nudge the LLM to use the prune tool (every <frequency> tool results)
       "nudge": {
         "enabled": true,
@@ -36,7 +36,7 @@
       // When true, fallback models are not permitted
       "strictModelSelection": true,
       // Additional tools to protect from pruning
-      "protectedTools": ["code-reasoning_code-reasoning"],
+      "protectedTools": ["code-reasoning_code-reasoning", "skill"],
     },
   },
 }

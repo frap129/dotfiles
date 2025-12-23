@@ -7,7 +7,7 @@
   "tui": {
     "scroll_speed": 10,
   },
-  "plugin": ["opencode-skills", "@tarquinen/opencode-dcp"],
+  "plugin": ["@tarquinen/opencode-dcp@latest"],
   "experimental": {
     "primary_tools": ["prune"],
   },
@@ -21,12 +21,17 @@
         "--api-key",
         "{env:CONTEXT7_API_KEY}",
       ],
-      "enabled": true,
+      "enabled": false,
     },
     "code-reasoning": {
       "type": "local",
       "command": ["code-reasoning"],
       "enabled": true,
+    },
+    "chrome-dev-tools": {
+      "type": "local",
+      "command": ["bunx", "-y", "chrome-devtools-mcp@latest"],
+      "enabled": false,
     },
   },
   "lsp": {
@@ -73,6 +78,7 @@
       "openspec archive*--skip-specs": "ask",
       "git*--no-verify": "deny",
       "sudo*": "ask",
+      "read*": "deny",
     },
   },
   "provider": {

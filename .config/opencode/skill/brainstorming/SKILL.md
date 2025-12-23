@@ -102,7 +102,7 @@ When your human partner confirms (any affirmative response):
 - Announce: "I'm starting a new session with the writing-plans skill to create the implementation plan."
 - **REQUIRED TOOL USE:** use the `session` tool to make a new session with the current agent type.
 - Message for new session should be:
-  > "Before you do anything else, you MUST use the skills_writing_plans tool first. Then, read the design document @{PATH TO DESIGN DOC}"
+  > "Before you do anything else, you MUST use the skill tool to read the writing_plans skill first. Then, read the design document @{PATH TO DESIGN DOC}"
 - Be sure to substitute in the correct path to the design doc created in phase 4
 
 ## When to Use Open-Ended Questions
