@@ -7,10 +7,12 @@
   "tui": {
     "scroll_speed": 10,
   },
+  "experimental": {
+    "batch_tool": true,
+  },
   "plugin": [
     //    "opencode-rules",
     //"/home/joe/Projects/ai/opencode-rules",
-    "opencode-skills@latest",
     "@tarquinen/opencode-dcp@latest",
     "opencode-gemini-auth@latest",
   ],
@@ -142,7 +144,7 @@
           },
         },
         "claude-opus-4-5": {
-          "name": "Claude Opus 4.5 (no (none)ing)",
+          "name": "Claude Opus 4.5 (none)",
           "limit": {
             "context": 200000,
             "output": 64000,
