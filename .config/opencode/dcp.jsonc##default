@@ -1,49 +1,67 @@
 {
-  // Enable or disable the Dynamic Context Pruning plugin
+  // Enable or disable the plugin
   "enabled": true,
-
   // Enable debug logging to ~/.config/opencode/logs/dcp/
-  // Outputs include:
-  // - daily/YYYY-MM-DD.log (plugin activity, decisions, errors)
-  // - ai-context/*.json (messages sent to AI after pruning)
   "debug": false,
-
-  // Optional: Specify a model to use for analysis instead of the session model
-  // Format: "provider/model" (same as agent model config in opencode.jsonc)
-  // NOTE: Anthropic OAuth sonnet 4+ tier models are currently not supported
-  "model": "anthropic/claude-haiku-4-5",
-
-  // Show toast notifications when model selection fails and falls back
-  // Set to false to disable these informational toasts
-  "showModelErrorToasts": true,
-
-  // Pruning strategies configuration
-  // Available strategies: "deduplication", "ai-analysis"
-  // Empty array = disabled
-  "strategies": {
-    // Strategies to run when session goes idle (automatic)
-    "onIdle": ["deduplication"],
-
-    // Strategies to run when AI calls the context_pruning tool
-    // Empty array = tool not exposed to AI
-    "onTool": ["deduplication", "ai-analysis"],
+  // Notification display: "off", "minimal", or "detailed"
+  "pruneNotification": "detailed",
+  // Protect from pruning for <turns> message turns
+  "turnProtection": {
+    "enabled": false,
+    "turns": 4,
   },
-
-  // Pruning summary display mode:
-  // "off": No UI summary (silent pruning)
-  // "minimal": Show tokens saved and count (e.g., "Saved ~2.5K tokens (6 tools pruned)")
-  // "detailed": Show full breakdown by tool type and pruning ethod (default)
-  "pruning_summary": "detailed",
-
-  // List of tools that should never be pruned from context
-  // "task": Each subagent invocation is intentional
-  // "todowrite"/"todoread": Stateful tools where each call matters
-  // "prune": The pruning tool itself
-  "protectedTools": [
-    "task",
-    "todowrite",
-    "todoread",
-    "prune",
-    "code-reasoning_code-reasoning",
-  ],
+  // LLM-driven context pruning tools
+  "tools": {
+    // Shared settings for all prune tools
+    "settings": {
+      // Nudge the LLM to use prune tools (every <nudgeFrequency> tool results)
+      "nudgeEnabled": true,
+      "nudgeFrequency": 10,
+      // Additional tools to protect from pruning
+      "protectedTools": ["code-reasoning_code-reasoning"],
+    },
+    // Removes tool content from context without preservation (for completed tasks or noise)
+    "discard": {
+      "enabled": true,
+    },
+    // Distills key findings into preserved knowledge before removing raw content
+    "extract": {
+      "enabled": true,
+      // Show distillation content as an ignored message notification
+      "showDistillation": false,
+    },
+  },
+  // Automatic pruning strategies
+  "strategies": {
+    // Remove duplicate tool calls (same tool with same arguments)
+    "deduplication": {
+      "enabled": true,
+      // Additional tools to protect from pruning
+      "protectedTools": [],
+    },
+    // Prune write tool inputs when the file has been subsequently read
+    "supersedeWrites": {
+      "enabled": true,
+    },
+    // Prune tool inputs for errored tools after X turns
+    "purgeErrors": {
+      "enabled": true,
+      // Number of turns before errored tool inputs are pruned
+      "turns": 4,
+      // Additional tools to protect from pruning
+      "protectedTools": [],
+    },
+    // (Legacy) Run an LLM to analyze what tool calls are no longer relevant on idle
+    "onIdle": {
+      "enabled": false,
+      // Additional tools to protect from pruning
+      "protectedTools": ["code-reasoning_code-reasoning"],
+      // Override model for analysis (format: "provider/model")
+      "model": "anthropic/claude-haiku-4-5",
+      // Show toast notifications when model selection fails
+      "showModelErrorToasts": true,
+      // When true, fallback models are not permitted
+      "strictModelSelection": false,
+    },
+  },
 }
