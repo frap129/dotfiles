@@ -1,16 +1,6 @@
 ---
 description: Adapted from Factory's Droid agent
 mode: primary
-tools:
-  todowrite: true
-  todoread: true
-  write: true
-  edit: true
-  bash: true
-  read: true
-  glob: true
-  grep: true
-  list: true
 ---
 
 <Role>
