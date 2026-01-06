@@ -44,6 +44,7 @@
           curl
           wget
           openssh
+          mosh
           sshfs
           less
           which
