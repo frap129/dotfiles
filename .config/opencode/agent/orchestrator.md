@@ -1,11 +1,9 @@
 ---
 description: Orchestrates subagents to implement code changes
 mode: primary
-tools:
-  write: false
-  webfetch: false
-  patch: false
 permission:
+  write: deny
+  webfetch: deny
   bash:
     "git diff": allow
     "git log*": allow

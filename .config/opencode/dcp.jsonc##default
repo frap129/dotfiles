@@ -51,17 +51,5 @@
       // Additional tools to protect from pruning
       "protectedTools": [],
     },
-    // (Legacy) Run an LLM to analyze what tool calls are no longer relevant on idle
-    "onIdle": {
-      "enabled": false,
-      // Additional tools to protect from pruning
-      "protectedTools": ["code-reasoning_code-reasoning"],
-      // Override model for analysis (format: "provider/model")
-      "model": "anthropic/claude-haiku-4-5",
-      // Show toast notifications when model selection fails
-      "showModelErrorToasts": true,
-      // When true, fallback models are not permitted
-      "strictModelSelection": false,
-    },
   },
 }

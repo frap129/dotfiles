@@ -3,11 +3,35 @@
   "enabled": true,
   // Enable debug logging to ~/.config/opencode/logs/dcp/
   "debug": false,
-  // Show toast notifications when a new version is available
-  "showUpdateToasts": true,
-  // Summary display: "off", "minimal", or "detailed"
-  "pruningSummary": "detailed",
-  // Strategies for pruning tokens from chat history
+  // Notification display: "off", "minimal", or "detailed"
+  "pruneNotification": "detailed",
+  // Protect from pruning for <turns> message turns
+  "turnProtection": {
+    "enabled": false,
+    "turns": 4,
+  },
+  // LLM-driven context pruning tools
+  "tools": {
+    // Shared settings for all prune tools
+    "settings": {
+      // Nudge the LLM to use prune tools (every <nudgeFrequency> tool results)
+      "nudgeEnabled": true,
+      "nudgeFrequency": 10,
+      // Additional tools to protect from pruning
+      "protectedTools": ["code-reasoning_code-reasoning"],
+    },
+    // Removes tool content from context without preservation (for completed tasks or noise)
+    "discard": {
+      "enabled": true,
+    },
+    // Distills key findings into preserved knowledge before removing raw content
+    "extract": {
+      "enabled": true,
+      // Show distillation content as an ignored message notification
+      "showDistillation": false,
+    },
+  },
+  // Automatic pruning strategies
   "strategies": {
     // Remove duplicate tool calls (same tool with same arguments)
     "deduplication": {
@@ -15,28 +39,17 @@
       // Additional tools to protect from pruning
       "protectedTools": [],
     },
-    // Exposes a prune tool to your LLM to call when it determines pruning is necessary
-    "pruneTool": {
+    // Prune write tool inputs when the file has been subsequently read
+    "supersedeWrites": {
       "enabled": true,
+    },
+    // Prune tool inputs for errored tools after X turns
+    "purgeErrors": {
+      "enabled": true,
+      // Number of turns before errored tool inputs are pruned
+      "turns": 4,
       // Additional tools to protect from pruning
       "protectedTools": [],
-      // Nudge the LLM to use the prune tool (every <frequency> tool results)
-      "nudge": {
-        "enabled": true,
-        "frequency": 10,
-      },
-    },
-    // (Legacy) Run an LLM to analyze what tool calls are no longer relevant on idle
-    "onIdle": {
-      "enabled": false,
-      // Override model for analysis (format: "provider/model")
-      "model": "github-copilot/gpt-5-mini",
-      // Show toast notifications when model selection fails
-      "showModelErrorToasts": true,
-      // When true, fallback models are not permitted
-      "strictModelSelection": true,
-      // Additional tools to protect from pruning
-      "protectedTools": ["code-reasoning_code-reasoning"],
     },
   },
 }

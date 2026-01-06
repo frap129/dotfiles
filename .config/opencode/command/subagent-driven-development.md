@@ -24,7 +24,7 @@ Task tool (programmer):
   prompt: |
     You are implementing Task N from [plan-file].
 
-    CRITICAL: You MUST call the skills_test_driven_development tool before starting your implementation work.
+    CRITICAL: You MUST call the skill tool for test_driven_development tool before starting your implementation work.
 
     Read that task carefully. Your job is to:
     1. Implement exactly what the task specifies
@@ -38,7 +38,7 @@ Task tool (programmer):
     Report: What you implemented, what you tested, test results, files changed, any issues
 ```
 
-IMPORTANT: If the task should be completed with TDD, you MUST explicitly instruct the subagent to call skills_test_driven_development.
+IMPORTANT: If the task should be completed with TDD, you MUST explicitly instruct the subagent to call the skill tool to read test_driven_development.
 
 **Subagent reports back** with summary of work.
 
@@ -113,12 +113,12 @@ After final review passes:
 
 **Required workflow skills:**
 
-- **skills_writing_plans** - REQUIRED: Creates the plan that this skill executes
-- **skills_requesting_code_review** - REQUIRED: Review after each task (see Step 3)
+- **skill: writing_plans** - REQUIRED: Creates the plan that this skill executes
+- **skill: requesting_code_review** - REQUIRED: Review after each task (see Step 3)
 
 **Subagents must use:**
 
-- **skills_test_driven_development** - Subagents follow TDD for each task
+- **skill test_driven_development** - Subagents follow TDD for each task
 
 <!-- Subagent Driven Development END -->
 
