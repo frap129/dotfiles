@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+cmd="bun run --cwd $OPENCODE_PATH/packages/opencode --conditions=browser src/index.ts"
+if [ $# -eq 0 ]; then
+  eval "$cmd $PWD"
+elif [ "$1" == "upgrade" ]; then
+  (cd $OPENCODE_PATH && git pull upstream dev)
+elif [ $# -gt 0 ]; then
+  eval "$cmd $@"
+else
+  echo "opencode not found at OPENCODE_PATH: $OPENCODE_PATH"
+  return 1
+fi

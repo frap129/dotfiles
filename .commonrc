@@ -60,16 +60,6 @@ alias vi="nvim"
 alias myip="curl http://ipecho.net/plain; echo"
 alias adate='adb shell date $(date +%m%d%H%M%Y.%S)'
 alias spec='openspec'
-opencode() {
-  local cmd="bun run --cwd $OPENCODE_PATH/packages/opencode --conditions=browser src/index.ts"
-  if [ $# -eq 0 ]; then
-    eval "$cmd $PWD"
-  elif [[ "$1" -eq "upgrade" ]]; then
-    (cd $OPENCODE_PATH && git pull upstream dev)
-  else
-    eval "$cmd $@"
-  fi
-}
 
 # Common replacements
 [[ $(command -v delta) ]] && alias diff="delta"
