@@ -92,42 +92,38 @@ return {
     config = function() require("android-nvim").setup() end,
   },
   {
-    "sudo-tee/opencode.nvim",
-    config = function()
-      require("opencode").setup {
-        keymap = {
-          global = {
-            toggle = "<leader>ag", -- Open opencode. Close if opened
-            open_input = "<leader>ai", -- Opens and focuses on input window on insert mode
-            open_input_new_session = "<leader>aI", -- Opens and focuses on input window on insert mode. Creates a new session
-            open_output = "<leader>ao", -- Opens and focuses on output window
-            toggle_focus = "<leader>at", -- Toggle focus between opencode and last window
-            close = "<leader>aq", -- Close UI windows
-            select_session = "<leader>as", -- Select and load a opencode session
-            configure_provider = "<leader>ap", -- Quick provider and model switch from predefined list
-            diff_open = "<leader>ad", -- Opens a diff tab of a modified file since the last opencode prompt
-            diff_next = "<leader>a]", -- Navigate to next file diff
-            diff_prev = "<leader>a[", -- Navigate to previous file diff
-            diff_close = "<leader>ac", -- Close diff view tab and return to normal editing
-            diff_revert_all_last_prompt = "<leader>ara", -- Revert all file changes since the last opencode prompt
-            diff_revert_this_last_prompt = "<leader>art", -- Revert current file changes since the last opencode prompt
-            diff_revert_all = "<leader>arA", -- Revert all file changes since the last opencode session
-            diff_revert_this = "<leader>arT", -- Revert current file changes since the last opencode session
-            swap_position = "<leader>ax", -- Swap Opencode pane left/right
-          },
-        },
-      }
+    "NickvanDyke/opencode.nvim",
+    init = function()
+      ---@diagnostic disable-next-line: inject-field
+      vim.g.opencode_opts = {}
+      vim.o.autoread = true
     end,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
+    keys = {
+      { "<leader>zg", function() require("opencode").toggle() end, desc = "Toggle opencode", mode = { "n", "t" } },
       {
-        "MeanderingProgrammer/render-markdown.nvim",
-        opts = {
-          anti_conceal = { enabled = false },
-          file_types = { "markdown", "opencode_output" },
-        },
-        ft = { "markdown", "Avante", "copilot-chat", "opencode_output" },
+        "<leader>zi",
+        function() require("opencode").ask("", { submit = false }) end,
+        desc = "Open opencode input",
+        mode = { "n", "x" },
       },
+      {
+        "<leader>zI",
+        function()
+          require("opencode").command "session.new"
+          require("opencode").ask("", { submit = false })
+        end,
+        desc = "Open opencode input (new session)",
+        mode = { "n", "x" },
+      },
+      { "<leader>zo", function() require("opencode").toggle() end, desc = "Open opencode output", mode = "n" },
+      { "<leader>zt", function() require("opencode").toggle() end, desc = "Toggle focus", mode = "n" },
+      {
+        "<leader>zq",
+        function() require("opencode").command "session.close" end,
+        desc = "Close opencode",
+        mode = "n",
+      },
+      { "<leader>zs", function() require("opencode").select() end, desc = "Select opencode session", mode = "n" },
     },
   },
   {
