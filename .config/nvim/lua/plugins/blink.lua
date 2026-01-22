@@ -7,7 +7,7 @@ return {
   },
   opts = {
     sources = {
-      default = { "lsp", "path", "buffer", "env", "ripgrep", "cmdline" },
+      default = { "lsp", "path", "buffer", "ripgrep" },
       providers = {
         spell = {
           name = "Spell",
