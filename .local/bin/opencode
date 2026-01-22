@@ -4,7 +4,7 @@ cmd="bun run --cwd $OPENCODE_PATH/packages/opencode --conditions=browser src/ind
 if [ $# -eq 0 ]; then
   eval "$cmd $PWD"
 elif [ "$1" == "upgrade" ]; then
-  (cd $OPENCODE_PATH && git pull upstream dev)
+  (cd $OPENCODE_PATH && git pull origin dev && git pull upstream dev)
 elif [ $# -gt 0 ]; then
   eval "$cmd $@"
 else
