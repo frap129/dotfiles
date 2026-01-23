@@ -1,13 +1,21 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "instructions": ["~/.config/opencode/rules/*.md"],
   "small_model": "fordllm/gpt-5-nano-low",
-  "theme": "system",
+  "theme": "carbonfox",
   "share": "disabled",
+  "autoupdate": false,
   "tui": {
     "scroll_speed": 10,
+    "scroll_acceleration": {
+      "enabled": true,
+    },
   },
-  "plugin": ["@tarquinen/opencode-dcp@latest"],
+  "plugin": [
+    "@tarquinen/opencode-dcp@latest",
+    "@mohak34/opencode-notifier@latest",
+    //"/home/joe/software/opencode-rules/src",
+    "opencode-rules@latest",
+  ],
   "experimental": {
     "primary_tools": ["prune"],
   },
@@ -21,7 +29,7 @@
         "--api-key",
         "{env:CONTEXT7_API_KEY}",
       ],
-      "enabled": false,
+      "enabled": true,
     },
     "code-reasoning": {
       "type": "local",
@@ -65,7 +73,6 @@
   "keybinds": {
     "agent_cycle": "ctrl+tab",
     "agent_cycle_reverse": "ctrl+shift+tab",
-    "app_exit": "ctrl+q",
   },
   "permission": {
     "bash": {
@@ -350,6 +357,15 @@
             "output": 65536,
           },
         },
+        "gemini-3-flash": {
+          "name": "Gemini 3 Flash",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65536,
+          },
+        },
         "gemini-2.5-pro": {
           "name": "Gemini 2.5 Pro",
           "reasoning": true,
@@ -389,8 +405,6 @@
         },
         "claude-sonnet-4-5": {
           "name": "Claude Sonnet 4.5",
-          "tool_call": false,
-          "reasoning": false,
           "attachment": true,
           "limit": {
             "context": 200000,
