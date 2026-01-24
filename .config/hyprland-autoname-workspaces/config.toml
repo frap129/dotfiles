@@ -3,10 +3,10 @@ version = "1.1.15"
 [format]
 dedup = false
 dedup_inactive_fullscreen = false
-delim = " "
+delim = ""
 client = "{icon}{delim}"
 client_active = "{icon}"
-workspace = "{id}:{delim}{clients}"
+workspace = " {id}: {clients} "
 workspace_empty = "{id}"
 client_dup = "{icon}{delim}"
 client_dup_fullscreen = ""
