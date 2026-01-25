@@ -97,14 +97,10 @@
                     "visualizerType": "linear"
                 },
                 {
-                    "id": "Spacer",
-                    "width": 20
-                },
-                {
                     "colorizeIcons": true,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
-                    "maxWidth": 145,
+                    "maxWidth": 1000,
                     "scrollingMode": "hover",
                     "showIcon": true,
                     "useFixedWidth": false
