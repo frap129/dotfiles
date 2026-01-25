@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=wordpad
-MimeType=application/rtf;
-Exec=env WINEPREFIX="/home/joe/Games/one-piece-burning-blood" wine start /ProgIDOpen rtffile %f
-NoDisplay=true
-StartupNotify=true
-Icon=3365_wordpad.0
