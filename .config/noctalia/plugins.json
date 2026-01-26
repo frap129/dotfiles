@@ -8,13 +8,22 @@
         {
             "enabled": true,
             "name": "Bibe Plugins",
-            "url": "https://github.com/anthonyhab/noctalia-plugins/"
+            "url": "https://github.com/anthonyhab/noctalia-plugins"
+        },
+        {
+            "enabled": true,
+            "name": "Bitwarden Keyring",
+            "url": "https://github.com/frap129/bitwarden-keyring"
         }
     ],
     "states": {
+        "2433f5:noctalia-bitwarden-keyring": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/frap129/bitwarden-keyring"
+        },
         "c4ed72:polkit-auth": {
             "enabled": true,
-            "sourceUrl": "https://github.com/anthonyhab/noctalia-plugins/"
+            "sourceUrl": "https://github.com/anthonyhab/noctalia-plugins"
         },
         "clipper": {
             "enabled": true,
