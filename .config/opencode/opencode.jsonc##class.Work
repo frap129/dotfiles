@@ -18,6 +18,7 @@
   ],
   "experimental": {
     "primary_tools": ["prune"],
+    "batch_tool": true,
   },
   "mcp": {
     "context7": {
@@ -413,7 +414,6 @@
         },
         "qwen3-coder": {
           "name": "Qwen3 Coder",
-          "tool_call": false,
           "reasoning": false,
           "attachment": true,
           "limit": {
@@ -423,7 +423,15 @@
         },
         "kimi": {
           "name": "Kimi K2",
-          "tool_call": false,
+          "reasoning": false,
+          "attachment": false,
+          "limit": {
+            "context": 131072,
+            "output": 16384,
+          },
+        },
+        "kimi-thinking": {
+          "name": "Kimi K2 Thinking",
           "reasoning": false,
           "attachment": false,
           "limit": {
