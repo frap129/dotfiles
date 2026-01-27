@@ -1,0 +1,252 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# wgshell: create/ensure a netns + veth + SNAT, bring up WireGuard inside it,
+# then either open an interactive login shell OR exec a command in that netns.
+#
+# Usage:
+#   wgshell                 # opens your login shell inside the namespace
+#   wgshell ssh user@host   # runs a command inside the namespace
+#   wgshell --down          # bring WireGuard down inside the namespace
+#   wgshell --teardown      # remove WireGuard + netns + veth + NAT rules
+#
+# Env overrides:
+#   WGNS=wgshell
+#   WGIF=wg-home
+#   WGCONF=/etc/wireguard/wg0.conf
+#   HOST_VETH=veth-wgvpn-h
+#   NS_VETH=veth-wgvpn-n
+#   HOST_IP_CIDR=10.200.200.1/24
+#   NS_IP_CIDR=10.200.200.2/24
+#   SNAT_CIDR=10.200.200.0/24
+#   WAN_IF=eth0
+NS="${WGNS:-wgshell}"
+WGIF="${WGIF:-wg-home}"
+WGCONF="${WGCONF:-/etc/wireguard/${WGIF}.conf}"
+HOST_VETH="${HOST_VETH:-veth-${NS}-h}"
+NS_VETH="${NS_VETH:-veth-${NS}-n}"
+HOST_IP_CIDR="${HOST_IP_CIDR:-10.200.200.1/24}"
+NS_IP_CIDR="${NS_IP_CIDR:-10.200.200.2/24}"
+SNAT_CIDR="${SNAT_CIDR:-10.200.200.0/24}"
+HOST_IP="${HOST_IP_CIDR%/*}"
+need_root() {
+  if [[ "${EUID}" -ne 0 ]]; then
+    exec sudo -E "$0" "$@"
+  fi
+}
+validate_cidr() {
+  local cidr="$1" name="$2" ip mask o1 o2 o3 o4 o
+
+  if [[ ! "$cidr" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,2}$ ]]; then
+    echo "Invalid CIDR format for $name: $cidr" >&2
+    exit 1
+  fi
+
+  ip="${cidr%/*}"
+  mask="${cidr#*/}"
+  if (( mask < 0 || mask > 32 )); then
+    echo "Invalid CIDR mask for $name: $cidr" >&2
+    exit 1
+  fi
+
+  IFS='.' read -r o1 o2 o3 o4 <<<"$ip"
+  for o in "$o1" "$o2" "$o3" "$o4"; do
+    if (( o < 0 || o > 255 )); then
+      echo "Invalid IPv4 address for $name: $cidr" >&2
+      exit 1
+    fi
+  done
+}
+default_wan_if() {
+  ip -o route show default 2>/dev/null | awk '{print $5; exit}'
+}
+ip_has_addr() {
+  local dev="$1" cidr="$2"
+  ip -o addr show dev "$dev" 2>/dev/null | grep -qF " $cidr"
+}
+ns_ip_has_addr() {
+  local ns="$1" dev="$2" cidr="$3"
+  ip -n "$ns" -o addr show dev "$dev" 2>/dev/null | grep -qF " $cidr"
+}
+ensure_netns() {
+  ip netns list | awk '{print $1}' | grep -qx "$NS" || ip netns add "$NS"
+  ip -n "$NS" link set lo up
+}
+ensure_veth() {
+  if ! ip link show "$HOST_VETH" >/dev/null 2>&1; then
+    ip link add "$HOST_VETH" type veth peer name "$NS_VETH"
+    ip link set "$NS_VETH" netns "$NS"
+  fi
+  ip link set "$HOST_VETH" up
+  ip_has_addr "$HOST_VETH" "$HOST_IP_CIDR" || ip addr add "$HOST_IP_CIDR" dev "$HOST_VETH"
+  ip -n "$NS" link set "$NS_VETH" up
+  ns_ip_has_addr "$NS" "$NS_VETH" "$NS_IP_CIDR" || ip -n "$NS" addr add "$NS_IP_CIDR" dev "$NS_VETH"
+  ip -n "$NS" route replace default via "$HOST_IP" dev "$NS_VETH"
+}
+ensure_forwarding_and_nat() {
+  local wan_if="${WAN_IF:-}"
+  if [[ -z "$wan_if" ]]; then
+    wan_if="$(default_wan_if)"
+  fi
+  if [[ -z "$wan_if" ]]; then
+    echo "Could not detect WAN interface (no default route on host). Set WAN_IF=..." >&2
+    exit 1
+  fi
+  if [[ "$(sysctl -n net.ipv4.ip_forward 2>/dev/null || echo 0)" != "1" ]]; then
+    sysctl -w net.ipv4.ip_forward=1 >/dev/null
+  fi
+
+  # Allow forwarding between the veth and the WAN. Without this, many hosts
+  # drop forwarded packets by default and the WireGuard handshake never completes.
+  if command -v iptables >/dev/null 2>&1; then
+    iptables -C FORWARD -i "$HOST_VETH" -o "$wan_if" -j ACCEPT 2>/dev/null \
+      || iptables -A FORWARD -i "$HOST_VETH" -o "$wan_if" -j ACCEPT
+    iptables -C FORWARD -i "$wan_if" -o "$HOST_VETH" -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT 2>/dev/null \
+      || iptables -A FORWARD -i "$wan_if" -o "$HOST_VETH" -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+  elif command -v nft >/dev/null 2>&1; then
+    # Best-effort: add to the common inet/filter forward chain if present.
+    # Use comments to identify our rules and avoid duplicates.
+    if nft list chain inet filter forward >/dev/null 2>&1; then
+      nft list chain inet filter forward | grep -qF "wgshell-fwd-out" \
+        || nft add rule inet filter forward iifname "$HOST_VETH" oifname "$wan_if" accept comment "wgshell-fwd-out" 2>/dev/null || true
+      nft list chain inet filter forward | grep -qF "wgshell-fwd-in" \
+        || nft add rule inet filter forward iifname "$wan_if" oifname "$HOST_VETH" ct state established,related accept comment "wgshell-fwd-in" 2>/dev/null || true
+    fi
+  fi
+
+  if command -v nft >/dev/null 2>&1; then
+    local nft_table="${NS}_nat"
+    nft add table ip "$nft_table" 2>/dev/null || true
+    nft "add chain ip $nft_table postrouting { type nat hook postrouting priority 100 ; }" 2>/dev/null || true
+    # Check if masquerade rule already exists before adding
+    nft list chain ip "$nft_table" postrouting 2>/dev/null | grep -qF "wgshell-snat" \
+      || nft add rule ip "$nft_table" postrouting oifname "$wan_if" ip saddr "$SNAT_CIDR" masquerade comment "wgshell-snat" 2>/dev/null || true
+  else
+    iptables -t nat -C POSTROUTING -s "$SNAT_CIDR" -o "$wan_if" -j MASQUERADE 2>/dev/null \
+      || iptables -t nat -A POSTROUTING -s "$SNAT_CIDR" -o "$wan_if" -j MASQUERADE
+  fi
+}
+wg_down_if_present() {
+  [[ -f "$WGCONF" ]] || return 0
+  if ip -n "$NS" link show "$WGIF" >/dev/null 2>&1; then
+    ip netns exec "$NS" wg-quick down "$WGCONF" >/dev/null 2>&1 || true
+  fi
+}
+teardown() {
+  local wan_if="${WAN_IF:-}"
+  if [[ -z "$wan_if" ]]; then
+    wan_if="$(default_wan_if || true)"
+  fi
+
+  # Best-effort: bring WireGuard down first.
+  wg_down_if_present
+
+  # Best-effort: remove NAT rules.
+  if command -v nft >/dev/null 2>&1; then
+    local nft_table="${NS}_nat"
+    nft delete table ip "$nft_table" 2>/dev/null || true
+    if nft -a list chain inet filter forward >/dev/null 2>&1; then
+      nft -a list chain inet filter forward | awk '/wgshell-fwd-(out|in)/ {print $NF}' | while read -r h; do
+        [[ -n "$h" ]] && nft delete rule inet filter forward handle "$h" 2>/dev/null || true
+      done
+    fi
+  fi
+  if command -v iptables >/dev/null 2>&1 && [[ -n "$wan_if" ]]; then
+    iptables -D FORWARD -i "$HOST_VETH" -o "$wan_if" -j ACCEPT 2>/dev/null || true
+    iptables -D FORWARD -i "$wan_if" -o "$HOST_VETH" -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT 2>/dev/null || true
+    iptables -t nat -D POSTROUTING -s "$SNAT_CIDR" -o "$wan_if" -j MASQUERADE 2>/dev/null || true
+  fi
+
+  # Remove link + namespace.
+  ip link del "$HOST_VETH" 2>/dev/null || true
+  ip netns del "$NS" 2>/dev/null || true
+}
+endpoint_ip_from_wgconf() {
+  local ep host
+  ep="$(awk -F= '/^[[:space:]]*Endpoint[[:space:]]*=/ {gsub(/[[:space:]]*/, "", $2); print $2; exit}' "$WGCONF" || true)"
+  [[ -z "$ep" ]] && return 0
+  # [v6]:port or host:port
+  if [[ "$ep" == \[*\]:* ]]; then
+    host="${ep#\[}"; host="${host%%\]*}"
+  else
+    host="${ep%:*}"
+  fi
+  # If already IPv4, return it; else resolve to an IPv4.
+  if [[ "$host" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
+    printf '%s\n' "$host"
+  else
+    getent ahostsv4 "$host" 2>/dev/null | awk 'NR==1{print $1}'
+  fi
+}
+ensure_endpoint_route() {
+  local ep_ip
+  ep_ip="$(endpoint_ip_from_wgconf || true)"
+  [[ -z "$ep_ip" ]] && return 0
+  ip -n "$NS" route replace "${ep_ip}/32" via "$HOST_IP" dev "$NS_VETH"
+}
+wg_up_if_needed() {
+  if ip -n "$NS" link show "$WGIF" >/dev/null 2>&1; then
+    return 1
+  fi
+  ip netns exec "$NS" wg-quick up "$WGCONF"
+  return 0
+}
+main() {
+  need_root "$@"
+
+  # Acquire a setup lock to prevent concurrent namespace races.
+  # The lock is released before entering the shell/command, so multiple shells
+  # can run concurrently once the namespace is created.
+  local lockfile="/var/run/wgshell-${NS}.lock"
+  exec 200>"$lockfile"
+  flock -n 200 || { echo "Another wgshell instance for namespace '$NS' is running" >&2; exit 1; }
+
+  validate_cidr "$HOST_IP_CIDR" HOST_IP_CIDR
+  validate_cidr "$NS_IP_CIDR" NS_IP_CIDR
+  validate_cidr "$SNAT_CIDR" SNAT_CIDR
+
+  if [[ "${1:-}" == "--down" ]]; then
+    ensure_netns
+    wg_down_if_present
+    exit 0
+  fi
+  if [[ "${1:-}" == "--teardown" ]]; then
+    teardown
+    exit 0
+  fi
+
+  [[ -f "$WGCONF" ]] || { echo "Missing WireGuard config: $WGCONF" >&2; exit 1; }
+  command -v wg-quick >/dev/null 2>&1 || { echo "wg-quick not found" >&2; exit 1; }
+  local run_user user_shell
+  run_user="${SUDO_USER:-$USER}"
+  # Validate user exists before proceeding
+  if ! getent passwd "$run_user" >/dev/null 2>&1; then
+    echo "User not found: $run_user" >&2
+    exit 1
+  fi
+  user_shell="$(getent passwd "$run_user" | awk -F: '{print $7}')"
+  [[ -z "$user_shell" ]] && user_shell="${SHELL:-/bin/sh}"
+  ensure_netns
+  ensure_veth
+  ensure_forwarding_and_nat
+  ensure_endpoint_route
+  if wg_up_if_needed; then
+    :
+  fi
+
+  # Release setup lock before entering the namespace.
+  flock -u 200 || true
+  exec 200>&-
+
+  if [[ "$#" -eq 0 ]]; then
+    # Interactive login shell (user's default login shell from /etc/passwd)
+    exec ip netns exec "$NS" su - "$run_user"
+  else
+    # Exec a command inside the namespace, as the user, with a login environment.
+    # Build a safely-quoted command string for su -c.
+    local cmd=""
+    cmd="$(printf '%q ' "$@")"
+    cmd="${cmd% }"  # Remove trailing space from printf
+    exec ip netns exec "$NS" su - "$run_user" -s "$user_shell" -c "$cmd"
+  fi
+}
+main "$@"
