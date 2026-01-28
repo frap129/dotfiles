@@ -1,0 +1,5 @@
+# Monitor Rules
+# Format: monitorrule=name,mfact,nmaster,layout,transform,scale,x,y,width,height,refreshrate
+
+monitorrule=eDP-1,0.70,1,tile,0,1,3072,1080,1920,1080,60
+monitorrule=DP-3,0.70,1,tile,0,1.25,0,0,3840,2160,100
