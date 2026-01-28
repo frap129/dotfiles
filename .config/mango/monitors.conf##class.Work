@@ -1,5 +1,5 @@
 # Monitor Rules
-# Format: monitorrule=name,mfact,nmaster,layout,transform,scale,x,y,width,height,refreshrate
+# Format: monitorrule=name:output,mfact:float,nmaster:int,layout:name,transform:int,scale:float,x:int,y:int,width:int,height:int,refresh:int
 
-monitorrule=eDP-1,0.70,1,tile,0,1,3072,1080,1920,1080,60
-monitorrule=DP-3,0.70,1,tile,0,1.25,0,0,3840,2160,100
+monitorrule=name:eDP-1,mfact:0.70,nmaster:1,layout:tile,transform:0,scale:1,x:3072,y:1080,width:1920,height:1080,refresh:60
+monitorrule=name:DP-3,mfact:0.70,nmaster:1,layout:tile,transform:0,scale:1.25,x:0,y:0,width:3840,height:2160,refresh:60
