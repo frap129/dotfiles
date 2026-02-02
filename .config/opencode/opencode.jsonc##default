@@ -68,6 +68,7 @@
     "agent_cycle_reverse": "ctrl+shift+tab",
   },
   "permission": {
+    "lsp": "deny",
     "bash": {
       "*filter-branch*": "deny",
       "git branch *": "deny",
