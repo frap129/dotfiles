@@ -4,6 +4,7 @@
   "small_model": "google/gemini-2.5-flash-lite",
   "tui": {
     "scroll_acceleration": {
+    "scroll_speed": 10,
       "enabled": true,
     },
   },

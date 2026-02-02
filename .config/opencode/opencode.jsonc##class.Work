@@ -4,6 +4,7 @@
   "theme": "carbonfox",
   "share": "disabled",
   "tui": {
+    "scroll_speed": 10,
     "scroll_acceleration": {
       "enabled": true,
     },
@@ -405,6 +406,7 @@
         },
         "claude-sonnet-4-5": {
           "name": "Claude Sonnet 4.5",
+          "reasoning": true,
           "attachment": true,
           "limit": {
             "context": 200000,
