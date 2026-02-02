@@ -1,13 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "system",
-  "snapshot": true,
+  "theme": "carbonfox",
   "small_model": "google/gemini-2.5-flash-lite",
   "tui": {
-    "scroll_speed": 10,
-  },
-  "experimental": {
-    "batch_tool": true,
+    "scroll_acceleration": {
+      "enabled": true,
+    },
   },
   "plugin": [
     "opencode-rules@latest",
@@ -17,6 +15,7 @@
   ],
   "experimental": {
     "primary_tools": ["prune"],
+    "batch_tool": true,
   },
   "mcp": {
     "context7": {
@@ -28,7 +27,7 @@
         "--api-key",
         "{env:CONTEXT7_API_KEY}",
       ],
-      "enabled": true,
+      "enabled": false,
     },
     "code-reasoning": {
       "type": "local",
@@ -67,7 +66,6 @@
   "keybinds": {
     "agent_cycle": "ctrl+tab",
     "agent_cycle_reverse": "ctrl+shift+tab",
-    "app_exit": "ctrl+q",
   },
   "permission": {
     "bash": {
@@ -167,6 +165,23 @@
                   "budgetTokens": 4000,
                 },
               },
+            },
+          },
+        },
+      },
+    },
+    "github-copilot": {
+      "models": {
+        "claude-opus-4.5": {
+          "variants": {
+            "high": {
+              "thinking_budget": 16000,
+            },
+            "medium": {
+              "thinking_budget": 8000,
+            },
+            "low": {
+              "thinking_budget": 4000,
             },
           },
         },

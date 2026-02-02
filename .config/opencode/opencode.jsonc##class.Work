@@ -3,9 +3,7 @@
   "small_model": "fordllm/gpt-5-nano-low",
   "theme": "carbonfox",
   "share": "disabled",
-  "autoupdate": false,
   "tui": {
-    "scroll_speed": 10,
     "scroll_acceleration": {
       "enabled": true,
     },
@@ -30,7 +28,7 @@
         "--api-key",
         "{env:CONTEXT7_API_KEY}",
       ],
-      "enabled": true,
+      "enabled": false,
     },
     "code-reasoning": {
       "type": "local",
