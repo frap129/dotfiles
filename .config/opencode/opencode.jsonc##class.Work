@@ -89,6 +89,20 @@
       "read*": "deny",
     },
   },
+  "compaction": {
+    "auto": false,
+  },
+  "agent": {
+    "explore": {
+      "model": "fordllm/gemini-3-flash",
+    },
+    "programmer": {
+      "model": "fordllm/kimi-k2-thinking",
+    },
+    "code-reviewer": {
+      "model": "fordllm/gpt-5.2-medium",
+    },
+  },
   "provider": {
     "fordllm": {
       "npm": "@ai-sdk/openai-compatible",
@@ -422,7 +436,7 @@
             "output": 66536,
           },
         },
-        "kimi": {
+        "kimi-k2": {
           "name": "Kimi K2",
           "reasoning": false,
           "attachment": false,
@@ -431,9 +445,9 @@
             "output": 16384,
           },
         },
-        "kimi-thinking": {
+        "kimi-k2-thinking": {
           "name": "Kimi K2 Thinking",
-          "reasoning": false,
+          "reasoning": true,
           "attachment": false,
           "limit": {
             "context": 131072,
