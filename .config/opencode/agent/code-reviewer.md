@@ -153,10 +153,6 @@ Before reviewing, identify the languages/frameworks in the code and load relevan
 
 | Extension | Load Skills |
 |-----------|-------------|
-| `.ts`, `.tsx` | `typescript-interface-vs-type`, `typescript-advanced-types` |
-| `.tsx`, `.jsx` | `react-key-prop` |
-| `.css`, `.scss` | `css-container-queries` |
-| Any with Tailwind | `code-architecture-tailwind-v4-best-practices` |
 | Any refactoring | `code-architecture-wrong-abstraction` |
 | Any code | `naming-cheatsheet` (for naming convention review) |
 
