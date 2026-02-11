@@ -53,7 +53,7 @@
     // Collapses a range of conversation content into a single summary
     "compress": {
       // Permission mode: "deny" (tool not registered), "ask" (prompt), "allow" (no prompt)
-      "permission": "ask",
+      "permission": "deny",
       // Show summary content as an ignored message notification
       "showCompression": false,
     },

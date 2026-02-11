@@ -102,16 +102,55 @@
   },
   "agent": {
     "explore": {
-      "model": "fordllm/gemini-3-flash",
+      "model": "github-copilot/claude-sonnet-4.5",
+      "variant": "thinking",
     },
     "programmer": {
-      "model": "fordllm/kimi-k2-thinking",
+      "model": "github-copilot/claude-sonnet-4.5",
+      "variant": "thinking",
     },
     "code-reviewer": {
-      "model": "fordllm/gpt-5.2-medium",
+      "model": "fordllm/gpt-5.2",
+      "variant": "medium",
     },
   },
   "provider": {
+    "github-copilot": {
+      "models": {
+        "claude-opus-4.6": {
+          "variants": {
+            "high": {
+              "thinking_budget": 32000,
+            },
+            "medium": {
+              "thinking_budget": 16000,
+            },
+            "low": {
+              "thinking_budget": 8000,
+            },
+            "thinking": {
+              "disabled": true
+            }
+          },
+        },
+        "claude-opus-4.5": {
+          "variants": {
+            "high": {
+              "thinking_budget": 32000,
+            },
+            "medium": {
+              "thinking_budget": 16000,
+            },
+            "low": {
+              "thinking_budget": 8000,
+            },
+            "thinking": {
+              "disabled": true
+            }
+          },
+        },
+      },
+    },
     "fordllm": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "FordLLM",

@@ -185,21 +185,42 @@
     },
     "github-copilot": {
       "models": {
+        "claude-opus-4.6": {
+          "variants": {
+            "high": {
+              "thinking_budget": 32000,
+            },
+            "medium": {
+              "thinking_budget": 16000,
+            },
+            "low": {
+              "thinking_budget": 8000,
+            },
+            "thinking": {
+              "disabled": true
+            }
+          },
+        },
         "claude-opus-4.5": {
           "variants": {
             "high": {
-              "thinking_budget": 16000,
+              "thinking_budget": 32000,
             },
             "medium": {
-              "thinking_budget": 8000,
+              "thinking_budget": 16000,
             },
             "low": {
-              "thinking_budget": 4000,
+              "thinking_budget": 8000,
             },
+            "thinking": {
+              "disabled": true
+            }
           },
         },
+
       },
     },
+
     "google": {
       "models": {
         "gemini-3-pro-preview": {
