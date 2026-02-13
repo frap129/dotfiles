@@ -1,8 +1,8 @@
 # Monitor Rules
-# Format: monitorrule=name:output,mfact:float,nmaster:int,layout:name,transform:int,scale:float,x:int,y:int,width:int,height:int,refresh:int
+# Format: monitorrule={name,make,model,serial}:output,scale:float,x:int,y:int,width:int,height:int,refresh:int
 
 # eDP-1 (laptop) on the left, bottom-aligned (y=360 so bottom edge matches DP-2)
-monitorrule=name:eDP-1,mfact:0.70,nmaster:1,layout:tile,transform:0,scale:1,x:0,y:360,width:1920,height:1080,refresh:60
+monitorrule=name:eDP-1scale:1,x:0,y:360,width:1920,height:1080,refresh:60
 
 # DP-2 (main) to the right of eDP-1, at origin y=0
-monitorrule=name:DP-2,mfact:0.70,nmaster:1,layout:tile,transform:0,scale:1,x:1920,y:0,width:2560,height:1440,refresh:240
+monitorrule=model:AG276QZD2,scale:1,x:1920,y:0,width:2560,height:1440,refresh:240
