@@ -2,7 +2,7 @@
     "sources": [
         {
             "enabled": true,
-            "name": "Official Noctalia Plugins",
+            "name": "Noctalia Plugins",
             "url": "https://github.com/noctalia-dev/noctalia-plugins"
         },
         {
@@ -14,6 +14,11 @@
             "enabled": true,
             "name": "Bitwarden Keyring",
             "url": "https://github.com/frap129/bitwarden-keyring"
+        },
+        {
+            "enabled": true,
+            "name": "My Noctalia Plugins",
+            "url": "https://github.com/frap129/my-noctalia-plugins/"
         }
     ],
     "states": {
@@ -21,15 +26,19 @@
             "enabled": true,
             "sourceUrl": "https://github.com/frap129/bitwarden-keyring"
         },
-        "c4ed72:polkit-auth": {
-            "enabled": true,
-            "sourceUrl": "https://github.com/anthonyhab/noctalia-plugins"
-        },
-        "clipper": {
+        "5c9b45:bind-viewer": {
             "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         },
-        "hyprland-steam-overlay": {
+        "5c9b45:clipper": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/frap129/my-noctalia-plugins/"
+        },
+        "c4ed72:polkit-auth": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
+        },
+        "mangowc-layout-switcher": {
             "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         },
@@ -46,5 +55,5 @@
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         }
     },
-    "version": 1
+    "version": 2
 }
