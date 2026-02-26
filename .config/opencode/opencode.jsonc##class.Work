@@ -1,17 +1,9 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "small_model": "fordllm/gpt-5-nano-low",
-  "theme": "carbonfox",
+  "small_model": "github-copilot/gpt-5-mini",
   "share": "disabled",
-  "tui": {
-    "scroll_speed": 10,
-    "scroll_acceleration": {
-      "enabled": true,
-    },
-  },
   "plugin": [
     "@tarquinen/opencode-dcp@latest",
-    "@mohak34/opencode-notifier@latest",
     "/home/joe/software/opencode-rules/src",
     //"opencode-rules@latest",
   ],
@@ -78,10 +70,6 @@
       "extensions": ["Makefile", ".mk"],
     },
   },
-  "keybinds": {
-    "agent_cycle": "ctrl+tab",
-    "agent_cycle_reverse": "ctrl+shift+tab",
-  },
   "permission": {
     "lsp": "deny",
     "bash": {
@@ -102,15 +90,15 @@
   },
   "agent": {
     "explore": {
-      "model": "github-copilot/claude-sonnet-4.5",
-      "variant": "thinking",
+      "model": "github-copilot/claude-opus-4.6",
+      "variant": "high",
     },
     "programmer": {
-      "model": "github-copilot/claude-sonnet-4.5",
-      "variant": "thinking",
+      "model": "github-copilot/claude-opus-4.5",
+      "variant": "medium",
     },
     "code-reviewer": {
-      "model": "fordllm/gpt-5.2",
+      "model": "github-copilot/gpt-5.2",
       "variant": "medium",
     },
   },
@@ -129,24 +117,24 @@
               "thinking_budget": 8000,
             },
             "thinking": {
-              "disabled": true
-            }
+              "disabled": true,
+            },
           },
         },
         "claude-opus-4.5": {
           "variants": {
             "high": {
-              "thinking_budget": 32000,
-            },
-            "medium": {
               "thinking_budget": 16000,
             },
-            "low": {
+            "medium": {
               "thinking_budget": 8000,
             },
+            "low": {
+              "thinking_budget": 4000,
+            },
             "thinking": {
-              "disabled": true
-            }
+              "disabled": true,
+            },
           },
         },
       },
@@ -196,6 +184,15 @@
           "limit": {
             "context": 400000,
             "output": 128000,
+          },
+        },
+        "gemini-3.1-pro": {
+          "name": "Gemini 3.1 Pro",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65536,
           },
         },
         "gemini-3-pro": {
@@ -252,6 +249,15 @@
             "output": 32768,
           },
         },
+        "claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6",
+          "reasoning": false,
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+        },
         "claude-sonnet-4-5": {
           "name": "Claude Sonnet 4.5",
           "reasoning": false,
@@ -281,11 +287,11 @@
         },
         "kimi-k2-thinking": {
           "name": "Kimi K2 Thinking",
-          "reasoning": true,
+          "reasoning": false,
           "attachment": false,
           "limit": {
-            "context": 131072,
-            "output": 16384,
+            "context": 8000,
+            "output": 8000,
           },
         },
       },
