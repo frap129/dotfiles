@@ -1,0 +1,16 @@
+[Unit]
+Description=OpenCode
+Before=graphical-session.target
+After=graphical-session-pre.target
+PartOf=graphical-session.target
+StartLimitIntervalSec=30
+StartLimitBurst=3
+
+[Service]
+ExecStart=opencode web
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=graphical-session-pre.target
+
