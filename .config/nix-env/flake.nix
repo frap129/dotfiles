@@ -34,6 +34,7 @@
           yq-go          # YAML processor
           ripgrep
           zellij
+          tmux
         ];
 
         # Developer toolchain (editor, VCS, build tools, languages)
