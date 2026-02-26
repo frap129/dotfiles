@@ -27,6 +27,10 @@ When making git commits, follow the Conventional Commits specification using thi
 - Don't capitalize first letter
 - Don't end with period
 - Keep concise (1-100 characters)
+- Describe the observable change, not the process that prompted it
+  - Bad: "address code review findings" / "fix PR feedback" / "resolve comments"
+  - Good: "improve SyncWorker resilience and NotificationHelper safety"
+  - The reader should understand the change without knowing about any review, ticket, or conversation
 
 ## Optional Elements
 - **Scope**: Context in parentheses `feat(auth): add OAuth support`
