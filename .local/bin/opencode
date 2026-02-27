@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
-cmd="bun run --cwd $OPENCODE_PATH/packages/opencode --conditions=browser src/index.ts"
-if [ $# -eq 0 ]; then
-  eval "$cmd $PWD"
-elif [ "$1" == "upgrade" ]; then
-  (cd $OPENCODE_PATH && git pull origin dev && git pull upstream dev)
-elif [ $# -gt 0 ]; then
-  eval "$cmd $@"
+if [ "$1" == "upgrade" ]; then
+  (
+    cd $OPENCODE_PATH
+    git pull origin dev
+    git pull upstream dev
+    bun install
+    sed -i 's/if (!semver.satisfies.*$/if (false) {/' packages/script/src/index.ts
+    env OPENCODE_VERSION="$(jq -r '.version' packages/opencode/package.json)-custom" bun run packages/opencode/script/build.ts --single --skip-install
+    git checkout packages/script/src/index.ts
+  )
 else
-  echo "opencode not found at OPENCODE_PATH: $OPENCODE_PATH"
-  return 1
+  eval "$OPENCODE_PATH/packages/opencode/dist/opencode-*/bin/opencode $@" || echo "opencode not found at OPENCODE_PATH: $OPENCODE_PATH"
 fi
