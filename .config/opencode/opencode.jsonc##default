@@ -60,27 +60,32 @@
   "permission": {
     "lsp": "deny",
     "bash": {
-      "*filter-branch*": "deny",
-      "git branch *": "deny",
-      "git push": "ask",
+      "git filter-branch *": "deny",
+      "git branch -d": "ask",
+      "git branch -D": "ask",
       "git push *": "ask",
-      "git * --no-verify": "ask",
-      "openspec archive * --skip-specs": "ask",
       "sudo *": "ask",
     },
+  },
+  "compaction": {
+    "auto": false,
+    "prune": true,
   },
   "agent": {
     "explore": {
       "model": "github-copilot/claude-opus-4.6",
       "variant": "high",
+      "permission": {
+        "lsp": "allow",
+      },
     },
     "programmer": {
       "model": "github-copilot/claude-opus-4.5",
-      "variant": "medium",
+      "variant": "high",
     },
     "code-reviewer": {
-      "model": "github-copilot/gpt-5.2",
-      "variant": "medium",
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "high",
     },
   },
   "provider": {

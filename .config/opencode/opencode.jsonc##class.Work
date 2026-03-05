@@ -73,35 +73,35 @@
   "permission": {
     "lsp": "deny",
     "bash": {
-      "*filter-branch*": "deny",
-      "git branch *": "ask",
-      "git checkout *": "ask",
-      "rm*openspec/*": "ask",
-      "git*openspec*": "ask",
-      "git commit*-f*": "deny",
-      "openspec archive*--skip-specs": "ask",
-      "git*--no-verify": "deny",
-      "sudo*": "ask",
-      "read*": "deny",
+      "git filter-branch *": "deny",
+      "git branch -d": "ask",
+      "git branch -D": "ask",
+      "git push *": "ask",
+      "sudo *": "ask",
     },
   },
   "compaction": {
     "auto": false,
+    "prune": true,
   },
   "agent": {
     "explore": {
       "model": "github-copilot/claude-opus-4.6",
       "variant": "high",
+      "permission": {
+        "lsp": "allow",
+      },
     },
     "programmer": {
       "model": "github-copilot/claude-opus-4.5",
-      "variant": "medium",
+      "variant": "high",
     },
     "code-reviewer": {
-      "model": "github-copilot/gpt-5.2",
-      "variant": "medium",
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "high",
     },
   },
+
   "provider": {
     "github-copilot": {
       "models": {
