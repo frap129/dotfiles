@@ -105,6 +105,7 @@
   "provider": {
     "github-copilot": {
       "models": {
+        "gpt-5.3-codex": {},
         "claude-opus-4.6": {
           "variants": {
             "high": {

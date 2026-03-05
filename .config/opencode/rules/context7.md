@@ -1,6 +1,6 @@
 ---
 description: Context7 Reminder
-tools: 
+tools:
   - "mcp_context7"
 ---
 
