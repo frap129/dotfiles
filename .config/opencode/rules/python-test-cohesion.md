@@ -1,13 +1,14 @@
 ---
 globs:
-  - '**/tests/**/*.py'
-  - '**/test/**/*.py'
-  - '**/test_*.py'
-  - '**/*_test.py'
+  - "**/tests/**/*.py"
+  - "**/test/**/*.py"
+  - "**/test_*.py"
+  - "**/*_test.py"
 keywords:
-  - 'pytest'
-  - 'unit test'
-  - 'integration test'
+  - "pytest"
+  - "unit test"
+  - "integration test"
+match: all
 ---
 
 # Python Tests: Cohesion and Signal
