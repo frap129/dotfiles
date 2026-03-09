@@ -312,22 +312,13 @@
             "output": 66536,
           },
         },
-        "kimi-k2": {
-          "name": "Kimi K2",
-          "reasoning": false,
+        "kimi-k2-thinking": {
+          "name": "Kimi K2 Thinking",
+          "reasoning": true,
           "attachment": false,
           "limit": {
             "context": 131072,
-            "output": 16384,
-          },
-        },
-        "kimi-k2-thinking": {
-          "name": "Kimi K2 Thinking",
-          "reasoning": false,
-          "attachment": false,
-          "limit": {
-            "context": 8000,
-            "output": 8000,
+            "output": 8192,
           },
         },
       },

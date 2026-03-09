@@ -5,6 +5,7 @@
     "agent_cycle": "ctrl+tab",
     "agent_cycle_reverse": "ctrl+shift+tab"
   },
+  "scroll_speed": 10,
   "scroll_acceleration": {
     "enabled": true
   }
