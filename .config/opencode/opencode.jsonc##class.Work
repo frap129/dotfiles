@@ -106,16 +106,6 @@
   "provider": {
     "github-copilot": {
       "models": {
-        "gpt-5.4": {
-          "name": "GPT-5.4",
-          "variants": {
-            "xhigh": {
-              "reasoningEffort": "xhigh",
-              "reasoningSummary": "auto",
-              "include": ["reasoning.encrypted_content"],
-            },
-          },
-        },
         "gpt-5.3-codex": {
           "name": "GPT-5.3-Codex",
           "variants": {
