@@ -34,6 +34,8 @@ The scan will tell you if subjective dimensions need review. Follow its instruct
 desloppify review --run-batches --external-runner claude --parallel --scan-after-import
 ```
 
+Then use the prompt/template to dispatch a new code-reviewer subagent.
+
 ### Phase 2: Plan — decide what to work on
 
 After reviews, triage stages and plan creation appear as queue items in `next`. Complete them in order:
@@ -171,7 +173,7 @@ Return machine-readable JSON for review imports. For `--external-submit`, includ
 
 **Import paths:**
 
-- Robust session flow (recommended): `desloppify review --external-start --external-runner claude` → use generated prompt/template → run printed `--external-submit` command.
+- Robust session flow (recommended): `desloppify review --external-start --external-runner claude` → use generated prompt/template with code-reviewer subagent → run printed `--external-submit` command.
 - Durable scored import (legacy): `desloppify review --import findings.json --attested-external --attest "I validated this review was completed without awareness of overall score and is unbiased."`
 - Findings-only fallback: `desloppify review --import findings.json`
 
