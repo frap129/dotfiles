@@ -1,165 +1,139 @@
 ---
 name: brainstorming
-description: Use when creating or developing anything, before writing code or implementation plans - refines rough ideas into fully-formed designs through structured Socratic questioning, alternative exploration, and incremental validation
+description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
 ---
 
 # Brainstorming Ideas Into Designs
 
-## Overview
+Help turn ideas into fully formed designs and specs through natural collaborative dialogue.
 
-Transform rough ideas into fully-formed designs through structured questioning and alternative exploration.
+Start by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design and get user approval.
 
-**Core principle:** Research first, ask targeted questions to fill gaps, explore alternatives, present design incrementally for validation.
+<HARD-GATE>
+Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have presented a design and the user has approved it. This applies to EVERY project regardless of perceived simplicity.
+</HARD-GATE>
 
-**Announce at start:** "I'm using the brainstorming skill to refine your idea into a design."
+## Anti-Pattern: "This Is Too Simple To Need A Design"
 
-## Quick Reference
+Every project goes through this process. A todo list, a single-function utility, a config change — all of them. "Simple" projects are where unexamined assumptions cause the most wasted work. The design can be short (a few sentences for truly simple projects), but you MUST present it and get approval.
 
-| Phase                       | Key Activities                                | Tool Usage                            | Output                                     |
-| --------------------------- | --------------------------------------------- | ------------------------------------- | ------------------------------------------ |
-| **Prep: Autonomous Recon**  | Inspect repo/docs/commits, form initial model | Native tools (ls, cat, git log, etc.) | Draft understanding to confirm             |
-| **1. Understanding**        | Share findings, ask only for missing context  | Ask user questions for real decisions | Purpose, constraints, criteria (confirmed) |
-| **2. Exploration**          | Propose 2-3 approaches                        | session to explore multiple ideas     | Architecture options with trade-offs       |
-| **3. Design Presentation**  | Present in 200-300 word sections              | Open-ended questions                  | Complete design with validation            |
-| **4. Design Documentation** | Write design document                         | writing-clearly-and-concisely skill   | Design doc in docs/plans/                  |
-| **6. Planning Handoff**     | Create implementation plan                    | writing-plans skill                   | Detailed task breakdown                    |
+## Checklist
 
-## The Process
+You MUST create a task for each of these items and complete them in order:
 
-You MUST use the todowrite/todoread tools to track your progress through this process. Copy this checklist:
+1. **Explore project context** — check files, docs, recent commits
+2. **Offer visual companion** (if topic will involve visual questions) — this is its own message, not combined with a clarifying question. See the Visual Companion section below.
+3. **Ask clarifying questions** — one at a time, understand purpose/constraints/success criteria
+4. **Propose 2-3 approaches** — with trade-offs and your recommendation
+5. **Present design** — in sections scaled to their complexity, get user approval after each section
+6. **Write design doc** — save to your specified plan file in .opencode/plans/.
+7. **Spec review loop** — dispatch spec-document-reviewer subagent; fix issues and re-dispatch until approved (max 5 iterations, then surface to human)
+8. **User reviews written spec** — ask user to review the spec file before proceeding
 
-```
-Brainstorming Progress:
-- [ ] Prep: Autonomous Recon (repo/docs/commits reviewed, initial model shared)
-- [ ] Phase 1: Understanding (purpose, constraints, criteria gathered)
-- [ ] Phase 2: Exploration (2-3 approaches proposed and evaluated)
-- [ ] Phase 3: Design Presentation (design validated in sections)
-- [ ] Phase 4: Design Documentation (design written to docs/plans/)
-- [ ] Phase 5: Planning Handoff (if implementing)
-```
-
-### Prep: Autonomous Recon
-
-- Use existing tools (file browsing, docs, git history, tests) to understand current project state before asking anything.
-- Form your draft model: what problem you're solving, what artifacts exist, and what questions remain.
-- Start the conversation by sharing that model: "Based on exploring the project state, docs, working copy, and recent commits, here's how I think this should work…"
-- Ask follow-up questions only for information you cannot infer from available materials.
-
-### Phase 1: Understanding
-
-- Share your synthesized understanding first, then invite corrections or additions.
-- Ask one focused question at a time, only for gaps you cannot close yourself.
-- Gather: Purpose, constraints, success criteria (confirmed or amended by your partner)
-
-**Example summary + targeted question:**
-
-```
-Based on the README and yesterday's commit, we're expanding localization to dashboard and billing emails; admin console is still untouched. Only gap I see is whether support responses need localization in this iteration. Did I miss anything important?
-```
-
-### Phase 2: Exploration
-
-- Propose 2-3 different approaches
-- For each: Core architecture, trade-offs, complexity assessment, and your recommendation
-- Ask the user questions to present approaches when you truly need a judgement call
-- Lead with the option you prefer and explain why; invite disagreement if your partner sees it differently
-- Own prioritization: if the repo makes priorities clear, state them and proceed rather than asking
-
-\*_Example of asking the user questions_
-
-```
-Question: "Which architectural approach should we use?"
-Options:
-  - "Direct API calls with retry logic" (simple, synchronous, easier to debug) ← recommended for current scope
-  - "Event-driven with message queue" (scalable, complex setup, eventual consistency)
-  - "Hybrid with background jobs" (balanced, moderate complexity, best of both)
-
-I recommend the direct API approach because it matches existing patterns and minimizes new infrastructure. Let me know if you see a blocker that pushes us toward the other options.
-```
-
-### Phase 3: Design Presentation
-
-- Present in coherent sections; use ~200-300 words when introducing new material, shorter summaries once alignment is obvious
-- Cover: Architecture, components, data flow, error handling, testing
-- Check in at natural breakpoints rather than after every paragraph: "Stop me if this diverges from what you expect."
-- Use open-ended questions to allow freeform feedback
-- Assume ownership and proceed unless your partner redirects you
-
-### Phase 4: Design Documentation
-
-After validating the design, write it to a permanent document:
-
-- **File location:** `docs/plans/YYYY-MM-DD-<topic>-design.md` (use actual date and descriptive topic)
-- **Content:** Capture the design as discussed and validated in Phase 3, organized into sections that emerged from the conversation
-- Commit the design document to git before proceeding
-
-### Phase 5: Planning Handoff
-
-Ask: "Ready to create the implementation plan?"
-
-When your human partner confirms (any affirmative response):
-
-- Announce: "I'm starting a new session with the writing-plans skill to create the implementation plan."
-- **REQUIRED TOOL USE:** use the `session` tool to make a new session with the current agent type.
-- Message for new session should be:
-  > "Before you do anything else, you MUST use the skill tool to read the writing_plans skill first. Then, read the design document @{PATH TO DESIGN DOC}"
-- Be sure to substitute in the correct path to the design doc created in phase 4
-
-## When to Use Open-Ended Questions
-
-**Use open-ended questions for:**
-
-- Phase 3: Design validation ("Does this look right so far?")
-- When you need detailed feedback or explanation
-- When partner should describe their own requirements
-- When structured options would limit creative input
-
-Frame them to confirm or expand your current understanding rather than reopening settled topics.
-
-**Example decision flow:**
-
-- "What authentication method?" → Use AskUserQuestion (2-4 options)
-- "Does this design handle your use case?" → Open-ended (validation)
-
-## When to Revisit Earlier Phases
+## Process Flow
 
 ```dot
-digraph revisit_phases {
-    rankdir=LR;
-    "New constraint revealed?" [shape=diamond];
-    "Partner questions approach?" [shape=diamond];
-    "Requirements unclear?" [shape=diamond];
-    "Return to Phase 1" [shape=box, style=filled, fillcolor="#ffcccc"];
-    "Return to Phase 2" [shape=box, style=filled, fillcolor="#ffffcc"];
-    "Continue forward" [shape=box, style=filled, fillcolor="#ccffcc"];
+digraph brainstorming {
+    "Explore project context" [shape=box];
+    "Visual questions ahead?" [shape=diamond];
+    "Offer Visual Companion\n(own message, no other content)" [shape=box];
+    "Ask clarifying questions" [shape=box];
+    "Propose 2-3 approaches" [shape=box];
+    "Present design sections" [shape=box];
+    "User approves design?" [shape=diamond];
+    "Write design doc" [shape=box];
+    "Spec review loop" [shape=box];
+    "Spec review passed?" [shape=diamond];
+    "User reviews spec?" [shape=diamond];
 
-    "New constraint revealed?" -> "Return to Phase 1" [label="yes"];
-    "New constraint revealed?" -> "Partner questions approach?" [label="no"];
-    "Partner questions approach?" -> "Return to Phase 2" [label="yes"];
-    "Partner questions approach?" -> "Requirements unclear?" [label="no"];
-    "Requirements unclear?" -> "Return to Phase 1" [label="yes"];
-    "Requirements unclear?" -> "Continue forward" [label="no"];
+    "Explore project context" -> "Visual questions ahead?";
+    "Visual questions ahead?" -> "Ask clarifying questions" [label="no"];
+    "Ask clarifying questions" -> "Propose 2-3 approaches";
+    "Propose 2-3 approaches" -> "Present design sections";
+    "Present design sections" -> "User approves design?";
+    "User approves design?" -> "Present design sections" [label="no, revise"];
+    "User approves design?" -> "Write design doc" [label="yes"];
+    "Write design doc" -> "Spec review loop";
+    "Spec review loop" -> "Spec review passed?";
+    "Spec review passed?" -> "Spec review loop" [label="issues found,\nfix and re-dispatch"];
+    "Spec review passed?" -> "User reviews spec?" [label="approved"];
+    "User reviews spec?" -> "Write design doc" [label="changes requested"];
 }
 ```
 
-**You can and should go backward when:**
+**The terminal state is invoking writing-plans.** Do NOT invoke frontend-design, mcp-builder, or any other implementation skill. The ONLY skill you invoke after brainstorming is writing-plans.
 
-- Partner reveals new constraint during Phase 2 or 3 → Return to Phase 1
-- Validation shows fundamental gap in requirements → Return to Phase 1
-- Partner questions approach during Phase 3 → Return to Phase 2
-- Something doesn't make sense → Go back and clarify
+## The Process
 
-**Avoid forcing forward linearly** when going backward would give better results.
+**Understanding the idea:**
+
+- Check out the current project state first (files, docs, recent commits)
+- Before asking detailed questions, assess scope: if the request describes multiple independent subsystems (e.g., "build a platform with chat, file storage, billing, and analytics"), flag this immediately. Don't spend questions refining details of a project that needs to be decomposed first.
+- If the project is too large for a single spec, help the user decompose into sub-projects: what are the independent pieces, how do they relate, what order should they be built? Then brainstorm the first sub-project through the normal design flow. Each sub-project gets its own spec → plan → implementation cycle.
+- For appropriately-scoped projects, ask questions one at a time to refine the idea
+- Prefer multiple choice questions when possible, but open-ended is fine too
+- Only one question per message - if a topic needs more exploration, break it into multiple questions
+- Focus on understanding: purpose, constraints, success criteria
+
+**Exploring approaches:**
+
+- Propose 2-3 different approaches with trade-offs
+- Present options conversationally with your recommendation and reasoning
+- Lead with your recommended option and explain why
+
+**Presenting the design:**
+
+- Once you believe you understand what you're building, present the design
+- Scale each section to its complexity: a few sentences if straightforward, up to 200-300 words if nuanced
+- Ask after each section whether it looks right so far
+- Cover: architecture, components, data flow, error handling, testing
+- Be ready to go back and clarify if something doesn't make sense
+
+**Design for isolation and clarity:**
+
+- Break the system into smaller units that each have one clear purpose, communicate through well-defined interfaces, and can be understood and tested independently
+- For each unit, you should be able to answer: what does it do, how do you use it, and what does it depend on?
+- Can someone understand what a unit does without reading its internals? Can you change the internals without breaking consumers? If not, the boundaries need work.
+- Smaller, well-bounded units are also easier for you to work with - you reason better about code you can hold in context at once, and your edits are more reliable when files are focused. When a file grows large, that's often a signal that it's doing too much.
+
+**Working in existing codebases:**
+
+- Explore the current structure before proposing changes. Follow existing patterns.
+- Where existing code has problems that affect the work (e.g., a file that's grown too large, unclear boundaries, tangled responsibilities), include targeted improvements as part of the design - the way a good developer improves code they're working in.
+- Don't propose unrelated refactoring. Stay focused on what serves the current goal.
+
+## After the Design
+
+**Documentation:**
+
+- Write the validated design (spec) to your designated plan file in .opencode/plans/.
+  - (User preferences for spec location override this default)
+- Use elements-of-style:writing-clearly-and-concisely skill if available
+
+**Spec Review Loop:**
+After writing the spec document:
+
+1. Dispatch spec-document-reviewer subagent (see spec-document-reviewer-prompt.md)
+2. If Issues Found: fix, re-dispatch, repeat until Approved
+3. If loop exceeds 5 iterations, surface to human for guidance
+
+**User Review Gate:**
+After the spec review loop passes, ask the user to review the written spec before proceeding:
+
+> "Spec written to `<path>`. Please review it and let me know if you want to make any changes before we start writing out the implementation plan."
+
+Wait for the user's response. If they request changes, make them and re-run the spec review loop. Only proceed once the user approves.
+
+**Implementation:**
+
+- Invoke the writing-plans skill to create a detailed implementation plan
+- Do NOT invoke any other skill. writing-plans is the next step.
 
 ## Key Principles
 
-| Principle                  | Application                                                                                    |
-| -------------------------- | ---------------------------------------------------------------------------------------------- |
-| **One question at a time** | Phase 1: Single targeted question only for gaps you can’t close yourself                       |
-| **Structured choices**     | Use AskUserQuestion tool for 2-4 options with trade-offs                                       |
-| **YAGNI ruthlessly**       | Remove unnecessary features from all designs                                                   |
-| **Explore alternatives**   | Always propose 2-3 approaches before settling                                                  |
-| **Incremental validation** | Present design in sections, validate each                                                      |
-| **Flexible progression**   | Go backward when needed - flexibility > rigidity                                               |
-| **Own the initiative**     | Recommend priorities and next steps; ask if you should proceed only when requirements conflict |
-| **Announce usage**         | State skill usage at start of session                                                          |
+- **One question at a time** - Don't overwhelm with multiple questions
+- **Multiple choice preferred** - Easier to answer than open-ended when possible
+- **YAGNI ruthlessly** - Remove unnecessary features from all designs
+- **Explore alternatives** - Always propose 2-3 approaches before settling
+- **Incremental validation** - Present design, get approval before moving on
+- **Be flexible** - Go back and clarify when something doesn't make sense
