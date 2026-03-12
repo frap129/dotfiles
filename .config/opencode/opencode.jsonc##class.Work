@@ -5,6 +5,7 @@
   "share": "disabled",
   "plugin": [
     "@tarquinen/opencode-dcp@latest",
+    "openrtk@latest",
     "/home/joe/software/opencode-rules/src",
     //"opencode-rules@latest",
   ],
