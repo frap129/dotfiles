@@ -73,6 +73,9 @@
     "prune": true,
   },
   "agent": {
+    "general": {
+      "variant": "high",
+    },
     "explore": {
       "model": "github-copilot/claude-opus-4.6",
       "variant": "high",

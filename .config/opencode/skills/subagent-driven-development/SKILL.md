@@ -17,7 +17,6 @@ digraph when_to_use {
     "Tasks mostly independent?" [shape=diamond];
     "Stay in this session?" [shape=diamond];
     "subagent-driven-development" [shape=box];
-    "executing-plans" [shape=box];
     "Manual execution or brainstorm first" [shape=box];
 
     "Have implementation plan?" -> "Tasks mostly independent?" [label="yes"];
@@ -25,17 +24,8 @@ digraph when_to_use {
     "Tasks mostly independent?" -> "Stay in this session?" [label="yes"];
     "Tasks mostly independent?" -> "Manual execution or brainstorm first" [label="no - tightly coupled"];
     "Stay in this session?" -> "subagent-driven-development" [label="yes"];
-    "Stay in this session?" -> "executing-plans" [label="no - parallel session"];
 }
 ```
-
-**vs. Executing Plans (parallel session):**
-
-- Same session (no context switch)
-- Fresh subagent per task (no context pollution)
-- Two-stage review after each task: spec compliance first, then code quality
-- Faster iteration (no human-in-loop between tasks)
-
 ## The Process
 
 ```dot
@@ -45,43 +35,59 @@ digraph process {
     subgraph cluster_per_task {
         label="Per Task";
         "Dispatch programmer subagent (./programmer-prompt.md)" [shape=box];
-        "Programmer subagent asks questions?" [shape=diamond];
+        "programmer subagent asks questions?" [shape=diamond];
         "Answer questions, provide context" [shape=box];
-        "Programmer subagent implements, tests, commits, self-reviews" [shape=box];
+        "programmer subagent implements, tests, commits, self-reviews" [shape=box];
         "Dispatch spec reviewer subagent (./spec-reviewer-prompt.md)" [shape=box];
         "Spec reviewer subagent confirms code matches spec?" [shape=diamond];
-        "Programmer subagent fixes spec gaps" [shape=box];
+        "programmer subagent fixes spec gaps" [shape=box];
         "Dispatch code quality reviewer subagent (./code-quality-reviewer-prompt.md)" [shape=box];
         "Code quality reviewer subagent approves?" [shape=diamond];
-        "Programmer subagent fixes quality issues" [shape=box];
+        "programmer subagent fixes quality issues" [shape=box];
         "Mark task complete in TodoWrite" [shape=box];
     }
 
     "Read plan, extract all tasks with full text, note context, create TodoWrite" [shape=box];
     "More tasks remain?" [shape=diamond];
     "Dispatch final code reviewer subagent for entire implementation" [shape=box];
-    "Use superpowers:finishing-a-development-branch" [shape=box style=filled fillcolor=lightgreen];
 
     "Read plan, extract all tasks with full text, note context, create TodoWrite" -> "Dispatch programmer subagent (./programmer-prompt.md)";
-    "Dispatch programmer subagent (./programmer-prompt.md)" -> "Programmer subagent asks questions?";
-    "Programmer subagent asks questions?" -> "Answer questions, provide context" [label="yes"];
+    "Dispatch programmer subagent (./programmer-prompt.md)" -> "programmer subagent asks questions?";
+    "programmer subagent asks questions?" -> "Answer questions, provide context" [label="yes"];
     "Answer questions, provide context" -> "Dispatch programmer subagent (./programmer-prompt.md)";
-    "Programmer subagent asks questions?" -> "Programmer subagent implements, tests, commits, self-reviews" [label="no"];
-    "Programmer subagent implements, tests, commits, self-reviews" -> "Dispatch spec reviewer subagent (./spec-reviewer-prompt.md)";
+    "programmer subagent asks questions?" -> "programmer subagent implements, tests, commits, self-reviews" [label="no"];
+    "programmer subagent implements, tests, commits, self-reviews" -> "Dispatch spec reviewer subagent (./spec-reviewer-prompt.md)";
     "Dispatch spec reviewer subagent (./spec-reviewer-prompt.md)" -> "Spec reviewer subagent confirms code matches spec?";
-    "Spec reviewer subagent confirms code matches spec?" -> "Programmer subagent fixes spec gaps" [label="no"];
-    "Programmer subagent fixes spec gaps" -> "Dispatch spec reviewer subagent (./spec-reviewer-prompt.md)" [label="re-review"];
+    "Spec reviewer subagent confirms code matches spec?" -> "programmer subagent fixes spec gaps" [label="no"];
+    "programmer subagent fixes spec gaps" -> "Dispatch spec reviewer subagent (./spec-reviewer-prompt.md)" [label="re-review"];
     "Spec reviewer subagent confirms code matches spec?" -> "Dispatch code quality reviewer subagent (./code-quality-reviewer-prompt.md)" [label="yes"];
     "Dispatch code quality reviewer subagent (./code-quality-reviewer-prompt.md)" -> "Code quality reviewer subagent approves?";
-    "Code quality reviewer subagent approves?" -> "Programmer subagent fixes quality issues" [label="no"];
-    "Programmer subagent fixes quality issues" -> "Dispatch code quality reviewer subagent (./code-quality-reviewer-prompt.md)" [label="re-review"];
+    "Code quality reviewer subagent approves?" -> "programmer subagent fixes quality issues" [label="no"];
+    "programmer subagent fixes quality issues" -> "Dispatch code quality reviewer subagent (./code-quality-reviewer-prompt.md)" [label="re-review"];
     "Code quality reviewer subagent approves?" -> "Mark task complete in TodoWrite" [label="yes"];
     "Mark task complete in TodoWrite" -> "More tasks remain?";
     "More tasks remain?" -> "Dispatch programmer subagent (./programmer-prompt.md)" [label="yes"];
     "More tasks remain?" -> "Dispatch final code reviewer subagent for entire implementation" [label="no"];
-    "Dispatch final code reviewer subagent for entire implementation" -> "Use superpowers:finishing-a-development-branch";
 }
 ```
+
+## Handling programmer Status
+
+programmer subagents report one of four statuses. Handle each appropriately:
+
+**DONE:** Proceed to spec compliance review.
+
+**DONE_WITH_CONCERNS:** The programmer completed the work but flagged doubts. Read the concerns before proceeding. If the concerns are about correctness or scope, address them before review. If they're observations (e.g., "this file is getting large"), note them and proceed to review.
+
+**NEEDS_CONTEXT:** The programmer needs information that wasn't provided. Provide the missing context and re-dispatch.
+
+**BLOCKED:** The programmer cannot complete the task. Assess the blocker:
+1. If it's a context problem, provide more context and re-dispatch with the same model
+2. If the task requires more reasoning, re-dispatch with a more capable model
+3. If the task is too large, break it into smaller pieces
+4. If the plan itself is wrong, escalate to the human
+
+**Never** ignore an escalation or force the same model to retry without changes. If the programmer said it's stuck, something needs to change.
 
 ## Prompt Templates
 
@@ -94,7 +100,7 @@ digraph process {
 ```
 You: I'm using Subagent-Driven Development to execute this plan.
 
-[Read plan file once: docs/plans/feature-plan.md]
+[Read plan file once: .opencode/plans/feature-plan.md]
 [Extract all 5 tasks with full text and context]
 [Create TodoWrite with all tasks]
 
@@ -103,12 +109,12 @@ Task 1: Hook installation script
 [Get Task 1 text and context (already extracted)]
 [Dispatch implementation subagent with full task text + context]
 
-Programmer: "Before I begin - should the hook be installed at user or system level?"
+programmer: "Before I begin - should the hook be installed at user or system level?"
 
 You: "User level (~/.config/superpowers/hooks/)"
 
-Programmer: "Got it. Implementing now..."
-[Later] Programmer:
+programmer: "Got it. Implementing now..."
+[Later] programmer:
   - Implemented install-hook command
   - Added tests, 5/5 passing
   - Self-review: Found I missed --force flag, added it
@@ -127,8 +133,8 @@ Task 2: Recovery modes
 [Get Task 2 text and context (already extracted)]
 [Dispatch implementation subagent with full task text + context]
 
-Programmer: [No questions, proceeds]
-Programmer:
+programmer: [No questions, proceeds]
+programmer:
   - Added verify/repair modes
   - 8/8 tests passing
   - Self-review: All good
@@ -139,8 +145,8 @@ Spec reviewer: ❌ Issues:
   - Missing: Progress reporting (spec says "report every 100 items")
   - Extra: Added --json flag (not requested)
 
-[Programmer fixes issues]
-Programmer: Removed --json flag, added progress reporting
+[programmer fixes issues]
+programmer: Removed --json flag, added progress reporting
 
 [Spec reviewer reviews again]
 Spec reviewer: ✅ Spec compliant now
@@ -148,8 +154,8 @@ Spec reviewer: ✅ Spec compliant now
 [Dispatch code quality reviewer]
 Code reviewer: Strengths: Solid. Issues (Important): Magic number (100)
 
-[Programmer fixes]
-Programmer: Extracted PROGRESS_INTERVAL constant
+[programmer fixes]
+programmer: Extracted PROGRESS_INTERVAL constant
 
 [Code reviewer reviews again]
 Code reviewer: ✅ Approved
@@ -168,27 +174,23 @@ Done!
 ## Advantages
 
 **vs. Manual execution:**
-
 - Subagents follow TDD naturally
 - Fresh context per task (no confusion)
 - Parallel-safe (subagents don't interfere)
 - Subagent can ask questions (before AND during work)
 
 **vs. Executing Plans:**
-
 - Same session (no handoff)
 - Continuous progress (no waiting)
 - Review checkpoints automatic
 
 **Efficiency gains:**
-
 - No file reading overhead (controller provides full text)
 - Controller curates exactly what context is needed
 - Subagent gets complete information upfront
 - Questions surfaced before work begins (not after)
 
 **Quality gates:**
-
 - Self-review catches issues before handoff
 - Two-stage review: spec compliance, then code quality
 - Review loops ensure fixes actually work
@@ -196,7 +198,6 @@ Done!
 - Code quality ensures implementation is well-built
 
 **Cost:**
-
 - More subagent invocations (programmer + 2 reviewers per task)
 - Controller does more prep work (extracting all tasks upfront)
 - Review loops add iterations
@@ -205,7 +206,6 @@ Done!
 ## Red Flags
 
 **Never:**
-
 - Start implementation on main/master branch without explicit user consent
 - Skip reviews (spec compliance OR code quality)
 - Proceed with unfixed issues
@@ -220,34 +220,25 @@ Done!
 - Move to next task while either review has open issues
 
 **If subagent asks questions:**
-
 - Answer clearly and completely
 - Provide additional context if needed
 - Don't rush them into implementation
 
 **If reviewer finds issues:**
-
-- Programmer (same subagent) fixes them
+- programmer (same subagent) fixes them
 - Reviewer reviews again
 - Repeat until approved
 - Don't skip the re-review
 
 **If subagent fails task:**
-
 - Dispatch fix subagent with specific instructions
 - Don't try to fix manually (context pollution)
 
 ## Integration
 
 **Required workflow skills:**
-
 - **writing-plans** - Creates the plan this skill executes
 - **requesting-code-review** - Code review template for reviewer subagents
 
 **Subagents should use:**
-
 - **test-driven-development** - Subagents follow TDD for each task
-
-**Alternative workflow:**
-
-- **executing-plans** - Use for parallel session instead of same-session execution
