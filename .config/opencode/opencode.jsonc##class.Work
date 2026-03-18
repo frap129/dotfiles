@@ -5,7 +5,6 @@
   "share": "disabled",
   "plugin": [
     "@tarquinen/opencode-dcp@latest",
-    "openrtk@latest",
     "/home/joe/software/opencode-rules/src",
     //"opencode-rules@latest",
   ],
@@ -297,22 +296,22 @@
             "output": 64000,
           },
         },
-        "qwen3-coder": {
-          "name": "Qwen3 Coder",
+        "qwen35": {
+          "name": "Qwen 3.5",
           "reasoning": false,
           "attachment": true,
           "limit": {
             "context": 262144,
-            "output": 66536,
+            "output": 248320,
           },
         },
-        "kimi-k2-thinking": {
-          "name": "Kimi K2 Thinking",
+        "kimi-k2.5": {
+          "name": "Kimi K2.5",
           "reasoning": true,
           "attachment": false,
           "limit": {
-            "context": 131072,
-            "output": 8192,
+            "context": 32768,
+            "output": 32768,
           },
         },
       },

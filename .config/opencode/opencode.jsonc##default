@@ -6,7 +6,6 @@
     //"opencode-rules@latest",
     "/home/joe/Projects/ai/opencode-rules",
     "@tarquinen/opencode-dcp@latest",
-    "openrtk@latest",
     "opencode-google-antigravity-auth",
   ],
   "experimental": {
