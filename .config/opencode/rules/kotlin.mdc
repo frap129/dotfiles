@@ -102,15 +102,12 @@ Generate code, corrections, and refactorings that comply with the basic principl
   - see repositories if you need to organize code into repositories
 - Use repository pattern for data persistence
   - see cache if you need to cache data
-- Use MVI pattern to manage state and events in viewmodels and trigger and render them in activities / fragments
-  - see keepAlive if you need to keep the state alive
 - Use Auth Activity to manage authentication flow
   - Splash Screen
   - Login
   - Register
   - Forgot Password
   - Verify Email
-- Use Navigation Component to manage navigation between activities/fragments
 - Use MainActivity to manage the main navigation
   - Use BottomNavigationView to manage the bottom navigation
   - Home
@@ -118,11 +115,8 @@ Generate code, corrections, and refactorings that comply with the basic principl
   - Settings
   - Patients
   - Appointments
-- Use ViewBinding to manage views
-- Use Flow / LiveData to manage UI state
-- Use xml and fragments instead of jetpack compose
+- Use Flow to manage UI state
 - Use Material 3 for the UI
-- Use ConstraintLayout for layouts
 ### Testing
 
 - Use the standard widget testing for flutter
