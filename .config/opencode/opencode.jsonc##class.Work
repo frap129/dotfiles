@@ -1,12 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "small_model": "github-copilot/gpt-5-mini",
+  "small_model": "github-copilot/gpt-5.4-mini",
   "default_agent": "main",
   "share": "disabled",
   "plugin": [
-    "@tarquinen/opencode-dcp@latest",
-    "/home/joe/software/opencode-rules/src",
-    //"opencode-rules@latest",
+    "@tarquinen/opencode-dcp@3.0.4",
+    //"/home/joe/software/opencode-rules/src",
+    "opencode-rules@latest",
   ],
   "experimental": {
     "primary_tools": ["prune"],
@@ -40,6 +40,11 @@
     "chrome-dev-tools": {
       "type": "local",
       "command": ["bunx", "-y", "chrome-devtools-mcp@latest"],
+      "enabled": false,
+    },
+    "android": {
+      "type": "local",
+      "command": ["bunx", "-y", "android-mcp-server"],
       "enabled": false,
     },
   },

@@ -1,11 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "small_model": "github-copilot/gpt-5-mini",
+  "small_model": "github-copilot/gpt-5.4-mini",
   "default_agent": "main",
   "plugin": [
-    //"opencode-rules@latest",
-    "/home/joe/Projects/ai/opencode-rules",
-    "@tarquinen/opencode-dcp@latest",
+    "opencode-rules@latest",
+    //"/home/joe/Projects/ai/opencode-rules",
+    "@tarquinen/opencode-dcp@3.0.4",
     "opencode-google-antigravity-auth",
   ],
   "experimental": {
