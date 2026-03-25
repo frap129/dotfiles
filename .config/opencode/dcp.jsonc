@@ -7,7 +7,7 @@
   // Notification display: "off", "minimal", or "detailed"
   "pruneNotification": "detailed",
   // Notification type: "chat" (in-conversation) or "toast" (system toast)
-  "pruneNotificationType": "chat",
+  "pruneNotificationType": "toast",
   // Slash commands configuration
   "commands": {
     "enabled": true,
@@ -40,18 +40,23 @@
   "protectedFilePatterns": [],
   // Unified context compression tool and behavior settings
   "compress": {
+    // Compression mode: "range" (compress spans into block summaries)
+    // or experimental "message" (compress individual raw messages)
+    "mode": "range",
     // Permission mode: "allow" (no prompt), "ask" (prompt), "deny" (tool not registered)
     "permission": "allow",
     // Show compression content in a chat notification
     "showCompression": false,
+    // Let active summary tokens extend the effective maxContextLimit
+    "summaryBuffer": true,
     // Soft upper threshold: above this, DCP keeps injecting strong
     // compression nudges (based on nudgeFrequency), so compression is
     // much more likely. Accepts: number or "X%" of model context window.
-    "maxContextLimit": "80%",
+    "maxContextLimit": "85%",
     // Soft lower threshold for reminder nudges: below this, turn/iteration
     // reminders are off (compression less likely). At/above this, reminders
     // are on. Accepts: number or "X%" of model context window.
-    "minContextLimit": "30%",
+    "minContextLimit": "35%",
     // Optional per-model override for maxContextLimit by providerID/modelID.
     // If present, this wins over the global maxContextLimit.
     // Accepts: number or "X%".
@@ -63,7 +68,7 @@
     // Optional per-model override for minContextLimit.
     // If present, this wins over the global minContextLimit.
     // "modelMinLimits": {
-    //     "openai/gpt-5.3-codex": 30000,
+    //     "openai/gpt-5.3-codex": 50000,
     //     "anthropic/claude-sonnet-4.6": "25%"
     // },
     // How often the context-limit nudge fires (1 = every fetch, 5 = every 5th)
@@ -74,8 +79,6 @@
     // Controls how likely compression is after user messages
     // ("strong" = more likely, "soft" = less likely)
     "nudgeForce": "soft",
-    // Flat tool schema: improves tool call reliability but uglier in the TUI
-    "flatSchema": false,
     // Tool names whose completed outputs are appended to the compression
     "protectedTools": [],
     // Preserve your messages during compression.
@@ -89,10 +92,6 @@
       "enabled": true,
       // Additional tools to protect from pruning
       "protectedTools": [],
-    },
-    // Prune write tool inputs when the file has been subsequently read
-    "supersedeWrites": {
-      "enabled": true,
     },
     // Prune tool inputs for errored tools after X turns
     "purgeErrors": {

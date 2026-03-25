@@ -5,7 +5,7 @@
   "plugin": [
     "opencode-rules@latest",
     //"/home/joe/Projects/ai/opencode-rules",
-    "@tarquinen/opencode-dcp@3.0.4",
+    "@tarquinen/opencode-dcp@latest",
     "opencode-google-antigravity-auth",
   ],
   "experimental": {
