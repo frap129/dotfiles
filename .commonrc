@@ -63,7 +63,7 @@ alias spec='openspec'
 
 # Common replacements
 [[ $(command -v delta) ]] && alias diff="delta"
-[[ $(command -v bat) ]] && alias cat="bat --paging=never"
+[[ $(command -v bat) ]] && alias cat="bat -pp"
 [[ $(command -v eza) ]] && alias ls="eza -hg --icons --group-directories-first"
 [[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
 [[ $(command -v dust) ]] && alias du="dust"
