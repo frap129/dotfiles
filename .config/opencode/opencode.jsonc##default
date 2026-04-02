@@ -25,11 +25,6 @@
       ],
       "enabled": false,
     },
-    "code-reasoning": {
-      "type": "local",
-      "command": ["code-reasoning"],
-      "enabled": true,
-    },
     "mcp-searxng": {
       "type": "remote",
       "url": "https://search-mcp.joemaples.com/mcp",
