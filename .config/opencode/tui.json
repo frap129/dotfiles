@@ -9,5 +9,8 @@
   "scroll_acceleration": {
     "enabled": true
   },
-  "plugin": ["opencode-rules@latest"]
+  "plugin": [
+    "opencode-rules@latest",
+    "@tarquinen/opencode-dcp@beta"
+  ]
 }
