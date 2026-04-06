@@ -25,9 +25,9 @@
       ],
       "enabled": false,
     },
-    "mcp-searxng": {
+    "searxng": {
       "type": "remote",
-      "url": "https://search-mcp.joemaples.com/mcp",
+      "url": "{env:SEARXNG_MCP_URL}",
       "headers": {
         "Authorization": "Bearer {env:MCP_HTTP_AUTH_TOKEN}",
       },
@@ -37,9 +37,6 @@
       "type": "local",
       "command": ["bunx", "-y", "context-mode"],
     },
-  },
-  "tools": {
-    "webfetch": false,
   },
   "lsp": {
     "kotlin": {
@@ -71,6 +68,8 @@
   },
   "permission": {
     "lsp": "deny",
+    "webfetch": "deny",
+    "searxng_web_url_read": "deny",
     "bash": {
       "git filter-branch *": "deny",
       "git branch -d": "ask",
@@ -197,44 +196,16 @@
     },
     "github-copilot": {
       "models": {
-        "gpt-5.3-codex": {
-          "name": "GPT-5.3 Codex",
-          "variants": {
-            "xhigh": {
-              "reasoningEffort": "xhigh",
-              "reasoningSummary": "auto",
-              "include": ["reasoning.encrypted_content"],
-            },
-            "high": {
-              "reasoningEffort": "high",
-              "reasoningSummary": "auto",
-              "include": ["reasoning.encrypted_content"],
-            },
-            "medium": {
-              "reasoningEffort": "medium",
-              "reasoningSummary": "auto",
-              "include": ["reasoning.encrypted_content"],
-            },
-            "low": {
-              "reasoningEffort": "low",
-              "reasoningSummary": "auto",
-              "include": ["reasoning.encrypted_content"],
-            },
-          },
-        },
         "claude-opus-4.6": {
-          "variants": {
-            "high": {
-              "thinking_budget": 32000,
-            },
-            "medium": {
-              "thinking_budget": 16000,
-            },
-            "low": {
-              "thinking_budget": 8000,
-            },
+          "options": {
             "thinking": {
-              "disabled": true,
+              "type": "adaptive",
+            },
+            "reasoningEffort": "medium",
+          },
+          "variants": {
+            "max": {
+              "reasoningEffort": "max",
             },
           },
         },
