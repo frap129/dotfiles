@@ -1,12 +1,10 @@
--- You can also add or configure plugins by creating files in this `plugins/` folder
--- PLEASE REMOVE THE EXAMPLES YOU HAVE NO INTEREST IN BEFORE ENABLING THIS FILE
--- Here are some examples:
+-- User plugins
 
 ---@type LazySpec
 return {
   {
     "ray-x/lsp_signature.nvim",
-    event = "InsertEnter",
+    event = "LspAttach",
     opts = {
       bind = true,
       handler_opts = {
@@ -35,16 +33,10 @@ return {
   {
     "linux-cultist/venv-selector.nvim",
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
-    opts = {
-      -- Your options go here
-      -- name = "venv",
-      -- auto_refresh = false
-    },
-    event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
+    opts = {},
+    event = "VeryLazy",
     keys = {
-      -- Keymap to open VenvSelector to pick a venv.
       { "<leader>vs", "<cmd>VenvSelect<cr>" },
-      -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
       { "<leader>vc", "<cmd>VenvSelectCached<cr>" },
     },
   },
@@ -128,13 +120,7 @@ return {
   },
   {
     "https://github.com/fresh2dev/zellij.vim",
-    -- Pin version to avoid breaking changes.
-    -- tag = '0.3.*',
     lazy = false,
-    init = function()
-      -- Options:
-      -- vim.g.zelli_navigator_move_focus_or_tab = 1
-      -- vim.g.zellij_navigator_no_default_mappings = 1
-    end,
+    init = function() end,
   },
 }

@@ -1,5 +1,5 @@
 return {
-  "Saghen/blink.cmp",
+  "saghen/blink.cmp",
   dependencies = {
     "mikavilpas/blink-ripgrep.nvim",
     "bydlw98/blink-cmp-env",
