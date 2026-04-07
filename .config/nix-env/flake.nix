@@ -35,6 +35,7 @@
           ripgrep
           zellij
           tmux
+          netcat
         ];
 
         # Developer toolchain (editor, VCS, build tools, languages)
@@ -75,8 +76,6 @@
           python312Packages.ipython
           ruff
           bun
-          nodePackages.typescript
-          nodePackages.prettier
         ];
 
         # System / infra / background utilities
