@@ -7,7 +7,6 @@
     "opencode-rules@latest",
     //"/home/joe/Projects/ai/opencode-rules",
     "@tarquinen/opencode-dcp@beta",
-    "context-mode",
   ],
   "experimental": {
     "primary_tools": ["prune"],
@@ -32,10 +31,6 @@
         "Authorization": "Bearer {env:MCP_HTTP_AUTH_TOKEN}",
       },
       "enabled": true,
-    },
-    "context-mode": {
-      "type": "local",
-      "command": ["bunx", "-y", "context-mode"],
     },
   },
   "lsp": {
