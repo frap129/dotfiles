@@ -5,8 +5,8 @@
   "default_agent": "main",
   "plugin": [
     "opencode-rules@latest",
-    //"/home/joe/Projects/ai/opencode-rules",
-    "@tarquinen/opencode-dcp@beta",
+    "@frap129/oc-buddy@latest",
+    "@cortexkit/opencode-magic-context@latest",
   ],
   "experimental": {
     "primary_tools": ["prune"],

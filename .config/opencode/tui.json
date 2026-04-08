@@ -11,6 +11,8 @@
   },
   "plugin": [
     "opencode-rules@latest",
-    "@tarquinen/opencode-dcp@beta"
+    "@frap129/oc-buddy@latest",
+    "oc-tps@latest",
+    "@cortexkit/opencode-magic-context@latest"
   ]
 }

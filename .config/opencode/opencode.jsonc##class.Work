@@ -4,7 +4,6 @@
   "default_agent": "main",
   "share": "disabled",
   "plugin": [
-    //"/home/joe/software/opencode-rules/src",
     "opencode-rules@latest",
     "@frap129/oc-buddy@latest",
     "@cortexkit/opencode-magic-context@latest",
