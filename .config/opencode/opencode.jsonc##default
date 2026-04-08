@@ -199,32 +199,50 @@
         "claude-opus-4.6": {
           "options": {
             "thinking": {
-              "type": "adaptive",
+              "type": "enabled",
             },
-            "reasoningEffort": "medium",
+            "thinking_budget": 4000,
           },
           "variants": {
-            "max": {
-              "reasoningEffort": "max",
+            "high": {
+              "thinking": {
+                "type": "enabled",
+              },
+              "thinking_budget": 32000,
+            },
+            "medium": {
+              "thinking": {
+                "type": "enabled",
+              },
+              "thinking_budget": 16000,
+            },
+            "low": {
+              "thinking": {
+                "type": "enabled",
+              },
+              "thinking_budget": 8000,
             },
           },
         },
         "claude-opus-4.5": {
+          "options": {
+            "thinking": {
+              "type": "enabled",
+            },
+            "thinking_budget": 4000,
+          },
           "variants": {
             "high": {
-              "thinking_budget": 16000,
+              "thinking_budget": 31999,
             },
             "medium": {
-              "thinking_budget": 8000,
+              "thinking_budget": 16000,
             },
             "low": {
-              "thinking_budget": 4000,
-            },
-            "thinking": {
-              "disabled": true,
+              "thinking_budget": 8000,
             },
           },
-        },
+        },      
       },
     },
   },
