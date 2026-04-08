@@ -7,7 +7,7 @@ if [ "$1" == "upgrade" ]; then
     git pull upstream dev
     bun install
     sed -i 's/if (!semver.satisfies.*$/if (false) {/' packages/script/src/index.ts
-    env OPENCODE_VERSION="$(jq -r '.version' packages/opencode/package.json)-custom" bun run packages/opencode/script/build.ts --single --skip-install
+    env OPENCODE_VERSION="$(jq -r '.version' packages/opencode/package.json)" bun run packages/opencode/script/build.ts --single --skip-install
     git checkout packages/script/src/index.ts
   )
 else
