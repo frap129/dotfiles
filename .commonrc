@@ -10,8 +10,6 @@ else
 fi
 
 # Environment Variables
-export EDITOR=nvim
-export VISUAL=$EDITOR
 export GOPATH=~/.cache/go
 export color_prompt=yes
 if [[ $(command -v ccache) ]]; then
