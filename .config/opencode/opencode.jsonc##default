@@ -62,8 +62,6 @@
     },
   },
   "permission": {
-    "lsp": "deny",
-    "webfetch": "deny",
     "searxng_web_url_read": "deny",
     "bash": {
       "git filter-branch *": "deny",
@@ -82,7 +80,7 @@
       "variant": "high",
     },
     "explore": {
-      "model": "github-copilot/claude-opus-4.6",
+      "model": "github-copilot/claude-opus-4.5",
       "variant": "high",
       "permission": {
         "lsp": "allow",

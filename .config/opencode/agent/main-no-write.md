@@ -2,9 +2,6 @@
 description: AI software engineering agent for code implementation and task completion
 mode: primary
 permission:
-  lsp: deny
-  plan_enter: deny
-  plan_exit: deny
   write: ask
   edit: ask
   apply_patch: ask
