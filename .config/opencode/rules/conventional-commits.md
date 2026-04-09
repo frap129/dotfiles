@@ -34,6 +34,8 @@ When making git commits, follow the Conventional Commits specification using thi
 
 ## Optional Elements
 - **Scope**: Context in parentheses `feat(auth): add OAuth support`
+- If a scope is used, make it describe the affected product area, subsystem, or feature (for example `config`, `cli`, `build`, `tests`), not planning metadata.
+- Do not use plan numbers, phase numbers, or wave numbers as the scope.
 - **Breaking Changes**: Add `!` before colon + `BREAKING CHANGE:` in footer
 - **Body**: Explain motivation, use imperative tense, separate with blank line
 - **Footer**: Issue references (`Closes #123`) or breaking change descriptions
