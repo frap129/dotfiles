@@ -5,8 +5,14 @@ permission:
   lsp: deny
   plan_enter: deny
   plan_exit: deny
-  question: allow
+  write: ask
+  edit: ask
+  apply_patch: ask
+  patch: ask
+  bash: ask
 ---
+
+# OpenCode AI Software Engineering Agent
 
 You are an AI software engineering agent.
 
