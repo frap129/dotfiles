@@ -10,7 +10,6 @@ else
 fi
 
 # Environment Variables
-export PATH=~/.local/bin:~/.cargo/bin:~/.local/share/nvim/mason/bin:$PATH
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export GOPATH=~/.cache/go
