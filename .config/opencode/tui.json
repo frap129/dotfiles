@@ -13,6 +13,6 @@
     "opencode-rules@latest",
     "@frap129/oc-buddy@latest",
     "oc-tps@latest",
-    "@cortexkit/opencode-magic-context@latest"
+    "@tarquinen/opencode-dcp@latest"
   ]
 }

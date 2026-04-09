@@ -6,8 +6,7 @@
   "plugin": [
     "opencode-rules@latest",
     "@frap129/oc-buddy@latest",
-    "@cortexkit/opencode-magic-context@latest",
-    "@ccx-agent/opencode-ccx",
+    "@tarquinen/opencode-dcp@latest",
   ],
   "experimental": {
     "primary_tools": ["prune"],
@@ -42,6 +41,14 @@
         "Authorization": "Bearer {env:MCP_HTTP_AUTH_TOKEN}",
       },
       "enabled": true,
+    },
+    "smartsheet": {
+      "type": "remote",
+      "url": "https://mcp.smartsheet.com",
+      "headers": {
+        "Authorization": "Bearer {env:SMARTSHEET_API_TOKEN}",
+      },
+      "enabled": false,
     },
   },
   "lsp": {
