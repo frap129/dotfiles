@@ -7,6 +7,7 @@
     "@frap129/oc-buddy@latest",
     "@tarquinen/opencode-dcp@latest",
     "@ex-machina/opencode-anthropic-auth",
+    "@opencode-neuralwatt-provider",
   ],
   "experimental": {
     "primary_tools": ["prune"],
