@@ -72,16 +72,3 @@ alias spec='openspec'
 if [[ $(command -v nix) ]]; then
   alias setup-nix='nix profile add ~/.config/nix-env'
 fi
-
-# sqz — context intelligence layer
-if [[ $(command -v sqz)]]; then
-  sqz_run() {
-      "$@" 2>&1 | SQZ_CMD="$*" sqz compress
-  }
-  sqz_sudo() {
-      sudo "$@" 2>&1 | SQZ_CMD="sudo $*" sqz compress
-  }
-  preexec() {
-      export __SQZ_CMD="$1"
-  }
-fi
