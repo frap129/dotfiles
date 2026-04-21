@@ -81,19 +81,16 @@
       "variant": "high",
     },
     "explore": {
-      "model": "github-copilot/claude-opus-4.5",
-      "variant": "high",
-      "permission": {
-        "lsp": "allow",
-      },
+      "model": "neuralwatt/Qwen/Qwen3.6-35B-A3B",
     },
     "programmer": {
-      "model": "github-copilot/claude-opus-4.5",
-      "variant": "high",
+      "model": "opencode-go/minimax-m2.7",
     },
     "code-reviewer": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "high",
+      "model": "opencode-go/qwen-3.6-plus",
+    },
+    "document-reviewer": {
+      "model": "opencode-go/qwen-3.6-plus",
     },
   },
   "provider": {
@@ -157,160 +154,7 @@
             },
           },
         },
-        "claude-haiku-4-5": {
-          "name": "Claude Haiku 4.5",
-          "variants": {
-            "high": {
-              "options": {
-                "thinking": {
-                  "type": "enabled",
-                  "budgetTokens": 16000,
-                },
-              },
-            },
-            "medium": {
-              "options": {
-                "thinking": {
-                  "type": "enabled",
-                  "budgetTokens": 8000,
-                },
-              },
-            },
-            "low": {
-              "options": {
-                "thinking": {
-                  "type": "enabled",
-                  "budgetTokens": 4000,
-                },
-              },
-            },
-          },
-        },
       },
-    },
-    "github-copilot": {
-      "models": {
-        "claude-opus-4.6": {
-          "options": {
-            "thinking": {
-              "type": "enabled",
-            },
-            "thinking_budget": 4000,
-          },
-          "variants": {
-            "high": {
-              "thinking": {
-                "type": "enabled",
-              },
-              "thinking_budget": 32000,
-            },
-            "medium": {
-              "thinking": {
-                "type": "enabled",
-              },
-              "thinking_budget": 16000,
-            },
-            "low": {
-              "thinking": {
-                "type": "enabled",
-              },
-              "thinking_budget": 8000,
-            },
-          },
-        },
-        "claude-opus-4.5": {
-          "options": {
-            "thinking": {
-              "type": "enabled",
-            },
-            "thinking_budget": 4000,
-          },
-          "variants": {
-            "high": {
-              "thinking_budget": 31999,
-            },
-            "medium": {
-              "thinking_budget": 16000,
-            },
-            "low": {
-              "thinking_budget": 8000,
-            },
-          },
-        },
-      },
-    },
-    "neuralwatt": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "NeuralWatt",
-      "options": {
-        "baseURL": "https://api.neuralwatt.com/v1"
-      },
-      "models": {
-        "Qwen/Qwen3.5-397B-A17B-FP8": {
-          "name": "Qwen 3.5 397B",
-          "reasoning": true,
-          "limit": { "context": 262144, "output": 32768 }
-        },
-        "moonshotai/Kimi-K2.5": {
-          "name": "Kimi K2.5",
-          "attachment": true,
-          "reasoning": true,
-          "limit": { "context": 262144, "output": 32768 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] }
-        },
-        "zai-org/GLM-5.1-FP8": {
-          "name": "GLM-5.1",
-          "reasoning": true,
-          "limit": { "context": 202752, "output": 65536 }
-        },
-        "zai-org/GLM-5-FP8": {
-          "name": "GLM-5",
-          "reasoning": true,
-          "limit": { "context": 202752, "output": 65536 }
-        },
-        "MiniMaxAI/MiniMax-M2.5": {
-          "name": "MiniMax M2.5",
-          "reasoning": true,
-          "limit": { "context": 196608, "output": 65536 }
-        },
-        "mistralai/Devstral-Small-2-24B-Instruct-2512": {
-          "name": "Devstral Small 2",
-          "attachment": true,
-          "limit": { "context": 262144, "output": 65536 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] }
-        },
-        "Qwen/Qwen3.5-35B-A3B": {
-          "name": "Qwen 3.5 35B",
-          "reasoning": true,
-          "limit": { "context": 131072, "output": 32768 }
-        },
-        "qwen3.5-397b-fast": {
-          "name": "Qwen 3.5 397B Fast",
-          "reasoning": true,
-          "limit": { "context": 262144, "output": 32768 }
-        },
-        "kimi-k2.5-fast": {
-          "name": "Kimi K2.5 Fast",
-          "attachment": true,
-          "reasoning": true,
-          "limit": { "context": 262144, "output": 32768 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] }
-        },
-        "glm-5.1-fast": {
-          "name": "GLM-5.1 Fast",
-          "reasoning": true,
-          "limit": { "context": 202752, "output": 65536 }
-        },
-        "glm-5-fast": {
-          "name": "GLM-5 Fast",
-          "reasoning": true,
-          "limit": { "context": 202752, "output": 65536 }
-        },
-        "openai/gpt-oss-20b": {
-          "name": "GPT-OSS 20B",
-          "limit": { "context": 16384, "output": 8192 }
-        }
-      }
     },
   },
 }
