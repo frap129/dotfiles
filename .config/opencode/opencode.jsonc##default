@@ -33,6 +33,14 @@
       },
       "enabled": true,
     },
+    "sqz": {
+      "command": [
+        "sqz-mcp",
+        "--transport",
+        "stdio"
+      ],
+      "type": "local"
+    }
   },
   "lsp": {
     "kotlin": {
