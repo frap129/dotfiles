@@ -7,25 +7,48 @@
  */
 
 export const SqzPlugin = async (ctx: any) => {
-  const SQZ_PATH = "/var/home/joe/.cargo/bin/sqz";
+  const SQZ_PATH = "sqz";
 
   // Commands that should not be intercepted.
   const INTERACTIVE = new Set([
-    "vim", "vi", "nano", "emacs", "less", "more", "top", "htop",
-    "ssh", "python", "python3", "node", "irb", "ghci",
-    "psql", "mysql", "sqlite3", "mongo", "redis-cli",
+    "vim",
+    "vi",
+    "nano",
+    "emacs",
+    "less",
+    "more",
+    "top",
+    "htop",
+    "ssh",
+    "python",
+    "python3",
+    "node",
+    "irb",
+    "ghci",
+    "psql",
+    "mysql",
+    "sqlite3",
+    "mongo",
+    "redis-cli",
   ]);
 
   function isInteractive(cmd: string): boolean {
     const base = cmd.split(/\s+/)[0]?.split("/").pop() ?? "";
     if (INTERACTIVE.has(base)) return true;
-    if (cmd.includes("--watch") || cmd.includes("run dev") ||
-        cmd.includes("run start") || cmd.includes("run serve")) return true;
+    if (
+      cmd.includes("--watch") ||
+      cmd.includes("run dev") ||
+      cmd.includes("run start") ||
+      cmd.includes("run serve")
+    )
+      return true;
     return false;
   }
 
   function shouldIntercept(tool: string): boolean {
-    return ["bash", "shell", "terminal", "run_shell_command"].includes(tool.toLowerCase());
+    return ["bash", "shell", "terminal", "run_shell_command"].includes(
+      tool.toLowerCase(),
+    );
   }
 
   // Detect that a command has already been wrapped by sqz. Before this
@@ -56,7 +79,7 @@ export const SqzPlugin = async (ctx: any) => {
   // leading env-var assignments (VAR=val VAR2=val2 actual_cmd arg1),
   // skip past them so the base is `actual_cmd` — not `VAR=val`.
   function extractBaseCmd(cmd: string): string {
-    const tokens = cmd.split(/\s+/).filter(t => t.length > 0);
+    const tokens = cmd.split(/\s+/).filter((t) => t.length > 0);
     for (const tok of tokens) {
       // A token is an env assignment if it matches NAME=VALUE where NAME
       // is a valid env var identifier. Skip it and keep looking.
