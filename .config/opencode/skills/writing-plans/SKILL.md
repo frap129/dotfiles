@@ -13,7 +13,8 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 **Announce at start:** "I'm using the writing-plans skill to create the implementation plan.
 
-**Save plans to:** The designated plan file in `.opencode/plans/` 
+**Save plans to:** The designated plan file in `.opencode/plans/`
+
 - (User preferences for plan location override this default)
 
 ## Scope Check
@@ -34,6 +35,7 @@ This structure informs the task decomposition. Each task should produce self-con
 ## Bite-Sized Task Granularity
 
 **Each step is one action (2-5 minutes):**
+
 - "Write the failing test" - step
 - "Run it to make sure it fails" - step
 - "Implement the minimal code to make the test pass" - step
@@ -64,6 +66,7 @@ This structure informs the task decomposition. Each task should produce self-con
 ### Task N: [Component Name]
 
 **Files:**
+
 - Create: `exact/path/to/file.py`
 - Modify: `exact/path/to/existing.py:123-145`
 - Test: `tests/exact/path/to/test.py`
@@ -102,6 +105,7 @@ git commit -m "feat: add specific feature"
 ````
 
 ## Remember
+
 - Exact file paths always
 - Complete code in plan (not "add validation")
 - Exact commands with expected output
@@ -112,7 +116,7 @@ git commit -m "feat: add specific feature"
 
 After completing each chunk of the plan:
 
-1. Dispatch plan-document-reviewer subagent (see plan-document-reviewer-prompt.md) for the current chunk
+1. Dispatch plan document-reviewer subagent (see plan-document-reviewer-prompt.md) for the current chunk
    - Provide: chunk content, path to spec document
 2. If ❌ Issues Found:
    - Fix the issues in the chunk
@@ -123,6 +127,7 @@ After completing each chunk of the plan:
 **Chunk boundaries:** Use `## Chunk N: <name>` headings to delimit chunks. Each chunk should be ≤1000 lines and logically self-contained.
 
 **Review loop guidance:**
+
 - Same agent that wrote the plan fixes it (preserves context)
 - If loop exceeds 5 iterations, surface to human for guidance
 - Reviewers are advisory - explain disagreements if you believe feedback is incorrect
@@ -134,6 +139,7 @@ After saving the plan:
 **"Plan complete and saved to `.opencode/plans/<filename>.md`. Ready to execute?"**
 
 **Execution path:**
+
 - **REQUIRED:** Use subagent-driven-development
 - Do NOT offer a choice - subagent-driven is the standard approach
 - Fresh subagent per task + two-stage review
