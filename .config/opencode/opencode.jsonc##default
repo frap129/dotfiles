@@ -95,10 +95,10 @@
       "model": "opencode-go/minimax-m2.7",
     },
     "code-reviewer": {
-      "model": "opencode-go/qwen-3.6-plus",
+      "model": "opencode-go/qwen3.6-plus",
     },
     "document-reviewer": {
-      "model": "opencode-go/qwen-3.6-plus",
+      "model": "opencode-go/qwen3.6-plus",
     },
   },
   "provider": {
