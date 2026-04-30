@@ -386,8 +386,10 @@ mcp_servers:
     args:
       - intercept-mcp@latest
     tools:
-      prompts: false
+      prompts: true
       resources: false
+      exclude:
+        - search
 plugins:
   enabled:
     - hermes-lcm
