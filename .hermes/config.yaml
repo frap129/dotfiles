@@ -386,7 +386,7 @@ mcp_servers:
     args:
       - intercept-mcp@latest
     tools:
-      prompts: true
+      prompts: false
       resources: false
       exclude:
         - search
