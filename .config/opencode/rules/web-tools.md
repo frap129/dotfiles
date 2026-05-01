@@ -1,3 +1,9 @@
+---
+tools:
+  - general_searxng_web_search
+  - code_searxng_web_search
+  - web_fetch
+---
 ### Web Research Tool Preferences
 I have three web tools at my disposal. Use them as follows:
 - **`general_searxng_web_search`** - general-purpose web search. Use for news, facts, products, and general queries.
