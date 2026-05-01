@@ -4,3 +4,4 @@
 .ssh/maples-dev*
 .gnupg/*
 .hermes/.env
+.config/environment.d/98-secrets.conf
