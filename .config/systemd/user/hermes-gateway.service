@@ -1,0 +1,15 @@
+[Unit]
+Description=Hermes AI Agent Gateway
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=%h/.hermes/hermes-agent/venv/bin/hermes gateway run
+WorkingDirectory=%h/.hermes/hermes-agent
+Environment=HERMES_HOME=%h/.hermes
+EnvironmentFile=%h/.hermes/.env
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

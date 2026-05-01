@@ -1,0 +1,31 @@
+[Unit]
+Description=Signal CLI daemon for Hermes gateway
+After=network.target
+
+[Container]
+Image=docker.io/bbernhard/signal-cli-rest-api:latest
+ContainerName=signal-cli
+AutoUpdate=registry
+
+# Run as signal-api user (UID 1000) to skip entrypoint privilege dropping
+# (usermod/groupmod and setpriv fail in rootless podman)
+User=1000:1000
+
+# Run signal-cli daemon directly. Hermes connects to the daemon's JSON-RPC HTTP API
+# (endpoints: /api/v1/check, /api/v1/events, /api/v1/rpc).
+# - http: bind to all interfaces on port 8080
+# - no-receive-stdout: don't log received messages to stdout
+Entrypoint=/usr/bin/signal-cli
+Exec=-c /home/.local/share/signal-cli daemon --http 0.0.0.0:8080 --no-receive-stdout
+
+# Signal CLI data persistence (registration, keys)
+Volume=/home/joe/.local/share/signal-cli:/home/.local/share/signal-cli:Z
+
+# Bind to localhost:9580 (not exposed to network)
+PublishPort=127.0.0.1:9580:8080
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

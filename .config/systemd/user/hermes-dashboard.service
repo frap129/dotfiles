@@ -1,0 +1,22 @@
+[Unit]
+Description=Hermes AI Agent Dashboard
+After=hermes-gateway.service
+BindsTo=hermes-gateway.service
+
+[Service]
+Type=simple
+ExecStart=%h/.hermes/hermes-agent/venv/bin/hermes dashboard --tui --host 0.0.0.0 --port 9119 --no-open --insecure
+WorkingDirectory=%h/.hermes/hermes-agent
+Environment=HERMES_HOME=%h/.hermes
+Environment=PATH=%h/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+EnvironmentFile=%h/.hermes/.env
+Restart=always
+RestartSec=10
+StartLimitIntervalSec=60
+StartLimitBurst=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=hermes-dashboard
+
+[Install]
+WantedBy=default.target
