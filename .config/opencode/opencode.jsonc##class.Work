@@ -34,11 +34,31 @@
       "command": ["bunx", "-y", "android-mcp-server"],
       "enabled": false,
     },
-    "searxng": {
+    "general": {
       "type": "remote",
-      "url": "{env:SEARXNG_MCP_URL}",
+      "url": "{env:MCP_SEARXNG_URL}",
       "headers": {
-        "Authorization": "Bearer {env:MCP_HTTP_AUTH_TOKEN}",
+        "Authorization": "Bearer {env:MCP_SEARXNG_API_KEY}",
+      },
+      "enabled": true,
+    },
+    "code": {
+      "type": "remote",
+      "url": "{env:MCP_SEARXNG_CODE_URL}",
+      "headers": {
+        "Authorization": "Bearer {env:MCP_SEARXNG_API_KEY}",
+      },
+      "enabled": true,
+    },
+    "web": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "-y",
+        "intercept-mcp@latest",
+      ],
+      "environment": {
+        "USE_STEALTH_FETCH": "true"
       },
       "enabled": true,
     },
@@ -80,7 +100,12 @@
     },
   },
   "permission": {
-    "searxng_web_url_read": "deny",
+    "general_web_url_read": "deny",
+    "code_web_url_read": "deny",
+    "web_search": "deny",
+    "websearch": "deny",
+    "codesearch": "deny",
+    "webfetch": "deny",
     "bash": {
       "git filter-branch *": "deny",
       "git branch -d": "ask",
