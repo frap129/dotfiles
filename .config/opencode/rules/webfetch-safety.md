@@ -1,6 +1,6 @@
 ---
 tools:
-  - web_fetch
+  - mcp_web
 ---
 
 # WebFetch Safety

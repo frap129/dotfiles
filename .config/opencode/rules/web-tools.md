@@ -1,3 +1,9 @@
+---
+tools:
+  - mcp_general
+  - mcp_code
+  - mcp_web
+---
 ### Web Research Tool Preferences
 I have three web tools at my disposal. Use them as follows:
 - **`general_searxng_web_search`** - general-purpose web search. Use for news, facts, products, and general queries.
