@@ -1,6 +1,6 @@
 ---
 tools:
-  - webfetch
+  - web_fetch
 ---
 
 # WebFetch Safety
