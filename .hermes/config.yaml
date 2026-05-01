@@ -10,22 +10,21 @@ providers:
     key_env: NEURALWATT_API_KEY
     api_mode: chat_completions
 fallback_providers: []
-disabled_toolsets:
-  - web
 credential_pool_strategies: {}
 toolsets:
-  - hermes-cli
+- hermes-cli
 agent:
   max_turns: 90
   gateway_timeout: 1800
   restart_drain_timeout: 60
   api_max_retries: 3
-  service_tier: ""
+  service_tier: ''
   tool_use_enforcement: auto
   gateway_timeout_warning: 900
   gateway_notify_interval: 600
   gateway_auto_continue_freshness: 3600
   image_input_mode: auto
+  disabled_toolsets: []
   workspace: /home/joe/workspace
 terminal:
   backend: local
@@ -56,7 +55,7 @@ browser:
   record_sessions: false
   allow_private_urls: false
   auto_local_for_private_urls: true
-  cdp_url: ""
+  cdp_url: ''
   dialog_policy: must_respond
   dialog_timeout_s: 300
   camofox:
@@ -73,6 +72,17 @@ tool_output:
   max_bytes: 50000
   max_lines: 2000
   max_line_length: 2000
+tool_loop_guardrails:
+  warnings_enabled: true
+  hard_stop_enabled: false
+  warn_after:
+    exact_failure: 2
+    same_tool_failure: 3
+    idempotent_no_progress: 2
+  hard_stop_after:
+    exact_failure: 5
+    same_tool_failure: 8
+    idempotent_no_progress: 5
 compression:
   enabled: true
   threshold: 0.5
@@ -82,80 +92,87 @@ compression:
 prompt_caching:
   cache_ttl: 5m
 bedrock:
-  region: ""
+  region: ''
   discovery:
     enabled: true
     provider_filter: []
     refresh_interval: 3600
   guardrail:
-    guardrail_identifier: ""
-    guardrail_version: ""
+    guardrail_identifier: ''
+    guardrail_version: ''
     stream_processing_mode: async
     trace: disabled
 auxiliary:
   vision:
     provider: neuralwatt
     model: Qwen/Qwen3.6-35B-A3B
-    base_url: ""
-    api_key: ""
+    base_url: ''
+    api_key: ''
     timeout: 120
     extra_body: {}
     download_timeout: 30
   web_extract:
     provider: nvidia
     model: minimaxai/minimax-m2.7
-    base_url: ""
-    api_key: ""
+    base_url: ''
+    api_key: ''
     timeout: 360
     extra_body: {}
   compression:
     provider: nvidia
     model: minimaxai/minimax-m2.7
-    base_url: ""
-    api_key: ""
+    base_url: ''
+    api_key: ''
     timeout: 120
     extra_body: {}
   session_search:
     provider: neuralwatt
     model: qwen3.6-35b-fast
-    base_url: ""
-    api_key: ""
+    base_url: ''
+    api_key: ''
     timeout: 30
     extra_body: {}
     max_concurrency: 3
   skills_hub:
     provider: neuralwatt
     model: Qwen/Qwen3.6-35B-A3B
-    base_url: ""
-    api_key: ""
+    base_url: ''
+    api_key: ''
     timeout: 30
     extra_body: {}
   approval:
     provider: nvidia
     model: minimaxai/minimax-m2.7
-    base_url: ""
-    api_key: ""
+    base_url: ''
+    api_key: ''
     timeout: 30
     extra_body: {}
   mcp:
     provider: neuralwatt
     model: qwen3.6-35b-fast
-    base_url: ""
-    api_key: ""
+    base_url: ''
+    api_key: ''
     timeout: 30
     extra_body: {}
   title_generation:
     provider: neuralwatt
     model: qwen3.6-35b-fast
-    base_url: ""
-    api_key: ""
+    base_url: ''
+    api_key: ''
     timeout: 30
+    extra_body: {}
+  curator:
+    provider: auto
+    model: ''
+    base_url: ''
+    api_key: ''
+    timeout: 600
     extra_body: {}
   flush_memories:
     provider: nvidia
     model: minimaxai/minimax-m2.7
-    base_url: ""
-    api_key: ""
+    base_url: ''
+    api_key: ''
     timeout: 30
     extra_body: {}
 display:
@@ -179,13 +196,14 @@ display:
   tool_progress_command: false
   tool_progress_overrides: {}
   tool_preview_length: 0
+  ephemeral_system_ttl: 0
   platforms: {}
   runtime_footer:
     enabled: false
     fields:
-      - model
-      - context_pct
-      - cwd
+    - model
+    - context_pct
+    - cwd
 dashboard:
   theme: mono
 privacy:
@@ -209,16 +227,18 @@ tts:
     model: voxtral-mini-tts-2603
     voice_id: c69964a6-ab8b-4f8a-9465-ec0925096ec8
   neutts:
-    ref_audio: ""
-    ref_text: ""
+    ref_audio: ''
+    ref_text: ''
     model: neuphonic/neutts-air-q4-gguf
     device: cpu
+  piper:
+    voice: en_US-lessac-medium
 stt:
   enabled: true
   provider: local
   local:
     model: base
-    language: ""
+    language: ''
   openai:
     model: whisper-1
   mistral:
@@ -231,7 +251,7 @@ voice:
   silence_threshold: 200
   silence_duration: 3
 human_delay:
-  mode: "off"
+  mode: 'off'
   min_ms: 800
   max_ms: 2500
 context:
@@ -243,19 +263,21 @@ memory:
   user_char_limit: 1375
   provider: mnemosyne
 delegation:
-  model: ""
-  provider: ""
-  base_url: ""
-  api_key: ""
+  model: ''
+  provider: ''
+  base_url: ''
+  api_key: ''
   inherit_mcp_toolsets: true
   max_iterations: 50
   child_timeout_seconds: 600
-  reasoning_effort: ""
+  reasoning_effort: ''
   max_concurrent_children: 3
   max_spawn_depth: 1
   orchestrator_enabled: true
   subagent_auto_approve: false
-prefill_messages_file: ""
+prefill_messages_file: ''
+goals:
+  max_turns: 20
 skills:
   external_dirs: []
   template_vars: true
@@ -263,49 +285,52 @@ skills:
   inline_shell_timeout: 10
   guard_agent_created: false
   disabled:
-    - axolotl
-    - baoyu-comic
-    - baoyu-infographic
-    - claude-code
-    - codex
-    - evaluating-llms-harness
-    - fine-tuning-with-trl
-    - heartmula
-    - hermes-agent
-    - jupyter-live-kernel
-    - linear
-    - llm-wiki
-    - manim-video
-    - minecraft-modpack-server
-    - modal-serverless-gpu
-    - openhue
-    - peft-fine-tuning
-    - pokemon-player
-    - serving-llms-vllm
-    - songsee
-    - songwriting-and-ai-music
-    - unsloth
-    - weights-and-biases
-    - whisper
+  - axolotl
+  - baoyu-comic
+  - baoyu-infographic
+  - claude-code
+  - codex
+  - evaluating-llms-harness
+  - fine-tuning-with-trl
+  - heartmula
+  - hermes-agent
+  - jupyter-live-kernel
+  - linear
+  - llm-wiki
+  - manim-video
+  - minecraft-modpack-server
+  - modal-serverless-gpu
+  - openhue
+  - peft-fine-tuning
+  - pokemon-player
+  - serving-llms-vllm
+  - songsee
+  - songwriting-and-ai-music
+  - unsloth
+  - weights-and-biases
+  - whisper
 curator:
   enabled: true
   interval_hours: 168
   min_idle_hours: 2
   stale_after_days: 30
   archive_after_days: 90
+  backup:
+    enabled: true
+    keep: 5
   auxiliary:
     provider: null
     model: null
 honcho: {}
-timezone: ""
+timezone: ''
 discord:
   require_mention: true
-  free_response_channels: ""
-  allowed_channels: ""
+  free_response_channels: ''
+  allowed_channels: ''
   auto_thread: true
   reactions: true
   channel_prompts: {}
-  server_actions: ""
+  server_actions: ''
 whatsapp: {}
 telegram:
   reactions: false
@@ -318,6 +343,7 @@ approvals:
   mode: manual
   timeout: 60
   cron_mode: deny
+  mcp_reload_confirm: true
 command_allowlist: []
 quick_commands: {}
 hooks: {}
@@ -337,6 +363,9 @@ security:
 cron:
   wrap_response: true
   max_parallel_jobs: null
+kanban:
+  dispatch_in_gateway: true
+  dispatch_interval_seconds: 60
 code_execution:
   mode: project
 logging:
@@ -361,7 +390,9 @@ onboarding:
 updates:
   pre_update_backup: false
   backup_keep: 5
-_config_version: 22
+_config_version: 23
+disabled_toolsets:
+- web
 mcp_servers:
   general-web:
     url: ${MCP_SEARXNG_URL}
@@ -371,7 +402,7 @@ mcp_servers:
       prompts: false
       resources: false
       exclude:
-        - web_url_read
+      - web_url_read
   code-web:
     url: ${MCP_SEARXNG_CODE_URL}
     headers:
@@ -380,35 +411,60 @@ mcp_servers:
       prompts: false
       resources: false
       exclude:
-        - web_url_read
+      - web_url_read
   intercept:
     command: bunx
     args:
-      - intercept-mcp@latest
+    - -y
+    - intercept-mcp@latest
     tools:
       prompts: false
       resources: false
       exclude:
-        - search
+      - search
 plugins:
   enabled:
-    - hermes-lcm
-    - mnemosyne
-    - mnemosyne-memory
-  disabled: []
+  - disk-cleanup
+  - hermes-lcm
+  - hermes-rtk-optimizer
+  - mnemosyne
+  disabled:
+  - google_meet
+  - spotify
 platform_toolsets:
   cli:
-    - browser
-    - clarify
-    - code_execution
-    - cronjob
-    - delegation
-    - file
-    - image_gen
-    - memory
-    - messaging
-    - session_search
-    - skills
-    - terminal
-    - todo
-    - vision
+  - browser
+  - clarify
+  - code_execution
+  - cronjob
+  - delegation
+  - file
+  - image_gen
+  - memory
+  - messaging
+  - session_search
+  - skills
+  - terminal
+  - todo
+  - vision
+
+# ── Fallback Model ────────────────────────────────────────────────────
+# Automatic provider failover when primary is unavailable.
+# Uncomment and configure to enable. Triggers on rate limits (429),
+# overload (529), service errors (503), or connection failures.
+#
+# Supported providers:
+#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
+#   openai-codex (OAuth — hermes auth) — OpenAI Codex
+#   nous         (OAuth — hermes auth) — Nous Portal
+#   zai          (ZAI_API_KEY)         — Z.AI / GLM
+#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
+#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
+#   minimax      (MINIMAX_API_KEY)     — MiniMax
+#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
+#
+# For custom OpenAI-compatible endpoints, add base_url and key_env.
+#
+# fallback_model:
+#   provider: openrouter
+#   model: anthropic/claude-sonnet-4
