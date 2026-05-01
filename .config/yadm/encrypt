@@ -3,4 +3,4 @@
 .ssh/config.d/*
 .ssh/maples-dev*
 .gnupg/*
-
+.hermes/.env

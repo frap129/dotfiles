@@ -1,15 +1,24 @@
 [Unit]
-Description=Hermes AI Agent Gateway
+Description=Hermes Agent Gateway - Messaging Platform Integration
 After=network.target
+StartLimitIntervalSec=600
+StartLimitBurst=5
 
 [Service]
 Type=simple
-ExecStart=%h/.hermes/hermes-agent/venv/bin/hermes gateway run
+ExecStart=%h/.hermes/hermes-agent/venv/bin/hermes gateway run --replace
 WorkingDirectory=%h/.hermes/hermes-agent
+Environment=VIRTUAL_ENV=%h/.hermes/hermes-agent/venv
 Environment=HERMES_HOME=%h/.hermes
-EnvironmentFile=%h/.hermes/.env
-Restart=always
-RestartSec=5
+Restart=on-failure
+RestartSec=30
+RestartForceExitStatus=75
+KillMode=mixed
+KillSignal=SIGTERM
+ExecReload=/bin/kill -USR1 $MAINPID
+TimeoutStopSec=90
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=default.target
