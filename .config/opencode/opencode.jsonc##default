@@ -7,7 +7,6 @@
     "@frap129/oc-buddy@latest",
     "@tarquinen/opencode-dcp@latest",
     "@ex-machina/opencode-anthropic-auth",
-    "opencode-neuralwatt-provider@latest",
   ],
   "experimental": {
     "primary_tools": ["prune"],
@@ -119,6 +118,157 @@
     },
   },
   "provider": {
+    "neuralwatt": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "https://api.neuralwatt.com/v1"
+      },
+      "models": {
+        "glm-5-fast": {
+          "name": "GLM-5 Fast",
+          "limit": { "context": 202752, "output": 65536 },
+          "temperature": true,
+          "reasoning": false,
+          "attachment": false,
+          "tool_call": true,
+          "cost": { "input": 1.1, "output": 3.6 }
+        },
+        "glm-5.1-fast": {
+          "name": "GLM-5.1 Fast",
+          "limit": { "context": 202752, "output": 65536 },
+          "temperature": true,
+          "reasoning": false,
+          "attachment": false,
+          "tool_call": true,
+          "cost": { "input": 1.1, "output": 3.6 }
+        },
+        "kimi-k2.5-fast": {
+          "name": "Kimi K2.5 Fast",
+          "limit": { "context": 262144, "output": 32768 },
+          "temperature": true,
+          "reasoning": false,
+          "attachment": true,
+          "tool_call": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "cost": { "input": 0.52, "output": 2.59 }
+        },
+        "kimi-k2.6-fast": {
+          "name": "Kimi K2.6 Fast",
+          "limit": { "context": 262144, "output": 32768 },
+          "temperature": true,
+          "reasoning": false,
+          "attachment": true,
+          "tool_call": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "cost": { "input": 0.69, "output": 3.22 }
+        },
+        "MiniMaxAI/MiniMax-M2.5": {
+          "name": "MiniMax M2.5",
+          "limit": { "context": 196608, "output": 65536 },
+          "temperature": true,
+          "reasoning": true,
+          "attachment": false,
+          "tool_call": true,
+          "cost": { "input": 0.35, "output": 1.38 }
+        },
+        "mistralai/Devstral-Small-2-24B-Instruct-2512": {
+          "name": "Devstral-Small-2-24B-Instruct-2512",
+          "limit": { "context": 262144, "output": 65536 },
+          "temperature": true,
+          "reasoning": false,
+          "attachment": true,
+          "tool_call": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "cost": { "input": 0.12, "output": 0.35 }
+        },
+        "moonshotai/Kimi-K2.5": {
+          "name": "Kimi K2.5",
+          "limit": { "context": 262144, "output": 32768 },
+          "temperature": true,
+          "reasoning": true,
+          "attachment": true,
+          "tool_call": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "cost": { "input": 0.52, "output": 2.59 }
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "Kimi K2.6",
+          "limit": { "context": 262144, "output": 32768 },
+          "temperature": true,
+          "reasoning": true,
+          "attachment": true,
+          "tool_call": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "cost": { "input": 0.69, "output": 3.22 }
+        },
+        "openai/gpt-oss-20b": {
+          "name": "GPT-OSS 20B",
+          "limit": { "context": 16384, "output": 8192 },
+          "temperature": true,
+          "reasoning": true,
+          "attachment": false,
+          "tool_call": true,
+          "cost": { "input": 0.03, "output": 0.16 }
+        },
+        "Qwen/Qwen3.5-397B-A17B-FP8": {
+          "name": "Qwen3.5 397B",
+          "limit": { "context": 262144, "output": 32768 },
+          "temperature": true,
+          "reasoning": true,
+          "attachment": false,
+          "tool_call": true,
+          "cost": { "input": 0.69, "output": 4.14 }
+        },
+        "Qwen/Qwen3.6-35B-A3B": {
+          "name": "Qwen3.6 35B",
+          "limit": { "context": 131072, "output": 32768 },
+          "temperature": true,
+          "reasoning": true,
+          "attachment": true,
+          "tool_call": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "cost": { "input": 0.05, "output": 0.1 },
+          "options": { "chat_template_kwargs": { "preserve_thinking": true } }
+        },
+        "qwen3.5-397b-fast": {
+          "name": "Qwen3.5 397B Fast",
+          "limit": { "context": 262144, "output": 32768 },
+          "temperature": true,
+          "reasoning": false,
+          "attachment": false,
+          "tool_call": true,
+          "cost": { "input": 0.69, "output": 4.14 }
+        },
+        "qwen3.6-35b-fast": {
+          "name": "Qwen3.6 35B Fast",
+          "limit": { "context": 131072, "output": 32768 },
+          "temperature": true,
+          "reasoning": false,
+          "attachment": true,
+          "tool_call": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "cost": { "input": 0.05, "output": 0.1 },
+          "options": { "chat_template_kwargs": { "preserve_thinking": true } }
+        },
+        "zai-org/GLM-5-FP8": {
+          "name": "GLM-5",
+          "limit": { "context": 202752, "output": 65536 },
+          "temperature": true,
+          "reasoning": true,
+          "attachment": false,
+          "tool_call": true
+        },
+        "zai-org/GLM-5.1-FP8": {
+          "name": "GLM-5.1",
+          "limit": { "context": 202752, "output": 65536 },
+          "temperature": true,
+          "reasoning": true,
+          "attachment": false,
+          "tool_call": true,
+          "cost": { "input": 1.1, "output": 3.6 }
+        }
+      }
+    },
     "anthropic": {
       "models": {
         "claude-opus-4-5": {
