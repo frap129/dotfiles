@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "general": {
+      "url": "https://search.maples.dev/mcp-general",
+      "auth": "bearer",
+      "bearerTokenEnv": "MCP_SEARXNG_API_KEY"
+    },
+    "code": {
+      "url": "https://search.maples.dev/mcp-code",
+      "auth": "bearer",
+      "bearerTokenEnv": "MCP_SEARXNG_API_KEY"
+    },
+    "web": {
+      "command": "bunx",
+      "args": ["-y", "intercept-mcp@latest"],
+      "env": {
+        "USE_STEALTH_FETCH": "true"
+      }
+    }
+  }
+}
