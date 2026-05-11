@@ -27,9 +27,12 @@ export ANDROID_HOME=~/Android/Sdk
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
 if [[ -d ~/.nvm ]]; then
   export NVM_DIR="$HOME/.nvm"
-  unset npm_config_prefix 
-  source $NVM_DIR/nvm.sh
-  source $NVM_DIR/bash_completion
+  export NVM_SYMLINK_CURRENT=true
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+  unset npm_config_prefix
+  nvm use --silent default >/dev/null 2>&1 || true
+  [[ -d "$NVM_DIR/current/bin" ]] && export PATH="$NVM_DIR/current/bin:$PATH"
 else
   export npm_config_prefix="$HOME/.local"
 fi
