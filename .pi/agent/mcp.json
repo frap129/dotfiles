@@ -1,21 +1,27 @@
 {
+  "settings": {
+    "disableProxyTool": true
+  },
   "mcpServers": {
     "general": {
       "url": "https://search.maples.dev/mcp-general",
       "auth": "bearer",
-      "bearerTokenEnv": "MCP_SEARXNG_API_KEY"
+      "bearerTokenEnv": "MCP_SEARXNG_API_KEY",
+      "directTools": ["searxng_web_search"]
     },
     "code": {
       "url": "https://search.maples.dev/mcp-code",
       "auth": "bearer",
-      "bearerTokenEnv": "MCP_SEARXNG_API_KEY"
+      "bearerTokenEnv": "MCP_SEARXNG_API_KEY",
+      "directTools": ["searxng_web_search"]
     },
     "web": {
       "command": "bunx",
       "args": ["-y", "intercept-mcp@latest"],
       "env": {
         "USE_STEALTH_FETCH": "true"
-      }
+      },
+      "directTools": ["fetch"]
     }
   }
 }
