@@ -1,23 +1,23 @@
 {
-  "lastChangelogVersion": "0.74.0",
+  "lastChangelogVersion": "0.75.3",
   "packages": [
     "npm:pi-mcp-adapter",
     "npm:pi-subagents",
     "npm:pi-lens",
     "npm:pi-btw",
-    "npm:@complexthings/pi-dynamic-context-pruning",
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-system-prompt",
-    "npm:pi-workspace-history",
     "npm:pi-rtk-optimizer",
     "npm:pi-tool-display",
-    "npm:pi-powerline",
     "npm:pi-ask-user",
-    "../../projects/pi-fordllm"
+    "../../projects/pi-fordllm",
+    "npm:@haispeed/pi-deck",
+    "git:git@github.com:frap129/pi-permission-system.git",
+    "npm:@sting8k/pi-vcc"
   ],
-  "theme": "dark",
-  "defaultProvider": "fordllm",
-  "defaultModel": "gpt-5.3-chat-latest",
+  "theme": "kanso-zen",
+  "defaultProvider": "github-copilot",
+  "defaultModel": "gpt-5.4",
   "hideThinkingBlock": false,
   "defaultThinkingLevel": "medium"
 }
