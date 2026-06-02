@@ -1,0 +1,9 @@
+# Corporate proxy settings for Gradle
+systemProp.http.proxyHost=127.0.0.1
+systemProp.http.proxyPort=3128
+systemProp.https.proxyHost=127.0.0.1
+systemProp.https.proxyPort=3128
+
+# Non-proxy hosts (pipe-separated, * wildcard)
+systemProp.http.nonProxyHosts=localhost|127.*|10.*|19.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|169.254.*|*.ford.com|*.fordcredit.com|*.fordpro.com|*.internal|*.local|*.googleapis.com|*.gstatic.com|*.appspot.com|*.pkg.dev|*.pki.goog|*.ltsapis.goog|*.run.app|*.cloudfunctions.net|*.googleusercontent.com|*.cloud.google.com|*.gcr.io
+systemProp.https.nonProxyHosts=localhost|127.*|10.*|19.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|169.254.*|*.ford.com|*.fordcredit.com|*.fordpro.com|*.internal|*.local|*.googleapis.com|*.gstatic.com|*.appspot.com|*.pkg.dev|*.pki.goog|*.ltsapis.goog|*.run.app|*.cloudfunctions.net|*.googleusercontent.com|*.cloud.google.com|*.gcr.io
