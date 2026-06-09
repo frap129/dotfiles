@@ -10,9 +10,8 @@
     "enabled": true
   },
   "plugin": [
-    "opencode-rules@latest",
-    "@frap129/oc-buddy@latest",
+    "opencode-rules@beta",
     "oc-tps@latest",
-    "@tarquinen/opencode-dcp@latest"
+    "@tarquinen/opencode-dcp@beta"
   ]
 }

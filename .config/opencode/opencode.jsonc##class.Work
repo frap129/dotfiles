@@ -4,12 +4,14 @@
   "default_agent": "main",
   "share": "disabled",
   "plugin": [
-    "opencode-rules@latest",
-    "@frap129/oc-buddy@latest",
-    "@tarquinen/opencode-dcp@latest",
+    "opencode-rules@beta",
+    "@tarquinen/opencode-dcp@beta",
+    "opencode-handoff",
+    "caveman-opencode-plugin@latest",
+    "file:///home/joe/projects/opencode-fordllm/src/fordllm.ts",
+    "file:///home/joe/projects/opencode-workflow/",
   ],
   "experimental": {
-    "primary_tools": ["prune"],
     "batch_tool": true,
   },
   "mcp": {
@@ -52,13 +54,9 @@
     },
     "web": {
       "type": "local",
-      "command": [
-        "bunx",
-        "-y",
-        "intercept-mcp@latest",
-      ],
+      "command": ["bunx", "-y", "intercept-mcp@latest"],
       "environment": {
-        "USE_STEALTH_FETCH": "true"
+        "USE_STEALTH_FETCH": "true",
       },
       "enabled": true,
     },
@@ -106,13 +104,20 @@
     "websearch": "deny",
     "codesearch": "deny",
     "webfetch": "deny",
-    "bash": {
-      "git filter-branch *": "deny",
-      "git branch -d": "ask",
-      "git branch -D": "ask",
-      "git push *": "ask",
-      "sudo *": "ask",
-    },
+    "read_spec": "deny",
+    "write_spec": "deny",
+    "edit_spec": "deny",
+    "read_plan": "deny",
+    "write_plan": "deny",
+    "edit_plan": "deny",
+    "review_spec": "deny",
+    "review_plan": "deny",
+    "explore": "deny",
+    "research": "deny",
+    "programmer": "deny",
+    "verify_spec_compliance": "deny",
+    "code_review": "deny",
+    "investigate": "deny",
   },
   "compaction": {
     "auto": false,
@@ -123,19 +128,20 @@
       "variant": "high",
     },
     "explore": {
-      "model": "github-copilot/claude-opus-4.5",
+      "model": "github-copilot/claude-sonnet-4.6",
       "variant": "high",
-      "permission": {
-        "lsp": "allow",
-      },
     },
     "programmer": {
-      "model": "github-copilot/claude-opus-4.5",
+      "model": "github-copilot/claude-sonnet-4.6",
       "variant": "high",
     },
     "code-reviewer": {
       "model": "github-copilot/gpt-5.4",
-      "variant": "high",
+      "variant": "medium",
+    },
+    "document-reviewer": {
+      "model": "github-copilot/gpt-5.4",
+      "variant": "medium",
     },
   },
   "provider": {
@@ -169,34 +175,31 @@
             },
           },
         },
-        "claude-opus-4.5": {
-          "options": {
-            "thinking": {
-              "type": "enabled",
-            },
-            "thinking_budget": 4000,
-          },
-          "variants": {
-            "high": {
-              "thinking_budget": 31999,
-            },
-            "medium": {
-              "thinking_budget": 16000,
-            },
-            "low": {
-              "thinking_budget": 8000,
-            },
-          },
-        },
       },
     },
     "fordllm": {
-      "npm": "@ai-sdk/openai-compatible",
       "name": "FordLLM",
-      "options": {
-        "baseURL": "{env:FORDLLM_API_URL}",
-      },
       "models": {
+        "gpt-5.5": {
+          "id": "gpt-5.5",
+          "name": "GPT-5.5",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000,
+          },
+        },
+        "gpt-5.4": {
+          "id": "gpt-5.4",
+          "name": "GPT-5.4",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000,
+          },
+        },
         "gpt-5.2": {
           "id": "gpt-5.2",
           "name": "GPT-5.2",
@@ -207,9 +210,29 @@
             "output": 128000,
           },
         },
+        "gpt-5.3": {
+          "id": "gpt-5.3",
+          "name": "GPT-5.3",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 128000,
+            "output": 16384,
+          },
+        },
         "gpt-5": {
           "id": "gpt-5",
           "name": "GPT-5",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000,
+          },
+        },
+        "gpt-5.1": {
+          "id": "gpt-5.1",
+          "name": "GPT-5.1",
           "reasoning": true,
           "attachment": true,
           "limit": {
@@ -237,6 +260,16 @@
             "output": 128000,
           },
         },
+        "gemini-3.5-flash": {
+          "id": "gemini-3.5-flash",
+          "name": "Gemini 3.5 Flash",
+          "reasoning": true,
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65535,
+          },
+        },
         "gemini-3.1-pro": {
           "name": "Gemini 3.1 Pro",
           "reasoning": true,
@@ -246,8 +279,8 @@
             "output": 65536,
           },
         },
-        "gemini-3-pro": {
-          "name": "Gemini 3 Pro",
+        "gemini-3.1-flash-lite": {
+          "name": "Gemini 3 Flash Lite",
           "reasoning": true,
           "attachment": true,
           "limit": {
@@ -296,8 +329,8 @@
           "reasoning": false,
           "attachment": true,
           "limit": {
-            "context": 131072,
-            "output": 32768,
+            "context": 128000,
+            "output": 128000,
           },
         },
         "claude-sonnet-4-6": {
@@ -305,7 +338,7 @@
           "reasoning": false,
           "attachment": true,
           "limit": {
-            "context": 200000,
+            "context": 1000000,
             "output": 64000,
           },
         },
@@ -318,22 +351,83 @@
             "output": 64000,
           },
         },
-        "qwen35": {
-          "name": "Qwen 3.5",
+        "claude-opus-4-8": {
+          "id": "claude-opus-4-8",
+          "name": "Claude Opus 4.8",
           "reasoning": false,
           "attachment": true,
           "limit": {
-            "context": 262144,
-            "output": 248320,
+            "context": 1000000,
+            "output": 128000,
           },
         },
-        "kimi-k2.5": {
-          "name": "Kimi K2.5",
+        "claude-opus-4-7": {
+          "id": "claude-opus-4-7",
+          "name": "Claude Opus 4.7",
+          "reasoning": false,
+          "attachment": true,
+          "limit": {
+            "context": 1000000,
+            "output": 128000,
+          },
+        },
+        "qwen35": {
+          "name": "Qwen 3.5",
           "reasoning": true,
-          "attachment": false,
+          "attachment": true,
           "limit": {
             "context": 32768,
             "output": 32768,
+          },
+          "options": {
+            "chat_template_kwargs": {
+              "enable_thinking": true,
+            },
+          },
+        },
+        "qwen35-mini": {
+          "id": "qwen35-mini",
+          "name": "Qwen 3.5 Mini",
+          "reasoning": true,
+          "attachment": false,
+          "limit": {
+            "context": 81920,
+            "output": 81920,
+          },
+          "options": {
+            "chat_template_kwargs": {
+              "enable_thinking": true,
+            },
+          },
+        },
+        "kimi-k2.6": {
+          "id": "kimi-k2.6",
+          "name": "Kimi K2.6",
+          "reasoning": true,
+          "attachment": false,
+          "limit": {
+            "context": 131072,
+            "output": 131072,
+          },
+        },
+        "gemma-4-31b": {
+          "id": "gemma-4-31b",
+          "name": "Gemma 4 31B",
+          "reasoning": false,
+          "attachment": false,
+          "limit": {
+            "context": 256000,
+            "output": 25600,
+          },
+        },
+        "nemotron3-super-120b-a12b": {
+          "id": "nemotron-3-super-120b-a12b",
+          "name": "Nemotron 3 Super 120B A12B",
+          "reasoning": false,
+          "attachment": false,
+          "limit": {
+            "context": 256000,
+            "output": 65536,
           },
         },
       },

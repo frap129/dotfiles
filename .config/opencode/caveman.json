@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "defaultMode": "full",
+  "features": {
+    "caveman": true,
+    "commit": false,
+    "review": false
+  }
+}

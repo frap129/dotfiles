@@ -4,9 +4,10 @@
   "default_agent": "main",
   "plugin": [
     "opencode-rules@latest",
-    "@frap129/oc-buddy@latest",
-    "@tarquinen/opencode-dcp@latest",
+    "@tarquinen/opencode-dcp@beta",
     "@ex-machina/opencode-anthropic-auth",
+    "opencode-handoff",
+    "caveman-opencode-plugin@latest",
   ],
   "experimental": {
     "primary_tools": ["prune"],
