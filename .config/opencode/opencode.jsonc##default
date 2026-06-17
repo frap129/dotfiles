@@ -4,7 +4,7 @@
   "default_agent": "main",
   "plugin": [
     "opencode-rules@latest",
-    "@tarquinen/opencode-dcp@beta",
+    "@tarquinen/opencode-dcp@latest",
     "@ex-machina/opencode-anthropic-auth",
     "opencode-handoff",
     "caveman-opencode-plugin@latest",

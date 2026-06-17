@@ -5,7 +5,7 @@
   "share": "disabled",
   "plugin": [
     "opencode-rules@beta",
-    "@tarquinen/opencode-dcp@beta",
+    "@tarquinen/opencode-dcp@latest",
     "opencode-handoff",
     "caveman-opencode-plugin@latest",
     "file:///home/joe/projects/opencode-fordllm/src/fordllm.ts",
@@ -66,6 +66,17 @@
       "headers": {
         "Authorization": "Bearer {env:SMARTSHEET_API_TOKEN}",
       },
+      "enabled": false,
+    },
+    "figma": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key={env:FIGMA_API_TOKEN}",
+        "--stdio",
+      ],
       "enabled": false,
     },
   },
@@ -186,8 +197,12 @@
           "reasoning": true,
           "attachment": true,
           "limit": {
-            "context": 400000,
+            "context": 1050000,
             "output": 128000,
+          },
+          "variants": {
+            "minimal": { "reasoningEffort": "minimal" },
+            "xhigh": { "reasoningEffort": "xhigh" },
           },
         },
         "gpt-5.4": {
@@ -199,6 +214,10 @@
             "context": 400000,
             "output": 128000,
           },
+          "variants": {
+            "minimal": { "reasoningEffort": "minimal" },
+            "xhigh": { "reasoningEffort": "xhigh" },
+          },
         },
         "gpt-5.2": {
           "id": "gpt-5.2",
@@ -208,6 +227,10 @@
           "limit": {
             "context": 400000,
             "output": 128000,
+          },
+          "variants": {
+            "minimal": { "reasoningEffort": "minimal" },
+            "xhigh": { "reasoningEffort": "xhigh" },
           },
         },
         "gpt-5.3": {
@@ -219,6 +242,10 @@
             "context": 128000,
             "output": 16384,
           },
+          "variants": {
+            "minimal": { "reasoningEffort": "minimal" },
+            "xhigh": { "reasoningEffort": "xhigh" },
+          },
         },
         "gpt-5": {
           "id": "gpt-5",
@@ -228,6 +255,10 @@
           "limit": {
             "context": 400000,
             "output": 128000,
+          },
+          "variants": {
+            "minimal": { "reasoningEffort": "minimal" },
+            "xhigh": { "reasoningEffort": "xhigh" },
           },
         },
         "gpt-5.1": {
@@ -239,6 +270,10 @@
             "context": 400000,
             "output": 128000,
           },
+          "variants": {
+            "minimal": { "reasoningEffort": "minimal" },
+            "xhigh": { "reasoningEffort": "xhigh" },
+          },
         },
         "gpt-5-mini": {
           "id": "gpt-5-mini",
@@ -249,6 +284,10 @@
             "context": 400000,
             "output": 128000,
           },
+          "variants": {
+            "minimal": { "reasoningEffort": "minimal" },
+            "xhigh": { "reasoningEffort": "xhigh" },
+          },
         },
         "gpt-5-nano": {
           "id": "gpt-5-nano",
@@ -258,6 +297,10 @@
           "limit": {
             "context": 400000,
             "output": 128000,
+          },
+          "variants": {
+            "minimal": { "reasoningEffort": "minimal" },
+            "xhigh": { "reasoningEffort": "xhigh" },
           },
         },
         "gemini-3.5-flash": {
@@ -335,7 +378,7 @@
         },
         "claude-sonnet-4-6": {
           "name": "Claude Sonnet 4.6",
-          "reasoning": false,
+          "reasoning": true,
           "attachment": true,
           "limit": {
             "context": 1000000,
@@ -354,21 +397,27 @@
         "claude-opus-4-8": {
           "id": "claude-opus-4-8",
           "name": "Claude Opus 4.8",
-          "reasoning": false,
+          "reasoning": true,
           "attachment": true,
           "limit": {
             "context": 1000000,
             "output": 128000,
           },
+          "variants": {
+            "max": { "reasoningEffort": "max" },
+          },
         },
         "claude-opus-4-7": {
           "id": "claude-opus-4-7",
           "name": "Claude Opus 4.7",
-          "reasoning": false,
+          "reasoning": true,
           "attachment": true,
           "limit": {
             "context": 1000000,
             "output": 128000,
+          },
+          "variants": {
+            "max": { "reasoningEffort": "max" },
           },
         },
         "qwen35": {
