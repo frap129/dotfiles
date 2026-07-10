@@ -12,6 +12,6 @@
   "plugin": [
     "opencode-rules@beta",
     "oc-tps@latest",
-    "@tarquinen/opencode-dcp@beta"
+    "@tarquinen/opencode-dcp@latest"
   ]
 }

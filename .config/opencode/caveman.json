@@ -1,6 +1,6 @@
 {
   "enabled": true,
-  "defaultMode": "full",
+  "defaultMode": "lite",
   "features": {
     "caveman": true,
     "commit": false,
