@@ -1,7 +1,6 @@
 ---
 description: Reviews spec and implementation-plan documents for completeness, consistency, and execution readiness
 mode: subagent
-temperature: 0.1
 permission:
   edit: deny
   bash: deny
