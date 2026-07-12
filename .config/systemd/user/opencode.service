@@ -7,7 +7,7 @@ StartLimitIntervalSec=30
 StartLimitBurst=3
 
 [Service]
-ExecStart=opencode web
+ExecStart=%h/.bun/bin/opencode web --hostname 0.0.0.0 --cors app://obsidian.md
 Restart=on-failure
 RestartSec=5s
 
