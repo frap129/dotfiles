@@ -5,7 +5,7 @@ name = "terminal"
 auto_switch = false
 
 [ui.toast]
-delivery = "system"
+delivery = "herdr"
 
 [ui]
 show_agent_labels_on_pane_borders = false
