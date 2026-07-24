@@ -1,6 +1,17 @@
 ---
 description: Perform a comprehensive code review
 mode: subagent
+permission:
+  skill:
+    "*": deny
+    requesting-code-review: allow
+    security-review: allow
+    code-architecture-wrong-abstraction: allow
+    naming-cheatsheet: allow
+  read:
+    "~/.agents/skills/requesting-code-review/**": allow
+  external_directory:
+    "~/.agents/skills/requesting-code-review/**": allow
 ---
 
 ## Role

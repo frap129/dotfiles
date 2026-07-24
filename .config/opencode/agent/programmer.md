@@ -1,6 +1,21 @@
 ---
 description: Performs coding and cli tasks
 mode: subagent
+permission:
+  skill:
+    "*": deny
+    test-driven-development: allow
+    systematic-debugging: allow
+    verification-before-completion: allow
+    security-review: allow
+    code-architecture-wrong-abstraction: allow
+    naming-cheatsheet: allow
+  read:
+    "~/.agents/skills/test-driven-development/**": allow
+    "~/.agents/skills/systematic-debugging/**": allow
+  external_directory:
+    "~/.agents/skills/test-driven-development/**": allow
+    "~/.agents/skills/systematic-debugging/**": allow
 ---
 
 You are an AI software engineering agent.

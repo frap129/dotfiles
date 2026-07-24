@@ -1,6 +1,6 @@
 ---
-name: spec-workshop
-description: "Use this skill when creating specs for software implementations - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+name: spec-development
+description: "Use this skill for spec creation before creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
 ---
 
 # Brainstorming Ideas Into Designs
