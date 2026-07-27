@@ -16,6 +16,17 @@
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
+          overlays = [
+            (final: prev: {
+              pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+                (pythonFinal: pythonPrev: {
+                  scipy = pythonPrev.scipy.overridePythonAttrs (_: {
+                    doCheck = false;
+                  });
+                })
+              ];
+            })
+          ];
         };
 
         # Core interactive shell + CLI UX
