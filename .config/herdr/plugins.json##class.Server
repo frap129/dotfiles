@@ -1,0 +1,49 @@
+[
+  {
+    "plugin_id": "jt.command-palette",
+    "name": "Command Palette (fzf)",
+    "version": "0.1.0",
+    "min_herdr_version": "0.7.0",
+    "description": "An fzf command palette for herdr: pops up a fuzzy-searchable list of every action exposed by every installed plugin (via `herdr plugin action list`) and invokes the one you pick. The picker runs in an overlay pane so fzf gets a real TTY; the origin workspace's cwd is forwarded so context-aware actions resolve the right repo.",
+    "manifest_path": "/home/joe/.config/herdr/plugins/github/jt.command-palette-24905dca5f16/herdr-plugin.toml",
+    "plugin_root": "/home/joe/.config/herdr/plugins/github/jt.command-palette-24905dca5f16",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos"
+    ],
+    "actions": [
+      {
+        "id": "open",
+        "title": "Command palette (all plugin actions)",
+        "contexts": [
+          "workspace"
+        ],
+        "command": [
+          "bash",
+          "open.sh"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "palette",
+        "title": "Command palette",
+        "placement": "overlay",
+        "command": [
+          "bash",
+          "-c",
+          "exec \"$HERDR_PLUGIN_ROOT/palette.sh\""
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "JanTvrdik",
+      "repo": "herdr-command-palette",
+      "resolved_commit": "eab940018c2135ac23718efa11e23e9dddcd2a75",
+      "managed_path": "/home/joe/.config/herdr/plugins/github/jt.command-palette-24905dca5f16",
+      "installed_unix_ms": 1785334579799
+    }
+  }
+]

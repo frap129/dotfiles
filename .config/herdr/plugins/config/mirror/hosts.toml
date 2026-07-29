@@ -1,0 +1,42 @@
+# autostart = true       # focusing a workspace starts the daemon (default).
+                         # A manual pause is sticky until you start again;
+                         # a crash still auto-recovers on next focus.
+# poll_seconds = 60      # reconcile poll interval (events drive most syncs)
+# default_host = "work"  # host that "new remote workspace" targets when
+                         # invoked outside any mirror (default: first host)
+# close_remote_on_local_close = true
+                         # default. Closing a mirror pane/workspace locally
+                         # (e.g. prefix+x) also closes it on the remote. Set
+                         # false to only stop mirroring on a local close,
+                         # leaving the remote pane and its agent running.
+# always_control = true  # default. Mirror panes stay in control: writable, no
+                         # idle release, and sized to your local pane so the
+                         # remote fills it (ideal for headless remotes). Set
+                         # false for read-only mirrors that escalate on type.
+
+[hosts.roots]                          # add more hosts freely; each is independent
+target = "roots"
+# prefix = "work"                    # sidebar prefix (default: the host key)
+remote_bin = "~/.nix-profile/bin/herdr"  # remote path if it's not on the remote PATH
+# always_control = false             # per-host override, e.g. a host you use
+                                     # directly (don't drive its pane sizes)
+# enabled = true                     # false stops syncing this host without
+                                     # deleting its config; mirrors stay put
+# api_transport = "auto"             # how to reach the remote API socket:
+                                     # "socket" = ssh -L forward, "exec" = relay
+                                     # over ssh exec (needs socat or python3).
+                                     # auto = socket, falling back to exec.
+
+[hosts.cannopy]                          # add more hosts freely; each is independent
+target = "cannopy"
+# prefix = "work"                    # sidebar prefix (default: the host key)
+remote_bin = "~/.nix-profile/bin/herdr"  # remote path if it's not on the remote PATH
+# always_control = false             # per-host override, e.g. a host you use
+                                     # directly (don't drive its pane sizes)
+# enabled = true                     # false stops syncing this host without
+                                     # deleting its config; mirrors stay put
+# api_transport = "auto"             # how to reach the remote API socket:
+                                     # "socket" = ssh -L forward, "exec" = relay
+                                     # over ssh exec (needs socat or python3).
+                                     # auto = socket, falling back to exec.
+

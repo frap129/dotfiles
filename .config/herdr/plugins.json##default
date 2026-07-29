@@ -1,0 +1,182 @@
+[
+  {
+    "plugin_id": "jt.command-palette",
+    "name": "Command Palette (fzf)",
+    "version": "0.1.0",
+    "min_herdr_version": "0.7.0",
+    "description": "An fzf command palette for herdr: pops up a fuzzy-searchable list of every action exposed by every installed plugin (via `herdr plugin action list`) and invokes the one you pick. The picker runs in an overlay pane so fzf gets a real TTY; the origin workspace's cwd is forwarded so context-aware actions resolve the right repo.",
+    "manifest_path": "/home/joe/.config/herdr/plugins/github/jt.command-palette-24905dca5f16/herdr-plugin.toml",
+    "plugin_root": "/home/joe/.config/herdr/plugins/github/jt.command-palette-24905dca5f16",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos"
+    ],
+    "actions": [
+      {
+        "id": "open",
+        "title": "Command palette (all plugin actions)",
+        "contexts": [
+          "workspace"
+        ],
+        "command": [
+          "bash",
+          "open.sh"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "palette",
+        "title": "Command palette",
+        "placement": "overlay",
+        "command": [
+          "bash",
+          "-c",
+          "exec \"$HERDR_PLUGIN_ROOT/palette.sh\""
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "JanTvrdik",
+      "repo": "herdr-command-palette",
+      "resolved_commit": "eab940018c2135ac23718efa11e23e9dddcd2a75",
+      "managed_path": "/home/joe/.config/herdr/plugins/github/jt.command-palette-24905dca5f16",
+      "installed_unix_ms": 1785334579799
+    }
+  },
+  {
+    "plugin_id": "mirror",
+    "name": "Herdr Mirror",
+    "version": "0.1.14",
+    "min_herdr_version": "0.7.2",
+    "description": "Mirror a remote herdr server's workspaces and agents into the local sidebar",
+    "manifest_path": "/home/joe/.config/herdr/plugins/github/mirror-00154761637c/herdr-plugin.toml",
+    "plugin_root": "/home/joe/.config/herdr/plugins/github/mirror-00154761637c",
+    "enabled": true,
+    "platforms": [
+      "macos",
+      "linux"
+    ],
+    "build": [
+      {
+        "command": [
+          "bash",
+          "scripts/install.sh"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "once",
+        "title": "Mirror: sync once",
+        "description": "One-shot mirror pass without starting the daemon",
+        "command": [
+          "./target/release/herdr-mirror",
+          "once"
+        ]
+      },
+      {
+        "id": "pause",
+        "title": "Mirror: pause",
+        "description": "Pause syncing — mirror workspaces stay put; resume with start",
+        "command": [
+          "./target/release/herdr-mirror",
+          "pause"
+        ]
+      },
+      {
+        "id": "remote-new-tab",
+        "title": "Mirror: new tab",
+        "description": "New tab on the remote when invoked inside a mirror; a plain local tab anywhere else",
+        "command": [
+          "./target/release/herdr-mirror",
+          "remote-tab"
+        ]
+      },
+      {
+        "id": "remote-new-workspace",
+        "title": "Mirror: new workspace",
+        "description": "New workspace on the remote host (the invoking mirror's host, else hosts.toml default_host)",
+        "command": [
+          "./target/release/herdr-mirror",
+          "remote-workspace"
+        ]
+      },
+      {
+        "id": "remote-split-down",
+        "title": "Mirror: split down",
+        "description": "Split the mirrored remote pane down; splits locally when invoked outside a mirror",
+        "command": [
+          "./target/release/herdr-mirror",
+          "remote-split",
+          "down"
+        ]
+      },
+      {
+        "id": "remote-split-right",
+        "title": "Mirror: split right",
+        "description": "Split the mirrored remote pane right; splits locally when invoked outside a mirror",
+        "command": [
+          "./target/release/herdr-mirror",
+          "remote-split",
+          "right"
+        ]
+      },
+      {
+        "id": "restore",
+        "title": "Mirror: restore closed mirrors",
+        "description": "Bring back mirror workspaces/panes you closed locally",
+        "command": [
+          "./target/release/herdr-mirror",
+          "restore"
+        ]
+      },
+      {
+        "id": "start",
+        "title": "Mirror: start / resume",
+        "description": "Start (or resume) the mirror daemon for all configured hosts",
+        "command": [
+          "./target/release/herdr-mirror",
+          "start"
+        ]
+      },
+      {
+        "id": "status",
+        "title": "Mirror: status",
+        "description": "Log daemon, host, and mirror-object status",
+        "command": [
+          "./target/release/herdr-mirror",
+          "status"
+        ]
+      },
+      {
+        "id": "teardown",
+        "title": "Mirror: teardown",
+        "description": "Stop the daemon and close all mirror workspaces",
+        "command": [
+          "./target/release/herdr-mirror",
+          "teardown"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "on": "workspace.focused",
+        "command": [
+          "./target/release/herdr-mirror",
+          "ensure"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "nikok6",
+      "repo": "herdr-mirror",
+      "resolved_commit": "8bfc7cfca617ab92b068f8ef21b48c3bed807918",
+      "managed_path": "/home/joe/.config/herdr/plugins/github/mirror-00154761637c",
+      "installed_unix_ms": 1785334757558
+    }
+  }
+]
