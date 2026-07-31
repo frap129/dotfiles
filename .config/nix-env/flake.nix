@@ -8,9 +8,13 @@
       url = "github:ogulcancelik/herdr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    tirith = {
+      url = "github:sheeki03/tirith";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, herdr }:
+  outputs = { self, nixpkgs, flake-utils, herdr, tirith }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -51,6 +55,7 @@
           zellij
           tmux
           netcat
+          rsync
         ];
 
         # Developer toolchain (editor, VCS, build tools, languages)
@@ -117,6 +122,7 @@
         # All packages combined
         allPackages = coreShell ++ devStack ++ infraTools ++ fontPackages ++ [
           herdr.packages.${system}.default
+          tirith.packages.${system}.default
         ];
 
       in
