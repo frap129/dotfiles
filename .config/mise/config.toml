@@ -1,0 +1,7 @@
+min_version = "2026.7.15"
+
+[settings]
+lockfile = true
+
+[settings.npm]
+package_manager = "aube_cli"

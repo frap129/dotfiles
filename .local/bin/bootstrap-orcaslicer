@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+version=2.3.1
+id=io.github.softfever.OrcaSlicer
+commit=6b8e1ce6daceee0a1cc00cf0ed6a33038427bb8003e4ea3683e4100dbbd690da
+filename="OrcaSlicer-Linux-flatpak_V${version}_x86_64.flatpak"
+url="https://github.com/SoftFever/OrcaSlicer/releases/download/v${version}/${filename}"
+sha256=977b9e9fec9ec49780531e0026e51a285ca35bcbf8f416f418c4e03c707c1032
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/orcaslicer-bootstrap"
+bundle="$cache_dir/$filename"
+
+mkdir -p "$cache_dir"
+if [[ ! -f "$bundle" ]]; then
+  curl --fail --location --proto '=https' --tlsv1.2 --output "$bundle.tmp" "$url"
+  mv "$bundle.tmp" "$bundle"
+fi
+
+printf '%s  %s\n' "$sha256" "$bundle" | sha256sum --check --status || {
+  printf 'bootstrap-orcaslicer: SHA-256 mismatch: %s\n' "$bundle" >&2
+  exit 1
+}
+
+if [[ $(flatpak info --system --show-commit "$id" 2>/dev/null || true) == "$commit" ]]; then
+  exit 0
+fi
+
+sudo flatpak install --system --noninteractive --or-update "$bundle"

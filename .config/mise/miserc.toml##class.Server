@@ -1,0 +1,2 @@
+env = ["Server"]
+ceiling_paths = ["{{ env.HOME }}"]
