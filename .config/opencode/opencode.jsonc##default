@@ -3,11 +3,8 @@
   "small_model": "neuralwatt/openai/gpt-oss-20b",
   "default_agent": "main",
   "plugin": [
-    "opencode-rules@latest",
-    "@tarquinen/opencode-dcp@latest",
-    "@ex-machina/opencode-anthropic-auth",
-    "opencode-handoff",
-    "caveman-opencode-plugin@latest",
+    "opencode-rules@beta",
+    "@tarquinen/opencode-dcp@beta",
   ],
   "experimental": {
     "primary_tools": ["prune"],
@@ -84,8 +81,13 @@
   },
   "permission": {
     "general_web_url_read": "deny",
+    "general_searxng_instance_info": "deny",
+    "general_searxng_search_suggestions": "deny",
     "code_web_url_read": "deny",
+    "code_searxng_instance_info": "deny",
+    "code_searxng_search_suggestions": "deny",
     "web_search": "deny",
+    "web_research": "deny",
     "websearch": "deny",
     "codesearch": "deny",
     "webfetch": "deny",
@@ -106,86 +108,20 @@
       "variant": "high",
     },
     "explore": {
-      "model": "neuralwatt/Qwen/Qwen3.6-35B-A3B",
+      "model": "opencode-go/deepseek-v4-flash",
+      "variant": "high",
     },
     "programmer": {
-      "model": "opencode-go/minimax-m2.7",
+      "model": "opencode-go/deepseek-v4-flash",
+      "variant": "max",
     },
     "code-reviewer": {
-      "model": "opencode-go/qwen3.6-plus",
+      "model": "opencode-go/deepseek-v4-flash",
+      "variant": "max",
     },
     "document-reviewer": {
-      "model": "opencode-go/qwen3.6-plus",
-    },
-  },
-  "provider": {
-    "neuralwatt": {
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
-        "baseURL": "https://api.neuralwatt.com/v1"
-      },
-    },
-    "anthropic": {
-      "models": {
-        "claude-opus-4-5": {
-          "name": "Claude Opus 4.5",
-          "variants": {
-            "high": {
-              "options": {
-                "thinking": {
-                  "type": "enabled",
-                  "budgetTokens": 32000,
-                },
-              },
-            },
-            "medium": {
-              "options": {
-                "thinking": {
-                  "type": "enabled",
-                  "budgetTokens": 16000,
-                },
-              },
-            },
-            "low": {
-              "options": {
-                "thinking": {
-                  "type": "enabled",
-                  "budgetTokens": 8000,
-                },
-              },
-            },
-          },
-        },
-        "claude-sonnet-4-5": {
-          "name": "Claude Sonnet 4.5",
-          "variants": {
-            "high": {
-              "options": {
-                "thinking": {
-                  "type": "enabled",
-                  "budgetTokens": 32000,
-                },
-              },
-            },
-            "medium": {
-              "options": {
-                "thinking": {
-                  "type": "enabled",
-                  "budgetTokens": 16000,
-                },
-              },
-            },
-            "low": {
-              "options": {
-                "thinking": {
-                  "type": "enabled",
-                  "budgetTokens": 8000,
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-  },
+      "model": "opencode-go/deepseek-v4-flash",
+      "variant": "max",
+    }
+  }
 }

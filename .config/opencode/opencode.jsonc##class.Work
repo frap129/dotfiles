@@ -6,10 +6,7 @@
   "plugin": [
     "opencode-rules@beta",
     "@tarquinen/opencode-dcp@latest",
-    "opencode-handoff",
-    "caveman-opencode-plugin@latest",
     "file:///home/joe/projects/opencode-fordllm/src/fordllm.ts",
-    "file:///home/joe/projects/opencode-workflow/",
   ],
   "experimental": {
     "batch_tool": true,
@@ -79,6 +76,32 @@
       ],
       "enabled": false,
     },
+    "codebase-memory": {
+      "enabled": false,
+      "type": "local",
+      "command": ["/home/joe/.local/bin/codebase-memory-mcp"],
+    },
+    "atlassian": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "enabled": false,
+    },
+    "memory": {
+      "enabled": true,
+      "type": "local",
+      "command": ["/home/joe/.hermes/hermes-agent/venv/bin/mnemosyne", "mcp"],
+    },
+  },
+  "tools": {
+    "atlassian_*": false,
+    "atlassian_getConfluencePage": true,
+    "atlassian_getConfluencePageDescendants": true,
+    "atlassian_getConfluencePageFooterComments": true,
+    "atlassian_getConfluencePageInlineComments": true,
+    "atlassian_getConfluenceCommentChildren": true,
+    "atlassian_getConfluenceSpaces": true,
+    "atlassian_getPagesInConfluenceSpace": true,
+    "atlassian_searchConfluenceUsingCql": true,
   },
   "lsp": {
     "kotlin": {
@@ -112,6 +135,7 @@
     "general_web_url_read": "deny",
     "code_web_url_read": "deny",
     "web_search": "deny",
+    "web_research": "deny",
     "websearch": "deny",
     "codesearch": "deny",
     "webfetch": "deny",
@@ -139,20 +163,20 @@
       "variant": "high",
     },
     "explore": {
-      "model": "github-copilot/claude-sonnet-4.6",
-      "variant": "high",
+      "model": "github-copilot/gpt-5.6-luna",
+      "variant": "max",
     },
     "programmer": {
-      "model": "github-copilot/claude-sonnet-4.6",
-      "variant": "high",
+      "model": "github-copilot/gpt-5.6-sol",
+      "variant": "medium",
     },
     "code-reviewer": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "github-copilot/gpt-5.6-sol",
       "variant": "medium",
     },
     "document-reviewer": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "medium",
+      "model": "github-copilot/gpt-5.6-luna",
+      "variant": "max",
     },
   },
   "provider": {
@@ -190,335 +214,6 @@
     },
     "fordllm": {
       "name": "FordLLM",
-      "models": {
-        "gpt-5.5": {
-          "id": "gpt-5.5",
-          "name": "GPT-5.5",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 1050000,
-            "output": 128000,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "none": { "reasoningEffort": "none" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-          },
-        },
-        "gpt-5.6-sol": {
-          "id": "gpt-5.6-sol",
-          "name": "GPT-5.6 Sol",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 1050000,
-            "output": 128000,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "none": { "reasoningEffort": "none" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-          },
-        },
-        "gpt-5.6-terra": {
-          "id": "gpt-5.6-terra",
-          "name": "GPT-5.6 Terra",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 1050000,
-            "output": 128000,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "none": { "reasoningEffort": "none" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-          },
-        },
-        "gpt-5.6-luna": {
-          "id": "gpt-5.6-luna",
-          "name": "GPT-5.6 Luna",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 1050000,
-            "output": 128000,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "none": { "reasoningEffort": "none" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-          },
-        },
-        "gpt-5.4": {
-          "id": "gpt-5.4",
-          "name": "GPT-5.4",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 400000,
-            "output": 128000,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "none": { "reasoningEffort": "none" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-          },
-        },
-        "gpt-5.3": {
-          "id": "gpt-5.3",
-          "name": "GPT-5.3",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 128000,
-            "output": 16384,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "none": { "reasoningEffort": "none" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-          },
-        },
-        "gpt-5-mini": {
-          "id": "gpt-5-mini",
-          "name": "GPT-5 Mini",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 400000,
-            "output": 128000,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "none": { "reasoningEffort": "none" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-          },
-        },
-        "gpt-5-nano": {
-          "id": "gpt-5-nano",
-          "name": "GPT-5 Nano",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 400000,
-            "output": 128000,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "none": { "reasoningEffort": "none" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-          },
-        },
-        "gemini-3.5-flash": {
-          "id": "gemini-3.5-flash",
-          "name": "Gemini 3.5 Flash",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 1048576,
-            "output": 65535,
-          },
-          "variants": {
-            "none": { "reasoningEffort": "none" },
-            "minimal": { "reasoningEffort": "minimal" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-          },
-        },
-        "gemini-3.1-pro": {
-          "name": "Gemini 3.1 Pro",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 1048576,
-            "output": 65536,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-          },
-        },
-        "gemini-3.1-flash-lite": {
-          "name": "Gemini 3 Flash Lite",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 1048576,
-            "output": 65536,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-          },
-        },
-        "gpt-oss": {
-          "name": "GPT-OSS",
-          "reasoning": false,
-          "attachment": true,
-          "limit": {
-            "context": 128000,
-            "output": 128000,
-          },
-        },
-        "claude-sonnet-4-6": {
-          "name": "Claude Sonnet 4.6",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 64000,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-            "max": { "reasoningEffort": "max" },
-          },
-        },
-        "claude-sonnet-5": {
-          "name": "Claude Sonnet 5",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 128000,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-            "max": { "reasoningEffort": "max" },
-          },
-        },
-        "claude-opus-4-8": {
-          "id": "claude-opus-4-8",
-          "name": "Claude Opus 4.8",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 128000,
-          },
-          "variants": {
-            "minimal": { "reasoningEffort": "minimal" },
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" },
-            "xhigh": { "reasoningEffort": "xhigh" },
-            "max": { "reasoningEffort": "max" },
-          },
-        },
-        "qwen35": {
-          "name": "Qwen 3.5",
-          "reasoning": true,
-          "attachment": true,
-          "limit": {
-            "context": 81920,
-            "output": 81920,
-          },
-          "options": {
-            "chat_template_kwargs": {
-              "enable_thinking": true,
-            },
-          },
-        },
-        "qwen35-mini": {
-          "id": "qwen35-mini",
-          "name": "Qwen 3.5 Mini",
-          "reasoning": true,
-          "attachment": false,
-          "limit": {
-            "context": 81920,
-            "output": 81920,
-          },
-          "options": {
-            "chat_template_kwargs": {
-              "enable_thinking": true,
-            },
-          },
-        },
-        "kimi-k2.6": {
-          "id": "kimi-k2.6",
-          "name": "Kimi K2.6",
-          "reasoning": true,
-          "attachment": false,
-          "limit": {
-            "context": 131072,
-            "output": 131072,
-          },
-        },
-        "gemma-4-31b": {
-          "id": "gemma-4-31b",
-          "name": "Gemma 4 31B",
-          "reasoning": false,
-          "attachment": false,
-          "limit": {
-            "context": 256000,
-            "output": 25600,
-          },
-        },
-        "deepseekv4-flash": {
-          "name": "DeepSeek V4 Flash",
-          "reasoning": true,
-          "attachment": false,
-          "limit": {
-            "context": 1000000,
-            "output": 256000,
-          },
-          "variants": {
-            "high": { "reasoningEffort": "high" },
-            "max": { "reasoningEffort": "max" },
-          },
-        },
-        "glm-5-2-fp8": {
-          "name": "GLM 5.2",
-          "reasoning": true,
-          "attachment": false,
-          "limit": {
-            "context": 131072,
-            "output": 131072,
-          },
-          "variants": {
-            "high": { "reasoningEffort": "high" },
-            "max": { "reasoningEffort": "max" },
-          },
-        },
-      },
     },
   },
 }
