@@ -1,0 +1,49 @@
+[tools]
+"npm:@bitwarden/cli" = "latest"
+"npm:@fission-ai/openspec" = "latest"
+"npm:conventional-changelog" = "latest"
+"npm:opencode-ai" = { version = "latest", allow_builds = ["opencode-ai"] }
+"pipx:desloppify" = "latest"
+"pipx:pywalfox" = { version = "2.8.0rc1", uvx_args = "--index https://test.pypi.org/simple" }
+
+[bootstrap.packages]
+"flatpak:com.bitwig.BitwigStudio" = "latest"
+"flatpak:com.github.tchx84.Flatseal" = "latest"
+"flatpak:com.github.wwmm.easyeffects" = "latest"
+"flatpak:com.jetbrains.IntelliJ-IDEA-Ultimate" = "latest"
+"flatpak:com.jetbrains.RustRover" = "latest"
+"flatpak:com.obsproject.Studio" = "latest"
+"flatpak:com.saivert.pwvucontrol" = "latest"
+"flatpak:com.slack.Slack" = "latest"
+"flatpak:com.spotify.Client" = "latest"
+"flatpak:com.stremio.Stremio" = "latest"
+"flatpak:com.usebottles.bottles" = "latest"
+"flatpak:com.valvesoftware.Steam" = "latest"
+"flatpak:dev.edfloreshz.CosmicTweaks" = "latest"
+"flatpak:dev.vencord.Vesktop" = "latest"
+"flatpak:hu.irl.cameractrls" = "latest"
+"flatpak:im.riot.Riot" = "latest"
+"flatpak:io.freetubeapp.FreeTube" = "latest"
+"flatpak:io.github.Soundux" = "latest"
+"flatpak:io.itch.itch" = "latest"
+"flatpak:io.podman_desktop.PodmanDesktop" = "latest"
+"flatpak:it.mijorus.gearlever" = "latest"
+"flatpak:md.obsidian.Obsidian" = "latest"
+"flatpak:net.davidotek.pupgui2" = "latest"
+"flatpak:org.chromium.Chromium" = "latest"
+"flatpak:org.freecad.FreeCAD" = "latest"
+"flatpak:org.ghidra_sre.Ghidra" = "latest"
+"flatpak:org.gimp.GIMP" = "latest"
+"flatpak:org.gnome.World.PikaBackup" = "latest"
+"flatpak:org.gnome.baobab" = "latest"
+"flatpak:org.onlyoffice.desktopeditors" = "latest"
+"flatpak:org.prismlauncher.PrismLauncher" = "latest"
+"flatpak:org.tigervnc.vncviewer" = "latest"
+"flatpak:org.torproject.torbrowser-launcher" = "latest"
+"flatpak:org.videolan.VLC" = "latest"
+
+[bootstrap.hooks.pre-packages]
+run = "flatpak remotes --system --columns=name | grep -qx flathub || sudo flatpak remote-add --system --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"
+
+[bootstrap.hooks.post-packages]
+run = "bootstrap-orcaslicer"

@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    mise = {
+      url = "github:jdx/mise/v2026.7.18";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     herdr = {
       url = "github:ogulcancelik/herdr";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +18,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, herdr, tirith }:
+  outputs = { self, nixpkgs, flake-utils, mise, herdr, tirith }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -91,7 +95,8 @@
           scrcpy
           docker-compose
           just
-          uv 
+          uv
+          aube
           python312
           python312Packages.python-lsp-server
           python312Packages.ipython
@@ -123,6 +128,7 @@
 
         # All packages combined
         allPackages = coreShell ++ devStack ++ infraTools ++ fontPackages ++ [
+          mise.packages.${system}.default
           herdr.packages.${system}.default
           tirith.packages.${system}.default
         ];

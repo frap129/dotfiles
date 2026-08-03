@@ -23,25 +23,10 @@ export ANDROID_HOME=~/Android/Sdk
 # Environment setup scripts
 [[ -f ~/.hostrc ]] && source ~/.hostrc
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
-[[ -f ~/.cargo/env ]] && source ~/.cargo/env
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
+export npm_config_prefix="$HOME/.local"
+[[ $(command -v mise) ]] && eval "$(mise activate "$shell")"
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell)" >/dev/null
-if [[ -d ~/.nvm ]]; then
-  export NVM_DIR="$HOME/.nvm"
-  export NVM_SYMLINK_CURRENT=true
-  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
-  unset npm_config_prefix
-  nvm use --silent default >/dev/null 2>&1 || true
-  [[ -d "$NVM_DIR/current/bin" ]] && export PATH="$NVM_DIR/current/bin:$PATH"
-else
-  export npm_config_prefix="$HOME/.local"
-fi
-if [[ -d ~/.bun ]]; then
-  [ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
-  export BUN_INSTALL="$HOME/.bun"
-  export PATH="$PATH:$BUN_INSTALL/bin"
-fi
 
 # Aliases and functions
 alias grep='grep --color=auto'
@@ -64,13 +49,66 @@ alias spec='openspec'
 [[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
 [[ $(command -v dust) ]] && alias du="dust"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
+[[ $(command -v aubx) ]] && alias npx='aubx' && alias bunx='aubx'
 [[ $(command -v ugrep) ]] && alias grep="ugrep" && \
   alias rg='ugrep -r --ignore-files --ignore-files=.ignore --ignore-files=.rgignore -I -n --heading --break --color' && \
   alias ag='ug -r --ignore-files -I -n --heading --break --color -j --sort'
 
 # Nix development environment
 if [[ $(command -v nix) ]]; then
-  alias setup-nix='nix profile add ~/.config/nix-env'
+  setup-workstation() {
+    local arg classes profile repo_git dry_run=false
+
+    for arg in "$@"; do
+      case "$arg" in
+        -n|--dry-run) dry_run=true ;;
+        -E|--env|--env=*)
+          printf 'setup-workstation: yadm class selects mise environment\n' >&2
+          return 2
+          ;;
+      esac
+    done
+
+    repo_git="${XDG_DATA_HOME:-$HOME/.local/share}/yadm/repo.git"
+    command -v git >/dev/null && [[ -d "$repo_git" ]] || {
+      printf 'setup-workstation: yadm repository unavailable\n' >&2
+      return 1
+    }
+    classes=$(git --git-dir="$repo_git" config --get-all local.class 2>/dev/null || true)
+    case "$classes" in
+      "") profile=Default ;;
+      Work|Server) profile=$classes ;;
+      *)
+        printf 'setup-workstation: invalid yadm class set: %s\n' "$classes" >&2
+        return 2
+        ;;
+    esac
+
+    if [[ "$dry_run" == true ]]; then
+      if nix profile list --json | command grep -q '"nix-env"'; then
+        nix profile upgrade nix-env --dry-run || return
+      else
+        nix build ~/.config/nix-env#default --dry-run --no-link || return
+      fi
+      command -v mise >/dev/null && command -v yadm >/dev/null || {
+        printf 'setup-workstation: apply Nix profile before first dry run\n' >&2
+        return 1
+      }
+    else
+      if nix profile list --json | command grep -q '"nix-env"'; then
+        nix profile upgrade nix-env || return
+      else
+        nix profile add ~/.config/nix-env || return
+      fi
+      hash -r
+    fi
+
+    if [[ "$dry_run" != true ]]; then
+      yadm alt || return
+    fi
+
+    env MISE_ENV="$profile" mise -C "$HOME" bootstrap "$@"
+  }
 fi
 
 # Prompt
