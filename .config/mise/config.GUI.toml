@@ -1,0 +1,15 @@
+[tools]
+"pipx:pywalfox" = { version = "2.8.0rc1", uvx_args = "--index https://test.pypi.org/simple" }
+
+
+[bootstrap.packages]
+"flatpak:it.mijorus.gearlever" = "latest"
+"flatpak:md.obsidian.Obsidian" = "latest"
+"flatpak:com.saivert.pwvucontrol" = "latest"
+"flatpak:com.github.tchx84.Flatseal" = "latest"
+"flatpak:org.gimp.GIMP" = "latest"
+"flatpak:org.gnome.baobab" = "latest"
+"flatpak:org.onlyoffice.desktopeditors" = "latest"
+
+[bootstrap.hooks.pre-packages]
+run = "flatpak remotes --system --columns=name | grep -qx flathub || sudo flatpak remote-add --system --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"

@@ -56,40 +56,38 @@ alias spec='openspec'
 
 # Nix development environment
 if [[ $(command -v nix) ]]; then
+  refresh-mise-fonts() {
+    local fonts_dir install_dir name tool
+
+    fonts_dir="${XDG_DATA_HOME:-$HOME/.local/share}/fonts/mise-nix"
+    mkdir -p "$fonts_dir" || return
+
+    for tool in 'nix:nixos/nixpkgs#nerd-fonts.fira-code' 'nix:nixos/nixpkgs#noto-fonts-color-emoji'; do
+      case "$tool" in
+        *nerd-fonts.fira-code) name=fira-code ;;
+        *noto-fonts-color-emoji) name=noto-color-emoji ;;
+      esac
+      install_dir=$(mise where "$tool" 2>/dev/null) || continue
+      [[ -d "$install_dir/share/fonts" ]] || continue
+      rm -rf "$fonts_dir/$name" || return
+      mkdir -p "$fonts_dir/$name" || return
+      cp -rs "$install_dir/share/fonts/." "$fonts_dir/$name" || return
+    done
+
+    command -v fc-cache >/dev/null && fc-cache -f "$fonts_dir"
+  }
+
   setup-workstation() {
-    local arg classes profile repo_git dry_run=false
+    local arg dry_run=false
 
     for arg in "$@"; do
       case "$arg" in
         -n|--dry-run) dry_run=true ;;
-        -E|--env|--env=*)
-          printf 'setup-workstation: yadm class selects mise environment\n' >&2
-          return 2
-          ;;
       esac
     done
 
-    repo_git="${XDG_DATA_HOME:-$HOME/.local/share}/yadm/repo.git"
-    command -v git >/dev/null && [[ -d "$repo_git" ]] || {
-      printf 'setup-workstation: yadm repository unavailable\n' >&2
-      return 1
-    }
-    classes=$(git --git-dir="$repo_git" config --get-all local.class 2>/dev/null || true)
-    case "$classes" in
-      "") profile=Default ;;
-      Work|Server) profile=$classes ;;
-      *)
-        printf 'setup-workstation: invalid yadm class set: %s\n' "$classes" >&2
-        return 2
-        ;;
-    esac
-
     if [[ "$dry_run" == true ]]; then
-      if nix profile list --json | command grep -q '"nix-env"'; then
-        nix profile upgrade nix-env --dry-run || return
-      else
-        nix build ~/.config/nix-env#default --dry-run --no-link || return
-      fi
+      nix build "$HOME/.config/nix-env#default" --dry-run --no-link || return
       command -v mise >/dev/null && command -v yadm >/dev/null || {
         printf 'setup-workstation: apply Nix profile before first dry run\n' >&2
         return 1
@@ -103,11 +101,20 @@ if [[ $(command -v nix) ]]; then
       hash -r
     fi
 
+    if [[ "$dry_run" == true ]]; then
+      if [[ ! -d "${MISE_DATA_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/mise}/plugins/nix" ]]; then
+        printf 'setup-workstation: would install mise plugin nix from configured source\n'
+      fi
+    elif [[ ! -d "${MISE_DATA_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/mise}/plugins/nix" ]]; then
+      nix shell nixpkgs#git -c mise plugins install nix https://github.com/jbadeau/mise-nix.git || return
+    fi
+
     if [[ "$dry_run" != true ]]; then
       yadm alt || return
     fi
 
-    env MISE_ENV="$profile" mise -C "$HOME" bootstrap "$@"
+    mise -C "$HOME" bootstrap "$@" || return
+    [[ "$dry_run" == true ]] || refresh-mise-fonts
   }
 fi
 

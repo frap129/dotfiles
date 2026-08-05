@@ -1,2 +1,2 @@
-env = ["Default"]
+env = ["GUI", "Default"]
 ceiling_paths = ["{{ env.HOME }}"]

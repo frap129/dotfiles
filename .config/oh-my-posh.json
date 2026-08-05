@@ -43,7 +43,7 @@
           "foreground": "white",
           "background": "blue",
           "leading_diamond": "<parentBackground,background></>",
-          "template": " {{ .Path }} ",
+          "template": " <b>{{ .Path }}</b> ",
           "properties": {
             "style": "agnoster_short",
             "max_depth": 1,
@@ -308,7 +308,7 @@
       "{{ if gt .Code 0 }}lightRed{{ end }}"
     ],
     "background": "transparent",
-    "template": " ❯ ",
+    "template": "❯ ",
     "newline": true
   }
 }
