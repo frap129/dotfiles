@@ -6,9 +6,25 @@ return {
     "ribru17/blink-cmp-spell",
   },
   opts = {
+    keymap = {
+      ["<C-g>"] = {
+        function() require("blink.cmp").show { providers = { "ripgrep" } } end,
+      },
+    },
     sources = {
-      default = { "lsp", "path", "buffer", "ripgrep" },
+      default = { "lsp", "path", "buffer" },
       providers = {
+        buffer = {
+          opts = {
+            get_bufnrs = function()
+              return vim
+                .iter(vim.fn.getbufinfo { buflisted = 1 })
+                :filter(function(buf) return buf.loaded == 1 end)
+                :map(function(buf) return buf.bufnr end)
+                :totable()
+            end,
+          },
+        },
         spell = {
           name = "Spell",
           module = "blink-cmp-spell",
@@ -40,6 +56,21 @@ return {
         ripgrep = {
           module = "blink-ripgrep",
           name = "Ripgrep",
+          opts = {
+            prefix_min_len = 5,
+            backend = {
+              ripgrep = {
+                max_filesize = "256K",
+                search_casing = "--smart-case",
+                additional_rg_options = {
+                  "--max-count=3",
+                  "--glob=!build/**",
+                  "--glob=!generated/**",
+                  "--glob=!out/**",
+                },
+              },
+            },
+          },
           transform_items = function(_, items)
             for _, item in ipairs(items) do
               item.labelDetails = {
