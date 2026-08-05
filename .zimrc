@@ -25,9 +25,6 @@ zmodule exa
 # Provides archive and unarchive functions for easy archive manipulation.
 zmodule archive
 
-# powerlevel10k
-zmodule romkatv/powerlevel10k --use degit
-
 # zsh-autoswitch-virtualenv
 zmodule MichaelAquilina/zsh-autoswitch-virtualenv --source autoswitch_virtualenv.plugin.zsh
 

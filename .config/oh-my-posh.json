@@ -1,0 +1,314 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 3,
+  "final_space": true,
+  "console_title_template": "{{ .UserName }}@{{ .HostName }}: {{ .Folder }}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "os",
+          "style": "diamond",
+          "foreground": "black",
+          "background": "white",
+          "leading_diamond": "",
+          "template": " {{ .Icon }} "
+        },
+        {
+          "type": "command",
+          "style": "powerline",
+          "foreground": "black",
+          "background": "yellow",
+          "powerline_symbol": "",
+          "template": " in {{ .Output }} ",
+          "properties": {
+            "shell": "bash",
+            "command": "if [ -f /run/.toolboxenv ]; then basename \"${CONTAINER_ID:-${HOSTNAME:-toolbox}}\"; fi"
+          }
+        },
+        {
+          "type": "session",
+          "style": "powerline",
+          "foreground": "yellow",
+          "background": "black",
+          "powerline_symbol": "",
+          "template": "{{ if or .SSHSession (eq .UserName \"root\") }} with {{ .UserName }}@{{ .HostName }} {{ end }}"
+        },
+        {
+          "type": "path",
+          "style": "diamond",
+          "foreground": "white",
+          "background": "blue",
+          "leading_diamond": "<parentBackground,background></>",
+          "template": " {{ .Path }} ",
+          "properties": {
+            "style": "agnoster_short",
+            "max_depth": 1,
+            "folder_icon": "…",
+            "home_icon": "~"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "blue",
+          "template": "{{ if not (.Segments.Contains \"Git\") }}{{ end }}"
+        },
+        {
+          "type": "git",
+          "style": "diamond",
+          "foreground": "black",
+          "background": "green",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}"
+          ],
+          "leading_diamond": "<parentBackground,background></>",
+          "trailing_diamond": "",
+          "template": " on {{ if .HEAD }}{{ trunc 32 .HEAD }}{{ else }}@{{ .Commit }}{{ end }}{{ if .UpstreamIcon }} {{ .UpstreamIcon }}{{ end }}{{ if gt .Behind 0 }} ⇣{{ .Behind }}{{ end }}{{ if gt .Ahead 0 }}⇡{{ .Ahead }}{{ end }}{{ if gt .StashCount 0 }} *{{ .StashCount }}{{ end }}{{ if gt .Staging.Added 0 }} +{{ .Staging.Added }}{{ end }}{{ if gt .Working.Modified 0 }} !{{ .Working.Modified }}{{ end }}{{ if gt .Working.Untracked 0 }} ?{{ .Working.Untracked }}{{ end }} ",
+          "properties": {
+            "branch_icon": " ",
+            "fetch_status": true,
+            "fetch_stash_count": true,
+            "fetch_upstream_icon": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "overflow": "hide",
+      "segments": [
+        {
+          "type": "status",
+          "style": "diamond",
+          "foreground": "green",
+          "background": "black",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}yellow{{ end }}"
+          ],
+          "background_templates": [
+            "{{ if gt .Code 0 }}red{{ end }}"
+          ],
+          "leading_diamond": "",
+          "invert_powerline": true,
+          "template": " {{ if eq .Code 0 }}✔{{ else }}✘ {{ reason .Code }}{{ end }} ",
+          "properties": {
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "foreground": "black",
+          "background": "yellow",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": " took {{ .FormattedMs }} ",
+          "properties": {
+            "threshold": 3000,
+            "style": "round"
+          }
+        },
+        {
+          "type": "jobs",
+          "style": "powerline",
+          "foreground": "cyan",
+          "background": "black",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "  "
+        },
+        {
+          "type": "command",
+          "style": "powerline",
+          "foreground": "yellow",
+          "background": "black",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": " {{ .Output }} ",
+          "properties": {
+            "shell": "bash",
+            "command": "if [ -n \"${DIRENV_DIR:-}\" ]; then printf 'direnv'; fi"
+          }
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "foreground": "black",
+          "background": "blue",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "  {{ if .Venv }}{{ .Venv }}{{ else }}{{ .Full }}{{ end }} ",
+          "properties": {
+            "display_mode": "files",
+            "extensions": [
+              "*.py",
+              "*.ipynb",
+              "pyproject.toml",
+              "setup.py",
+              "requirements.txt",
+              "Pipfile",
+              "poetry.lock"
+            ]
+          }
+        },
+        {
+          "type": "go",
+          "style": "powerline",
+          "foreground": "black",
+          "background": "blue",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "node",
+          "style": "powerline",
+          "foreground": "black",
+          "background": "magenta",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "ruby",
+          "style": "powerline",
+          "foreground": "black",
+          "background": "red",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "java",
+          "style": "powerline",
+          "foreground": "red",
+          "background": "white",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "aws",
+          "style": "powerline",
+          "foreground": "white",
+          "background": "red",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "  {{ .Profile }}{{ if .Region }} {{ .Region }}{{ end }} "
+        },
+        {
+          "type": "az",
+          "style": "powerline",
+          "foreground": "white",
+          "background": "blue",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "  {{ .Name }} "
+        },
+        {
+          "type": "gcp",
+          "style": "powerline",
+          "foreground": "white",
+          "background": "blue",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "  {{ .Project }} "
+        },
+        {
+          "type": "session",
+          "style": "powerline",
+          "foreground": "yellow",
+          "background": "black",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "{{ if or .SSHSession (eq .UserName \"root\") }} with {{ .UserName }}@{{ .HostName }} {{ end }}"
+        },
+        {
+          "type": "command",
+          "style": "powerline",
+          "foreground": "yellow",
+          "background": "black",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": " {{ .Output }} ",
+          "properties": {
+            "shell": "bash",
+            "command": "if [ -n \"${RANGER_LEVEL:-}\" ]; then printf 'ranger'; fi"
+          }
+        },
+        {
+          "type": "sysinfo",
+          "style": "powerline",
+          "foreground": "black",
+          "background": "green",
+          "powerline_symbol": "",
+          "invert_powerline": true,
+          "template": "  {{ .Load5 }} ",
+          "properties": {
+            "precision": 2
+          }
+        },
+        {
+          "type": "sysinfo",
+          "alias": "Ram",
+          "style": "diamond",
+          "foreground": "black",
+          "background": "yellow",
+          "invert_powerline": true,
+          "template": "  {{ round (div (.PhysicalFreeMemory | float64) 1073741824.0) .Precision }} GiB ",
+          "properties": {
+            "precision": 0
+          }
+        },
+        {
+          "type": "command",
+          "style": "diamond",
+          "foreground": "black",
+          "background": "darkGray",
+          "invert_powerline": true,
+          "template": "  {{ .Output }} ",
+          "properties": {
+            "shell": "bash",
+            "command": "if command -v todo.sh >/dev/null 2>&1; then count=$(todo.sh -p ls 2>/dev/null | tail -n 1 | sed -n 's/.*TODO: [0-9][0-9]* of \\([0-9][0-9]*\\) tasks shown.*/\\1/p'); [ \"${count:-0}\" -gt 0 ] && printf '%s' \"$count\"; fi"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "default",
+          "template": "<parentBackground></>"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "lightGray",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}lightRed{{ end }}"
+          ],
+          "template": " ❯"
+        }
+      ]
+    }
+  ],
+  "transient_prompt": {
+    "foreground": "darkGray",
+    "foreground_templates": [
+      "{{ if gt .Code 0 }}lightRed{{ end }}"
+    ],
+    "background": "transparent",
+    "template": " ❯ ",
+    "newline": true
+  }
+}

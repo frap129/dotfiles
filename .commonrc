@@ -72,3 +72,6 @@ alias spec='openspec'
 if [[ $(command -v nix) ]]; then
   alias setup-nix='nix profile add ~/.config/nix-env'
 fi
+
+# Prompt
+eval "$(oh-my-posh init $shell --config ~/.config/oh-my-posh.json)"

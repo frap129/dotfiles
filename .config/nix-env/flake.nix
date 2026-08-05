@@ -37,6 +37,7 @@
         coreShell = with pkgs; [
           zsh
           zimfw
+          oh-my-posh
           bash
           bashInteractive
           bash-completion
@@ -111,6 +112,7 @@
           lsof
           topgrade 
           nix-search-cli
+          bitwarden-cli
         ];
 
         # Fonts kept separate for easy toggling
