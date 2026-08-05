@@ -9,22 +9,10 @@ else
     shell="bash"
 fi
 
-# Environment Variables
-export GOPATH=~/.cache/go
-export color_prompt=yes
-if [[ $(command -v ccache) ]]; then
-  export USE_CCACHE=1
-  export CCACHE_DIR=~/.ccache
-  export CCACHE_EXEC=$(command -v ccache)
-  export CCACHE_COMPRESS=1
-fi
-export ANDROID_HOME=~/Android/Sdk
-
 # Environment setup scripts
 [[ -f ~/.hostrc ]] && source ~/.hostrc
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
-export npm_config_prefix="$HOME/.local"
 [[ $(command -v mise) ]] && eval "$(mise activate "$shell")"
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell)" >/dev/null
 
@@ -56,27 +44,6 @@ alias spec='openspec'
 
 # Nix development environment
 if [[ $(command -v nix) ]]; then
-  refresh-mise-fonts() {
-    local fonts_dir install_dir name tool
-
-    fonts_dir="${XDG_DATA_HOME:-$HOME/.local/share}/fonts/mise-nix"
-    mkdir -p "$fonts_dir" || return
-
-    for tool in 'nix:nixos/nixpkgs#nerd-fonts.fira-code' 'nix:nixos/nixpkgs#noto-fonts-color-emoji'; do
-      case "$tool" in
-        *nerd-fonts.fira-code) name=fira-code ;;
-        *noto-fonts-color-emoji) name=noto-color-emoji ;;
-      esac
-      install_dir=$(mise where "$tool" 2>/dev/null) || continue
-      [[ -d "$install_dir/share/fonts" ]] || continue
-      rm -rf "$fonts_dir/$name" || return
-      mkdir -p "$fonts_dir/$name" || return
-      cp -rs "$install_dir/share/fonts/." "$fonts_dir/$name" || return
-    done
-
-    command -v fc-cache >/dev/null && fc-cache -f "$fonts_dir"
-  }
-
   setup-workstation() {
     local arg dry_run=false
 
@@ -101,20 +68,11 @@ if [[ $(command -v nix) ]]; then
       hash -r
     fi
 
-    if [[ "$dry_run" == true ]]; then
-      if [[ ! -d "${MISE_DATA_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/mise}/plugins/nix" ]]; then
-        printf 'setup-workstation: would install mise plugin nix from configured source\n'
-      fi
-    elif [[ ! -d "${MISE_DATA_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/mise}/plugins/nix" ]]; then
-      nix shell nixpkgs#git -c mise plugins install nix https://github.com/jbadeau/mise-nix.git || return
-    fi
-
     if [[ "$dry_run" != true ]]; then
       yadm alt || return
     fi
 
     mise -C "$HOME" bootstrap "$@" || return
-    [[ "$dry_run" == true ]] || refresh-mise-fonts
   }
 fi
 

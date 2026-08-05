@@ -11,8 +11,42 @@ nix = "https://github.com/jbadeau/mise-nix.git"
 
 [env]
 MISE_NIX_LINK_PATHS = "bin,sbin,share/man,share/info,share/doc,share/bash-completion,share/zsh,share/fish,share/fonts"
+GOPATH = "{{ env.HOME }}/.cache/go"
+color_prompt = "yes"
+ANDROID_HOME = "{{ env.HOME }}/Android/Sdk"
+npm_config_prefix = "{{ env.HOME }}/.local"
+USE_CCACHE = "1"
+CCACHE_DIR = "{{ env.HOME }}/.ccache"
+CCACHE_EXEC = "{{ env.XDG_DATA_HOME }}/mise/shims/ccache"
+CCACHE_COMPRESS = "1"
+
+[bootstrap.hooks.post-tools]
+run = '''
+set -eu
+fonts_dir="${XDG_DATA_HOME:-$HOME/.local/share}/fonts/mise"
+if [ -d "$fonts_dir" ]; then
+  chmod -R u+w "$fonts_dir"
+fi
+rm -rf "$fonts_dir"
+mkdir -p "$fonts_dir"
+
+index=0
+mise ls --current --installed --json |
+  jq -r '[to_entries[] | .value[] | select(.active and .installed) | .install_path] | unique[]' |
+  while IFS= read -r install_dir; do
+    [ -d "$install_dir/share/fonts" ] || continue
+    index=$((index + 1))
+    mkdir -p "$fonts_dir/$index"
+    cp -rs --no-preserve=mode "$install_dir/share/fonts/." "$fonts_dir/$index"
+  done
+
+if command -v fc-cache >/dev/null; then
+  fc-cache -f "$fonts_dir"
+fi
+'''
 
 [tools]
+ccache = "latest"
 oh-my-posh = "latest"
 bat = "latest"
 eza = "latest"
