@@ -24,8 +24,9 @@ export ANDROID_HOME=~/Android/Sdk
 [[ -f ~/.hostrc ]] && source ~/.hostrc
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
+export PATH="$HOME/.nix-profile/bin:$PATH"
 export npm_config_prefix="$HOME/.local"
-[[ $(command -v mise) ]] && eval "$(mise activate "$shell")"
+[[ $(command -v aube) ]] && eval "$(aube activate "$shell")"
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell)" >/dev/null
 
 # Aliases and functions
@@ -49,34 +50,13 @@ alias spec='openspec'
 [[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
 [[ $(command -v dust) ]] && alias du="dust"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
-[[ $(command -v aubx) ]] && alias npx='aubx' && alias bunx='aubx'
+[[ $(command -v aubx) ]] && alias bunx='aubx'
 [[ $(command -v ugrep) ]] && alias grep="ugrep" && \
   alias rg='ugrep -r --ignore-files --ignore-files=.ignore --ignore-files=.rgignore -I -n --heading --break --color' && \
   alias ag='ug -r --ignore-files -I -n --heading --break --color -j --sort'
 
-# Nix development environment
+# Workstation environment
 if [[ $(command -v nix) ]]; then
-  refresh-mise-fonts() {
-    local fonts_dir install_dir name tool
-
-    fonts_dir="${XDG_DATA_HOME:-$HOME/.local/share}/fonts/mise-nix"
-    mkdir -p "$fonts_dir" || return
-
-    for tool in 'nix:nixos/nixpkgs#nerd-fonts.fira-code' 'nix:nixos/nixpkgs#noto-fonts-color-emoji'; do
-      case "$tool" in
-        *nerd-fonts.fira-code) name=fira-code ;;
-        *noto-fonts-color-emoji) name=noto-color-emoji ;;
-      esac
-      install_dir=$(mise where "$tool" 2>/dev/null) || continue
-      [[ -d "$install_dir/share/fonts" ]] || continue
-      rm -rf "$fonts_dir/$name" || return
-      mkdir -p "$fonts_dir/$name" || return
-      cp -rs "$install_dir/share/fonts/." "$fonts_dir/$name" || return
-    done
-
-    command -v fc-cache >/dev/null && fc-cache -f "$fonts_dir"
-  }
-
   setup-workstation() {
     local arg dry_run=false
 
@@ -87,34 +67,28 @@ if [[ $(command -v nix) ]]; then
     done
 
     if [[ "$dry_run" == true ]]; then
-      nix build "$HOME/.config/nix-env#default" --dry-run --no-link || return
-      command -v mise >/dev/null && command -v yadm >/dev/null || {
-        printf 'setup-workstation: apply Nix profile before first dry run\n' >&2
+      nix build nixpkgs#metapac --dry-run --no-link || return
+      command -v metapac >/dev/null && command -v yadm >/dev/null || {
+        printf 'setup-workstation: install metapac before first dry run\n' >&2
         return 1
       }
     else
+      yadm alt || return
       if nix profile list --json | command grep -q '"nix-env"'; then
-        nix profile upgrade nix-env || return
-      else
-        nix profile add ~/.config/nix-env || return
+        nix profile remove nix-env || return
+      fi
+      if ! nix profile list --json | command grep -q '"metapac"'; then
+        nix profile install nixpkgs#metapac || return
       fi
       hash -r
     fi
 
     if [[ "$dry_run" == true ]]; then
-      if [[ ! -d "${MISE_DATA_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/mise}/plugins/nix" ]]; then
-        printf 'setup-workstation: would install mise plugin nix from configured source\n'
-      fi
-    elif [[ ! -d "${MISE_DATA_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/mise}/plugins/nix" ]]; then
-      nix shell nixpkgs#git -c mise plugins install nix https://github.com/jbadeau/mise-nix.git || return
+      metapac unmanaged || return
+      printf 'setup-workstation: dry run skips metapac sync\n'
+    else
+      metapac sync --no-confirm
     fi
-
-    if [[ "$dry_run" != true ]]; then
-      yadm alt || return
-    fi
-
-    mise -C "$HOME" bootstrap "$@" || return
-    [[ "$dry_run" == true ]] || refresh-mise-fonts
   }
 fi
 

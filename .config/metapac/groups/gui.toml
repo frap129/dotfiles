@@ -1,0 +1,19 @@
+nix = { packages = [
+  "gpu-screen-recorder",
+  "pywalfox-native",
+] }
+
+flatpak = {
+  repos = [
+    { name = "system:flathub", options = { url = "https://flathub.org/repo/flathub.flatpakrepo" } },
+  ],
+  packages = [
+    { name = "system:com.github.tchx84.Flatseal", options = { remote = "flathub" } },
+    { name = "system:com.saivert.pwvucontrol", options = { remote = "flathub" } },
+    { name = "system:it.mijorus.gearlever", options = { remote = "flathub" } },
+    { name = "system:md.obsidian.Obsidian", options = { remote = "flathub" } },
+    { name = "system:org.gimp.GIMP", options = { remote = "flathub" } },
+    { name = "system:org.gnome.baobab", options = { remote = "flathub" } },
+    { name = "system:org.onlyoffice.desktopeditors", options = { remote = "flathub" } },
+  ],
+}

@@ -1,2 +1,0 @@
-env = ["GUI", "Work"]
-ceiling_paths = ["{{ env.HOME }}"]

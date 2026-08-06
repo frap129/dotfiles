@@ -1,0 +1,20 @@
+enabled_backends = ["nix"]
+hostname_groups_enabled = true
+
+[hostname_enabled_backends]
+{% if yadm.class == "Server" %}
+{{ yadm.hostname }} = []
+{% else %}
+{{ yadm.hostname }} = ["flatpak"]
+{% endif %}
+
+[hostname_groups]
+{% if yadm.class == "Server" %}
+{{ yadm.hostname }} = ["common"]
+{% else %}
+{% if yadm.class == "Work" %}
+{{ yadm.hostname }} = ["common", "gui"]
+{% else %}
+{{ yadm.hostname }} = ["common", "gui", "default"]
+{% endif %}
+{% endif %}

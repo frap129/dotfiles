@@ -85,11 +85,11 @@ cleanup = true
 # Commands to run before anything
 [pre_commands]
 # "Emacs Snapshot" = "rm -rf ~/.emacs.d/elpa.bak && cp -rl ~/.emacs.d/elpa ~/.emacs.d/elpa.bak"
-"Update Nix Flake" = "nix flake update --flake ~/.config/nix-env"
 
 # Commands to run after anything
 [post_commands]
 # "Emacs Snapshot" = "rm -rf ~/.emacs.d/elpa.bak && cp -rl ~/.emacs.d/elpa ~/.emacs.d/elpa.bak"
+"Metapac" = "metapac update-all --no-confirm && metapac sync --no-confirm"
 
 
 # Custom commands
@@ -230,10 +230,6 @@ cleanup = true
 [npm]
 # Use sudo if the NPM directory isn't owned by the current user
 # use_sudo = true
-
-[mise]
-bump = false
-
 
 [yarn]
 # Run `yarn global upgrade` with `sudo`
