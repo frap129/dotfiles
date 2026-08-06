@@ -82,6 +82,7 @@ npm = { packages = [
 uv = { packages = [
   "ipython",
   "meson",
+  "ocgc",
   "pre-commit",
   "pyright",
   "python-lsp-server",
