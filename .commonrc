@@ -33,7 +33,6 @@ export PATH="$HOME/.local/bin:${XDG_DATA_HOME:-$HOME/.local/share}/pnpm:$HOME/.c
 
 # Aliases and functions
 alias grep='grep --color=auto'
-alias df="df -ahiT --total"
 alias mkdir="mkdir -pv"
 alias fhere="find . -name "
 alias free="free -mt"
