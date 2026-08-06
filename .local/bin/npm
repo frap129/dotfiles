@@ -3,22 +3,24 @@ set -euo pipefail
 
 case "${1-} ${2-}" in
   "list --global")
-    aube list --global --json | jq '{dependencies: (map({key: .name, value: {version: .version}}) | from_entries)}'
+    aube list --global --json | jq '{dependencies: (map(. as $package | [
+      {key: $package.name, value: {version: $package.version}},
+      {key: ($package.name + "@" + $package.version), value: {version: $package.version}}
+    ]) | flatten | from_entries)}'
     ;;
   "install --global")
     shift 2
     allow_builds=()
-    packages=()
     for package in "$@"; do
-      case "$package" in
-        @fission-ai/openspec|opencode-ai) allow_builds+=("--allow-build=$package") ;;
-      esac
-      case "$package" in
-        conventional-changelog) packages+=("conventional-changelog@8.1.0") ;;
-        *) packages+=("$package") ;;
-      esac
+      if [[ "$package" == @* ]]; then
+        name="${package%@*}"
+        [[ -n "$name" ]] || name="$package"
+      else
+        name="${package%%@*}"
+      fi
+      allow_builds+=("--allow-build=$name")
     done
-    exec aube add --global "${allow_builds[@]}" "${packages[@]}"
+    exec aube add --global "${allow_builds[@]}" "$@"
     ;;
   "uninstall --global")
     shift 2
@@ -26,20 +28,17 @@ case "${1-} ${2-}" in
     ;;
   "update --global")
     shift 2
-    update_packages=()
-    pin_changelog=false
     for package in "$@"; do
-      case "$package" in
-        conventional-changelog) pin_changelog=true ;;
-        *) update_packages+=("$package") ;;
-      esac
+      if [[ "$package" == @* ]]; then
+        name="${package%@*}"
+        [[ -n "$name" ]] || name="$package"
+      else
+        name="${package%%@*}"
+      fi
+      spec="$package"
+      [[ "$package" == "$name" ]] && spec="$package@latest"
+      aube add --global "--allow-build=$name" "$spec"
     done
-    if ((${#update_packages[@]})); then
-      aube update --global --latest "${update_packages[@]}"
-    fi
-    if [[ $pin_changelog == true ]]; then
-      exec aube add --global conventional-changelog@8.1.0
-    fi
     ;;
   "cache clean")
     exec aube store prune
