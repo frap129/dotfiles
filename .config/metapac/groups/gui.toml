@@ -1,19 +1,28 @@
 nix = { packages = [
   "gpu-screen-recorder",
-  "pywalfox-native",
 ] }
+
+uv = { packages = ["pywalfox"] }
 
 flatpak = {
   repos = [
-    { name = "system:flathub", options = { url = "https://flathub.org/repo/flathub.flatpakrepo" } },
+    { name = "user:flathub", options = { url = "https://dl.flathub.org/repo/flathub.flatpakrepo" } },
   ],
   packages = [
-    { name = "system:com.github.tchx84.Flatseal", options = { remote = "flathub" } },
-    { name = "system:com.saivert.pwvucontrol", options = { remote = "flathub" } },
-    { name = "system:it.mijorus.gearlever", options = { remote = "flathub" } },
-    { name = "system:md.obsidian.Obsidian", options = { remote = "flathub" } },
-    { name = "system:org.gimp.GIMP", options = { remote = "flathub" } },
-    { name = "system:org.gnome.baobab", options = { remote = "flathub" } },
-    { name = "system:org.onlyoffice.desktopeditors", options = { remote = "flathub" } },
+    { name = "user:com.github.tchx84.Flatseal", options = { remote = "flathub" } },
+    { name = "user:com.obsproject.Studio", options = { remote = "flathub" } },
+    { name = "user:com.saivert.pwvucontrol", options = { remote = "flathub" } },
+    { name = "user:com.usebottles.bottles", options = { remote = "flathub" } },
+    { name = "user:hu.irl.cameractrls", options = { remote = "flathub" } },
+    { name = "user:it.mijorus.gearlever", options = { remote = "flathub" } },
+    { name = "user:io.github.pwr_solaar.solaar", options = { remote = "flathub" } },
+    { name = "user:md.obsidian.Obsidian", options = { remote = "flathub" } },
+    { name = "user:org.gimp.GIMP", options = { remote = "flathub" } },
+    { name = "user:org.gnome.baobab", options = { remote = "flathub" } },
+    { name = "user:org.onlyoffice.desktopeditors", options = { remote = "flathub" } },
   ],
 }
+
+cargo = { packages = [
+  { name = "mdisplay", options = { git = "https://github.com/ernestoCruz05/mdisplay" } },
+] }

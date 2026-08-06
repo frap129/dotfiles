@@ -1,5 +1,8 @@
-enabled_backends = ["nix"]
+enabled_backends = ["cargo", "nix", "npm", "uv"]
 hostname_groups_enabled = true
+
+[cargo]
+binstall = true
 
 [hostname_enabled_backends]
 {% if yadm.class == "Server" %}

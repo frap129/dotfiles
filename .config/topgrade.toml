@@ -89,7 +89,12 @@ cleanup = true
 # Commands to run after anything
 [post_commands]
 # "Emacs Snapshot" = "rm -rf ~/.emacs.d/elpa.bak && cp -rl ~/.emacs.d/elpa ~/.emacs.d/elpa.bak"
-"Metapac" = "metapac update-all --no-confirm && metapac sync --no-confirm"
+"Metapac Nix" = "metapac update-all --backends nix --no-confirm"
+"Metapac Cargo" = "metapac update --backend cargo --packages bat du-dust eza fd-find git-delta just ripgrep topgrade zellij zoxide --no-confirm"
+"Metapac npm" = "metapac update --backend npm --packages @fission-ai/openspec conventional-changelog opencode-ai --no-confirm"
+"Metapac uv" = "metapac update --backend uv --packages ipython meson pywalfox python-lsp-server ruff --no-confirm"
+"Metapac Flatpak" = "metapac update-all --backends flatpak --no-confirm"
+"Metapac Sync" = "metapac sync --no-confirm"
 
 
 # Custom commands

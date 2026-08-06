@@ -1,0 +1,13 @@
+cargo = { packages = [
+  "alacritty",
+] }
+
+flatpak = { packages = [
+  { name = "user:com.github.IsmaelMartinez.teams_for_linux", options = { remote = "flathub" } },
+] }
+
+uv = { packages = [
+  "codegraphcontext",
+  "poetry",
+  "tat-cli",
+] }

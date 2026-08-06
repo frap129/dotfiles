@@ -26,7 +26,9 @@ export ANDROID_HOME=~/Android/Sdk
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
 export PATH="$HOME/.nix-profile/bin:$PATH"
 export npm_config_prefix="$HOME/.local"
+export AUBE_RUNTIME_INSTALLER=aube
 [[ $(command -v aube) ]] && eval "$(aube activate "$shell")"
+export PATH="$HOME/.local/bin:${XDG_DATA_HOME:-$HOME/.local/share}/pnpm:$HOME/.cargo/bin:$PATH"
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell)" >/dev/null
 
 # Aliases and functions
@@ -77,9 +79,11 @@ if [[ $(command -v nix) ]]; then
       if nix profile list --json | command grep -q '"nix-env"'; then
         nix profile remove nix-env || return
       fi
-      if ! nix profile list --json | command grep -q '"metapac"'; then
-        nix profile install nixpkgs#metapac || return
-      fi
+      for bootstrap_package in metapac aube cargo cargo-binstall jq rustc uv; do
+        if ! nix profile list --json | command grep -q "\"$bootstrap_package\""; then
+          nix profile install "nixpkgs#$bootstrap_package" || return
+        fi
+      done
       hash -r
     fi
 
