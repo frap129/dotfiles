@@ -75,7 +75,7 @@ cargo = { packages = [
 
 npm = { packages = [
   "@fission-ai/openspec",
-  "conventional-changelog@8.1.0",
+  "conventional-changelog",
   "opencode-ai",
 ] }
 
