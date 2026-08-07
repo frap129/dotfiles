@@ -51,7 +51,7 @@ nix = { packages = [
   "tmux",
   "ugrep",
   "unzip",
-  { name = "uv", hooks = { after_sync = ["uv", "python", "install", "--default"] } },
+  { name = "uv", hooks = { after_install = ["uv", "python", "install", "--default"] } },
   "wget",
   "which",
   "yadm",
@@ -61,7 +61,7 @@ nix = { packages = [
 ] }
 
 cargo = { packages = [
-  { name = "aubeshim", hooks = { after_sync = ["aubeshim", "install", "--force"] } },
+  { name = "aubeshim", hooks = { after_install = ["aubeshim", "install", "--force"] } },
   "bat",
   "cargo-update",
   "du-dust",
