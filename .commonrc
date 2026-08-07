@@ -32,6 +32,7 @@ set +a
 [[ -f ~/.hostrc ]] && source ~/.hostrc
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
+[[ $(command -v aube) ]] && eval "$(aube activate $shell)"
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell 2>/dev/null)"
 
 # Aliases and functions
