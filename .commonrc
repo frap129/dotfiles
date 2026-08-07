@@ -21,13 +21,14 @@ fi
 export ANDROID_HOME=~/Android/Sdk
 export npm_config_prefix="$HOME/.local"
 export AUBE_RUNTIME_INSTALLER=aube
+export TIRITH=0
 
 # Environment setup scripts
 [[ -f ~/.hostrc ]] && source ~/.hostrc
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
 [[ $(command -v aube) ]] && eval "$(aube activate $shell)"
-[[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell)" &>/dev/null
+[[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell 2>/dev/null)"
 
 # Aliases and functions
 alias mkdir="mkdir -pv"
