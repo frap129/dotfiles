@@ -19,33 +19,27 @@ if [[ $(command -v ccache) ]]; then
   export CCACHE_COMPRESS=1
 fi
 export ANDROID_HOME=~/Android/Sdk
+export npm_config_prefix="$HOME/.local"
+export AUBE_RUNTIME_INSTALLER=aube
 
 # Environment setup scripts
 [[ -f ~/.hostrc ]] && source ~/.hostrc
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
-export PATH="$HOME/.nix-profile/bin:$PATH"
-export npm_config_prefix="$HOME/.local"
-export AUBE_RUNTIME_INSTALLER=aube
 [[ $(command -v aube) ]] && eval "$(aube activate $shell)"
-[[ $(command -v aubeshim) ]] && eval "$(aubeshim activate $shell)"
-export PATH="$HOME/.local/bin:${XDG_DATA_HOME:-$HOME/.local/share}/pnpm:$HOME/.cargo/bin:$PATH"
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell)" &>/dev/null
 
 # Aliases and functions
-alias grep='grep --color=auto'
 alias mkdir="mkdir -pv"
 alias fhere="find . -name "
-alias free="free -mt"
 alias wget="wget -c"
 alias histg="history | grep"
-alias rwaybar='killall -SIGUSR2 waybar'
 alias vi="nvim"
 alias myip="curl http://ipecho.net/plain; echo"
 alias adate='adb shell date $(date +%m%d%H%M%Y.%S)'
-alias spec='openspec'
 
 # Common replacements
+[[ $(command -v aubeshim) ]] && eval "$(aubeshim activate $shell)"
 [[ $(command -v delta) ]] && alias diff="delta"
 [[ $(command -v bat) ]] && alias cat="bat -pp"
 [[ $(command -v eza) ]] && alias ls="eza -hg --icons --group-directories-first"
