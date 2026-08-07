@@ -1,4 +1,4 @@
-enabled_backends = ["cargo", "nix", "npm", "uv"]
+enabled_backends = ["cargo", "nix", "bun", "uv"]
 hostname_groups_enabled = true
 
 [cargo]
@@ -16,7 +16,7 @@ binstall = true
 {{ yadm.hostname }} = ["common"]
 {% else %}
 {% if yadm.class == "Work" %}
-{{ yadm.hostname }} = ["common", "gui"]
+{{ yadm.hostname }} = ["common", "gui", "work"]
 {% else %}
 {{ yadm.hostname }} = ["common", "gui", "default"]
 {% endif %}

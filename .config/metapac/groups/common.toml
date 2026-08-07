@@ -5,7 +5,6 @@ nix = { packages = [
   "bash-completion",
   "bitwarden-cli",
   "btop",
-  "bun",
   "cargo",
   "cargo-binstall",
   "cmake",
@@ -60,6 +59,7 @@ nix = { packages = [
 ] }
 
 cargo = { packages = [
+  { name = "aubeshims", hooks = { after_sync = ["aubeshims", "install", "--force"] } },
   "bat",
   "cargo-update",
   "du-dust",
@@ -73,7 +73,7 @@ cargo = { packages = [
   "zoxide",
 ] }
 
-npm = { packages = [
+bun = { packages = [
   "@fission-ai/openspec",
   "conventional-changelog",
   "opencode-ai",

@@ -27,9 +27,10 @@ export ANDROID_HOME=~/Android/Sdk
 export PATH="$HOME/.nix-profile/bin:$PATH"
 export npm_config_prefix="$HOME/.local"
 export AUBE_RUNTIME_INSTALLER=aube
-[[ $(command -v aube) ]] && eval "$(aube activate "$shell")"
+[[ $(command -v aube) ]] && eval "$(aube activate $shell)"
+[[ $(command -v aubeshim) ]] && eval "$(aubeshim activate $shell)"
 export PATH="$HOME/.local/bin:${XDG_DATA_HOME:-$HOME/.local/share}/pnpm:$HOME/.cargo/bin:$PATH"
-[[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell)" >/dev/null
+[[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell)" &>/dev/null
 
 # Aliases and functions
 alias grep='grep --color=auto'
@@ -83,6 +84,11 @@ if [[ $(command -v nix) ]]; then
           nix profile install "nixpkgs#$bootstrap_package" || return
         fi
       done
+      if [[ ! $(command -v aubeshim) ]]; then
+        cargo-binstall aubeshim
+        aubeshim install --force
+        eval "$(aubeshim activate $shell)"
+      fi
       hash -r
     fi
 
