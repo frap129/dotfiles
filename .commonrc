@@ -84,7 +84,6 @@ if [[ $(command -v nix) ]]; then
       if [[ ! $(command -v aubeshim) ]]; then
         cargo-binstall aubeshim
         aubeshim install --force
-        eval "$(aubeshim activate $shell)"
       fi
       hash -r
     fi
