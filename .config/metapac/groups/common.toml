@@ -59,7 +59,7 @@ nix = { packages = [
 ] }
 
 cargo = { packages = [
-  { name = "aubeshims", hooks = { after_sync = ["aubeshims", "install", "--force"] } },
+  { name = "aubeshim", hooks = { after_sync = ["aubeshim", "install", "--force"] } },
   "bat",
   "cargo-update",
   "du-dust",
@@ -67,7 +67,6 @@ cargo = { packages = [
   "fd-find",
   "git-delta",
   "just",
-  "ripgrep",
   { name = "rtk", options = { git = "https://github.com/rtk-ai/rtk" } },
   "topgrade",
   "zoxide",

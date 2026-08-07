@@ -19,15 +19,19 @@ if [[ $(command -v ccache) ]]; then
   export CCACHE_COMPRESS=1
 fi
 export ANDROID_HOME=~/Android/Sdk
-export npm_config_prefix="$HOME/.local"
-export AUBE_RUNTIME_INSTALLER=aube
 export TIRITH=0
+set -a
+for file in "$HOME"/.config/environment.d/*.conf; do
+  [ -r "$file" ] || continue
+  . "$file"
+done
+set +a
+
 
 # Environment setup scripts
 [[ -f ~/.hostrc ]] && source ~/.hostrc
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
-[[ $(command -v aube) ]] && eval "$(aube activate $shell)"
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell 2>/dev/null)"
 
 # Aliases and functions
@@ -47,7 +51,6 @@ alias adate='adb shell date $(date +%m%d%H%M%Y.%S)'
 [[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
 [[ $(command -v dust) ]] && alias du="dust"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
-[[ $(command -v aubx) ]] && alias bunx='aubx'
 [[ $(command -v ugrep) ]] && alias grep="ugrep" && \
   alias rg='ugrep -r --ignore-files --ignore-files=.ignore --ignore-files=.rgignore -I -n --heading --break --color' && \
   alias ag='ug -r --ignore-files -I -n --heading --break --color -j --sort'
