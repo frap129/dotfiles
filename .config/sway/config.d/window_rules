@@ -1,8 +1,0 @@
-# Hide Firefox Share Indicator
-for_window [title="Firefox — Sharing Indicator"] floating enable; move scratchpad
-
-# Window Opacity
-set $opacitypercent 0.96
-for_window [class="jetbrains-studio"] opacity $opacitypercent
-#for_window [app_id="firefox"] opacity $opacitypercent
-for_window [class="Slack"] opacity $opacitypercent
