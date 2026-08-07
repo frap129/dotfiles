@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ "${2-}" == -g ]]; then
+  set -- "$1" --global "${@:3}"
+fi
+
+pin_package() {
+  local name="$1" pin_file pinned_name pinned_spec
+  pin_file="${XDG_CONFIG_HOME:-$HOME/.config}/aube/npm-global-pins"
+  if [[ -f "$pin_file" ]]; then
+    while read -r pinned_name pinned_spec; do
+      if [[ "$name" == "$pinned_name" ]]; then
+        printf '%s\n' "$pinned_spec"
+        return
+      fi
+    done <"$pin_file"
+  fi
+  printf '%s\n' "$name"
+}
+
+case "${1-} ${2-}" in
+"list --global")
+  aube list --global --json | jq '{dependencies: (map({key: .name, value: {version: .version}}) | from_entries)}'
+  ;;
+"install --global")
+  shift 2
+  allow_builds=()
+  packages=()
+  for package in "$@"; do
+    if [[ "$package" == @* ]]; then
+      name="${package%@*}"
+      [[ -n "$name" ]] || name="$package"
+    else
+      name="${package%%@*}"
+    fi
+    allow_builds+=("--allow-build=$name")
+    packages+=("$(pin_package "$package")")
+  done
+  exec aube add --global "${allow_builds[@]}" "${packages[@]}"
+  ;;
+"uninstall --global")
+  shift 2
+  exec aube remove --global "$@"
+  ;;
+"update --global")
+  shift 2
+  if (($# == 0)); then
+    mapfile -t packages < <(aube list --global --json | jq -r '.[].name')
+    set -- "${packages[@]}"
+  fi
+  update_packages=()
+  for package in "$@"; do
+    if [[ "$package" == @* ]]; then
+      name="${package%@*}"
+      [[ -n "$name" ]] || name="$package"
+    else
+      name="${package%%@*}"
+    fi
+    spec="$(pin_package "$package")"
+    if [[ "$spec" == "$package" ]]; then
+      update_packages+=("$package")
+    else
+      aube add --global "--allow-build=$name" "$spec"
+    fi
+  done
+  if ((${#update_packages[@]})); then
+    exec aube update --global --latest "${update_packages[@]}"
+  fi
+  ;;
+"cache clean")
+  exec aube store prune
+  ;;
+*)
+  exec aube "$@"
+  ;;
+esac

@@ -45,7 +45,6 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias adate='adb shell date $(date +%m%d%H%M%Y.%S)'
 
 # Common replacements
-[[ $(command -v aubeshim) ]] && eval "$(aubeshim activate $shell)"
 [[ $(command -v delta) ]] && alias diff="delta"
 [[ $(command -v bat) ]] && alias cat="bat -pp"
 [[ $(command -v eza) ]] && alias ls="eza -hg --icons --group-directories-first"

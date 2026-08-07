@@ -1,4 +1,4 @@
-enabled_backends = ["cargo", "nix", "bun", "uv"]
+enabled_backends = ["cargo", "nix", "npm", "uv"]
 hostname_groups_enabled = true
 
 [cargo]

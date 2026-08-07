@@ -5,6 +5,7 @@ nix = { packages = [
   "bash-completion",
   "bitwarden-cli",
   "btop",
+  "bun",
   "cargo",
   "cargo-binstall",
   "cmake",
@@ -31,6 +32,7 @@ nix = { packages = [
   "netcat",
   "nix-search-cli",
   "noto-fonts-color-emoji",
+  "nodejs-slim",
   "oh-my-posh",
   "openssh",
   "pandoc",
@@ -72,7 +74,7 @@ cargo = { packages = [
   "zoxide",
 ] }
 
-bun = { packages = [
+npm = { packages = [
   "@fission-ai/openspec",
   "conventional-changelog",
   "opencode-ai",
