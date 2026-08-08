@@ -28,13 +28,16 @@ done
 unset file
 set +a
 
-# Environment setup scripts
+# Environment setup script
+source ~/.config/shell/aliases.sh
 [[ -f ~/.hostrc ]] && source ~/.hostrc
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell 2>/dev/null)"
 [[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
+
+
 
 # Prompt
 eval "$(oh-my-posh init $shell --config ~/.config/oh-my-posh.json)"
