@@ -10,7 +10,6 @@ flatpak = {
   ],
   packages = [
     { name = "user:com.github.tchx84.Flatseal", options = { remote = "flathub" } },
-    { name = "user:com.obsproject.Studio", options = { remote = "flathub" } },
     { name = "user:com.orcaslicer.OrcaSlicer", options = { remote = "flathub" } },
     { name = "user:com.saivert.pwvucontrol", options = { remote = "flathub" } },
     { name = "user:com.usebottles.bottles", options = { remote = "flathub" } },
