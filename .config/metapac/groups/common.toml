@@ -17,7 +17,6 @@ nix = { packages = [
   "docker-compose",
   "fastfetch",
   { name = "fira-code", options = { installable = "nixpkgs#nerd-fonts.fira-code" } },
-  "fish",
   "fzf",
   "gh",
   "git",
