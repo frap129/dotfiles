@@ -1,5 +1,5 @@
 flatpak = { packages = [
-  { name = "user:com.bitwig.BitwigStudio", options = { remote = "flathub" }, hooks = { after_sync = ["bootstrap-orcaslicer"] } },
+  { name = "user:com.bitwig.BitwigStudio", options = { remote = "flathub" } },
   { name = "user:com.github.wwmm.easyeffects", options = { remote = "flathub" } },
   { name = "user:com.obsproject.Studio", options = { remote = "flathub" } },
   { name = "user:com.slack.Slack", options = { remote = "flathub" } },
