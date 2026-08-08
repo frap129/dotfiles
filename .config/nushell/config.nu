@@ -19,6 +19,7 @@
 
 $env.config.show_banner = false
 $env.config.use_kitty_protocol = true
+$env.config.rm.always_trash = true
 $env.config.keybindings ++= [
   {
     name: delete_word_before
