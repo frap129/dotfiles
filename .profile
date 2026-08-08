@@ -6,3 +6,8 @@ for file in "$HOME"/.config/environment.d/*.conf; do
 done
 unset file
 set +a
+
+# Spawn nushell
+if [[ $- == "*i*" ]] && [[ $(command -v nu) ]]; then
+  nu -il
+fi

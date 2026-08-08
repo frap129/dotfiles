@@ -8,7 +8,6 @@ alias du=dust
 alias fhere='find . -name'
 alias grep=ugrep
 alias histg='history | grep'
-alias ls='eza -hg --icons --group-directories-first'
 alias myip='curl http://ipecho.net/plain ; echo'
 alias rg='ugrep -r --ignore-files --ignore-files=.ignore --ignore-files=.rgignore -I -n --heading --break --color'
 alias vi=nvim

@@ -1,5 +1,6 @@
 nix = { packages = [
   "apktool",
+  "atuin",
   "aube",
   "bash",
   "bash-completion",
@@ -7,6 +8,7 @@ nix = { packages = [
   "bitwarden-cli",
   "btop",
   "bun",
+  "carapace",
   "cargo",
   "cargo-binstall",
   "cmake",
@@ -80,6 +82,7 @@ cargo = { packages = [
 npm = { packages = [
   "@fission-ai/openspec",
   "conventional-changelog",
+  "@microsoft/inshellisense",
   "opencode-ai",
 ] }
 

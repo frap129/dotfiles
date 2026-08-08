@@ -8,7 +8,6 @@ alias grep = ugrep
 def --wrapped histg [...rest] {
   history | grep ...$rest
 }
-alias ls = ^ls
 def --wrapped myip [...rest] {
   curl "http://ipecho.net/plain" ; echo ...$rest
 }

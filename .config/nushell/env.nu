@@ -16,6 +16,13 @@
 #
 # You can remove these comments if you want or leave
 # them for future reference.
+mkdir $"($nu.cache-dir)"
 
+use load-environment-d.nu
+load-environment-d
 
-zoxide init nushell --cmd cd | save -f ~/.cache/zoxide.nu
+# Integratons
+carapace _carapace nushell | save -f $"($nu.cache-dir)/carapace.nu"
+zoxide init nushell --cmd cd | save -f $"($nu.cache-dir)/zoxide.nu"
+atuin init nu | save -f $"($nu.cache-dir)/atuin.nu"
+tirith init --shell nushell | save -f $"($nu.cache-dir)/tirith.nu"

@@ -6,6 +6,9 @@ command = ["sh", "-c", "adb shell date $(date +%m%d%H%M%Y.%S)"]
 [aliases.ag]
 command = ["ug", "-r", "--ignore-files", "-I", "-n", "--heading", "--break", "--color", "-j", "--sort"]
 
+[aliases.bunx]
+command = ["aubx"]
+
 [aliases.cat]
 command = ["bat", "-pp"]
 
@@ -24,10 +27,6 @@ command = ["ugrep"]
 
 [aliases.histg]
 command = ["history", "|", "grep"]
-
-[aliases.ls]
-command = ["eza", "-hg", "--icons", "--group-directories-first"]
-nu = ["^ls"]
 
 [aliases.myip]
 command = ["curl", "http://ipecho.net/plain", ";", "echo"]

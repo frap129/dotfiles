@@ -17,27 +17,22 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
-oh-my-posh init nu
+$env.config.show_banner = false
 
-use bash-env.nu
-source ~/.zoxide.nu
+$env.config.keybindings ++= [
+  {
+    name: delete_word_before
+    modifier: control
+    keycode: backspace
+    mode: [emacs, vi_insert]
+    event: { edit: backspaceword }
+  }
+]
 
-def --env load-environment-d [] {
-    ls ~/.config/environment.d/*.conf
-    | sort-by name
-    | each --flatten {|file|
-        open --raw $file.name
-        | lines
-        | where {|line| ($line | str trim) != "" }
-        | each {|line|
-            if ($line | str trim | str starts-with "#") {
-                $line
-            } else {
-                $"export ($line)"
-            }
-        }
-    }
-    | bash-env
-    | load-env
-}
-load-environment-d
+source ~/.config/shell/aliases.nu
+
+source $"($nu.cache-dir)/carapace.nu"
+source $"($nu.cache-dir)/zoxide.nu"
+source $"($nu.cache-dir)/atuin.nu"
+source $"($nu.cache-dir)/tirith.nu"
+oh-my-posh init nu --config ~/.config/oh-my-posh.json

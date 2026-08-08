@@ -139,9 +139,11 @@ unset key
 # My zim additions
 #
 #
+autoload -U compinit && compinit -u
 
 source ~/.commonrc
 
 # zsh configs
 bindkey '\C-h' backward-kill-word
 setopt rmstarsilent
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'

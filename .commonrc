@@ -4,20 +4,19 @@
 
 # get current shell
 if [ -z "${BASH_VERSINFO+x}" ]; then
-    local shell="zsh"
+  local shell="zsh"
 else
-    shell="bash"
+  shell="bash"
 fi
 
 # Environment Variables
+export color_prompt=yes
 if [[ $(command -v ccache) ]]; then
   export USE_CCACHE=1
   export CCACHE_DIR=~/.ccache
   export CCACHE_EXEC=$(command -v ccache)
   export CCACHE_COMPRESS=1
 fi
-export ANDROID_HOME=~/Android/Sdk
-export TIRITH=0
 
 # Import environment from .config/environment.d
 set -a
@@ -28,14 +27,16 @@ done
 unset file
 set +a
 
-# Environment setup script
-source ~/.config/shell/aliases.sh
+# Aliases
+source "$HOME/.config/shell/aliases.sh"
+alias ls="eza -hg --icons --group-directories-first"
+
+# Environment setup scripts
 [[ -f ~/.hostrc ]] && source ~/.hostrc
-[[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
-[[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell 2>/dev/null)"
-[[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
+[[ $(command -v atuin) ]] && eval "$(atuin init $shell)"
+[[ $(command -v carapace) ]] && source <(carapace _carapace)
 
 # Prompt
 eval "$(oh-my-posh init $shell --config ~/.config/oh-my-posh.json)"
