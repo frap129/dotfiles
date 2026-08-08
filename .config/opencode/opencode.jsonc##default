@@ -14,7 +14,7 @@
     "context7": {
       "type": "local",
       "command": [
-        "bunx",
+        "aubx",
         "-y",
         "@upstash/context7-mcp",
         "--api-key",
@@ -41,7 +41,7 @@
     "web": {
       "type": "local",
       "command": [
-        "bunx",
+        "aubx",
         "-y",
         "intercept-mcp@latest",
       ],
@@ -50,6 +50,11 @@
       },
       "enabled": true,
     },
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["aubx", "chrome-devtools-mcp@latest", "--browserUrl", "http://127.0.0.1:9222"],
+      "enabled": false
+    }
   },
   "lsp": {
     "kotlin": {
