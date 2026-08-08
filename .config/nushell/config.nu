@@ -34,5 +34,4 @@ source ~/.config/shell/aliases.nu
 source $"($nu.cache-dir)/carapace.nu"
 source $"($nu.cache-dir)/zoxide.nu"
 source $"($nu.cache-dir)/atuin.nu"
-source $"($nu.cache-dir)/tirith.nu"
 oh-my-posh init nu --config ~/.config/oh-my-posh.json
