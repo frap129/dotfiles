@@ -27,10 +27,7 @@ command = ["history", "|", "grep"]
 
 [aliases.ls]
 command = ["eza", "-hg", "--icons", "--group-directories-first"]
-
-[aliases.mkdir]
-command = ["mkdir", "-pv"]
-nu = ["^mkdir", "-pv"]
+nu = ["^ls"]
 
 [aliases.myip]
 command = ["curl", "http://ipecho.net/plain", ";", "echo"]
@@ -41,6 +38,5 @@ command = ["ugrep", "-r", "--ignore-files", "--ignore-files=.ignore", "--ignore-
 [aliases.vi]
 command = ["nvim"]
 
-[aliases.wget]
-command = ["wget", "-c"]
-nu = ["^wget", "-c"]
+[aliases.vim]
+command = ["nvim"]

@@ -9,8 +9,7 @@ alias fhere='find . -name'
 alias grep=ugrep
 alias histg='history | grep'
 alias ls='eza -hg --icons --group-directories-first'
-alias mkdir='mkdir -pv'
 alias myip='curl http://ipecho.net/plain ; echo'
 alias rg='ugrep -r --ignore-files --ignore-files=.ignore --ignore-files=.rgignore -I -n --heading --break --color'
 alias vi=nvim
-alias wget='wget -c'
+alias vim=nvim

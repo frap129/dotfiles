@@ -8,11 +8,10 @@ alias grep = ugrep
 def --wrapped histg [...rest] {
   history | grep ...$rest
 }
-alias ls = eza "-hg" "--icons" "--group-directories-first"
-alias mkdir = ^mkdir "-pv"
+alias ls = ^ls
 def --wrapped myip [...rest] {
   curl "http://ipecho.net/plain" ; echo ...$rest
 }
 alias rg = ugrep "-r" "--ignore-files" "--ignore-files=.ignore" "--ignore-files=.rgignore" "-I" "-n" "--heading" "--break" "--color"
 alias vi = nvim
-alias wget = ^wget "-c"
+alias vim = nvim

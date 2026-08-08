@@ -37,7 +37,5 @@ source ~/.config/shell/aliases.sh
 [[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
 
-
-
 # Prompt
 eval "$(oh-my-posh init $shell --config ~/.config/oh-my-posh.json)"
