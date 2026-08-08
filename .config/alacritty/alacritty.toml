@@ -14,6 +14,7 @@ style = "Regular"
 
 [terminal.shell]
 program = "/bin/zsh"
+args = ["-l"]
 
 [window]
 decorations = "none"

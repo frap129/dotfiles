@@ -8,6 +8,6 @@ unset file
 set +a
 
 # Spawn nushell
-if [[ $- == "*i*" ]] && [[ $(command -v nu) ]]; then
-  nu -il
+if [[ $- == *i* ]] && [[ $(command -v nu) ]]; then
+  exec nu -il
 fi
