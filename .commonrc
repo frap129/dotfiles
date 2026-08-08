@@ -10,7 +10,6 @@ else
 fi
 
 # Environment Variables
-export GOPATH=~/.cache/go
 export color_prompt=yes
 if [[ $(command -v ccache) ]]; then
   export USE_CCACHE=1
@@ -25,6 +24,7 @@ for file in "$HOME"/.config/environment.d/*.conf; do
   [ -r "$file" ] || continue
   . "$file"
 done
+unset file
 set +a
 
 
@@ -33,26 +33,8 @@ set +a
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
 [[ -d ~/Android/platform-tools ]] && export PATH=~/Android/platform-tools:$PATH
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell 2>/dev/null)"
-
-# Aliases and functions
-alias mkdir="mkdir -pv"
-alias fhere="find . -name "
-alias wget="wget -c"
-alias histg="history | grep"
-alias vi="nvim"
-alias myip="curl http://ipecho.net/plain; echo"
-alias adate='adb shell date $(date +%m%d%H%M%Y.%S)'
-
-# Common replacements
-[[ $(command -v delta) ]] && alias diff="delta"
-[[ $(command -v bat) ]] && alias cat="bat -pp"
-[[ $(command -v eza) ]] && alias ls="eza -hg --icons --group-directories-first"
 [[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
-[[ $(command -v dust) ]] && alias du="dust"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
-[[ $(command -v ugrep) ]] && alias grep="ugrep" && \
-  alias rg='ugrep -r --ignore-files --ignore-files=.ignore --ignore-files=.rgignore -I -n --heading --break --color' && \
-  alias ag='ug -r --ignore-files -I -n --heading --break --color -j --sort'
 
 # Workstation environment
 if [[ $(command -v nix) ]]; then
