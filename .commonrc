@@ -10,7 +10,6 @@ else
 fi
 
 # Environment Variables
-export color_prompt=yes
 if [[ $(command -v ccache) ]]; then
   export USE_CCACHE=1
   export CCACHE_DIR=~/.ccache
@@ -19,6 +18,8 @@ if [[ $(command -v ccache) ]]; then
 fi
 export ANDROID_HOME=~/Android/Sdk
 export TIRITH=0
+
+# Import environment from .config/environment.d
 set -a
 for file in "$HOME"/.config/environment.d/*.conf; do
   [ -r "$file" ] || continue
@@ -27,7 +28,6 @@ done
 unset file
 set +a
 
-
 # Environment setup scripts
 [[ -f ~/.hostrc ]] && source ~/.hostrc
 [[ -f ~/.local/bin/snv ]] && source ~/.local/bin/snv
@@ -35,49 +35,6 @@ set +a
 [[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell 2>/dev/null)"
 [[ $(command -v thefuck) ]] && eval "$(thefuck --alias)"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
-
-# Workstation environment
-if [[ $(command -v nix) ]]; then
-  setup-workstation() {
-    local arg dry_run=false
-
-    for arg in "$@"; do
-      case "$arg" in
-        -n|--dry-run) dry_run=true ;;
-      esac
-    done
-
-    if [[ "$dry_run" == true ]]; then
-      nix build nixpkgs#metapac --dry-run --no-link || return
-      command -v metapac >/dev/null && command -v yadm >/dev/null || {
-        printf 'setup-workstation: install metapac before first dry run\n' >&2
-        return 1
-      }
-    else
-      yadm alt || return
-      if nix profile list --json | command grep -q '"nix-env"'; then
-        nix profile remove nix-env || return
-      fi
-      for bootstrap_package in metapac aube cargo cargo-binstall jq rustc uv; do
-        if ! nix profile list --json | command grep -q "\"$bootstrap_package\""; then
-          nix profile install "nixpkgs#$bootstrap_package" || return
-        fi
-      done
-      if [[ ! $(command -v aubeshim) ]]; then
-        cargo-binstall aubeshim
-        aubeshim install --force
-      fi
-      hash -r
-    fi
-
-    if [[ "$dry_run" == true ]]; then
-      metapac unmanaged || return
-      printf 'setup-workstation: dry run skips metapac sync\n'
-    else
-      metapac sync --no-confirm
-    fi
-  }
-fi
 
 # Prompt
 eval "$(oh-my-posh init $shell --config ~/.config/oh-my-posh.json)"

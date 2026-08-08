@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Preflight: nix must be available
+if ! command -v nix >/dev/null 2>&1; then
+  printf 'setup-workstation: nix not found on PATH; install nix first\n' >&2
+  exit 1
+fi
+
+dry_run=false
+for arg in "$@"; do
+  case "$arg" in
+    -n|--dry-run) dry_run=true ;;
+  esac
+done
+
+if [[ "$dry_run" == true ]]; then
+  nix build nixpkgs#metapac --dry-run --no-link || exit
+  command -v metapac >/dev/null && command -v yadm >/dev/null || {
+    printf 'setup-workstation: install metapac before first dry run\n' >&2
+    exit 1
+  }
+else
+  yadm alt || exit
+  if nix profile list --json | command grep -q '"nix-env"'; then
+    nix profile remove nix-env || exit
+  fi
+  for bootstrap_package in metapac aube cargo cargo-binstall jq rustc uv; do
+    if ! nix profile list --json | command grep -q "\"$bootstrap_package\""; then
+      nix profile install "nixpkgs#$bootstrap_package" || exit
+    fi
+  done
+  if [[ ! $(command -v aubeshim) ]]; then
+    cargo-binstall aubeshim || exit
+    aubeshim install --force || exit
+  fi
+  hash -r
+fi
+
+if [[ "$dry_run" == true ]]; then
+  metapac unmanaged || exit
+  printf 'setup-workstation: dry run skips metapac sync\n'
+else
+  metapac sync --no-confirm
+fi
