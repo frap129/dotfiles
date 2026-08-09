@@ -72,7 +72,10 @@
             "branch_icon": " ",
             "fetch_status": true,
             "fetch_stash_count": true,
-            "fetch_upstream_icon": true
+            "fetch_upstream_icon": true,
+            "untracked_modes": {
+              "*": "no"
+            }
           }
         }
       ]
