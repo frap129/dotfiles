@@ -55,7 +55,12 @@ nix = { packages = [
   "tmux",
   "ugrep",
   "unzip",
-  { name = "uv", hooks = { after_install = ["uv", "python", "install", "--default"] } },
+  { name = "uv", hooks = { after_install = [
+    "uv",
+    "python",
+    "install",
+    "--default"
+  ] } },
   "wget",
   "which",
   "yadm",
@@ -65,7 +70,11 @@ nix = { packages = [
 ] }
 
 cargo = { packages = [
-  { name = "aubeshim", hooks = { after_install = ["aubeshim", "install", "--force"] } },
+  { name = "aubeshim", hooks = { after_install = [
+    "aubeshim",
+    "install",
+    "--force"
+  ] } },
   "bat",
   "cargo-update",
   "du-dust",
@@ -73,6 +82,27 @@ cargo = { packages = [
   "fd-find",
   "git-delta",
   "just",
+  { name = "nu_plugin_inc", hooks = { after_install = [
+    "nu",
+    "-c",
+    "plugin",
+    "add",
+    "~/.cargo/bin/nu_plugin_inc"
+  ] } },
+  { name = "nu_plugin_port_extension", options = { git = "https://github.com/FMotalleb/nu_plugin_port_extension" }, hooks = { after_install = [
+    "nu",
+    "-c",
+    "plugin",
+    "add",
+    "~/.cargo/bin/nu_plugin_port_extension"
+  ] } },
+  { name = "nu_plugin_query", hooks = { after_install = [
+    "nu",
+    "-c",
+    "plugin",
+    "add",
+    "~/.cargo/bin/nu_plugin_query"
+  ] } },
   { name = "rtk", options = { git = "https://github.com/rtk-ai/rtk" } },
   "topgrade",
   "zoxide",
