@@ -1,27 +1,22 @@
-nix = { packages = [
-  "gpu-screen-recorder",
-] }
+nix = { packages = ["gpu-screen-recorder", "foot"] }
 
 uv = { packages = ["pywalfox"] }
 
-flatpak = {
-  repos = [
-    { name = "user:flathub", options = { url = "https://dl.flathub.org/repo/flathub.flatpakrepo" } },
-  ],
-  packages = [
-    { name = "user:com.github.tchx84.Flatseal", options = { remote = "flathub" } },
-    { name = "user:com.orcaslicer.OrcaSlicer", options = { remote = "flathub" } },
-    { name = "user:com.saivert.pwvucontrol", options = { remote = "flathub" } },
-    { name = "user:com.usebottles.bottles", options = { remote = "flathub" } },
-    { name = "user:hu.irl.cameractrls", options = { remote = "flathub" } },
-    { name = "user:it.mijorus.gearlever", options = { remote = "flathub" } },
-    { name = "user:io.github.pwr_solaar.solaar", options = { remote = "flathub" } },
-    { name = "user:md.obsidian.Obsidian", options = { remote = "flathub" } },
-    { name = "user:org.gimp.GIMP", options = { remote = "flathub" } },
-    { name = "user:org.gnome.baobab", options = { remote = "flathub" } },
-    { name = "user:org.onlyoffice.desktopeditors", options = { remote = "flathub" } },
-  ],
-}
+flatpak = { repos = [
+  { name = "user:flathub", options = { url = "https://dl.flathub.org/repo/flathub.flatpakrepo" } },
+], packages = [
+  { name = "user:com.github.tchx84.Flatseal", options = { remote = "flathub" } },
+  { name = "user:com.orcaslicer.OrcaSlicer", options = { remote = "flathub" } },
+  { name = "user:com.saivert.pwvucontrol", options = { remote = "flathub" } },
+  { name = "user:com.usebottles.bottles", options = { remote = "flathub" } },
+  { name = "user:hu.irl.cameractrls", options = { remote = "flathub" } },
+  { name = "user:it.mijorus.gearlever", options = { remote = "flathub" } },
+  { name = "user:io.github.pwr_solaar.solaar", options = { remote = "flathub" } },
+  { name = "user:md.obsidian.Obsidian", options = { remote = "flathub" } },
+  { name = "user:org.gimp.GIMP", options = { remote = "flathub" } },
+  { name = "user:org.gnome.baobab", options = { remote = "flathub" } },
+  { name = "user:org.onlyoffice.desktopeditors", options = { remote = "flathub" } },
+] }
 
 cargo = { packages = [
   { name = "mdisplay", options = { git = "https://github.com/ernestoCruz05/mdisplay" } },
