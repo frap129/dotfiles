@@ -1,1 +1,1 @@
-source .profile
+source ${HOME}/.profile

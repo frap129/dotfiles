@@ -1,5 +1,9 @@
 onboarding = false
 
+[terminal]
+shell_mode = "login"
+new_cwd = "home"
+
 [theme]
 name = "terminal"
 auto_switch = false
