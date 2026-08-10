@@ -4,9 +4,7 @@
 [include]
 paths = ["/etc/topgrade.toml"]
 
-
 [misc]
-disable = ["system", "containers", "node", "bun", "bun_packages", "uv", "cargo", "opencode", "pi", "nix"]
 # Run `sudo -v` to cache credentials at the start of the run
 # This avoids a blocking password prompt in the middle of an unattended run
 # (default: false)
@@ -81,16 +79,14 @@ cleanup = true
 # See: https://docs.rs/tracing-subscriber/latest/tracing_subscriber/filter/struct.EnvFilter.html#directives
 # log_filters = ["topgrade::command=debug", "warn"]
 
-
 # Commands to run before anything
 [pre_commands]
 # "Emacs Snapshot" = "rm -rf ~/.emacs.d/elpa.bak && cp -rl ~/.emacs.d/elpa ~/.emacs.d/elpa.bak"
+"Metapac Sync" = "metapac sync --no-confirm"
 
 # Commands to run after anything
 [post_commands]
 # "Emacs Snapshot" = "rm -rf ~/.emacs.d/elpa.bak && cp -rl ~/.emacs.d/elpa ~/.emacs.d/elpa.bak"
-"Metapac Sync" = "metapac sync --no-confirm"
-
 
 # Custom commands
 [commands]
@@ -98,24 +94,21 @@ cleanup = true
 # "Custom command using interactive shell (unix)" = "-i vim_upgrade"
 "AstroNvim" = "nvim --headless +AstroUpdate +q"
 
-
 [python]
 # enable_pip_review = true                         ###disabled by default
 # enable_pip_review_local = true                   ###disabled by default
 # enable_pipupgrade = true                         ###disabled by default
 # pipupgrade_arguments = "-y -u --pip-path pip"    ###disabled by default
 
-# For the poetry step, by default, Topgrade skips its update if poetry is not 
-# installed with the official script. This configuration entry forces Topgrade 
+# For the poetry step, by default, Topgrade skips its update if poetry is not
+# installed with the official script. This configuration entry forces Topgrade
 # to run the update in this case.
 #
 # (default: false)
 # poetry_force_self_update = true
 
-
 [composer]
 # self_update = true
-
 
 [brew]
 # For the BrewCask step
@@ -142,7 +135,6 @@ cleanup = true
 # For the BrewFormula step
 # Upgrade formulae built from the HEAD branch; `brew upgrade --fetch-HEAD`
 # fetch_head = true
-
 
 [linux]
 # Arch Package Manager to use.
@@ -193,7 +185,6 @@ cleanup = true
 # Extra Home Manager arguments
 # home_manager_arguments = ["--flake", "file"]
 
-
 [git]
 # How many repos to pull at max in parallel
 # max_concurrency = 5
@@ -210,7 +201,6 @@ cleanup = true
 # Arguments to pass Git when pulling Repositories
 # arguments = "--rebase --autostash"
 
-
 [windows]
 # Manually select Windows updates
 # accept_all_updates = false
@@ -226,7 +216,6 @@ cleanup = true
 # manager such as Scoop or Cargo
 # self_rename = true
 
-
 [npm]
 # Use sudo if the NPM directory isn't owned by the current user
 # use_sudo = true
@@ -235,21 +224,17 @@ cleanup = true
 # Run `yarn global upgrade` with `sudo`
 # use_sudo = true
 
-
 [deno]
 # Upgrade deno executable to the given version.
 # version = "stable"
-
 
 [vim]
 # For `vim-plug`, execute `PlugUpdate!` instead of `PlugUpdate`
 # force_plug_update = true
 
-
 [firmware]
 # Offer to update firmware; if false just check for and display available updates
 # upgrade = true
-
 
 [vagrant]
 # Vagrant directories
@@ -261,11 +246,9 @@ cleanup = true
 # Always suspend vagrant boxes instead of powering off
 # always_suspend = true
 
-
 [flatpak]
 # Use sudo for updating the system-wide installation
 # use_sudo = true
-
 
 [distrobox]
 # use_root = false
