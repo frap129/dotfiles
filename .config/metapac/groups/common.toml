@@ -25,7 +25,7 @@ nix = { packages = [
   "gnumake",
   "grpcurl",
   "gvfs",
-  "herdr",
+  { name = "herdr", options = { installable = "github:herdrdev/herdr#herdr" } },
   "jq",
   "less",
   "lsof",
