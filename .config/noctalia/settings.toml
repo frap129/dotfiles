@@ -1,0 +1,216 @@
+config_version = 8
+
+[audio]
+enable_overdrive = true
+
+[bar.default]
+center = [ "clock", "date" ]
+end = [
+    "media",
+    "tray",
+    "screenshot",
+    "notifications",
+    "clipboard",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "control-center"
+]
+margin_ends = 0
+start = [ "btn", "workspaces", "caffeine", "active_window" ]
+
+[[control_center.shortcuts]]
+type = "wifi"
+
+[[control_center.shortcuts]]
+type = "caffeine"
+
+[[control_center.shortcuts]]
+type = "nightlight"
+
+[[control_center.shortcuts]]
+type = "notification"
+
+[[control_center.shortcuts]]
+type = "power_profile"
+
+[desktop_widgets]
+enabled = false
+
+[idle]
+pre_action_fade_seconds = 10
+
+[location]
+auto_locate = true
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 1280.0
+    cy = 1321.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 1280.0
+    cy = 1321.0
+    output = "DP-2"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 1081.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+
+[nightlight]
+enabled = true
+
+[notification]
+layer = "overlay"
+
+[osd]
+offset_y = 64
+position = "bottom_center"
+
+[plugin_settings."ezequiel/mango_layouts"]
+list_mode = true
+panel_open_near_click = true
+panel_placement = "attached"
+panel_position = "auto"
+
+[plugin_settings."noctalia/bitwarden"]
+server_url = "https://vault.cloud.maples.dev"
+
+[plugins]
+enabled = [ "frap129/noctalia-bitwarden-keyring", "ezequiel/mango_layouts", "noctalia/bitwarden", "whyoolw/sharednd" ]
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/official-plugins"
+    name = "official"
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/community-plugins"
+    name = "community"
+
+    [[plugins.source]]
+    kind = "path"
+    location = "/home/joe/Projects/linux/bitwarden-keyring"
+    name = "bitwarden-keyring"
+
+[shell.launcher]
+session_search = true
+
+[shell.panel]
+borders = false
+clipboard_placement = "attached"
+launcher_placement = "attached"
+open_near_click_clipboard = true
+open_near_click_control_center = true
+polkit_placement = "attached"
+
+[system.monitor]
+enabled = false
+
+[theme]
+community_palette = "Vesper"
+source = "wallpaper"
+wallpaper_scheme = "m3-monochrome"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kcolorscheme", "mango", "qt" ]
+    community_ids = [ "pywalfox", "obsidian", "vscode", "discord", "steam", "hyprtoolkit" ]
+
+[wallpaper.default]
+path = "/home/joe/Pictures/Wallpapers/CactusChair.jpg"
+
+[wallpaper.last]
+path = "/home/joe/Pictures/Wallpapers/CactusChair.jpg"
+
+[wallpaper.monitors.DP-1]
+path = "/home/joe/Pictures/Wallpapers/CactusChair.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/joe/Pictures/Wallpapers/CactusChair.jpg"
+
+[widget.active_window]
+icon_color = "primary"
+max_length = 600
+
+[widget.battery]
+hide_when_full = true
+
+[widget.brightness]
+show_label = false
+
+[widget.btn]
+type = "ezequiel/mango_layouts:btn"
+
+[widget.clock]
+format = "{:%I:%M %p}"
+
+[widget.date]
+format = "{:%A %b %d}"
+
+[widget.media]
+hide_when_no_media = true
+
+[widget.network]
+show_label = false
+
+[widget.volume]
+show_label = false
