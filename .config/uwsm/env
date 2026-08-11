@@ -1,3 +1,4 @@
-export WLR_RENDERER=vulkan
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/bitwarden-keyring/ssh.sock"
+export UWSM_FINALIZE_VARNAMES="$UWSM_FINALIZE_VARNAMES SSH_AUTH_SOCK"
 # ###### app2unit Integration ######
 export APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'
