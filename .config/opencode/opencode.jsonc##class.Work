@@ -15,7 +15,7 @@
     "context7": {
       "type": "local",
       "command": [
-        "bunx",
+        "aubx",
         "-y",
         "@upstash/context7-mcp",
         "--api-key",
@@ -25,35 +25,19 @@
     },
     "chrome-dev-tools": {
       "type": "local",
-      "command": ["bunx", "-y", "chrome-devtools-mcp@latest"],
+      "command": ["aubx", "-y", "chrome-devtools-mcp@latest"],
       "enabled": false,
     },
     "android": {
       "type": "local",
-      "command": ["bunx", "-y", "android-mcp-server"],
+      "command": ["aubx", "-y", "android-mcp-server"],
       "enabled": false,
     },
-    "general": {
-      "type": "remote",
-      "url": "{env:MCP_SEARXNG_URL}",
-      "headers": {
-        "Authorization": "Bearer {env:MCP_SEARXNG_API_KEY}",
-      },
-      "enabled": true,
-    },
-    "code": {
-      "type": "remote",
-      "url": "{env:MCP_SEARXNG_CODE_URL}",
-      "headers": {
-        "Authorization": "Bearer {env:MCP_SEARXNG_API_KEY}",
-      },
-      "enabled": true,
-    },
     "web": {
-      "type": "local",
-      "command": ["bunx", "-y", "intercept-mcp@latest"],
-      "environment": {
-        "USE_STEALTH_FETCH": "true",
+      "type": "remote",
+      "url": "{env:MCP_HOUND_URL}",
+      "headers": {
+        "Authorization": "Bearer {env:MCP_HOUND_API_KEY}",
       },
       "enabled": true,
     },
@@ -68,18 +52,13 @@
     "figma": {
       "type": "local",
       "command": [
-        "bunx",
+        "aubx",
         "-y",
         "figma-developer-mcp",
         "--figma-api-key={env:FIGMA_API_TOKEN}",
         "--stdio",
       ],
       "enabled": false,
-    },
-    "codebase-memory": {
-      "enabled": false,
-      "type": "local",
-      "command": ["/home/joe/.local/bin/codebase-memory-mcp"],
     },
     "atlassian": {
       "type": "remote",
@@ -159,6 +138,12 @@
     "prune": false,
   },
   "agent": {
+    "build": {
+      "prompt": "{file:prompts/core.md}",
+    },
+    "plan": {
+      "prompt": "{file:prompts/core.md}",
+    },
     "general": {
       "variant": "high",
     },
