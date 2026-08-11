@@ -109,6 +109,12 @@
     "prune": true,
   },
   "agent": {
+    "build": {
+      "prompt": "{file:prompts/core.md}",
+    },
+    "plan": {
+      "prompt": "{file:prompts/core.md}",
+    },
     "general": {
       "variant": "high",
     },
