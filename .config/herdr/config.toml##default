@@ -19,7 +19,7 @@ agent_panel_sort = "spaces"
 pane_history = true
 
 [[keys.command]]
-key = "prefix+p"
+key = "prefix+d"
 type = "plugin_action"
-command = "jt.command-palette.open"
-description = "Command palette"
+command = "herdr-navigator.open"
+description = "jump to anything"

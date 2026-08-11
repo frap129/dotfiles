@@ -1,49 +1,223 @@
 [
   {
-    "plugin_id": "jt.command-palette",
-    "name": "Command Palette (fzf)",
-    "version": "0.1.0",
+    "plugin_id": "herdr-auto-update",
+    "name": "herdr-auto-update",
+    "version": "0.0.2",
     "min_herdr_version": "0.7.0",
-    "description": "An fzf command palette for herdr: pops up a fuzzy-searchable list of every action exposed by every installed plugin (via `herdr plugin action list`) and invokes the one you pick. The picker runs in an overlay pane so fzf gets a real TTY; the origin workspace's cwd is forwarded so context-aware actions resolve the right repo.",
-    "manifest_path": "/home/joe/.config/herdr/plugins/github/jt.command-palette-24905dca5f16/herdr-plugin.toml",
-    "plugin_root": "/home/joe/.config/herdr/plugins/github/jt.command-palette-24905dca5f16",
+    "description": "Check installed herdr plugins for newer upstream commits and reinstall them; optionally runs automatically at herdr startup",
+    "manifest_path": "/home/joe/.config/herdr/plugins/github/herdr-auto-update-62a06efd515a/herdr-plugin.toml",
+    "plugin_root": "/home/joe/.config/herdr/plugins/github/herdr-auto-update-62a06efd515a",
     "enabled": true,
     "platforms": [
       "linux",
-      "macos"
+      "macos",
+      "windows"
     ],
-    "actions": [
+    "build": [
       {
-        "id": "open",
-        "title": "Command palette (all plugin actions)",
-        "contexts": [
-          "workspace"
-        ],
         "command": [
-          "bash",
-          "open.sh"
+          "cargo",
+          "build",
+          "--release"
         ]
       }
     ],
-    "panes": [
+    "startup": [
       {
-        "id": "palette",
-        "title": "Command palette",
-        "placement": "overlay",
+        "platforms": [
+          "linux",
+          "macos"
+        ],
         "command": [
-          "bash",
-          "-c",
-          "exec \"$HERDR_PLUGIN_ROOT/palette.sh\""
+          "sh",
+          "scripts/run.sh",
+          "startup"
+        ]
+      },
+      {
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "scripts/run.ps1",
+          "startup"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "check",
+        "title": "Check herdr plugin updates",
+        "contexts": [
+          "workspace"
+        ],
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "sh",
+          "scripts/run.sh",
+          "check"
+        ]
+      },
+      {
+        "id": "check-windows",
+        "title": "Check herdr plugin updates",
+        "contexts": [
+          "workspace"
+        ],
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "scripts/run.ps1",
+          "check"
+        ]
+      },
+      {
+        "id": "update",
+        "title": "Update herdr plugins",
+        "contexts": [
+          "workspace"
+        ],
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "sh",
+          "scripts/run.sh",
+          "update"
+        ]
+      },
+      {
+        "id": "update-windows",
+        "title": "Update herdr plugins",
+        "contexts": [
+          "workspace"
+        ],
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "scripts/run.ps1",
+          "update"
         ]
       }
     ],
     "source": {
       "kind": "github",
-      "owner": "JanTvrdik",
-      "repo": "herdr-command-palette",
-      "resolved_commit": "eab940018c2135ac23718efa11e23e9dddcd2a75",
-      "managed_path": "/home/joe/.config/herdr/plugins/github/jt.command-palette-24905dca5f16",
-      "installed_unix_ms": 1785334579799
+      "owner": "dio16",
+      "repo": "herdr-auto-update",
+      "resolved_commit": "4009361d87427ac2d582a3b6e30c4ddecfadbc9f",
+      "managed_path": "/home/joe/.config/herdr/plugins/github/herdr-auto-update-62a06efd515a",
+      "installed_unix_ms": 1786456845697
+    }
+  },
+  {
+    "plugin_id": "herdr-navigator",
+    "name": "Herdr Navigator",
+    "version": "0.3.5",
+    "min_herdr_version": "0.7.3",
+    "description": "Jump to any Herdr workspace, agent, project, session, remote, directory, or action from one fuzzy navigator.",
+    "manifest_path": "/home/joe/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5/herdr-plugin.toml",
+    "plugin_root": "/home/joe/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos"
+    ],
+    "build": [
+      {
+        "command": [
+          "cargo",
+          "build",
+          "--release"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "jump-back",
+        "title": "Herdr Navigator: jump back",
+        "contexts": [
+          "workspace",
+          "global"
+        ],
+        "command": [
+          "./target/release/herdr-navigator",
+          "jump-back"
+        ]
+      },
+      {
+        "id": "open",
+        "title": "Herdr Navigator: open",
+        "contexts": [
+          "workspace",
+          "global"
+        ],
+        "command": [
+          "./target/release/herdr-navigator",
+          "open"
+        ]
+      },
+      {
+        "id": "open-side",
+        "title": "Herdr Navigator: side pane",
+        "contexts": [
+          "workspace",
+          "global"
+        ],
+        "command": [
+          "./target/release/herdr-navigator",
+          "open-side"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "picker",
+        "title": "Herdr Navigator",
+        "placement": "overlay",
+        "command": [
+          "./target/release/herdr-navigator",
+          "ui"
+        ]
+      },
+      {
+        "id": "picker-side",
+        "title": "Navigator Side",
+        "placement": "split",
+        "command": [
+          "./target/release/herdr-navigator",
+          "ui",
+          "--side"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "thanhdat77",
+      "repo": "herdr-navigator",
+      "resolved_commit": "1fd5203c2b26f04dec6ffb4c75558b88fc1f5336",
+      "managed_path": "/home/joe/.config/herdr/plugins/github/herdr-navigator-3a5a6fa5dfb5",
+      "installed_unix_ms": 1786456897546
     }
   },
   {
