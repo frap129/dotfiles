@@ -28,6 +28,13 @@ Add one compact `Sources` section to the plan listing each relevant dependency,
 detected version, and official URL. Surface unresolved facts or conflicts with
 project conventions to the user before plan approval.
 
+## Performance Work
+
+When the spec contains a performance requirement or measured regression,
+**REQUIRED SUB-SKILL:** Use `performance-optimization`. Embed its baseline,
+measurement conditions, identified bottleneck, target, correctness checks, and
+keep-or-revert criteria in the plan.
+
 ## Scope Check
 
 If the spec covers multiple independent subsystems, it should have been broken into sub-project specs during brainstorming. If it wasn't, suggest breaking this into separate plans — one per subsystem. Each plan should produce working, testable software on its own.

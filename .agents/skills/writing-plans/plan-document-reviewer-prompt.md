@@ -24,6 +24,7 @@ Subagent (document-reviewer):
     | Task Decomposition | Tasks have clear boundaries, steps are actionable |
     | Buildability | Could an engineer follow this plan without getting stuck? |
     | Source Grounding | Version-sensitive external APIs match the plan-level official sources |
+    | Performance | Requested performance work has repeatable measurements, thresholds, correctness gates, and keep-or-revert criteria |
 
     ## Calibration
 

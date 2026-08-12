@@ -57,6 +57,11 @@ Converts the approved spec into an implementation-ready plan with:
 
 After approval, it offers two execution paths and recommends one based on plan size and coupling.
 
+For explicit performance requirements or measured regressions, planning invokes
+`performance-optimization` and embeds its benchmark and acceptance instructions
+in the plan. Implementers execute those instructions rather than redesigning
+the performance experiment.
+
 #### 3a. `executing-plans`
 
 For small, tightly coupled plans that fit comfortably in one modern model's context window. One agent critically reviews the plan, executes its tasks in order, tracks progress, stops on ambiguity, and performs fresh final verification.
@@ -95,7 +100,8 @@ unmatched skills and outer workflows remain unloaded. Completion and authorized
 commits require `verification-before-completion`.
 
 Other local utilities include `absolute-simplify`, `writing-skills`,
-`using-mnemosyne-memory`, and the manually invoked `handoff`, adapted from
+`using-mnemosyne-memory`, planner-invoked `performance-optimization`, and the
+manually invoked `handoff`, adapted from
 Matt Pocock's [`handoff`](https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff).
 
 ## Intentional Divergence from Upstream Superpowers
@@ -136,6 +142,13 @@ The local skills retain upstream improvements that add capability without import
   [`diagnosing-bugs`](https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs);
 - the untrusted diagnostic-output rule from Addy Osmani's
   [`debugging-and-error-recovery`](https://github.com/addyosmani/agent-skills/tree/main/skills/debugging-and-error-recovery).
+- Addy Osmani's
+  [`performance-optimization`](https://github.com/addyosmani/agent-skills/tree/main/skills/performance-optimization),
+  generalized beyond web applications while preserving its measurement,
+  bottleneck, remeasurement, variance, correctness, and keep-or-revert workflow,
+  together with a general-purpose adaptation of its
+  [`performance-checklist`](https://github.com/addyosmani/agent-skills/blob/main/references/performance-checklist.md)
+  for CLI, library, service, daemon, batch, database, and browser workloads.
 
 ## Change Management
 
