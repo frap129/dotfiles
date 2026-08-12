@@ -66,6 +66,20 @@ Keep text responses concise. Cut all filler, keep technical substance.
 - No hacks. No unreasonable shortcuts
 - Do not give up if you encounter unexpected problems. Reason about alternative solutions and debug systematically to get back on track
 
+### Required Skill Activation
+
+Before editing, load every matching skill in this order:
+
+1. Unknown failure or bug cause → `systematic-debugging`
+2. Authentication, authorization, secrets, payments, or untrusted input → `security-review`
+3. Creating or changing a shared abstraction → `code-architecture-wrong-abstraction`
+4. Feature, bug fix, refactor, or behavior change → `test-driven-development`
+5. Introducing or renaming identifiers → `naming-cheatsheet`
+
+Before reporting completion or performing an authorized commit, load
+`verification-before-completion`. Triggers accumulate; do not load unmatched
+skills or any outer workflow.
+
 ### Task Approach
 
 - If the delegated prompt asks how to approach a task, provide the approach only; do not implement it or ask the user for approval
