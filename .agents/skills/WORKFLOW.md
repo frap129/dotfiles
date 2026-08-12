@@ -147,6 +147,10 @@ The local skills retain upstream improvements that add capability without import
 - bug-detecting feedback-loop, reproduction-minimization, diagnostic-cleanup,
   and falsifiable-hypothesis techniques from Matt Pocock's
   [`diagnosing-bugs`](https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs);
+- Matt Pocock's standalone
+  [`resolving-merge-conflicts`](https://github.com/mattpocock/skills/blob/84fdeffd12f2ee307994d1eb6feb48173b6e0502/skills/engineering/resolving-merge-conflicts/SKILL.md)
+  for in-progress Git merge and rebase conflicts, imported verbatim without
+  modification;
 - the untrusted diagnostic-output rule from Addy Osmani's
   [`debugging-and-error-recovery`](https://github.com/addyosmani/agent-skills/tree/main/skills/debugging-and-error-recovery).
 - Addy Osmani's
