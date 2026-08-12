@@ -91,7 +91,9 @@ debugging, security, abstraction, TDD, then naming. Triggers accumulate, while
 unmatched skills and outer workflows remain unloaded. Completion and authorized
 commits require `verification-before-completion`.
 
-Other local utilities include `absolute-simplify`, `writing-skills`, and `using-mnemosyne-memory`.
+Other local utilities include `absolute-simplify`, `writing-skills`,
+`using-mnemosyne-memory`, and the manually invoked `handoff`, adapted from
+Matt Pocock's [`handoff`](https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff).
 
 ## Intentional Divergence from Upstream Superpowers
 
@@ -145,7 +147,8 @@ commit workflow changes while this overview is stale.
 - mandatory worktrees and branch-finishing workflow;
 - Visual Companion browser/server assets;
 - `receiving-code-review` and `dispatching-parallel-agents`;
-- complete Matt Pocock or Addy Osmani skill packs.
+- complete Matt Pocock or Addy Osmani skill packs; only documented techniques
+  and individual skills are selectively adapted.
 
 ## Pending Workflow Changes
 
