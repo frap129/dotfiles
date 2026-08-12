@@ -78,11 +78,18 @@ The programmer owning affected code handles review fixes. A `NEEDS_CONTEXT` repo
 Implementation agents selectively use focused disciplines rather than another outer workflow:
 
 - `test-driven-development` — red-green-refactor and behavior-focused test design;
-- `systematic-debugging` — root-cause investigation before fixes;
+- `systematic-debugging` — root-cause investigation before fixes, using a fast
+  bug-detecting feedback loop, minimized reproduction, targeted and secret-safe
+  diagnostics, falsifiable hypotheses, and verified diagnostic cleanup;
 - `verification-before-completion` — fresh evidence before success claims;
 - `security-review` — security-sensitive changes;
 - `code-architecture-wrong-abstraction` — abstraction decisions;
 - `naming-cheatsheet` — naming quality.
+
+The delegated programmer activates every matching inner skill in a fixed order:
+debugging, security, abstraction, TDD, then naming. Triggers accumulate, while
+unmatched skills and outer workflows remain unloaded. Completion and authorized
+commits require `verification-before-completion`.
 
 Other local utilities include `absolute-simplify`, `writing-skills`, and `using-mnemosyne-memory`.
 
@@ -117,7 +124,19 @@ The local skills retain upstream improvements that add capability without import
 - skill-authoring guidance for matching instruction form to failure type and micro-testing wording;
 - read-only, precisely scoped code-review dispatch;
 - lean SDD statuses, context-efficient dispatch, and same-programmer continuation;
-- plan-defined atomic commits containing individually reviewed tasks.
+- plan-defined atomic commits containing individually reviewed tasks;
+- deterministic delegated-programmer activation of matching inner skills;
+- bug-detecting feedback-loop, reproduction-minimization, diagnostic-cleanup,
+  and falsifiable-hypothesis techniques from Matt Pocock's
+  [`diagnosing-bugs`](https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs);
+- the untrusted diagnostic-output rule from Addy Osmani's
+  [`debugging-and-error-recovery`](https://github.com/addyosmani/agent-skills/tree/main/skills/debugging-and-error-recovery).
+
+## Change Management
+
+Every commit that changes this workflow, its skills, or its agent integration
+must include the corresponding `WORKFLOW.md` update in the same commit. Do not
+commit workflow changes while this overview is stale.
 
 ## Deliberately Omitted
 
@@ -132,7 +151,6 @@ The local skills retain upstream improvements that add capability without import
 
 These decisions are not yet implemented:
 
-1. Make inner-skill activation deterministic without turning the outer workflows automatic.
-2. Evaluate narrow additions from Matt Pocock and Addy Osmani after the Superpowers adaptation is complete.
+1. Continue evaluating narrow additions from Matt Pocock and Addy Osmani.
 
 This document describes the workflow policy; each skill's `SKILL.md` remains authoritative for executable instructions.
