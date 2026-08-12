@@ -23,6 +23,7 @@ Subagent (document-reviewer):
     | Spec Alignment | Plan covers spec requirements, no major scope creep |
     | Task Decomposition | Tasks have clear boundaries, steps are actionable |
     | Buildability | Could an engineer follow this plan without getting stuck? |
+    | Source Grounding | Version-sensitive external APIs match the plan-level official sources |
 
     ## Calibration
 

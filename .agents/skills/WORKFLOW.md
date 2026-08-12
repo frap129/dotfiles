@@ -47,6 +47,9 @@ Converts the approved spec into an implementation-ready plan with:
 - global constraints copied exactly from the spec;
 - independently testable task boundaries;
 - exact files, interfaces, code, commands, and expected results;
+- mandatory version detection and official-documentation grounding for
+  external APIs, adapted from Addy Osmani's
+  [`source-driven-development`](https://github.com/addyosmani/agent-skills/tree/main/skills/source-driven-development);
 - no placeholders or undefined cross-task contracts;
 - self-review followed by one independent whole-plan review;
 - plan-defined atomic commit groups, each with included tasks, verification,
