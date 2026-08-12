@@ -24,7 +24,7 @@ Task tool (programmer):
     - Dependencies or assumptions
     - Anything unclear in the task description
 
-    **Ask them now.** Raise any concerns before starting work.
+    **Report `NEEDS_CONTEXT` now.** State the exact question and stop before editing.
 
     ## Your Job
 
@@ -32,14 +32,16 @@ Task tool (programmer):
     1. Implement exactly what the task specifies
     2. Write tests (following TDD if task says to)
     3. Verify implementation works
-    4. Commit your work
-    5. Self-review (see below)
-    6. Report back
+    4. Self-review (see below)
+    5. Report back without committing; the controller owns commits
 
     Work from: [directory]
 
-    **While you work:** If you encounter something unexpected or unclear, **ask questions**.
-    It's always OK to pause and clarify. Don't guess or make assumptions.
+    **While you work:** If you encounter something unexpected or materially unclear,
+    stop and report `NEEDS_CONTEXT` with the exact question. Don't guess or make assumptions.
+
+    While iterating, run the focused test for what you're changing; run the
+    broader relevant suite once before reporting, not after every edit.
 
     ## Code Organization
 
@@ -97,15 +99,28 @@ Task tool (programmer):
 
     If you find issues during self-review, fix them now before reporting.
 
+    Do not create, amend, or stage a commit. Leave the complete task changes in
+    the working tree for review and the controller's atomic commit boundary.
+
+    ## After Review Findings
+
+    If the task review finds issues, you will be resumed with the findings.
+    Fix them, re-run the tests that cover the amended code, and reply with
+    the same short status contract as your first report.
+
     ## Report Format
 
-    When done, report:
+    Report back concisely (under 15 lines):
     - **Status:** DONE | DONE_WITH_CONCERNS | BLOCKED | NEEDS_CONTEXT
-    - What you implemented (or what you attempted, if blocked)
-    - What you tested and test results
+    - What you implemented (or attempted, if blocked)
+    - One-line test summary (e.g. "14/14 passing, output pristine")
+    - TDD RED/GREEN commands and outcomes, if TDD was required
     - Files changed
-    - Self-review findings (if any)
-    - Any issues or concerns
+    - Self-review findings, if any
+    - Your concerns, if any
+
+    If BLOCKED or NEEDS_CONTEXT, put the specifics in the final message
+    itself — the controller acts on it directly.
 
     Use DONE_WITH_CONCERNS if you completed the work but have doubts about correctness.
     Use BLOCKED if you cannot complete the task. Use NEEDS_CONTEXT if you need

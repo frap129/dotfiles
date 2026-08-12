@@ -1,11 +1,11 @@
 ---
 name: requesting-code-review
-description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements - dispatches code-reviewer subagent to review implementation against plan or requirements before proceeding
+description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
 ---
 
 # Requesting Code Review
 
-Dispatch code-reviewer subagent to catch issues before they cascade.
+Dispatch a code reviewer subagent to catch issues before they cascade. The reviewer gets precisely crafted context for evaluation — never your session's history.
 
 **Core principle:** Review early, review often.
 
@@ -25,24 +25,33 @@ Dispatch code-reviewer subagent to catch issues before they cascade.
 
 ## How to Request
 
-**1. Get git SHAs:**
+**1. Define the exact review target:**
 
 ```bash
-BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
-HEAD_SHA=$(git rev-parse HEAD)
+# Committed range
+git diff --stat <base>..<head>
+git diff <base>..<head>
+
+# Planned atomic commit before commit creation
+git diff --cached --stat
+git diff --cached
 ```
+
+Use a commit range for committed work. For a planned atomic commit that has
+not been created yet, stage only its intended paths and review `git diff
+--cached`; this keeps fixes inside the atomic commit instead of creating
+corrective commits.
 
 **2. Dispatch code-reviewer subagent:**
 
-Use Task tool with code-reviewer type, fill template at `code-reviewer.md`
+Dispatch a `code-reviewer` subagent, filling the template at [code-reviewer.md](code-reviewer.md)
 
 **Placeholders:**
 
-- `{WHAT_WAS_IMPLEMENTED}` - What you just built
-- `{PLAN_OR_REQUIREMENTS}` - What it should do
-- `{BASE_SHA}` - Starting commit
-- `{HEAD_SHA}` - Ending commit
-- `{DESCRIPTION}` - Brief summary
+- `[DESCRIPTION]` - Brief summary of what you built
+- `[PLAN_OR_REQUIREMENTS]` - What it should do
+- `[REVIEW_TARGET]` - Exact committed or staged scope
+- `[DIFF_COMMANDS]` - Commands exposing exactly that scope
 
 **3. Act on feedback:**
 
@@ -58,14 +67,10 @@ Use Task tool with code-reviewer type, fill template at `code-reviewer.md`
 
 You: Let me request code review before proceeding.
 
-BASE_SHA=$(git log --oneline | grep "Task 1" | head -1 | awk '{print $1}')
-HEAD_SHA=$(git rev-parse HEAD)
-
 [Dispatch code-reviewer subagent]
-  WHAT_WAS_IMPLEMENTED: Verification and repair functions for conversation index
-  PLAN_OR_REQUIREMENTS: Task 2 from docs/plans/deployment-plan.md
-  BASE_SHA: a7981ec
-  HEAD_SHA: 3df7661
+  PLAN_OR_REQUIREMENTS: Task 2 from .opencode/plans/deployment-plan.md
+  REVIEW_TARGET: commits a7981ec..3df7661
+  DIFF_COMMANDS: git diff --stat a7981ec..3df7661; git diff a7981ec..3df7661
   DESCRIPTION: Added verifyIndex() and repairIndex() with 4 issue types
 
 [Subagent returns]:
@@ -79,18 +84,25 @@ You: [Fix progress indicators]
 [Continue to Task 3]
 ```
 
+## Common Rationalizations
+
+| Excuse | Reality |
+|--------|---------|
+| "I'll just review the diff myself instead of dispatching a reviewer" | You're the coordinator — reviewing the diff inline burns the context window you need to keep driving the work. Dispatch a reviewer subagent: the diff and the evaluation live in its context, and only the findings come back to you. |
+| "The reviewer needs my whole session history to understand the change" | Hand it precisely crafted context, never your session's history. That keeps the reviewer on the work product, not your thought process. |
+
 ## Integration with Workflows
 
 **Subagent-Driven Development:**
 
-- Review after EACH task
+- Review each task after its spec-compliance review passes
 - Catch issues before they compound
-- Fix before moving to next task
+- Fix and re-review before staging the task or moving to the next task
 
 **Executing Plans:**
 
-- Review after each batch (3 tasks)
-- Get feedback, apply, continue
+- Review at plan-defined atomic commit boundaries
+- Fix and re-review the complete staged group before committing
 
 **Ad-Hoc Development:**
 
@@ -112,4 +124,4 @@ You: [Fix progress indicators]
 - Show code/tests that prove it works
 - Request clarification
 
-See template at: requesting-code-review/code-reviewer.md
+See template at: [code-reviewer.md](code-reviewer.md)

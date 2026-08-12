@@ -7,11 +7,11 @@ description: Use when you have a spec or requirements for a multi-step task, bef
 
 ## Overview
 
-Write comprehensive implementation plans assuming the engineer has zero context for our codebase and questionable taste. Document everything they need to know: which files to touch for each task, code, testing, docs they might need to check, how to test it. Give them the whole plan as bite-sized tasks. DRY. YAGNI. TDD. Frequent commits.
+Write comprehensive implementation plans assuming the engineer has zero context for our codebase and questionable taste. Document everything they need to know: which files to touch for each task, code, testing, docs they might need to check, how to test it. Give them the whole plan as bite-sized tasks. DRY. YAGNI. TDD. Atomic commits.
 
 Assume they are a skilled developer, but know almost nothing about our toolset or problem domain. Assume they don't know good test design very well.
 
-**Announce at start:** "I'm using the writing-plans skill to create the implementation plan.
+**Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
 
 **Save plans to:** The designated plan file in `.opencode/plans/`
 
@@ -32,6 +32,15 @@ Before defining tasks, map out which files will be created or modified and what 
 
 This structure informs the task decomposition. Each task should produce self-contained changes that make sense independently.
 
+## Task Right-Sizing
+
+A task is the smallest unit that carries its own test cycle and is worth a
+fresh reviewer's gate. When drawing task boundaries: fold setup,
+configuration, scaffolding, and documentation steps into the task whose
+deliverable needs them; split only where a reviewer could meaningfully
+reject one task while approving its neighbor. Each task ends with an
+independently testable deliverable.
+
 ## Bite-Sized Task Granularity
 
 **Each step is one action (2-5 minutes):**
@@ -40,7 +49,7 @@ This structure informs the task decomposition. Each task should produce self-con
 - "Run it to make sure it fails" - step
 - "Implement the minimal code to make the test pass" - step
 - "Run the tests and make sure they pass" - step
-- "Commit" - step
+- "Report task ready" - step
 
 ## Plan Document Header
 
@@ -49,13 +58,20 @@ This structure informs the task decomposition. Each task should produce self-con
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For agentic workers:** REQUIRED: Use subagent-driven-development (if subagents available). Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED: Use the execution workflow selected at handoff. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** [One sentence describing what this builds]
 
 **Architecture:** [2-3 sentences about approach]
 
 **Tech Stack:** [Key technologies/libraries]
+
+## Global Constraints
+
+[The spec's project-wide requirements — version floors, dependency limits,
+naming and copy rules, platform requirements — one line each, with exact
+values copied verbatim from the spec. Every task's requirements implicitly
+include this section.]
 
 ---
 ```
@@ -70,6 +86,12 @@ This structure informs the task decomposition. Each task should produce self-con
 - Create: `exact/path/to/file.py`
 - Modify: `exact/path/to/existing.py:123-145`
 - Test: `tests/exact/path/to/test.py`
+
+**Interfaces:**
+- Consumes: [what this task uses from earlier tasks — exact signatures]
+- Produces: [what later tasks rely on — exact function names, parameter
+  and return types. A task's implementer sees only their own task; this
+  block is how they learn the names and types neighboring tasks use.]
 
 - [ ] **Step 1: Write the failing test**
 
@@ -96,35 +118,78 @@ def function(input):
 Run: `pytest tests/path/test.py::test_name -v`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 5: Report task ready**
 
-```bash
-git add tests/path/test.py src/path/file.py
-git commit -m "feat: add specific feature"
-```
+Summarize the implementation, focused verification, and files changed. Do not commit; the execution workflow owns commits at the plan's atomic boundaries.
 ````
+
+## Atomic Commit Boundaries
+
+After all tasks, define one or more contiguous commit groups. Each group must
+contain at least one complete, independently verified task and produce a
+coherent change that can be reviewed or reverted on its own.
+
+```markdown
+## Atomic Commit Boundaries
+
+### Commit 1: [imperative subject]
+- Includes: Tasks 1-2
+- Rationale: [why these tasks form one indivisible change]
+- Verify: `[exact command covering the complete group]`
+- Stage: `path/one`, `path/two`
+
+### Commit 2: [imperative subject]
+- Includes: Task 3
+- Rationale: [why this is independently useful]
+- Verify: `[exact command covering this group]`
+- Stage: `path/three`
+```
+
+Commit groups may contain one task or several tightly coupled tasks. Never
+split one task across commits, group unrelated tasks, or create a boundary
+before its included tasks and verification are complete.
+
+## No Placeholders
+
+Every step must contain the actual content an engineer needs. These are **plan failures** — never write them:
+- "TBD", "TODO", "implement later", "fill in details"
+- "Add appropriate error handling" / "add validation" / "handle edge cases"
+- "Write tests for the above" (without actual test code)
+- "Similar to Task N" (repeat the code — the engineer may be reading tasks out of order)
+- Steps that describe what to do without showing how (code blocks required for code steps)
+- References to types, functions, or methods not defined in any task
+
+## Self-Review
+
+After writing the complete plan, look at the spec with fresh eyes and check the plan against it. This is a checklist you run yourself — not a subagent dispatch.
+
+**1. Spec coverage:** Skim each section/requirement in the spec. Can you point to a task that implements it? List any gaps.
+
+**2. Placeholder scan:** Search your plan for red flags — any of the patterns from the "No Placeholders" section above. Fix them.
+
+**3. Type consistency:** Do the types, method signatures, and property names you used in later tasks match what you defined in earlier tasks? A function called `clearLayers()` in Task 3 but `clearFullLayers()` in Task 7 is a bug.
+
+If you find issues, fix them inline. No need to re-review — just fix and move on. If you find a spec requirement with no task, add the task.
 
 ## Remember
 
 - Exact file paths always
 - Complete code in plan (not "add validation")
 - Exact commands with expected output
-- Reference relevant skills with @ syntax
-- DRY, YAGNI, TDD, frequent commits
+- Reference relevant skills by name with explicit requirement markers
+- DRY, YAGNI, TDD, atomic commits
 
 ## Plan Review Loop
 
-After completing each chunk of the plan:
+After completing and self-reviewing the full plan:
 
-1. Dispatch plan document-reviewer subagent (see plan-document-reviewer-prompt.md) for the current chunk
-   - Provide: chunk content, path to spec document
+1. Dispatch plan document-reviewer subagent (see plan-document-reviewer-prompt.md)
+   - Provide: plan file path, spec file path
 2. If ❌ Issues Found:
-   - Fix the issues in the chunk
-   - Re-dispatch reviewer for that chunk
+   - Fix the blocking issues in the plan
+   - Re-dispatch reviewer for the complete plan
    - Repeat until ✅ Approved
-3. If ✅ Approved: proceed to next chunk (or execution handoff if last chunk)
-
-**Chunk boundaries:** Use `## Chunk N: <name>` headings to delimit chunks. Each chunk should be ≤1000 lines and logically self-contained.
+3. If ✅ Approved: proceed to execution handoff
 
 **Review loop guidance:**
 
@@ -134,12 +199,22 @@ After completing each chunk of the plan:
 
 ## Execution Handoff
 
-After saving the plan:
+After saving and approving the plan, offer an execution choice:
 
-**"Plan complete and saved to `.opencode/plans/<filename>.md`. Ready to execute?"**
+**"Plan complete and saved to `.opencode/plans/<filename>.md`. Two execution options:**
 
-**Execution path:**
+**1. Subagent-Driven** - Dispatch a fresh programmer per task with spec-compliance and code-quality review; best for larger plans with independently reviewable tasks.
 
-- **REQUIRED:** Use subagent-driven-development
-- Do NOT offer a choice - subagent-driven is the standard approach
-- Fresh subagent per task + two-stage review
+**2. Direct Execution** - Execute the plan in this session using executing-plans; best for small, tightly coupled plans that fit comfortably in context.
+
+**Which approach?"**
+
+Recommend the option that matches the plan's size and coupling, but let the human choose.
+
+**If Subagent-Driven chosen:**
+- **REQUIRED SUB-SKILL:** Use `subagent-driven-development`
+- Fresh programmer per task + task-scoped spec and code-quality review
+
+**If Direct Execution chosen:**
+- **REQUIRED SUB-SKILL:** Use `executing-plans`
+- One agent executes all tasks with plan checkpoints and final verification
