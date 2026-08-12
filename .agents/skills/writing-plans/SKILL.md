@@ -43,6 +43,9 @@ If the spec covers multiple independent subsystems, it should have been broken i
 
 Before defining tasks, map out which files will be created or modified and what each one is responsible for. This is where decomposition decisions get locked in.
 
+- When designing or changing module logic, interfaces, or seams, **REQUIRED SUB-SKILL:** Use `codebase-design`.
+- Preserve approved spec decisions while defining the exact signatures, invariants, ordering, errors, side effects, idempotency, boundedness, trust boundaries, configuration, and performance characteristics required for implementation.
+- Resolve these design details in the plan. Surface conflicts with the approved spec before plan approval. Implementers receive the completed design and do not redesign it.
 - Design units with clear boundaries and well-defined interfaces. Each file should have one clear responsibility.
 - You reason best about code you can hold in context at once, and your edits are more reliable when files are focused. Prefer smaller, focused files over large ones that do too much.
 - Files that change together should live together. Split by responsibility, not by technical layer.
@@ -110,6 +113,8 @@ include this section.]
 - Produces: [what later tasks rely on — exact function names, parameter
   and return types. A task's implementer sees only their own task; this
   block is how they learn the names and types neighboring tasks use.]
+- Contract: [exact invariants, ordering, errors, side effects, idempotency,
+  boundedness, trust boundaries, configuration, and performance characteristics]
 
 - [ ] **Step 1: Write the failing test**
 

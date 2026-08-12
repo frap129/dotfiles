@@ -88,6 +88,7 @@ digraph brainstorming {
 
 **Design for isolation and clarity:**
 
+- When establishing system-level module interfaces or seams, **REQUIRED SUB-SKILL:** Use `codebase-design`.
 - Break the system into smaller units that each have one clear purpose, communicate through well-defined interfaces, and can be understood and tested independently
 - For each unit, you should be able to answer: what does it do, how do you use it, and what does it depend on?
 - Can someone understand what a unit does without reading its internals? Can you change the internals without breaking consumers? If not, the boundaries need work.

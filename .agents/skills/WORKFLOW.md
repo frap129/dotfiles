@@ -38,6 +38,8 @@ spec-development -> writing-plans -> execution choice
 
 The local name for upstream `brainstorming`. It explores context, asks one question at a time, compares approaches, applies YAGNI, presents the design for approval, and writes the spec under `.opencode/plans/`.
 
+It invokes `codebase-design` for system-level module interfaces and seams.
+
 The written spec receives independent document review. Blocking issues are fixed and re-reviewed for at most three attempts; unresolved issues then return to the user. The user reviews the final written spec before planning begins.
 
 #### 2. `writing-plans`
@@ -47,6 +49,8 @@ Converts the approved spec into an implementation-ready plan with:
 - global constraints copied exactly from the spec;
 - independently testable task boundaries;
 - exact files, interfaces, code, commands, and expected results;
+- exact module logic, interfaces, seams, and behavioral contracts designed with
+  `codebase-design` within the approved spec constraints;
 - mandatory version detection and official-documentation grounding for
   external APIs, adapted from Addy Osmani's
   [`source-driven-development`](https://github.com/addyosmani/agent-skills/tree/main/skills/source-driven-development);
@@ -56,6 +60,9 @@ Converts the approved spec into an implementation-ready plan with:
   staging paths, and an imperative commit subject.
 
 After approval, it offers two execution paths and recommends one based on plan size and coupling.
+
+Planning owns detailed implementation design. Programmers execute the completed
+plan without redesigning its interfaces or contracts.
 
 For explicit performance requirements or measured regressions, planning invokes
 `performance-optimization` and embeds its benchmark and acceptance instructions
@@ -100,8 +107,8 @@ unmatched skills and outer workflows remain unloaded. Completion and authorized
 commits require `verification-before-completion`.
 
 Other local utilities include `absolute-simplify`, `writing-skills`,
-`using-mnemosyne-memory`, planner-invoked `performance-optimization`, and the
-manually invoked `handoff`, adapted from
+`using-mnemosyne-memory`, spec-and-planning `codebase-design`, planner-invoked
+`performance-optimization`, and the manually invoked `handoff`, adapted from
 Matt Pocock's [`handoff`](https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff).
 
 ## Intentional Divergence from Upstream Superpowers
@@ -149,6 +156,21 @@ The local skills retain upstream improvements that add capability without import
   together with a general-purpose adaptation of its
   [`performance-checklist`](https://github.com/addyosmani/agent-skills/blob/main/references/performance-checklist.md)
   for CLI, library, service, daemon, batch, database, and browser workloads.
+- Matt Pocock's
+  [`codebase-design`](https://github.com/mattpocock/skills/blob/84fdeffd12f2ee307994d1eb6feb48173b6e0502/skills/engineering/codebase-design/SKILL.md),
+  including
+  [`DEEPENING.md`](https://github.com/mattpocock/skills/blob/84fdeffd12f2ee307994d1eb6feb48173b6e0502/skills/engineering/codebase-design/DEEPENING.md)
+  and
+  [`DESIGN-IT-TWICE.md`](https://github.com/mattpocock/skills/blob/84fdeffd12f2ee307994d1eb6feb48173b6e0502/skills/engineering/codebase-design/DESIGN-IT-TWICE.md).
+  It is used during specification for system-level design and during planning
+  for exact logic, interfaces, seams, and contracts. The adaptation incorporates
+  contract-first design, consistent failures, input/output separation, explicit
+  side effects and idempotency, boundedness, trust-boundary validation,
+  hard-to-misuse variants, and narrow Hyrum's Law awareness from Addy Osmani's
+  [`api-and-interface-design`](https://github.com/addyosmani/agent-skills/blob/be42637c5af93fdc8526b68ec2f2651b930f316c/skills/api-and-interface-design/SKILL.md).
+  Addy's REST/GraphQL conventions, One-Version Rule, pagination, compatibility,
+  and deprecation guidance are omitted. Programmers receive and execute the
+  completed design; they do not load this skill or redesign the plan.
 
 ## Change Management
 
