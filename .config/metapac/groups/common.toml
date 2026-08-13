@@ -47,7 +47,7 @@ nix = { packages = [
   "rmlint",
   "rsync",
   "rustc",
-  "sccache"
+  "sccache",
   "scrcpy",
   "socat",
   "sshfs",
