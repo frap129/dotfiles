@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+invoked_name="$(basename "$0")"
+self_path="$(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null || readlink -f "$0")"
+self_dir="$(dirname "$self_path")"
+invoking_dir="$(dirname "$(readlink -f "$0")")"
+strip_dir_from_path() {
+  local dir_to_strip="$1"
+  local IFS=':'
+  local new_path=()
+  for p in $PATH; do
+    resolved_p="$(readlink -f "$p" 2>/dev/null || echo "$p")"
+    if [[ "$resolved_p" != "$dir_to_strip" ]]; then
+      new_path+=("$p")
+    fi
+  done
+  local out
+  out="$(
+    IFS=:
+    echo "${new_path[*]}"
+  )"
+  echo "$out"
+}
+
+CLEAN_PATH="$PATH"
+CLEAN_PATH="$(PATH="$CLEAN_PATH" bash -c "$(declare -f strip_dir_from_path); strip_dir_from_path '$self_dir'")"
+if [[ "$invoking_dir" != "$self_dir" ]]; then
+  CLEAN_PATH="$(PATH="$CLEAN_PATH" bash -c "$(declare -f strip_dir_from_path); strip_dir_from_path '$invoking_dir'")"
+fi
+
+real_compiler_path="$(PATH="$CLEAN_PATH" command -v "$invoked_name" || true)"
+
+if [[ -z "$real_compiler_path" ]]; then
+  echo "sccache-wrapper: could not find a real '$invoked_name' on PATH" \
+    "(after excluding wrapper dir: $self_dir)" >&2
+  exit 127
+fi
+
+exec "$SCCACHE_BIN" "$real_compiler_path" "$@"

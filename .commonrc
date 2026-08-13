@@ -11,12 +11,6 @@ fi
 
 # Environment Variables
 export color_prompt=yes
-if [[ $(command -v ccache) ]]; then
-  export USE_CCACHE=1
-  export CCACHE_DIR=~/.ccache
-  export CCACHE_EXEC=$(command -v ccache)
-  export CCACHE_COMPRESS=1
-fi
 
 # Import environment from .config/environment.d
 set -a
