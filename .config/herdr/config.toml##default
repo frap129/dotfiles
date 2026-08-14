@@ -20,6 +20,12 @@ pane_history = true
 
 [[keys.command]]
 key = "prefix+d"
+type = "shell"
+command = "herdr plugin pane open --plugin palette --entrypoint palette"
+description = "Command palette"
+
+[[keys.command]]
+key = "prefix+p"
 type = "plugin_action"
-command = "herdr-navigator.open"
-description = "jump to anything"
+command = "ray.plugin-manager.open"
+description = "Plugin manager"
