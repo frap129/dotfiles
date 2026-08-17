@@ -207,11 +207,12 @@ If you find issues, fix them inline. No need to re-review — just fix and move 
 After completing and self-reviewing the full plan:
 
 1. Dispatch plan document-reviewer subagent (see plan-document-reviewer-prompt.md)
-   - Provide: plan file path, spec file path
+    - Provide: plan file path, spec file path
+    - Record its returned `task_id`
 2. If ❌ Issues Found:
-   - Fix the blocking issues in the plan
-   - Re-dispatch reviewer for the complete plan
-   - Repeat until ✅ Approved
+    - Fix the blocking issues in the plan
+    - Resume the reviewer with its recorded `task_id` for the complete plan
+    - Repeat until ✅ Approved
 3. If ✅ Approved: proceed to execution handoff
 
 **Review loop guidance:**

@@ -112,7 +112,9 @@ digraph brainstorming {
 After writing the spec document:
 
 1. Dispatch spec document-reviewer subagent (see spec-document-reviewer-prompt.md)
-2. If Issues Found: fix, re-dispatch, repeat until Approved
+   and record its returned `task_id`.
+2. If Issues Found: fix, resume that reviewer with its recorded `task_id`,
+   repeat until Approved
 3. If the third review still finds issues, surface to human for guidance
 
 **User Review Gate:**
