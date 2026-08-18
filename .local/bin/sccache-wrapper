@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-invoked_name="$(basename "$0")"
+invoked_name="$(basename -- "$0")"
+
+if [[ $# -gt 0 && "$(basename -- "$1")" == rustc* ]]; then
+  exec "$SCCACHE_BIN" "$@"
+fi
 self_path="$(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null || readlink -f "$0")"
 self_dir="$(dirname "$self_path")"
 invoking_dir="$(dirname "$(readlink -f "$0")")"
