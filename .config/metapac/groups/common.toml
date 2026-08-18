@@ -15,6 +15,7 @@ nix = { packages = [
   "curl",
   "dex2jar",
   "docker-compose",
+  "dolt",
   "fastfetch",
   { name = "fira-code", options = { installable = "nixpkgs#nerd-fonts.fira-code" } },
   "fzf",
@@ -44,6 +45,7 @@ nix = { packages = [
   "podman",
   "procs",
   "protobuf",
+  "ripgrep",
   "rmlint",
   "rsync",
   "rustc",
@@ -104,10 +106,12 @@ cargo = { packages = [
 ] }
 
 npm = { packages = [
+  "@beads/bd",
   "@fission-ai/openspec",
   "conventional-changelog",
   "@microsoft/inshellisense",
   "opencode-ai",
+  "donsetch"
 ] }
 
 uv = { packages = [
