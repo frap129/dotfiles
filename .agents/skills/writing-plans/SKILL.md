@@ -148,29 +148,22 @@ Summarize the implementation, focused verification, and files changed. Do not co
 
 ## Atomic Commit Boundaries
 
-After all tasks, define one or more contiguous commit groups. Each group must
+Immediately after each commit group's final task, define its boundary. Each group must
 contain at least one complete, independently verified task and produce a
 coherent change that can be reviewed or reverted on its own.
 
 ```markdown
-## Atomic Commit Boundaries
-
 ### Commit 1: [imperative subject]
 - Includes: Tasks 1-2
 - Rationale: [why these tasks form one indivisible change]
 - Verify: `[exact command covering the complete group]`
 - Stage: `path/one`, `path/two`
-
-### Commit 2: [imperative subject]
-- Includes: Task 3
-- Rationale: [why this is independently useful]
-- Verify: `[exact command covering this group]`
-- Stage: `path/three`
 ```
 
 Commit groups may contain one task or several tightly coupled tasks. Never
 split one task across commits, group unrelated tasks, or create a boundary
-before its included tasks and verification are complete.
+before its included tasks and verification are complete. Do not collect
+boundaries at the end of the plan.
 
 ## No Placeholders
 

@@ -56,8 +56,8 @@ Converts the approved spec into an implementation-ready plan with:
   [`source-driven-development`](https://github.com/addyosmani/agent-skills/tree/main/skills/source-driven-development);
 - no placeholders or undefined cross-task contracts;
 - self-review followed by one independent whole-plan review;
-- plan-defined atomic commit groups, each with included tasks, verification,
-  staging paths, and an imperative commit subject.
+- plan-defined atomic commit boundaries placed after each group's final task,
+  with included tasks, verification, staging paths, and an imperative subject.
 
 After approval, it offers two execution paths and recommends one based on plan size and coupling.
 
