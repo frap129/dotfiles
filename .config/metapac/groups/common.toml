@@ -73,6 +73,7 @@ nix = { packages = [
 ] }
 
 cargo = { packages = [
+  "aube",
   { name = "aubeshim", hooks = { after_install = [
     "aubeshim",
     "install",
@@ -100,7 +101,6 @@ cargo = { packages = [
     "-c",
     "plugin add ~/.cargo/bin/nu_plugin_query"
   ] } },
-  { name = "rtk", options = { git = "https://github.com/rtk-ai/rtk" } },
   "topgrade",
   "zoxide",
 ] }
