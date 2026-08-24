@@ -10,7 +10,8 @@
     "enabled": true
   },
   "plugin": [
-    "opencode-rules@beta",
+    "./herdr-tui-session.js",
+    "opencode-rules@latest",
     "oc-tps@latest",
     "@tarquinen/opencode-dcp@latest"
   ]
