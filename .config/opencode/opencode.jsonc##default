@@ -1,9 +1,9 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "small_model": "neuralwatt/openai/gpt-oss-20b",
+  "small_model": "opencode-go/deepseek-v4-flash",
   "default_agent": "main",
   "plugin": [
-    "opencode-rules@beta",
+    "opencode-rules@latest",
     "@tarquinen/opencode-dcp@beta",
   ],
   "experimental": {
@@ -11,48 +11,27 @@
     "batch_tool": true,
   },
   "mcp": {
-    "context7": {
-      "type": "local",
-      "command": [
-        "aubx",
-        "-y",
-        "@upstash/context7-mcp",
-        "--api-key",
-        "{env:CONTEXT7_API_KEY}",
-      ],
-      "enabled": false,
-    },
-    "general": {
+    "docs": {
       "type": "remote",
-      "url": "{env:MCP_SEARXNG_URL}",
+      "url": "{env:MCP_GROUNDED_URL}",
       "headers": {
-        "Authorization": "Bearer {env:MCP_SEARXNG_API_KEY}",
-      },
-      "enabled": true,
-    },
-    "code": {
-      "type": "remote",
-      "url": "{env:MCP_SEARXNG_CODE_URL}",
-      "headers": {
-        "Authorization": "Bearer {env:MCP_SEARXNG_API_KEY}",
+        "Authorization": "Bearer {env:MCP_GROUNDED_API_KEY}",
       },
       "enabled": true,
     },
     "web": {
       "type": "local",
-      "command": [
-        "aubx",
-        "-y",
-        "intercept-mcp@latest",
-      ],
-      "environment": {
-        "USE_STEALTH_FETCH": "true"
-      },
+      "command": ["donsetch", "mcp"],
       "enabled": true,
     },
     "chrome-devtools": {
       "type": "local",
       "command": ["aubx", "chrome-devtools-mcp@latest", "--browserUrl", "http://127.0.0.1:9222"],
+      "enabled": false
+    },
+    "openship": {
+      "type": "remote",
+      "url": "https://ship.maples.dev/api/mcp",
       "enabled": false
     }
   },
@@ -85,17 +64,10 @@
     },
   },
   "permission": {
-    "general_web_url_read": "deny",
-    "general_searxng_instance_info": "deny",
-    "general_searxng_search_suggestions": "deny",
-    "code_web_url_read": "deny",
-    "code_searxng_instance_info": "deny",
-    "code_searxng_search_suggestions": "deny",
-    "web_search": "deny",
-    "web_research": "deny",
     "websearch": "deny",
     "codesearch": "deny",
     "webfetch": "deny",
+    "docs_fetch_url": "deny",
     "bash": {
       "git filter-branch *": "deny",
       "git branch -d": "ask",
@@ -134,5 +106,5 @@
       "model": "opencode-go/deepseek-v4-flash",
       "variant": "max",
     }
-  }
+  },
 }
