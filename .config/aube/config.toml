@@ -1,0 +1,8 @@
+blockExoticSubdeps = false
+jailBuilds = true
+jailBuildExclusions = ["donsetch"]
+minimumReleaseAge = 600
+trustPolicy = "off"
+runtimeInstaller = "aube"
+globalBinDir = "~/.local/bin"
+prefix = "~"
