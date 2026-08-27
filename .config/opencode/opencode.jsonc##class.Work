@@ -4,7 +4,7 @@
   "default_agent": "main",
   "share": "disabled",
   "plugin": [
-    "opencode-rules@beta",
+    "opencode-rules@latest",
     "@tarquinen/opencode-dcp@latest",
     "file:///home/joe/projects/opencode-fordllm/src/fordllm.ts",
   ],
@@ -12,16 +12,13 @@
     "batch_tool": true,
   },
   "mcp": {
-    "context7": {
-      "type": "local",
-      "command": [
-        "aubx",
-        "-y",
-        "@upstash/context7-mcp",
-        "--api-key",
-        "{env:CONTEXT7_API_KEY}",
-      ],
-      "enabled": false,
+    "docs": {
+      "type": "remote",
+      "url": "{env:MCP_GROUNDED_URL}",
+      "headers": {
+        "Authorization": "Bearer {env:MCP_GROUNDED_API_KEY}",
+      },
+      "enabled": true,
     },
     "chrome-dev-tools": {
       "type": "local",
@@ -30,15 +27,12 @@
     },
     "android": {
       "type": "local",
-      "command": ["aubx", "-y", "android-mcp-server"],
+      "command": ["aubx", "-y", "android-mcp-server@latest"],
       "enabled": false,
     },
     "web": {
-      "type": "remote",
-      "url": "{env:MCP_HOUND_URL}",
-      "headers": {
-        "Authorization": "Bearer {env:MCP_HOUND_API_KEY}",
-      },
+      "type": "local",
+      "command": ["donsetch", "mcp"],
       "enabled": true,
     },
     "smartsheet": {
@@ -71,17 +65,6 @@
       "command": ["/home/joe/.hermes/hermes-agent/venv/bin/mnemosyne", "mcp"],
     },
   },
-  "tools": {
-    "atlassian_*": false,
-    "atlassian_getConfluencePage": true,
-    "atlassian_getConfluencePageDescendants": true,
-    "atlassian_getConfluencePageFooterComments": true,
-    "atlassian_getConfluencePageInlineComments": true,
-    "atlassian_getConfluenceCommentChildren": true,
-    "atlassian_getConfluenceSpaces": true,
-    "atlassian_getPagesInConfluenceSpace": true,
-    "atlassian_searchConfluenceUsingCql": true,
-  },
   "lsp": {
     "kotlin": {
       "command": ["kotlin-language-server"],
@@ -111,27 +94,19 @@
     },
   },
   "permission": {
-    "general_web_url_read": "deny",
-    "code_web_url_read": "deny",
-    "web_search": "deny",
-    "web_research": "deny",
+    "atlassian_*": "deny",
+    "atlassian_getConfluencePage": "allow",
+    "atlassian_getConfluencePageDescendants": "allow",
+    "atlassian_getConfluencePageFooterComments": "allow",
+    "atlassian_getConfluencePageInlineComments": "allow",
+    "atlassian_getConfluenceCommentChildren": "allow",
+    "atlassian_getConfluenceSpaces": "allow",
+    "atlassian_getPagesInConfluenceSpace": "allow",
+    "atlassian_searchConfluenceUsingCql": "allow",
     "websearch": "deny",
     "codesearch": "deny",
     "webfetch": "deny",
-    "read_spec": "deny",
-    "write_spec": "deny",
-    "edit_spec": "deny",
-    "read_plan": "deny",
-    "write_plan": "deny",
-    "edit_plan": "deny",
-    "review_spec": "deny",
-    "review_plan": "deny",
-    "explore": "deny",
-    "research": "deny",
-    "programmer": "deny",
-    "verify_spec_compliance": "deny",
-    "code_review": "deny",
-    "investigate": "deny",
+    "docs_fetch_url": "deny"
   },
   "compaction": {
     "auto": false,
@@ -144,24 +119,21 @@
     "plan": {
       "prompt": "{file:prompts/core.md}",
     },
-    "general": {
-      "variant": "high",
-    },
     "explore": {
       "model": "github-copilot/gpt-5.6-luna",
-      "variant": "max",
+      "variant": "high",
     },
     "programmer": {
-      "model": "github-copilot/gpt-5.6-sol",
-      "variant": "medium",
+      "model": "github-copilot/gpt-5.6-luna",
+      "variant": "high",
     },
     "code-reviewer": {
-      "model": "github-copilot/gpt-5.6-sol",
-      "variant": "medium",
+      "model": "github-copilot/gpt-5.6-terra",
+      "variant": "high",
     },
     "document-reviewer": {
       "model": "github-copilot/gpt-5.6-luna",
-      "variant": "max",
+      "variant": "high",
     },
   },
   "provider": {
