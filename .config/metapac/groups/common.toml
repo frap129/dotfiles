@@ -85,21 +85,6 @@ cargo = { packages = [
   "fd-find",
   "git-delta",
   "just",
-  { name = "nu_plugin_inc", hooks = { after_install = [
-    "nu",
-    "-c",
-    "plugin add ~/.cargo/bin/nu_plugin_inc"
-  ] } },
-  { name = "nu_plugin_port_extension", options = { git = "https://github.com/FMotalleb/nu_plugin_port_extension" }, hooks = { after_install = [
-    "nu",
-    "-c",
-    "plugin add ~/.cargo/bin/nu_plugin_port_extension"
-  ] } },
-  { name = "nu_plugin_query", hooks = { after_install = [
-    "nu",
-    "-c",
-    "plugin add ~/.cargo/bin/nu_plugin_query"
-  ] } },
   "topgrade",
   "zoxide",
 ] }
