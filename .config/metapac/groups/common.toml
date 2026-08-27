@@ -37,7 +37,6 @@ nix = { packages = [
   "nix-search-cli",
   "noto-fonts-color-emoji",
   "nodejs-slim",
-  "nushell",
   "oh-my-posh",
   "openssh",
   "pandoc",
