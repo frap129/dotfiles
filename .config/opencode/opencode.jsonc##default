@@ -3,8 +3,8 @@
   "small_model": "opencode-go/deepseek-v4-flash",
   "default_agent": "main",
   "plugin": [
-    "opencode-rules@latest",
-    "@tarquinen/opencode-dcp@beta",
+    "opencode-rules@beta",
+    "@tarquinen/opencode-dcp@latest",
   ],
   "experimental": {
     "primary_tools": ["prune"],

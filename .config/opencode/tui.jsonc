@@ -11,7 +11,7 @@
   },
   "plugin": [
     "./herdr-tui-session.js",
-    "opencode-rules@latest",
+    "opencode-rules@beta",
     "oc-tps@latest",
     "@tarquinen/opencode-dcp@latest"
   ]

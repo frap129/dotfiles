@@ -4,7 +4,7 @@
   "default_agent": "main",
   "share": "disabled",
   "plugin": [
-    "opencode-rules@latest",
+    "opencode-rules@beta",
     "@tarquinen/opencode-dcp@latest",
     "file:///home/joe/projects/opencode-fordllm/src/fordllm.ts",
   ],
