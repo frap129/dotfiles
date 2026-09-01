@@ -23,7 +23,6 @@ set +a
 
 # Environment setup scripts
 [[ -f ~/.hostrc ]] && source ~/.hostrc
-[[ $(command -v tirith) ]] && eval "$(tirith init --shell $shell 2>/dev/null)"
 [[ $(command -v zoxide) ]] && eval "$(zoxide init $shell --cmd cd)"
 [[ $(command -v atuin) ]] && eval "$(atuin init $shell)"
 [[ $(command -v carapace) ]] && source <(carapace _carapace)
