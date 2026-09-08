@@ -3,12 +3,20 @@ set -euo pipefail
 
 args=()
 for arg in "$@"; do
-  [[ "$arg" == --no-fund || "$arg" == --no-audit || "$arg" == --progress || "$arg" == --progress=* ]] || args+=("$arg")
+  if [[ "$arg" == --omit=dev ]]; then
+    args+=(--prod)
+  elif [[ "$arg" != --no-fund && "$arg" != --no-audit && "$arg" != --legacy-peer-deps && "$arg" != --progress && "$arg" != --progress=* ]]; then
+    args+=("$arg")
+  fi
 done
 set -- "${args[@]}"
 
 if [[ "${2-}" == -g ]]; then
   set -- "$1" --global "${@:3}"
+fi
+
+if [[ "${1-}" == install && -n "${2-}" && "${2-}" != -* ]]; then
+  set -- add "${@:2}"
 fi
 
 pin_package() {
