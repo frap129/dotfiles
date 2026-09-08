@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "small_model": "github-copilot/gpt-5-mini",
+  "small_model": "github-copilot/gpt-5.6-luna",
   "default_agent": "main",
   "share": "disabled",
   "plugin": [
@@ -124,11 +124,11 @@
       "variant": "high",
     },
     "programmer": {
-      "model": "github-copilot/gpt-5.6-luna",
+      "model": "github-copilot/gemini-3.8-flash",
       "variant": "high",
     },
     "code-reviewer": {
-      "model": "github-copilot/gpt-5.6-terra",
+      "model": "github-copilot/gemini-3.8-flash",
       "variant": "high",
     },
     "document-reviewer": {
@@ -139,32 +139,16 @@
   "provider": {
     "github-copilot": {
       "models": {
-        "claude-opus-4.6": {
-          "options": {
-            "thinking": {
-              "type": "enabled",
-            },
-            "thinking_budget": 4000,
+        "gpt-5.6-sol": {
+          "limit": {
+            "context": 272000,
+            "output": 128000,
           },
-          "variants": {
-            "high": {
-              "thinking": {
-                "type": "enabled",
-              },
-              "thinking_budget": 32000,
-            },
-            "medium": {
-              "thinking": {
-                "type": "enabled",
-              },
-              "thinking_budget": 16000,
-            },
-            "low": {
-              "thinking": {
-                "type": "enabled",
-              },
-              "thinking_budget": 8000,
-            },
+        },
+        "gpt-6-astra": {
+          "limit": {
+            "context": 272000,
+            "output": 128000,
           },
         },
       },
