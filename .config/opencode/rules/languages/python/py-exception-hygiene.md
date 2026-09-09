@@ -1,6 +1,11 @@
 ---
 globs:
   - '**/*.py'
+fileContains:
+  - 'except '
+  - 'except:'
+  - 'except('
+  - 'except*'
 ---
 
 # Python Exception Hygiene
@@ -12,5 +17,4 @@ globs:
   - raise a domain-specific exception (`raise X(...) from exc`)
   - schedule a bounded retry (cap attempts or total time) and surface degraded state to the caller
 - When recovering, log structured context (event name + key/value fields). Avoid embedding values in the message via f-strings.
-- In async code, never swallow cancellations; always re-raise `asyncio.CancelledError`.
 - Do not mix fail-open and fail-fast policies in the same layer unless you add a short comment explaining the policy boundary.

@@ -11,6 +11,3 @@ fileContains:
 # Android
 
 - Use clean architecture; use the repository pattern for data persistence.
-- Use Flow to manage UI state.
-- Use Material 3 for the UI.
-- Use integration tests for each API module.

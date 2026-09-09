@@ -1,7 +1,7 @@
 ---
 globs:
   - "**/*.{test,spec}.{ts,tsx,js,jsx}"
-  - "**/__tests__/**"
+  - "**/__tests__/**/*.{ts,tsx,js,jsx,mjs,cjs}"
 ---
 
 # Test Maintainability
