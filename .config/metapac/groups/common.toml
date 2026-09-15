@@ -96,7 +96,7 @@ npm = { packages = [
   "@fission-ai/openspec",
   "conventional-changelog",
   "@microsoft/inshellisense",
-  "opencode-ai",
+  "@opencode/cli",
   "donsetch"
 ] }
 

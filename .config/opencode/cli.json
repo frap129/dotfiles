@@ -1,0 +1,28 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "carbonfox"
+  },
+  "keybinds": {
+    "agent.cycle": "ctrl+tab",
+    "agent.cycle.reverse": "ctrl+shift+tab"
+  },
+  "plugins": [
+    "./herdr-opencode",
+    "opencode-rules@next",
+    "github:Tarquinen/oc-tps#opencode-v2"
+  ],
+  "scroll": {
+    "speed": 10,
+    "acceleration": true
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "auto",
+    "scrollbar": false,
+    "thinking": "show"
+  },
+  "animations": true
+}

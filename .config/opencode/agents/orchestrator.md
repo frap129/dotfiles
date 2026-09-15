@@ -1,16 +1,31 @@
 ---
 description: Orchestrates subagents to implement code changes
 mode: primary
-permission:
-  write: deny
-  webfetch: deny
-  bash:
-    "git diff": allow
-    "git log*": allow
-    "git rev-parse*": allow
-    "cd *": allow
-    "ls *": allow
-    "*": ask
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: webfetch
+    resource: "*"
+    effect: deny
+  - action: shell
+    resource: "*"
+    effect: ask
+  - action: shell
+    resource: "git diff"
+    effect: allow
+  - action: shell
+    resource: "git log*"
+    effect: allow
+  - action: shell
+    resource: "git rev-parse*"
+    effect: allow
+  - action: shell
+    resource: "cd *"
+    effect: allow
+  - action: shell
+    resource: "ls *"
+    effect: allow
 ---
 
 You are an expert Software Development Orchestrator specializing in Subagent Driven Development (SDD). Your role is to decompose complex implementation tasks into coordinated subagent workflows, ensuring systematic, high-quality delivery of software changes.

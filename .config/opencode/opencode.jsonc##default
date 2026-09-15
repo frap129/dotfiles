@@ -1,39 +1,60 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "small_model": "opencode-go/deepseek-v4-flash",
-  "default_agent": "main",
-  "plugin": [
-    "opencode-rules@beta",
-    "@tarquinen/opencode-dcp@latest",
-  ],
-  "experimental": {
-    "primary_tools": ["prune"],
-    "batch_tool": true,
-  },
-  "mcp": {
-    "docs": {
-      "type": "remote",
-      "url": "{env:MCP_GROUNDED_URL}",
-      "headers": {
-        "Authorization": "Bearer {env:MCP_GROUNDED_API_KEY}",
+  "default_agent": "build",
+  "plugins": [
+    "opencode-rules@next",
+    {
+      "package": "opencode-dcp@2.0.0-beta.9",
+      "options": {
+        "enabled": true,
+        "debug": false,
+        "allowSubAgents": false,
+        "maxContextLimit": "85%",
+        "nudgeFrequency": 5,
+        "iterationNudgeThreshold": 15,
+        "protectedTools": [],
+        "protectedFilePatterns": [],
+        "tui": { "enabled": true },
+        "strategies": {
+          "deduplication": {
+            "enabled": true,
+            "protectedTools": [],
+          },
+          "purgeErrors": {
+            "enabled": true,
+            "turns": 4,
+            "protectedTools": [],
+          },
+        },
       },
-      "enabled": true,
     },
-    "web": {
-      "type": "local",
-      "command": ["donsetch", "mcp"],
-      "enabled": true,
+  ],
+  "mcp": {
+    "servers": {
+      "docs": {
+        "type": "remote",
+        "url": "{env:MCP_GROUNDED_URL}",
+        "headers": {
+          "Authorization": "Bearer {env:MCP_GROUNDED_API_KEY}",
+        },
+        "disabled": false,
+      },
+      "web": {
+        "type": "local",
+        "command": ["donsetch", "mcp"],
+        "disabled": false,
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "command": ["aubx", "chrome-devtools-mcp@latest", "--browserUrl", "http://127.0.0.1:9222"],
+        "disabled": true,
+      },
+      "openship": {
+        "type": "remote",
+        "url": "https://ship.maples.dev/api/mcp",
+        "disabled": true,
+      },
     },
-    "chrome-devtools": {
-      "type": "local",
-      "command": ["aubx", "chrome-devtools-mcp@latest", "--browserUrl", "http://127.0.0.1:9222"],
-      "enabled": false
-    },
-    "openship": {
-      "type": "remote",
-      "url": "https://ship.maples.dev/api/mcp",
-      "enabled": false
-    }
   },
   "lsp": {
     "kotlin": {
@@ -63,48 +84,42 @@
       "extensions": ["Makefile", ".mk"],
     },
   },
-  "permission": {
-    "websearch": "deny",
-    "codesearch": "deny",
-    "webfetch": "deny",
-    "docs_fetch_url": "deny",
-    "bash": {
-      "git filter-branch *": "deny",
-      "git branch -d": "ask",
-      "git branch -D": "ask",
-      "git push *": "ask",
-      "sudo *": "ask",
-    },
-  },
+  "permissions": [
+    { "action": "websearch", "resource": "*", "effect": "deny" },
+    { "action": "codesearch", "resource": "*", "effect": "deny" },
+    { "action": "webfetch", "resource": "*", "effect": "deny" },
+    { "action": "docs_fetch_url", "resource": "*", "effect": "deny" },
+    { "action": "shell", "resource": "git filter-branch *", "effect": "deny" },
+    { "action": "shell", "resource": "git branch -d", "effect": "ask" },
+    { "action": "shell", "resource": "git branch -D", "effect": "ask" },
+    { "action": "shell", "resource": "git push *", "effect": "ask" },
+    { "action": "shell", "resource": "sudo *", "effect": "ask" },
+    { "action": "prune", "resource": "*", "effect": "allow" },
+  ],
   "compaction": {
     "auto": false,
-    "prune": true,
   },
-  "agent": {
+  "agents": {
+    "title": {
+      "model": "opencode-go/deepseek-v4-flash",
+    },
     "build": {
-      "prompt": "{file:prompts/core.md}",
+      "system": "{file:prompts/core.md}",
     },
     "plan": {
-      "prompt": "{file:prompts/core.md}",
-    },
-    "general": {
-      "variant": "high",
+      "system": "{file:prompts/core.md}",
     },
     "explore": {
-      "model": "opencode-go/deepseek-v4-flash",
-      "variant": "high",
+      "model": "opencode-go/deepseek-v4-flash#high",
     },
     "programmer": {
-      "model": "opencode-go/deepseek-v4-flash",
-      "variant": "max",
+      "model": "opencode-go/deepseek-v4-flash#max",
     },
     "code-reviewer": {
-      "model": "opencode-go/deepseek-v4-flash",
-      "variant": "max",
+      "model": "opencode-go/deepseek-v4-flash#max",
     },
     "document-reviewer": {
-      "model": "opencode-go/deepseek-v4-flash",
-      "variant": "max",
-    }
+      "model": "opencode-go/deepseek-v4-flash#max",
+    },
   },
 }

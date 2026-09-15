@@ -1,18 +1,31 @@
 ---
 description: Perform a comprehensive code review
 mode: subagent
-permission:
-  question: deny
-  skill:
-    "*": deny
-    requesting-code-review: allow
-    security-review: allow
-    code-architecture-wrong-abstraction: allow
-    naming-cheatsheet: allow
-  read:
-    "~/.agents/skills/requesting-code-review/**": allow
-  external_directory:
-    "~/.agents/skills/requesting-code-review/**": allow
+permissions:
+  - action: question
+    resource: "*"
+    effect: deny
+  - action: skill
+    resource: "*"
+    effect: deny
+  - action: skill
+    resource: requesting-code-review
+    effect: allow
+  - action: skill
+    resource: security-review
+    effect: allow
+  - action: skill
+    resource: code-architecture-wrong-abstraction
+    effect: allow
+  - action: skill
+    resource: naming-cheatsheet
+    effect: allow
+  - action: read
+    resource: "~/.agents/skills/requesting-code-review/**"
+    effect: allow
+  - action: external_directory
+    resource: "~/.agents/skills/requesting-code-review/**"
+    effect: allow
 ---
 
 You are an autonomous AI software engineering subagent.

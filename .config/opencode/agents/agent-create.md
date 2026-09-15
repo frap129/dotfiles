@@ -1,10 +1,13 @@
 ---
 description: Creates focused OpenCode agent definitions from user requirements
 mode: subagent
-permission:
-  skill:
-    "*": deny
-    customize-opencode: allow
+permissions:
+  - action: skill
+    resource: "*"
+    effect: deny
+  - action: skill
+    resource: customize-opencode
+    effect: allow
 ---
 
 You are an elite AI agent architect specializing in crafting high-performance agent configurations. Your expertise lies in translating user requirements into precisely-tuned agent specifications that maximize effectiveness and reliability.

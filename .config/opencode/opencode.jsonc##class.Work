@@ -1,68 +1,89 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "small_model": "github-copilot/gpt-5.6-luna",
-  "default_agent": "main",
+  "default_agent": "build",
   "share": "disabled",
-  "plugin": [
-    "opencode-rules@beta",
-    "@tarquinen/opencode-dcp@latest",
-    "file:///home/joe/projects/opencode-fordllm/src/fordllm.ts",
+  "plugins": [
+    "opencode-rules@next",
+    {
+      "package": "opencode-dcp@2.0.0-beta.9",
+      "options": {
+        "enabled": true,
+        "debug": false,
+        "allowSubAgents": false,
+        "maxContextLimit": "85%",
+        "nudgeFrequency": 5,
+        "iterationNudgeThreshold": 15,
+        "protectedTools": [],
+        "protectedFilePatterns": [],
+        "tui": { "enabled": true },
+        "strategies": {
+          "deduplication": {
+            "enabled": true,
+            "protectedTools": [],
+          },
+          "purgeErrors": {
+            "enabled": true,
+            "turns": 4,
+            "protectedTools": [],
+          },
+        },
+      },
+    },
   ],
-  "experimental": {
-    "batch_tool": true,
-  },
   "mcp": {
-    "docs": {
-      "type": "remote",
-      "url": "{env:MCP_GROUNDED_URL}",
-      "headers": {
-        "Authorization": "Bearer {env:MCP_GROUNDED_API_KEY}",
+    "servers": {
+      "docs": {
+        "type": "remote",
+        "url": "{env:MCP_GROUNDED_URL}",
+        "headers": {
+          "Authorization": "Bearer {env:MCP_GROUNDED_API_KEY}",
+        },
+        "disabled": false,
       },
-      "enabled": true,
-    },
-    "chrome-dev-tools": {
-      "type": "local",
-      "command": ["aubx", "-y", "chrome-devtools-mcp@latest"],
-      "enabled": false,
-    },
-    "android": {
-      "type": "local",
-      "command": ["aubx", "-y", "android-mcp-server@latest"],
-      "enabled": false,
-    },
-    "web": {
-      "type": "local",
-      "command": ["donsetch", "mcp"],
-      "enabled": true,
-    },
-    "smartsheet": {
-      "type": "remote",
-      "url": "https://mcp.smartsheet.com",
-      "headers": {
-        "Authorization": "Bearer {env:SMARTSHEET_API_TOKEN}",
+      "chrome-dev-tools": {
+        "type": "local",
+        "command": ["aubx", "-y", "chrome-devtools-mcp@latest"],
+        "disabled": true,
       },
-      "enabled": false,
-    },
-    "figma": {
-      "type": "local",
-      "command": [
-        "aubx",
-        "-y",
-        "figma-developer-mcp",
-        "--figma-api-key={env:FIGMA_API_TOKEN}",
-        "--stdio",
-      ],
-      "enabled": false,
-    },
-    "atlassian": {
-      "type": "remote",
-      "url": "https://mcp.atlassian.com/v1/mcp",
-      "enabled": false,
-    },
-    "memory": {
-      "enabled": true,
-      "type": "local",
-      "command": ["/home/joe/.hermes/hermes-agent/venv/bin/mnemosyne", "mcp"],
+      "android": {
+        "type": "local",
+        "command": ["aubx", "-y", "android-mcp-server@latest"],
+        "disabled": true,
+      },
+      "web": {
+        "type": "local",
+        "command": ["donsetch", "mcp"],
+        "disabled": false,
+      },
+      "smartsheet": {
+        "type": "remote",
+        "url": "https://mcp.smartsheet.com",
+        "headers": {
+          "Authorization": "Bearer {env:SMARTSHEET_API_TOKEN}",
+        },
+        "disabled": true,
+      },
+      "figma": {
+        "type": "local",
+        "command": [
+          "aubx",
+          "-y",
+          "figma-developer-mcp",
+          "--figma-api-key={env:FIGMA_API_TOKEN}",
+          "--stdio",
+        ],
+        "disabled": true,
+      },
+      "atlassian": {
+        "type": "remote",
+        "url": "https://mcp.atlassian.com/v1/mcp",
+        "disabled": true,
+      },
+      "memory": {
+        "type": "local",
+        "command": ["/home/joe/.hermes/hermes-agent/venv/bin/mnemosyne", "mcp"],
+        "disabled": false,
+      },
     },
   },
   "lsp": {
@@ -93,50 +114,49 @@
       "extensions": ["Makefile", ".mk"],
     },
   },
-  "permission": {
-    "atlassian_*": "deny",
-    "atlassian_getConfluencePage": "allow",
-    "atlassian_getConfluencePageDescendants": "allow",
-    "atlassian_getConfluencePageFooterComments": "allow",
-    "atlassian_getConfluencePageInlineComments": "allow",
-    "atlassian_getConfluenceCommentChildren": "allow",
-    "atlassian_getConfluenceSpaces": "allow",
-    "atlassian_getPagesInConfluenceSpace": "allow",
-    "atlassian_searchConfluenceUsingCql": "allow",
-    "websearch": "deny",
-    "codesearch": "deny",
-    "webfetch": "deny",
-    "docs_fetch_url": "deny"
-  },
+  "permissions": [
+    { "action": "atlassian_*", "resource": "*", "effect": "deny" },
+    { "action": "atlassian_getConfluencePage", "resource": "*", "effect": "allow" },
+    { "action": "atlassian_getConfluencePageDescendants", "resource": "*", "effect": "allow" },
+    { "action": "atlassian_getConfluencePageFooterComments", "resource": "*", "effect": "allow" },
+    { "action": "atlassian_getConfluencePageInlineComments", "resource": "*", "effect": "allow" },
+    { "action": "atlassian_getConfluenceCommentChildren", "resource": "*", "effect": "allow" },
+    { "action": "atlassian_getConfluenceSpaces", "resource": "*", "effect": "allow" },
+    { "action": "atlassian_getPagesInConfluenceSpace", "resource": "*", "effect": "allow" },
+    { "action": "atlassian_searchConfluenceUsingCql", "resource": "*", "effect": "allow" },
+    { "action": "websearch", "resource": "*", "effect": "deny" },
+    { "action": "codesearch", "resource": "*", "effect": "deny" },
+    { "action": "webfetch", "resource": "*", "effect": "deny" },
+    { "action": "docs_fetch_url", "resource": "*", "effect": "deny" },
+    { "action": "prune", "resource": "*", "effect": "allow" },
+  ],
   "compaction": {
     "auto": false,
-    "prune": false,
   },
-  "agent": {
+  "agents": {
+    "title": {
+      "model": "github-copilot/gpt-5.6-luna",
+    },
     "build": {
-      "prompt": "{file:prompts/core.md}",
+      "system": "{file:prompts/core.md}",
     },
     "plan": {
-      "prompt": "{file:prompts/core.md}",
+      "system": "{file:prompts/core.md}",
     },
     "explore": {
-      "model": "github-copilot/gpt-5.6-luna",
-      "variant": "high",
+      "model": "github-copilot/gpt-5.6-luna#high",
     },
     "programmer": {
-      "model": "github-copilot/gemini-3.8-flash",
-      "variant": "high",
+      "model": "github-copilot/gemini-3.8-flash#high",
     },
     "code-reviewer": {
-      "model": "github-copilot/gemini-3.8-flash",
-      "variant": "high",
+      "model": "github-copilot/gemini-3.8-flash#high",
     },
     "document-reviewer": {
-      "model": "github-copilot/gpt-5.6-luna",
-      "variant": "high",
+      "model": "github-copilot/gpt-5.6-luna#high",
     },
   },
-  "provider": {
+  "providers": {
     "github-copilot": {
       "models": {
         "gpt-5.6-sol": {
@@ -152,9 +172,6 @@
           },
         },
       },
-    },
-    "fordllm": {
-      "name": "FordLLM",
     },
   },
 }

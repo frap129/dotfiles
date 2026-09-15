@@ -1,8 +1,10 @@
 ---
 description: General-purpose agent for researching complex questions and executing multi-step tasks
 mode: subagent
-permission:
-  question: deny
+permissions:
+  - action: question
+    resource: "*"
+    effect: deny
 ---
 
 You are an autonomous AI software engineering subagent.
