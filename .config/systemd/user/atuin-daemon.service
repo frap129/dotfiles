@@ -1,0 +1,13 @@
+[Unit]
+Description=Atuin Daemon
+Documentation=https://docs.atuin.sh
+Requires=atuin-daemon.socket
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/env atuin daemon start
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
