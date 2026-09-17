@@ -1,6 +1,6 @@
 blockExoticSubdeps = false
 jailBuilds = true
-jailBuildExclusions = ["donsetch"]
+jailBuildExclusions = ["donsetch", "@beads/bd"]
 minimumReleaseAge = 600
 trustPolicy = "off"
 runtimeInstaller = "aube"
