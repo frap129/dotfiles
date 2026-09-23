@@ -4,7 +4,7 @@
   "plugins": [
     "opencode-rules@next",
     {
-      "package": "opencode-dcp@2.0.0-beta.9",
+      "package": "opencode-dcp@latest",
       "options": {
         "enabled": true,
         "debug": false,
@@ -30,7 +30,6 @@
         }
       }
     },
-    "opencode-cmd-provider"
   ],
   "mcp": {
     "servers": {

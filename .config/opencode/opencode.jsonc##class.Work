@@ -5,7 +5,7 @@
   "plugins": [
     "opencode-rules@next",
     {
-      "package": "opencode-dcp@2.0.0-beta.9",
+      "package": "opencode-dcp@latest",
       "options": {
         "enabled": true,
         "debug": false,
@@ -128,14 +128,13 @@
     { "action": "codesearch", "resource": "*", "effect": "deny" },
     { "action": "webfetch", "resource": "*", "effect": "deny" },
     { "action": "docs_fetch_url", "resource": "*", "effect": "deny" },
-    { "action": "prune", "resource": "*", "effect": "allow" },
   ],
   "compaction": {
     "auto": false,
   },
   "agents": {
     "title": {
-      "model": "github-copilot/gpt-5.6-luna",
+      "model": "github-copilot/gpt-6-luna",
     },
     "build": {
       "system": "{file:prompts/core.md}",
@@ -144,7 +143,7 @@
       "system": "{file:prompts/core.md}",
     },
     "explore": {
-      "model": "github-copilot/gpt-5.6-luna#high",
+      "model": "github-copilot/gpt-6-luna#max",
     },
     "programmer": {
       "model": "github-copilot/gemini-3.8-flash#high",
@@ -153,7 +152,7 @@
       "model": "github-copilot/gemini-3.8-flash#high",
     },
     "document-reviewer": {
-      "model": "github-copilot/gpt-5.6-luna#high",
+      "model": "github-copilot/gpt-6-luna#max",
     },
   },
   "providers": {

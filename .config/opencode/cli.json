@@ -10,7 +10,6 @@
   "plugins": [
     "./herdr-opencode",
     "opencode-rules@next",
-    "github:Tarquinen/oc-tps#opencode-v2"
   ],
   "scroll": {
     "speed": 10,
@@ -22,7 +21,9 @@
   "session": {
     "sidebar": "auto",
     "scrollbar": false,
-    "thinking": "show"
+    "thinking": "show",
+    "grouping": "auto",
+    "image_preview": false,
   },
   "animations": true
 }
