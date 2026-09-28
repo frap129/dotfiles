@@ -30,6 +30,7 @@
         }
       }
     },
+    "/var/home/joe/.hindsight/coding-agents"
   ],
   "mcp": {
     "servers": {
@@ -123,4 +124,6 @@
       "model": "ollama-cloud/glm-5.3-flash#max",
     },
   },
+  "plugin": [
+  ],
 }

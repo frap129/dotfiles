@@ -25,5 +25,10 @@
     "grouping": "auto",
     "image_preview": false,
   },
-  "animations": true
+  "animations": true,
+  "tabs": {
+    "indicators": "status",
+    "layout": "horizontal",
+    "mode": "on"
+  }
 }
