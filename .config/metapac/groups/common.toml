@@ -88,6 +88,7 @@ cargo = { packages = [
   "git-delta",
   "just",
   "topgrade",
+
   "zoxide",
 ] }
 
@@ -97,7 +98,12 @@ npm = { packages = [
   "conventional-changelog",
   "@microsoft/inshellisense",
   "@opencode/cli",
-  "donsetch"
+  "donsetch",
+  { name = "@vectorize-io/hindsight-coding-agents", hooks = { after_install = [
+    "hindsight-coding-agents",
+    "install",
+    "opencode2"
+  ] } },
 ] }
 
 uv = { packages = [
