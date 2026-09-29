@@ -87,6 +87,8 @@ cleanup = true
 # Commands to run after anything
 [post_commands]
 # "Emacs Snapshot" = "rm -rf ~/.emacs.d/elpa.bak && cp -rl ~/.emacs.d/elpa ~/.emacs.d/elpa.bak"
+"Prune Aube Store" = "aube store prune"
+"Nix Store GC" = "nix store gc"
 
 # Custom commands
 [commands]
