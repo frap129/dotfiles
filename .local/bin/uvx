@@ -1,0 +1,3 @@
+#!/bin/sh
+# exempt from global LD_PRELOAD; bundled _rjem_* clashes with system jemalloc
+exec env -u LD_PRELOAD /var/home/joe/.nix-profile/bin/uvx "$@"
