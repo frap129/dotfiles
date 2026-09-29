@@ -1,57 +1,70 @@
-config_version = 8
+config_version = 14
 
 [audio]
-enable_overdrive = true
+enable_sounds = true
 
 [bar.default]
-center = ["clock", "date"]
+center = ["clock"]
 end = [
-  "media",
   "tray",
-  "screenshot",
-  "notifications",
   "clipboard",
+  "notifications",
   "network",
   "bluetooth",
-  "volume",
-  "brightness",
+  "widget",
   "battery",
   "control-center"
 ]
+margin_edge = 0.0
 margin_ends = 0
+padding = 12
+radius_top_left = 0
+radius_top_right = 0
 start = ["btn", "workspaces", "caffeine", "active_window"]
+thickness = 28
+widget_spacing = 8
 
-[[control_center.shortcuts]]
-type = "wifi"
-
-[[control_center.shortcuts]]
-type = "caffeine"
-
-[[control_center.shortcuts]]
-type = "nightlight"
-
-[[control_center.shortcuts]]
-type = "notification"
-
-[[control_center.shortcuts]]
-type = "power_profile"
+[brightness]
+enable_ddcutil = true
 
 [desktop_widgets]
 enabled = false
 
 [idle]
-pre_action_fade_seconds = 10
+behavior_order = ["lock", "screen-off", "lock-and-suspend"]
+
+[idle.behavior.lock]
+action = "lock"
+enabled = true
+timeout = 600.0
+
+[idle.behavior.lock-and-suspend]
+action = "lock_and_suspend"
+enabled = true
+timeout = 900.0
+
+[idle.behavior.screen-off]
+action = "screen_off"
+enabled = true
+timeout = 660.0
 
 [location]
-auto_locate = true
+address = "Detroit, US"
+
+[lockscreen]
+transition = ["disc", "fade", "honeycomb", "stripes", "wipe", "zoom"]
+transition_duration = 1000
 
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
 widget_order = [
-  "lockscreen-login-box@DP-2",
-  "lockscreen-login-box@DP-1",
-  "lockscreen-login-box@eDP-1"
+  "lockscreen-login-box@DP-3",
+  "lockscreen-login-box@eDP-1",
+  "lockscreen-widget-0000000000000002",
+  "lockscreen-widget-0000000000000003",
+  "lockscreen-widget-0000000000000004",
+  "lockscreen-widget-0000000000000005"
 ]
 
 [lockscreen_widgets.grid]
@@ -59,52 +72,41 @@ cell_size = 16
 major_interval = 4
 visible = true
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-box_height = 70.0
-box_width = 400.0
-cx = 1280.0
-cy = 1321.0
-output = "DP-1"
+[lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+box_height = 196.0
+box_width = 810.0
+cx = 1535.9998779296875
+cy = 1604.9998779296875
+output = "DP-3"
+placement_height = 1728.0
+placement_width = 3072.0
 rotation = 0.0
 type = "login_box"
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+[lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
 background_color = "surface_variant"
 background_opacity = 0.88
 background_radius = 12.0
 center_password_text = false
 input_opacity = 1.0
 input_radius = 6.0
+layout = "regular"
 show_caps_lock = true
 show_keyboard_layout = true
 show_login_button = true
-
-[lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
-box_height = 70.0
-box_width = 400.0
-cx = 1280.0
-cy = 1321.0
-output = "DP-2"
-rotation = 0.0
-type = "login_box"
-
-[lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
-background_color = "surface_variant"
-background_opacity = 0.88
-background_radius = 12.0
-center_password_text = false
-input_opacity = 1.0
-input_radius = 6.0
-show_caps_lock = true
-show_keyboard_layout = true
-show_login_button = true
+show_media = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
 
 [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-box_height = 70.0
-box_width = 400.0
-cx = 960.0
-cy = 1081.0
+box_height = 196.0
+box_width = 810.0
+cx = 960.00006103515625
+cy = 956.99993896484375
 output = "eDP-1"
+placement_height = 1080.0
+placement_width = 1920.0
 rotation = 0.0
 type = "login_box"
 
@@ -115,38 +117,102 @@ background_radius = 12.0
 center_password_text = false
 input_opacity = 1.0
 input_radius = 6.0
+layout = "regular"
 show_caps_lock = true
 show_keyboard_layout = true
 show_login_button = true
+show_media = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
 
-[nightlight]
-enabled = true
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+box_height = 160.0
+box_width = 512.0
+cx = 1536.0
+cy = 208.0
+output = "DP-3"
+placement_height = 1728.0
+placement_width = 3072.0
+rotation = 0.0
+type = "clock"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+background = false
+background_color = "on_secondary"
+background_opacity = 0.80000000000000004
+format = "{:%I:%M %p}"
+shadow = true
+timezone = ""
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+box_height = 160.0
+box_width = 512.0
+cx = 960.0
+cy = 204.0
+output = "eDP-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "clock"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+background = false
+format = "{:%I:%M %p}"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
+box_height = 128.0
+box_width = 240.0
+cx = 960.0
+cy = 348.0
+output = "eDP-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "weather"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
+background = false
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
+box_height = 128.0
+box_width = 256.0
+cx = 1536.0
+cy = 352.0
+output = "DP-3"
+placement_height = 1728.0
+placement_width = 3072.0
+rotation = 0.0
+type = "weather"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
+background = false
 
 [notification]
 layer = "overlay"
 
-[osd]
-offset_y = 64
-position = "bottom_center"
+[plugin_settings."davemhammer/obsidian"]
+daily_folder = "Daily/"
+manager_open_near_click = false
+manager_placement = "attached"
+refresh_interval = 300
+vault_path = "/home/joe/ObsidianNotes"
 
 [plugin_settings."ezequiel/mango_layouts"]
-list_mode = true
 panel_open_near_click = true
 panel_placement = "attached"
-panel_position = "auto"
 
 [plugin_settings."frap129/noctalia-bitwarden-keyring"]
 unlock_placement = "attached"
 
-[plugin_settings."noctalia/bitwarden"]
-server_url = "https://vault.cloud.maples.dev"
-
 [plugins]
 enabled = [
+  "whyoolw/sharednd",
+  "nightwatch75/todo",
+  "noctalia/bitwarden",
   "frap129/noctalia-bitwarden-keyring",
   "ezequiel/mango_layouts",
-  "noctalia/bitwarden",
-  "whyoolw/sharednd"
+  "blackbartblues/audio-switcher",
 ]
 
 [[plugins.source]]
@@ -160,12 +226,20 @@ location = "https://github.com/noctalia-dev/community-plugins"
 name = "community"
 
 [[plugins.source]]
-kind = "git"
-location = "https://github.com/frap129/bitwarden-keyring"
-name = "Bitwarden-Keyring"
+kind = "path"
+location = "/home/joe/software/bitwarden-keyring/"
+name = "bitwarden-keyring-local"
 
-[shell.launcher]
-session_search = true
+[[plugins.source]]
+kind = "path"
+location = "/home/joe/software/bitwarden-keyring"
+name = "bitwarden-keyring"
+
+[shell]
+launch_apps_as_systemd_services = true
+polkit_agent = true
+settings_show_advanced = true
+telemetry_enabled = false
 
 [shell.panel]
 borders = false
@@ -173,64 +247,42 @@ clipboard_placement = "attached"
 launcher_placement = "attached"
 open_near_click_clipboard = true
 open_near_click_control_center = true
-polkit_placement = "attached"
+shadow = false
+transparency_mode = "soft"
 
 [system.monitor]
 enabled = false
 
 [theme]
-community_palette = "Vesper"
 source = "wallpaper"
 wallpaper_scheme = "m3-monochrome"
 
 [theme.templates]
-builtin_ids = ["btop", "cava", "gtk3", "gtk4", "kcolorscheme", "mango", "qt"]
-community_ids = [
-  "pywalfox",
-  "obsidian",
-  "vscode",
-  "discord",
-  "steam",
-  "hyprtoolkit"
-]
+builtin_ids = ["btop", "gtk3", "gtk4", "kcolorscheme", "mango", "qt"]
+community_ids = ["pi_agent", "pi-agent", "pywalfox", "vscode"]
 
-[wallpaper.default]
-path = "/home/joe/Pictures/Wallpapers/CactusChair.jpg"
-
-[wallpaper.last]
-path = "/home/joe/Pictures/Wallpapers/CactusChair.jpg"
-
-[wallpaper.monitors.DP-1]
-path = "/home/joe/Pictures/Wallpapers/CactusChair.jpg"
-
-[wallpaper.monitors.eDP-1]
-path = "/home/joe/Pictures/Wallpapers/CactusChair.jpg"
+[weather]
+unit = "imperial"
 
 [widget.active_window]
-icon_color = "primary"
-max_length = 600
+max_length = 800
 
 [widget.battery]
-hide_when_full = true
-
-[widget.brightness]
 show_label = false
 
 [widget.btn]
 type = "ezequiel/mango_layouts:btn"
 
 [widget.clock]
-format = "{:%I:%M %p}"
-
-[widget.date]
-format = "{:%A %b %d}"
-
-[widget.media]
-hide_when_no_media = true
+anchor = true
+format = "{:%I:%M %p - %A, %B %e}"
 
 [widget.network]
 show_label = false
 
 [widget.volume]
 show_label = false
+
+[widget.widget]
+type = "blackbartblues/audio-switcher:widget"
 
