@@ -10,6 +10,7 @@
         "debug": false,
         "allowSubAgents": false,
         "maxContextLimit": "85%",
+        "maxContextLimit": "35%",
         "nudgeFrequency": 5,
         "iterationNudgeThreshold": 15,
         "protectedTools": [],
@@ -124,6 +125,4 @@
       "model": "ollama-cloud/glm-5.3-flash#max",
     },
   },
-  "plugin": [
-  ],
 }

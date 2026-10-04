@@ -1,3 +1,6 @@
 {
-  "serverMode": "self-hosted"
+  "serverMode": "self-hosted",
+  "codebaseSurvey": false,
+  "autoInject": "pages",
+  "reflectToolTimeoutMs": 960000
 }
