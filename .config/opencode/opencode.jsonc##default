@@ -9,7 +9,6 @@
         "enabled": true,
         "debug": false,
         "allowSubAgents": false,
-        "maxContextLimit": "85%",
         "maxContextLimit": "35%",
         "nudgeFrequency": 5,
         "iterationNudgeThreshold": 15,
@@ -31,7 +30,8 @@
         }
       }
     },
-    "/var/home/joe/.hindsight/coding-agents"
+    "/var/home/joe/.hindsight/coding-agents",
+    "@ex-machina/opencode-anthropic-auth@next"
   ],
   "mcp": {
     "servers": {
