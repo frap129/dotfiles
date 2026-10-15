@@ -5,7 +5,7 @@ args=()
 for arg in "$@"; do
   if [[ "$arg" == --omit=dev ]]; then
     args+=(--prod)
-  elif [[ "$arg" != --no-fund && "$arg" != --no-audit && "$arg" != --legacy-peer-deps && "$arg" != --progress && "$arg" != --progress=* ]]; then
+  elif [[ "$arg" != --no-fund && "$arg" != --no-audit && "$arg" != --legacy-peer-deps && "$arg" != --progress && "$arg" != --progress=* && "$arg" != --force ]]; then
     args+=("$arg")
   fi
 done
